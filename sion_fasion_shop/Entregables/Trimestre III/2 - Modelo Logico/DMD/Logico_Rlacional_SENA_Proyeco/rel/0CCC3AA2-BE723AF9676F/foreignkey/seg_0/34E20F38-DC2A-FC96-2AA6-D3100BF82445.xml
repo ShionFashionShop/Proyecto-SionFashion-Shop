@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="34E20F38-DC2A-FC96-2AA6-D3100BF82445" containerWithKeyObject="59176466-59DF-90DF-0D93-12649F2F7FE8" localFKIndex="FA44635F-66BB-3657-425B-2EACA41B5FED" name="Tienda_Empresa_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>9AC3E9FD-E41C-84A9-F51D-166431F35E9D</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>01970DEB-F3D3-036C-24AD-BAAF73C63D9C</importedID>
+<referredTableLongName>Empresa</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>642F8A06-6DE4-9590-7C7B-BD91A47C69A2</referredTableID>
+<keyObject>3C96E916-2FC0-692D-7C55-27119F3C0845</keyObject>
+<referredKeyID>3C96E916-2FC0-692D-7C55-27119F3C0845</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Codigo_empresa</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

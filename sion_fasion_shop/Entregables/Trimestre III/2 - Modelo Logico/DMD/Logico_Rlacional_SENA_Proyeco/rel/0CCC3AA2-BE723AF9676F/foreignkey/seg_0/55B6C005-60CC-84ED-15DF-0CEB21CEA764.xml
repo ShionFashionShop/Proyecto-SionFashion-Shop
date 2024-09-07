@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="55B6C005-60CC-84ED-15DF-0CEB21CEA764" containerWithKeyObject="74515E44-A448-A618-9B8A-FDC1033209B9" localFKIndex="97F17B59-96FB-2F5C-E15A-999216A87D35" name="Departamento_Pais_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>9E205ADB-2D53-BBCF-FF3E-FA4177466295</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>6368635E-3BAE-B0C1-5D60-A277651FAEB8</importedID>
+<referredTableLongName>Pais</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>721B78EC-B29F-88EB-EDD5-01F5451F83E7</referredTableID>
+<keyObject>B5C6DD27-8BB1-1369-C4B5-49D342FA2277</keyObject>
+<referredKeyID>B5C6DD27-8BB1-1369-C4B5-49D342FA2277</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Codigo_pais</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

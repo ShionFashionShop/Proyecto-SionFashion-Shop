@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="10096C2D-B5C0-0D73-2D58-7FF98525BC1F" name="Producto_Proveedor">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>FC168A57-78F3-1A45-26F2-14BFD7DCE056</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Producto_Codigo_producto" id="67081176-B6C5-8AEB-F910-8428644BC95D">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>1516A2A0-8217-719E-A570-F0EAA175CD78</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB0D3791-8F9E-E695-8A6B-9A4381245ED5" referredColumn="05C53738-C2CA-088F-2B9F-A9315364C46E"/>
+</associations>
+</Column>
+<Column name="Proveedor_Codigo_proveedor" id="D790F081-90B6-058E-4D3E-7B01FDBB9D62">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B6833A19-D3BB-7D8A-1798-43B4FA6728DE</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4772D8E0-F2E7-BF25-F2A3-DEC507666358" referredColumn="875E241C-7EE2-EE63-F24F-5CCE8CE4FDD5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C4668A32-E001-3302-8F55-A29A6639A2FB" name="Producto_Proveedor_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>BD0B4FFD-EBD3-D816-7EB6-93A29F60C223</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67081176-B6C5-8AEB-F910-8428644BC95D"/>
+<colUsage columnID="D790F081-90B6-058E-4D3E-7B01FDBB9D62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B65958F7-4CFE-B728-DBB1-3DDE2B478053" name="Producto_Proveedor_Proveedor_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>CAE53339-0E04-E3F6-519A-A70DF09ECAE1</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D790F081-90B6-058E-4D3E-7B01FDBB9D62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8075B2F5-67C2-E791-A57D-86511CC382DF" name="Producto_Proveedor_Producto_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>CAE53339-0E04-E3F6-519A-A70DF09ECAE1</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67081176-B6C5-8AEB-F910-8428644BC95D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

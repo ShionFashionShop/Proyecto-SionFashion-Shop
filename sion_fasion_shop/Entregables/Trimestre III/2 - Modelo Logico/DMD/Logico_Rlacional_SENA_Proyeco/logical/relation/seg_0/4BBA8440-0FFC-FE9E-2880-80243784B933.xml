@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Departamento_Ciudad" directorySegmentName="seg_0" id="4BBA8440-0FFC-FE9E-2880-80243784B933">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B4ED255C-5A69-24C0-2C2C-43A251A37ECD</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<sourcePk>B923D166-C173-55B2-8E71-00D4552AD8A1</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4B8DF97A-60F0-4FD6-B079-FCF32DFC9950</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B42F8EDA-3577-F98A-7CE4-559CF8D57E01</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

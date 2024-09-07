@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F8057A7A-AB69-EF0B-FBCF-05CC92220118" name="Factura_Detalle_producto">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>D9CC80DE-41FF-AE74-922A-7F62A17E2449</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Factura_Codigo_factura" id="6582646D-0C83-923F-59E5-7DDC9C5E9EE1">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>1FD01CF1-38CD-BEA3-BC97-2ACF9D94630E</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="32546BC5-4C24-8790-B2A1-5D23495B784B" referredColumn="B8145A59-6C8E-9B1F-17B4-204C5D45FD5A"/>
+</associations>
+</Column>
+<Column name="Detalle_producto_Codigo_detalle_producto" id="25B410FC-4EC6-6843-9329-1297F06E98AA">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>49754287-C0BE-CFFF-EC11-D9780AC0E738</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AC095A11-6182-4049-AF70-575EE8B033AB" referredColumn="2F03840C-6AF8-B94B-E685-7716DF3188EC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0C9FA159-1BEE-D498-5F5D-00F528E2732E" name="Factura_Detalle_producto_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>2DD6DCD5-2D87-8BD7-7EC4-A6B9563A4C55</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6582646D-0C83-923F-59E5-7DDC9C5E9EE1"/>
+<colUsage columnID="25B410FC-4EC6-6843-9329-1297F06E98AA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="64A71663-D073-84CB-745C-CA796B197214" name="Factura_Detalle_producto_Factura_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>00F03DF0-B2AA-213D-6431-F241C8ED7432</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6582646D-0C83-923F-59E5-7DDC9C5E9EE1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="35AEF7F0-CF8A-E373-5E87-93D5D015376C" name="Factura_Detalle_producto_Detalle_producto_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>00F03DF0-B2AA-213D-6431-F241C8ED7432</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25B410FC-4EC6-6843-9329-1297F06E98AA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

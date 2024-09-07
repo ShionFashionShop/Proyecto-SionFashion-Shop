@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="047ECDE8-6304-09D5-BBAC-940D2BFFF4E6" name="Devolucion_Producto">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>E9E4CE18-257A-D285-EA48-A3A7A808CE99</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Devolucion_Codigo_devolucion" id="CF4E7E21-EB1A-FB80-D4FF-4F625303DD76">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>CBE362A4-1F41-250A-986B-3844CF2A6001</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AABA176E-ED7F-412E-17E8-68152B31AB7C" referredColumn="802992B1-3052-BD9E-D17E-606BDF373CC7"/>
+</associations>
+</Column>
+<Column name="Producto_Codigo_producto" id="8FE97641-5298-D09B-F48A-4A2A78E57FC2">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>DBBA0DB5-FDB1-9074-0056-1C93F31FA3CB</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="781BBD01-8D3C-7F6E-D32B-EBD89D77A9FF" referredColumn="05C53738-C2CA-088F-2B9F-A9315364C46E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BEA81786-4158-0DFD-40B6-476DC9B13113" name="Devolucion_Producto_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>9CC29EDE-8857-A6FE-A584-A0F11A596D16</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF4E7E21-EB1A-FB80-D4FF-4F625303DD76"/>
+<colUsage columnID="8FE97641-5298-D09B-F48A-4A2A78E57FC2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="554F3529-3977-A24B-9484-7D3ADC84B079" name="Devolucion_Producto_Producto_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>2145B92A-4450-F7A1-B01B-A65AEC50ED1A</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8FE97641-5298-D09B-F48A-4A2A78E57FC2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E76661C8-2106-FE94-5DBE-53B4FAC51D33" name="Devolucion_Producto_Devolucion_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>2145B92A-4450-F7A1-B01B-A65AEC50ED1A</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF4E7E21-EB1A-FB80-D4FF-4F625303DD76"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

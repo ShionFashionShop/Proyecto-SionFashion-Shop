@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AA02E9E4-FE2B-582B-F784-A95B29F16171" name="Movimiento_de_inventario">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A64DDD36-9552-97F8-3D9A-554CC8A2F084</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>C33518EB-4D1C-EB6B-E218-CE746C4A1F69</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_movimiento_de_inventario" id="E1C0E53F-0C78-C9E8-B6CA-C18199F90D6F">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>F87163DA-51CD-8184-EB79-5431D99B5A31</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>2B5A23C9-C881-F650-FC58-108942086730</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tipo_de_movimiento_de_inventario" id="CF9F8B9E-0901-5786-93B4-242DD3968F52">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>1AB8C46F-6491-0690-15A1-47020BCC5787</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>D7DE4488-A0EC-1D36-7F79-228B39C106C2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cantidad_movimiento_de_inventario" id="B5773D58-EE62-05C6-A767-50BF0F81B59B">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B6A29388-D64C-C88E-1CB9-C3B2551FD2DA</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>8A940777-A783-1583-918E-D1E9BCED080C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_y_Hora_movimiento_de_inventario" id="E51A81BB-15DF-B623-DDA3-C07A06D7E0B5">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>CC277C3E-1C3D-8DC4-98D1-3220D1B191DE</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>31AE8798-9B6F-E10B-25DC-817D75810EA2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Empleado_DNI_empleado" id="41F8A309-D0D7-CFA9-788A-17D0E0DA02C1">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>0924428D-6E22-5530-1B11-7E0A2E2C6577</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>4F9FB55B-6871-3FAA-F490-382DAA1BAAB4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2BD4184A-48B6-0AB7-BB85-514AD61309B1" referredColumn="A991843F-44E7-C105-40FA-9BF86576CED7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4C3A1BBF-D7FA-8413-16CD-E7F7F470A197" name="Movimiento_de_inventario_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>5FDE92BA-D21D-10C0-B317-8F611A5409C4</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>89964EF3-562E-EA85-8DB7-738226830C12</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1C0E53F-0C78-C9E8-B6CA-C18199F90D6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A0ABEBC2-CE14-BC6D-A77F-3D1DC3A12F70" name="Movimiento_de_inventario_Empleado_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>67A90B84-1659-E605-3F4A-CD11BE6B73BC</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="41F8A309-D0D7-CFA9-788A-17D0E0DA02C1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

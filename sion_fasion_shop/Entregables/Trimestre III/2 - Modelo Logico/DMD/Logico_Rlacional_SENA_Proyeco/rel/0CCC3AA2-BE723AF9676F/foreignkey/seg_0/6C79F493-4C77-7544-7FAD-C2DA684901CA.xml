@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="6C79F493-4C77-7544-7FAD-C2DA684901CA" containerWithKeyObject="2CAB7082-1CC6-13C8-4F41-F5BCFD8FBA95" localFKIndex="D7BAE176-7DD5-AA5F-5842-FF7AF48CE0A6" name="Transaccion_de_pago_Metodo_de_pago_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A9565BB1-DB9A-3791-98F8-C205E9EB4C86</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>A5C0CA65-4A18-B5BC-0102-B4EA95280492</importedID>
+<referredTableLongName>Metodo_de_pago</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6503352D-5318-2A74-9FE1-FED2652B0D25</referredTableID>
+<keyObject>673D533A-7487-8A41-CA5F-DC1C235F8E5D</keyObject>
+<referredKeyID>673D533A-7487-8A41-CA5F-DC1C235F8E5D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Codigo_metodo_de_pago</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

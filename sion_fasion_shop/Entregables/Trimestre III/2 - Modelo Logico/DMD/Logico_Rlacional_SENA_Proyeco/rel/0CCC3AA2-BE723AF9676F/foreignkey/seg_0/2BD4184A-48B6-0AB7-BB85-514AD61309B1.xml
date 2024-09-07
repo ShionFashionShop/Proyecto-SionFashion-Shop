@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2BD4184A-48B6-0AB7-BB85-514AD61309B1" containerWithKeyObject="AA02E9E4-FE2B-582B-F784-A95B29F16171" localFKIndex="A0ABEBC2-CE14-BC6D-A77F-3D1DC3A12F70" name="Movimiento_de_inventario_Empleado_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>67A90B84-1659-E605-3F4A-CD11BE6B73BC</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>3CCE3EC9-3F6A-50BB-E749-E0E859156F24</importedID>
+<referredTableLongName>Empleado</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5214465C-A642-F3CE-5E04-7466C4F49803</referredTableID>
+<keyObject>62482336-68D0-979E-408B-A6F68157EC5F</keyObject>
+<referredKeyID>62482336-68D0-979E-408B-A6F68157EC5F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>DNI_empleado</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

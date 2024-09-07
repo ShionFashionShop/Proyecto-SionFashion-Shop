@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AC095A11-6182-4049-AF70-575EE8B033AB" containerWithKeyObject="F8057A7A-AB69-EF0B-FBCF-05CC92220118" localFKIndex="35AEF7F0-CF8A-E373-5E87-93D5D015376C" name="Factura_Detalle_producto_Detalle_producto_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>00F03DF0-B2AA-213D-6431-F241C8ED7432</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>D13BBF8E-8ED0-27E7-C7FE-05068C59E26D</importedID>
+<referredTableLongName>Detalle_producto</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>79D171A6-1644-7BEE-5EB3-DAEF859733DF</referredTableID>
+<keyObject>318A9FEB-12EB-9792-AA24-A60E74D49458</keyObject>
+<referredKeyID>318A9FEB-12EB-9792-AA24-A60E74D49458</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Codigo_detalle_producto</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

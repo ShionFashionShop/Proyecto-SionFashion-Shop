@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2CAB7082-1CC6-13C8-4F41-F5BCFD8FBA95" name="Transaccion_de_pago">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>0368EE0B-82DC-F307-D594-7E7C95BCDC7B</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>3E749480-8606-1AF8-B4BA-C275291F5BE4</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_transaccion_de_pago" id="4D205235-77B2-6BC7-9EE0-569893A60284">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B996F20C-8DF1-91E9-D579-F0F4D0CAD644</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>DC5B4977-1668-4894-6A7C-415762E7440F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_y_Hora_transaccion_de_pago" id="40CE288E-467D-314F-CECB-910E21A196DF">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>7969F249-3A56-BB97-5D37-5B93FDB087A6</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>A8116B71-3D8A-B0E2-9258-1F0FBFAEFEE9</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado_transaccion_de_pago" id="462E7E13-3309-8DE7-475A-4D05CA426BE0">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>F47BCF67-FD2D-BAF0-7D85-D7909940F5D4</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>CF4363A7-DBC3-DD9A-2808-0F0C5F487DCA</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Monto_transaccion_de_pago" id="8BB78641-5168-F866-0617-DF1111DAD5D8">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>8C0DC02D-ED83-4015-6A65-EE2927F31949</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>0364E88A-95AB-D8E4-1B5D-8FEE37FBFB55</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Metodo_de_pago_Codigo_metodo_de_pago" id="7F888DCB-5A08-3100-0006-0176908FC126">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B38689F5-9D0F-F010-CFF1-3D8325A59B07</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>AC397355-4CE8-041B-8D47-1F31D52DA362</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C79F493-4C77-7544-7FAD-C2DA684901CA" referredColumn="DC55C36E-780D-D457-7291-2283B8113B24"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6B78F05C-88A7-0A1C-057C-79378E56ADBE" name="Transaccion_de_pago_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>39548865-D5DA-8B53-E709-DB61073DF192</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>A59F232A-0225-47A7-0590-38C1B118B687</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4D205235-77B2-6BC7-9EE0-569893A60284"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D7BAE176-7DD5-AA5F-5842-FF7AF48CE0A6" name="Transaccion_de_pago_Metodo_de_pago_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A9565BB1-DB9A-3791-98F8-C205E9EB4C86</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7F888DCB-5A08-3100-0006-0176908FC126"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

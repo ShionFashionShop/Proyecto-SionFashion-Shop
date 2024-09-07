@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ABE1E20F-FD40-2491-A5D7-2AD9046F8B37" name="Historial_de_inventario">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>41F6CD4E-7B92-AFCA-4DC3-8B8961FC5CCB</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>4606F772-91CD-EF88-72A5-86B7FC9514C2</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_historial_de_inventario" id="7107ACAE-1932-B4B9-8E9F-DF03F911A5F5">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>C90AC18A-37F8-D61C-7C8F-3EA4BF4F8E4F</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>5419FB71-60B0-DD20-7D1A-1ACDE4BF88FD</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cantidad_disponible_historial_de_inventario" id="07CCA24A-E909-F7B7-2B93-B8949541C22F">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>7462A9AC-E188-CF9D-397B-EC53E3ED7297</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>090CD459-D8D5-A937-7B7C-0A5F7E1FD830</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_y_Hora_historial_de_inventario" id="25A65625-D2CC-4785-2649-53BA412B5CD1">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>3A4819B4-054B-3709-5B9D-5346BDE93519</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>888D0887-84CD-35C9-B235-33C1AECA8D14</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Movimiento_de_inventario_Codigo_movimiento_de_inventario" id="EC24B090-E8C6-6E2F-060D-0D4E73436D55">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>7907D7CD-6D5F-8F6B-3D32-A46BA8B48C10</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>CCDE27F3-6811-7449-89CE-6CFDC57FD0E7</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6B2951BE-1983-12ED-EAD0-953900004C61" referredColumn="E1C0E53F-0C78-C9E8-B6CA-C18199F90D6F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BC5CD7C7-EED1-F72D-9846-433E9E87D373" name="Historial_de_inventario_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>BB7704B5-CFC5-3405-BB72-9F93E274DC4B</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>36D64D36-39CE-F4D9-EE25-E7E7F62FA7CF</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7107ACAE-1932-B4B9-8E9F-DF03F911A5F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6E68E45B-545C-23AE-3C78-B4BC63918BD5" name="Historial_de_inventario_Movimiento_de_inventario_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>070BF6F5-9446-9C96-D5E2-69827E25D7DB</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC24B090-E8C6-6E2F-060D-0D4E73436D55"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

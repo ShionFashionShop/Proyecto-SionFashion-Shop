@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A8CE7E14-F7D5-B7AE-C941-6C539C4DD497" name="Detalles_de_venta">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B3FC14F6-F783-2928-D138-C9FE830CA2A9</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>062558D7-CBFD-32AF-35B2-344916E47E45</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_detalle_de_venta" id="E909B855-37B6-DBDC-234A-A81B42E2A7F8">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>9A79D0D5-21FB-1C0B-3C9B-17C9F2191CD6</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>7DFCC99A-96BD-1B12-25CF-61FA55976FFA</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cantidad_detalle_de_venta" id="532AC811-8EA2-703E-07E5-E93B693D4AFC">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>C27C2367-F576-B66F-310A-BF52C0361597</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>0A43D0FE-F894-542C-CC20-CC12E6AAFE01</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado_detalle_de_venta" id="90B2B825-F461-0D0C-BAB5-06F483454A27">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>DE65B3CE-F3D4-0D0F-FDBB-4166622FD93D</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>DCBEBD78-6B82-2FA1-A2CF-11EBF632B848</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Precio_unitario_detalle_de_venta" id="70A78867-44D3-73E0-5208-F8679DBA7A18">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>4AAE36B6-9D79-FE20-ED5A-0A7974238DFF</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>010AD9F1-C85E-379C-1707-CD3534F00374</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Producto_Codigo_producto" id="8C8AC05C-85EE-5E2F-584D-1BAD6CB7FC06">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>11324546-062D-0187-F46F-5380CBAA0F2A</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>4A919259-83C1-0B51-DE52-9F9FFBD9A8CB</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="48A20086-6BCF-2777-2DF4-3E0B9112AC9D" referredColumn="05C53738-C2CA-088F-2B9F-A9315364C46E"/>
+</associations>
+</Column>
+<Column name="Factura_Codigo_factura" id="F7C46C34-3E28-AC62-BE31-609F314E8688">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>C849DA73-31E8-6892-4248-56BC5694E112</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>ACA8F825-6166-B10D-55D0-3F86D1BDE98A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3326FBA3-02BE-9AB1-ED9D-52E8BDF19BAB" referredColumn="B8145A59-6C8E-9B1F-17B4-204C5D45FD5A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5B38ACA9-E0E5-4DA8-0288-BA0882DB514C" name="Detalles_de_venta_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>CC30728A-35F0-584D-1320-AAA3C682E336</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>FBFEFAFE-21A9-5BF8-CF3A-4BCB9C062E31</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E909B855-37B6-DBDC-234A-A81B42E2A7F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="554C0720-34CF-7E6E-337A-ED1BFF7C88A5" name="Detalles_de_venta_Factura_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>D7E50BFB-5A43-08A7-8E9B-AF022FA78DB9</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7C46C34-3E28-AC62-BE31-609F314E8688"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FEC5144B-236F-8FD9-2A44-F05120BB53EC" name="Detalles_de_venta_Producto_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>33D6FD32-355E-880C-FEB8-CA6BD383D96A</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8C8AC05C-85EE-5E2F-584D-1BAD6CB7FC06"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

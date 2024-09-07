@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Logico_Rlacional_SENA_Proyeco" id="6A2FADFB-613C-E89B-ACBA-3306D7B83A21" version="3.5">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:32:47 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>6A2FADFB-613C-E89B-ACBA-3306D7B83A21</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="9DBB11D5-BEDD-01F9-D0B6-8D4B09552155">
+<designStoragePath>C:\Users\santi\OneDrive\Desktop\Logico Relacional_Proyecto_SENA</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="251A0795-3AF9-3F6F-8CB3-628A297D6DC3">
+<designStoragePath>C:\Users\santi\OneDrive\Desktop\DMD\Logico_Rlacional_SENA_Proyeco</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

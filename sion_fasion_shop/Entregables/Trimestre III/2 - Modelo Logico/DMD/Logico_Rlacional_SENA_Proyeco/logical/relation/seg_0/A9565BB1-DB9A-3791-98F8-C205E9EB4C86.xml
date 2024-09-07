@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Transaccion de pago_Metodo de pago" directorySegmentName="seg_0" id="A9565BB1-DB9A-3791-98F8-C205E9EB4C86">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>3629DFB7-7C63-4E1F-0128-9FFFDD70B8D2</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<sourcePk>140D67F4-F051-4B9E-89E9-6CD98D5EDF2A</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>8882F7D3-418B-4BE8-E301-2E0D5153FD41</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>0368EE0B-82DC-F307-D594-7E7C95BCDC7B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
