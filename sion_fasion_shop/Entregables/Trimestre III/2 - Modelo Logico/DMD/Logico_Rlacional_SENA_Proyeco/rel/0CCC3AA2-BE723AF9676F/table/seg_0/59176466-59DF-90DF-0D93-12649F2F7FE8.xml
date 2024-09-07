@@ -1,0 +1,169 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="59176466-59DF-90DF-0D93-12649F2F7FE8" name="Tienda">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>9EB1505E-F3E7-7B28-3D65-219FEC2DB8B2</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>37D49D7A-A4A6-60E8-A89C-0BAF390DBFB5</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_tienda" id="0F99913D-EA9D-8D83-D29C-914869AB9241">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>7679750E-DA1D-98C4-4821-F17E160523E7</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>10B65D6B-73D1-A1B1-784E-F584C91F9421</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre_tienda" id="207F6BFC-76DB-87CA-3690-6C46BC427E73">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B105E76F-4B5F-2895-946B-886DEA850691</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>598B5D67-D46D-0CC3-38EF-F78B012D61F5</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Gerente_tienda" id="5F895DD7-28C3-2C95-A269-E0D741523E73">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>671D16FC-915B-8314-5917-2390441B622B</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>AE56F575-5E1A-6725-ECA5-7E4ABCC9DC46</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono_tienda" id="81AE0D26-794F-429D-E2C0-601E5D6087C4">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>1A8AC131-F07E-4601-CEE8-BD080C852232</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>8417EC43-FD25-53CC-AB30-D1DB23A6971C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ubicacion_tienda" id="EB4FF7B4-2984-D359-66D7-BEBF9C9C7AC0">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>DE0355AA-AD73-FD53-92EF-2C4BF4FF5FFD</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>1004CAF1-3493-A4F3-5569-D30D312A9954</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Empresa_Codigo_empresa" id="411B11B6-1900-E06A-0EED-46145FA64A1F">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>2D509033-3265-5AD8-1692-63F981A6230A</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B57E4FB8-CF80-18BE-5DDE-56B857662D00</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="34E20F38-DC2A-FC96-2AA6-D3100BF82445" referredColumn="91E1D843-705C-F858-CA79-8E930C55980E"/>
+</associations>
+</Column>
+<Column name="Ciudad_Codigo_ciudad" id="7A6ADB7B-FC03-7118-2001-DF28728CCE4F">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>44851294-BCBB-EEDC-B4A5-069983F774BF</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>E02DEBF1-9686-0BB1-6492-77F7870D52C3</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AF0E53E3-A6C3-75C5-7C1E-FAF68B4B05BD" referredColumn="B27AC0FF-3995-EA07-06A2-8E25C3233582"/>
+</associations>
+</Column>
+<Column name="Producto_Codigo_producto" id="4EE8F7F5-4F97-84F0-9758-C7E69C643A9F">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>E9A254B8-4412-0168-2A53-FC158246C257</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>AEF2D470-1DAA-D02A-23BD-BABB7AD1F335</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4C9A837D-584F-3CA1-D85B-5FDC30ACA361" referredColumn="05C53738-C2CA-088F-2B9F-A9315364C46E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="29FF0C7B-9E56-F7C9-6AA7-2DD1C3BCDE95" name="Tienda_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>99A64131-78FF-EEC1-4D5E-1E5092001697</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>F986E97C-B791-8AA4-90CE-2530445E64E1</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0F99913D-EA9D-8D83-D29C-914869AB9241"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA44635F-66BB-3657-425B-2EACA41B5FED" name="Tienda_Empresa_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>9AC3E9FD-E41C-84A9-F51D-166431F35E9D</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="411B11B6-1900-E06A-0EED-46145FA64A1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC3B2414-5285-1A80-0FF0-685E00B3D58C" name="Tienda_Producto_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>ECAC4EA5-5145-C969-DE0E-AFFFF62D5FFD</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4EE8F7F5-4F97-84F0-9758-C7E69C643A9F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F952214A-D786-E79B-8E68-95080EF34FF6" name="Tienda_Ciudad_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>F06B00BC-09C6-468F-C2DF-551AFCAE9B47</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A6ADB7B-FC03-7118-2001-DF28728CCE4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

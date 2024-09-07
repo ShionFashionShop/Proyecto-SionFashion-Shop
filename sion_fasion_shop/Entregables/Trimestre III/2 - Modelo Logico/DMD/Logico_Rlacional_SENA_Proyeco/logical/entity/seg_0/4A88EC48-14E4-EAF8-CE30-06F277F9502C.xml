@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4A88EC48-14E4-EAF8-CE30-06F277F9502C" name="Supervisor">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>40A64D16-ECF3-1968-2937-5E39884FC98D</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>CED2F0C2-DCEA-A9FC-C544-BA5FC90FAE2A</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo Supervisor" id="75329AC6-497B-BC77-752B-8CD50314B979">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>41716AC3-0277-03D4-CDD7-C816261999B5</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Area supervisor" id="8DF25974-3EBE-D7A1-67B5-B61C4743EA69">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>25E2EFB0-BB1D-ECC6-528E-3E27C01B14ED</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Numero Empleados supervisor" id="0DE62E8D-BD96-C12C-B8D1-C7F1A5521801">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>346D54CF-FE3C-4EB5-664E-DF729D9923F2</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="867268F6-3596-E0A1-24A5-594C25E402AF" name="Supervisor PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B0C59FBF-9107-1D49-DB86-592433C6A535</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>75329AC6-497B-BC77-752B-8CD50314B979</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

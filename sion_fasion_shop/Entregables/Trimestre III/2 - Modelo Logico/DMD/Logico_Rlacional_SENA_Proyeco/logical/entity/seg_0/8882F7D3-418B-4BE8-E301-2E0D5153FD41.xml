@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8882F7D3-418B-4BE8-E301-2E0D5153FD41" name="Metodo de pago">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>34324268-C0AE-0B50-1651-B1821E4A289F</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo metodo de pago" id="9AD95A39-E208-F628-50D0-52D7A88AC365">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>2D331B74-4129-E815-2BF7-461AD2B29AE5</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre metodo de pago" id="ECC50FF7-3A0B-E631-9896-CAA453F15702">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>56A6D101-8231-4119-85A1-A6348F091332</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Detalles metodo de pago" id="777D523D-47FB-A3E4-4A36-539FEBE5D2C0">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>1184FD07-12E5-F4AA-E630-BC948BF2898F</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="140D67F4-F051-4B9E-89E9-6CD98D5EDF2A" name="Metodo de pago PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>3669F0AC-4091-CBB3-AA7B-EE352D6FB3B6</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9AD95A39-E208-F628-50D0-52D7A88AC365</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F25F18B2-2E8A-7A6A-E061-C665D7E07380" name="Cajero">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>E83B6C18-0995-38DE-97AB-D250E0541998</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>05A0EBDA-6A56-D65C-55A1-B6889418AEF2</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DNI_empleado" id="89537C7D-668E-7341-09E6-01EB79289CF2">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B10505DC-3539-5760-FCA5-075D5D1C7002</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>68096DCD-4330-82A0-1775-80DBE64F0B00</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BC623941-26F9-E528-BB4E-8ED3C696D537" referredColumn="A991843F-44E7-C105-40FA-9BF86576CED7"/>
+</associations>
+</Column>
+<Column name="Codigo_Cajero" id="A2B8B42E-4CD4-D9C7-7123-4CE5E1A8DDD6">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>201BB68D-3F15-7EA7-137C-1F2BBBB48C28</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B149AEEE-A7E4-0737-3060-355A8CF291FB</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Turno_Trabajo_cajero" id="639CB550-2494-EDCC-185C-B5770CB42CA4">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>EA306870-5D5B-A435-FD72-2A7B1511D369</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>41EBE0CE-7B10-674B-D4A8-5047C7DFEE82</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B095BF5A-1B28-12DB-89BB-58835C667922" name="Cajero_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>8CB6B4CE-F6D7-0EC4-1C16-FA93163930D4</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>A468C8CB-F38C-C8C6-7902-B89C83EA1C9F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="89537C7D-668E-7341-09E6-01EB79289CF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5964D512-EF85-4AB9-EBE2-346789D1883B" name="Cajero_PKv1">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A5539D72-EE85-8087-2108-FDFCAE5712B1</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>FD162273-DA73-D780-EE47-3BC644366890</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2B8B42E-4CD4-D9C7-7123-4CE5E1A8DDD6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBE1675B-0BA2-D030-52E0-371736DB93B7" name="Cajero_Empleado_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>36EB6ABE-D25F-0E2D-D6B3-4514C84BFCAB</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="89537C7D-668E-7341-09E6-01EB79289CF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

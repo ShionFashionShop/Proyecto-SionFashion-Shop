@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7D2D636F-2AC2-4444-0025-EF953A5A4300" name="Devolucion">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>C2C55961-ED50-143F-037D-C6A4D6E54393</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo devolucion" id="826614A3-1B00-895B-504E-647929C1764B">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>6B2BB7DB-53E5-212C-88FA-EC509A43F0FD</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha y hora devolucion" id="C797148F-2CF7-7903-0AB6-A9999F5108D0">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>7753294D-7972-335F-06F0-DDF254E99DE0</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Monto devolucion" id="022B8245-D6CA-5BCD-EB4D-85B45CFB074B">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>C74172E6-B6F1-4801-7D09-A180EB7FDD7F</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Estado devolucion" id="4FB26617-242D-2C52-B65C-5E0AC9B46A6A">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>D4CE7EB5-7316-516B-5AB6-6C1F17130F3C</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Motivo devolcuion" id="8ACBB8FE-DB01-5B2E-D871-26473E1B8A4F">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B2E83D84-F748-B5C4-E549-DA1CB76F1D0B</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DNI cliente" id="548F0B74-A8E1-A1CD-1C76-CA849EDBFE2A">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>7863F3F5-F066-2959-472F-B63AF3950712</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>5A2E7A6F-BABC-532E-B92F-FE74EE15D763</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<referedAttribute>D914C87D-702D-6700-EE79-6D4D2BE08988</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8D350CFC-A70B-9229-23F0-647EE6CB8B84" name="Devolucion PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>57D8E36D-3348-888B-D6D9-51A8708500A6</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>826614A3-1B00-895B-504E-647929C1764B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

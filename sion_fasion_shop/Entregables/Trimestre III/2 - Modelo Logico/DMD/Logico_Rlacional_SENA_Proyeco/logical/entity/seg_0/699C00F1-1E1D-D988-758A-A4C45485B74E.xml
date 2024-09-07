@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="699C00F1-1E1D-D988-758A-A4C45485B74E" name="Cliente">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B83D527E-9DE3-5592-D8D4-54F565E4449A</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="DNI cliente" id="D914C87D-702D-6700-EE79-6D4D2BE08988">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>8F57E964-649C-8C3B-40FE-EEC25B71C558</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre cliente" id="A9B47DF7-61D8-F578-AB85-1D37485529D6">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>499E5B27-DB0E-A288-3408-9939F4A2C4CD</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono cliente" id="30CAD25D-C9E8-3C4D-55C9-9C38E21F7D62">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>EC9C72A9-07E5-4CBE-BB47-ED2BD53B2BE4</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="E-mail cliente" id="6AE40C5F-969F-14E8-0001-20D450C13BC6">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>588CFDB2-67B5-B76D-5B07-AAF47F533889</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="62B76C48-5F23-1693-CB77-1105F90750FE" name="Cliente PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>A95AF159-EFEB-8AA8-354E-9B63D6832481</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D914C87D-702D-6700-EE79-6D4D2BE08988</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

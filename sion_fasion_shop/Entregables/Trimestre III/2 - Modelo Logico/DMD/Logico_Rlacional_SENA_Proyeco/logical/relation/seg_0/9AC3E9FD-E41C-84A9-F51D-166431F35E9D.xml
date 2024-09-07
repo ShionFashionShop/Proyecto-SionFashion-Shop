@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Empresa_Tienda" directorySegmentName="seg_0" id="9AC3E9FD-E41C-84A9-F51D-166431F35E9D">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>8D7EEC4D-D533-3B3C-0054-19A773E12B14</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<sourcePk>2D847339-4015-82E0-927D-CB2DAA4CD324</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>9960F229-4809-1A21-06AF-FB19EDF66AD3</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>9EB1505E-F3E7-7B28-3D65-219FEC2DB8B2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

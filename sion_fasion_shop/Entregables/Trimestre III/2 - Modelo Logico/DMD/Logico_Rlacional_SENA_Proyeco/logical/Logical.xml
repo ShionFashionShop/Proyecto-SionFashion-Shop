@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="2409CE33-6762-0F68-7D23-94FA89AFD91C" mainViewID="8CE2B2AB-3D11-A6BD-346C-5B48631B4CD9">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:32:47 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

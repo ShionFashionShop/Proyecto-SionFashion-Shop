@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6A254056-FB9F-3B26-58F6-7D2E301601BF" name="Orden_de_compra">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>D5037FFB-8FD1-B6A6-F1F9-D57B47E4A5E2</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>981C223A-DF4C-539F-F81B-A8218A2F54A9</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_orden_de_compra" id="5C713CFA-4F78-AFC7-4E1F-AC537043E082">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A0A14A0B-9904-1821-17AE-8138A0651340</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>86957415-841A-29D1-7DC3-1F987FF4A15D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_orden_de_compra" id="8BA06887-6725-B21D-BB84-C9F52C4225AD">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>12889DA0-3C28-0C4F-F18C-F16AFED677B6</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>D8C9AE56-B4BB-E129-B332-C539184F2919</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado_orden_de_compra" id="D42AE541-7091-0D19-108B-729E384C5CF2">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A9AA358B-14E4-77F0-8226-D6B3100A5FF6</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>F97C7709-3C15-7DD5-6203-02A090EEB6CE</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Monto_total_orden_de_compra" id="EA7F692E-127F-4A70-5AFF-D7D1AD0118BB">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B7E03295-D562-A401-44AF-1FAD2C6834D6</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>BC6E573B-8969-B3C1-3E25-E40E8964852A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_DNI_cliente" id="9A1ACBB9-C725-C9B9-7215-B64A0AFA7268">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>E9114DD4-0191-EACB-89D1-1AA5C0268B84</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>9ADE9660-73C2-BAE8-3FF7-27A483A5055C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7856F1EF-B8AC-B951-78FD-E38C8F26D545" referredColumn="B4FBF0A4-15B5-7A77-DD40-5B89CDD24F23"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5446D72D-E531-41CF-6894-1BDB380D8FB4" name="Orden_de_compra_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>60EBE4E0-2585-23C5-F6BD-511FDBEA29BB</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B1C40FCA-1A22-48BD-83A3-7F11147F00D3</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C713CFA-4F78-AFC7-4E1F-AC537043E082"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="95EE351A-6CD8-57FC-BFCF-55C80BDA832D" name="Orden_de_compra_Cliente_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>C0BA9BBE-6C5A-AC2C-D884-3EEB4146DC67</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A1ACBB9-C725-C9B9-7215-B64A0AFA7268"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

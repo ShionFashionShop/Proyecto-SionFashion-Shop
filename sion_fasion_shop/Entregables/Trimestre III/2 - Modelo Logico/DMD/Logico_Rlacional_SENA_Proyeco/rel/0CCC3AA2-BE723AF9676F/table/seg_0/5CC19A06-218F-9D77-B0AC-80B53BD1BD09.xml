@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5CC19A06-218F-9D77-B0AC-80B53BD1BD09" name="Ciudad">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B42F8EDA-3577-F98A-7CE4-559CF8D57E01</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>7AC6A63F-BF25-8207-74D2-AEFC13F1C7FC</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_ciudad" id="B27AC0FF-3995-EA07-06A2-8E25C3233582">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>4676A451-4C94-10FC-E1C7-327EDC5E782F</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>3B4F80EB-2ACE-3620-CCFC-FBA22BB400F4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre_ciudad" id="54A67EE6-228C-AAAE-214E-959F678400EF">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>44322A08-0E84-ABFB-FC87-94A4FAD1C1F0</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>1950E8DC-694B-3AB3-1183-905F7009368C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Codigo_Postal_ciudad" id="7FD392FD-13B3-94F6-D293-E00A153FA4FA">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A25B059A-4031-466D-CA88-08D2DAD9CF43</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>F7FD4E06-8FD9-006C-196E-DE0BD87A8810</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Departamento_Codigo_departamento" id="A59A81E1-47D3-8D69-D316-17E78EB4DABC">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>DBA6F82C-919B-1FE3-49F1-20C2EB622FDE</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>937D6AC6-DC71-8A37-46A0-7209E0717190</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FEAE47ED-128F-AC8D-F15E-94CAFB5FF7F8" referredColumn="D2C1FAF6-D3BB-1A63-55CE-FEF5480AE399"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FD01B357-5800-DB93-3157-9556D15B6036" name="Ciudad_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>D12451A0-37CF-8237-1FA9-49682F33A48F</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>DA5570A9-F05E-B26E-AADE-506F3F0A498C</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B27AC0FF-3995-EA07-06A2-8E25C3233582"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BB651094-0133-EC60-DD3B-2989BA5189DC" name="Ciudad_Departamento_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>4BBA8440-0FFC-FE9E-2880-80243784B933</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A59A81E1-47D3-8D69-D316-17E78EB4DABC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

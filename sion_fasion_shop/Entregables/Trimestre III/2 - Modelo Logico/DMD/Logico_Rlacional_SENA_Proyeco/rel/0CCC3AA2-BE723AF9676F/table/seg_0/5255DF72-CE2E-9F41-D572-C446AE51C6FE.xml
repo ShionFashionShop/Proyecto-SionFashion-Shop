@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5255DF72-CE2E-9F41-D572-C446AE51C6FE" name="Supervisor">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>4A88EC48-14E4-EAF8-CE30-06F277F9502C</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>7727F17F-116F-3585-050C-9A8853B274CE</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DNI_empleado" id="0F67703D-0B61-8168-129C-DFFA32325717">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B10505DC-3539-5760-FCA5-075D5D1C7002</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>82F4ED81-E9B4-3337-D531-0B1E2B9A017C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="56767988-D76C-59F1-59D0-006BDB6C6211" referredColumn="A991843F-44E7-C105-40FA-9BF86576CED7"/>
+</associations>
+</Column>
+<Column name="Codigo_Supervisor" id="49DA4AE8-6301-F111-1381-DCE3A57FC27A">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>75329AC6-497B-BC77-752B-8CD50314B979</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>17686065-9959-B788-0948-3531A42BEF41</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Area_supervisor" id="6086FA55-8FE1-F700-B146-1EE6586D152A">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>8DF25974-3EBE-D7A1-67B5-B61C4743EA69</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>9FA852AB-9345-B5D1-27B8-5E8BEDB02421</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero_Empleados_supervisor" id="7A53914A-A0E2-F247-E022-C87F4EB5915C">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>0DE62E8D-BD96-C12C-B8D1-C7F1A5521801</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B65C0372-C9BC-E268-67B6-B87BBA47F874</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9962DFC5-47BA-E332-B5C9-9F99695F33AA" name="Supervisor_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>8CB6B4CE-F6D7-0EC4-1C16-FA93163930D4</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>39F9DA11-FB2F-5406-2648-68F5EBFDDB39</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0F67703D-0B61-8168-129C-DFFA32325717"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7B5B1DF1-3923-B8C7-3861-E53C2FB526A1" name="Supervisor_PKv1">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>867268F6-3596-E0A1-24A5-594C25E402AF</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>45E2743B-CE35-27E5-35B7-32CB7E7CB0C2</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="49DA4AE8-6301-F111-1381-DCE3A57FC27A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91AFD7E9-C7F5-BC2A-B2EE-910829609BD5" name="Supervisor_Empleado_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>442B2D50-4416-2110-5D01-D92D670A01D2</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0F67703D-0B61-8168-129C-DFFA32325717"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

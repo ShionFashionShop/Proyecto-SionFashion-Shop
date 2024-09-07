@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="74515E44-A448-A618-9B8A-FDC1033209B9" name="Departamento">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>4B8DF97A-60F0-4FD6-B079-FCF32DFC9950</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>87E12095-5B63-3034-5F22-B5B21878C565</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_departamento" id="D2C1FAF6-D3BB-1A63-55CE-FEF5480AE399">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>6172B3D8-2826-25DE-0C83-31EE87238D55</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>9A79544B-F453-E4F0-29B2-C2CFE571EDA5</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre_departamento" id="809BDAE6-5F42-9416-3808-9CE59C2C7B23">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>7B225A8B-B408-832C-8716-FDFA0DDAD1FE</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>B7E17684-F537-9BC0-D247-0A70B2470319</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pais_Codigo_pais" id="FD18C519-8701-34EB-16CD-DB130ACE9F38">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A8DB4531-64EB-9F76-B09A-1F151AA9AE9E</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>770BC39B-FB69-A16C-5D42-F48611E9C419</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="55B6C005-60CC-84ED-15DF-0CEB21CEA764" referredColumn="8A5815FB-2BCD-60FB-A74E-086CB00E1535"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D4422034-2725-AC21-C71E-082FF690DA0B" name="Departamento_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>B923D166-C173-55B2-8E71-00D4552AD8A1</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>0B1F4703-DC7E-B002-F798-D9E6F80497BA</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2C1FAF6-D3BB-1A63-55CE-FEF5480AE399"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="97F17B59-96FB-2F5C-E15A-999216A87D35" name="Departamento_Pais_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>9E205ADB-2D53-BBCF-FF3E-FA4177466295</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FD18C519-8701-34EB-16CD-DB130ACE9F38"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

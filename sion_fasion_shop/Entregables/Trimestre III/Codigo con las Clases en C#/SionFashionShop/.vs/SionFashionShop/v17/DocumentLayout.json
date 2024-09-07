@@ -1,0 +1,710 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\tienda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\tienda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\devolucionproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\devolucionproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\categoriaproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\categoriaproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\etipomovimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\etipomovimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\devolucion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\devolucion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\detalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\detalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\detalleproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\detalleproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\departamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\departamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\ciudad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\ventaproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\ventaproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\transaccionpago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\transaccionpago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\ordencompraproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\ordencompraproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\ordencompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\ordencompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\movimientoinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\movimientoinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\metodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\metodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\historialinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\historialinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\pais.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\pais.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\empresa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\empresa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B261817B-2988-46FA-A96C-68C5F4F69A35}|MODELS\\MODELS.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\ordencompraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\ordencompraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\movimientoinventarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\movimientoinventarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\ciudadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\ciudadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46EBB32-319D-43E7-93F8-E6ACD312C24F}|REPOSITORIOS_SERVICES\\REPOSITORIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\repositorios_services\\facturarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46EBB32-319D-43E7-93F8-E6ACD312C24F}|REPOSITORIOS_SERVICES\\REPOSITORIOS.csproj|solutionrelative:repositorios_services\\facturarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46EBB32-319D-43E7-93F8-E6ACD312C24F}|REPOSITORIOS_SERVICES\\REPOSITORIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\repositorios_services\\detalleventarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46EBB32-319D-43E7-93F8-E6ACD312C24F}|REPOSITORIOS_SERVICES\\REPOSITORIOS.csproj|solutionrelative:repositorios_services\\detalleventarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46EBB32-319D-43E7-93F8-E6ACD312C24F}|REPOSITORIOS_SERVICES\\REPOSITORIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\repositorios_services\\ciudadrepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46EBB32-319D-43E7-93F8-E6ACD312C24F}|REPOSITORIOS_SERVICES\\REPOSITORIOS.csproj|solutionrelative:repositorios_services\\ciudadrepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\ventaproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\ventaproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\ventaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\ventaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\transacciopagoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\transacciopagoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\tiendaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\tiendaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\proveedorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\proveedorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\productoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\productoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\paisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\paisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\ordencompraproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\ordencompraproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\empleadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\empleadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\devolucionproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\devolucionproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\devolucionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\devolucionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|c:\\users\\aprendiz\\music\\sionfashionshop\\servicios\\detalleventaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7C94EB8-51F4-49EA-A81B-ECE3A0B2DB3D}|SERVICIOS\\SERVICIOS.csproj|solutionrelative:servicios\\detalleventaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 197,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Devolucion.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Devolucion.cs",
+              "RelativeDocumentMoniker": "MODELS\\Devolucion.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Devolucion.cs",
+              "RelativeToolTip": "MODELS\\Devolucion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T22:27:39.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "VentaProducto.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\VentaProducto.cs",
+              "RelativeDocumentMoniker": "MODELS\\VentaProducto.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\VentaProducto.cs",
+              "RelativeToolTip": "MODELS\\VentaProducto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:57:24.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Venta.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Venta.cs",
+              "RelativeDocumentMoniker": "MODELS\\Venta.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Venta.cs",
+              "RelativeToolTip": "MODELS\\Venta.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAA5wA4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:57:12.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TransaccionPago.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\TransaccionPago.cs",
+              "RelativeDocumentMoniker": "MODELS\\TransaccionPago.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\TransaccionPago.cs",
+              "RelativeToolTip": "MODELS\\TransaccionPago.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:52:24.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "OrdenCompraProducto.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\OrdenCompraProducto.cs",
+              "RelativeDocumentMoniker": "MODELS\\OrdenCompraProducto.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\OrdenCompraProducto.cs",
+              "RelativeToolTip": "MODELS\\OrdenCompraProducto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:52:17.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "OrdenCompra.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\OrdenCompra.cs",
+              "RelativeDocumentMoniker": "MODELS\\OrdenCompra.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\OrdenCompra.cs",
+              "RelativeToolTip": "MODELS\\OrdenCompra.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAA5wA0AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:50:19.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MovimientoInventario.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\MovimientoInventario.cs",
+              "RelativeDocumentMoniker": "MODELS\\MovimientoInventario.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\MovimientoInventario.cs",
+              "RelativeToolTip": "MODELS\\MovimientoInventario.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:48:12.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MetodoPago.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\MetodoPago.cs",
+              "RelativeDocumentMoniker": "MODELS\\MetodoPago.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\MetodoPago.cs",
+              "RelativeToolTip": "MODELS\\MetodoPago.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:46:26.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HistorialInventario.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\HistorialInventario.cs",
+              "RelativeDocumentMoniker": "MODELS\\HistorialInventario.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\HistorialInventario.cs",
+              "RelativeToolTip": "MODELS\\HistorialInventario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T21:44:35.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Factura.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Factura.cs",
+              "RelativeDocumentMoniker": "MODELS\\Factura.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Factura.cs",
+              "RelativeToolTip": "MODELS\\Factura.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAIBCwA8AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:54:10.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ETipoMovimiento.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\ETipoMovimiento.cs",
+              "RelativeDocumentMoniker": "MODELS\\ETipoMovimiento.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\ETipoMovimiento.cs",
+              "RelativeToolTip": "MODELS\\ETipoMovimiento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:54:11.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Pais.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Pais.cs",
+              "RelativeDocumentMoniker": "MODELS\\Pais.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Pais.cs",
+              "RelativeToolTip": "MODELS\\Pais.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:50:19.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DevolucionProducto.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\DevolucionProducto.cs",
+              "RelativeDocumentMoniker": "MODELS\\DevolucionProducto.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\DevolucionProducto.cs",
+              "RelativeToolTip": "MODELS\\DevolucionProducto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:49:59.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Empresa.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Empresa.cs",
+              "RelativeDocumentMoniker": "MODELS\\Empresa.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Empresa.cs",
+              "RelativeToolTip": "MODELS\\Empresa.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:30:35.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Empleado.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Empleado.cs",
+              "RelativeDocumentMoniker": "MODELS\\Empleado.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Empleado.cs",
+              "RelativeToolTip": "MODELS\\Empleado.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAABCwA8AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:29:13.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tienda.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Tienda.cs",
+              "RelativeDocumentMoniker": "MODELS\\Tienda.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Tienda.cs*",
+              "RelativeToolTip": "MODELS\\Tienda.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:27:15.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Producto.cs",
+              "RelativeDocumentMoniker": "MODELS\\Producto.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Producto.cs",
+              "RelativeToolTip": "MODELS\\Producto.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAIBCwAcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:15:28.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "OrdenCompraService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\OrdenCompraService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\OrdenCompraService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\OrdenCompraService.cs",
+              "RelativeToolTip": "SERVICIOS\\OrdenCompraService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:14:14.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "MovimientoInventarioService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\MovimientoInventarioService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\MovimientoInventarioService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\MovimientoInventarioService.cs",
+              "RelativeToolTip": "SERVICIOS\\MovimientoInventarioService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:14:12.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FacturaRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\REPOSITORIOS_SERVICES\\FacturaRepositorio.cs",
+              "RelativeDocumentMoniker": "REPOSITORIOS_SERVICES\\FacturaRepositorio.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\REPOSITORIOS_SERVICES\\FacturaRepositorio.cs",
+              "RelativeToolTip": "REPOSITORIOS_SERVICES\\FacturaRepositorio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:13:57.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DetalleVentaRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\REPOSITORIOS_SERVICES\\DetalleVentaRepositorio.cs",
+              "RelativeDocumentMoniker": "REPOSITORIOS_SERVICES\\DetalleVentaRepositorio.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\REPOSITORIOS_SERVICES\\DetalleVentaRepositorio.cs",
+              "RelativeToolTip": "REPOSITORIOS_SERVICES\\DetalleVentaRepositorio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:13:53.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CiudadRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\REPOSITORIOS_SERVICES\\CiudadRepositorio.cs",
+              "RelativeDocumentMoniker": "REPOSITORIOS_SERVICES\\CiudadRepositorio.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\REPOSITORIOS_SERVICES\\CiudadRepositorio.cs",
+              "RelativeToolTip": "REPOSITORIOS_SERVICES\\CiudadRepositorio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:13:49.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DetalleVenta.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\DetalleVenta.cs",
+              "RelativeDocumentMoniker": "MODELS\\DetalleVenta.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\DetalleVenta.cs",
+              "RelativeToolTip": "MODELS\\DetalleVenta.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:13:46.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DetalleProducto.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\DetalleProducto.cs",
+              "RelativeDocumentMoniker": "MODELS\\DetalleProducto.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\DetalleProducto.cs",
+              "RelativeToolTip": "MODELS\\DetalleProducto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:13:44.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Departamento.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Departamento.cs",
+              "RelativeDocumentMoniker": "MODELS\\Departamento.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Departamento.cs",
+              "RelativeToolTip": "MODELS\\Departamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:13:42.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Cliente.cs",
+              "RelativeDocumentMoniker": "MODELS\\Cliente.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Cliente.cs",
+              "RelativeToolTip": "MODELS\\Cliente.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:13:41.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Ciudad.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Ciudad.cs",
+              "RelativeDocumentMoniker": "MODELS\\Ciudad.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\Ciudad.cs",
+              "RelativeToolTip": "MODELS\\Ciudad.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:09:20.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoriaProducto.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\CategoriaProducto.cs",
+              "RelativeDocumentMoniker": "MODELS\\CategoriaProducto.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\MODELS\\CategoriaProducto.cs",
+              "RelativeToolTip": "MODELS\\CategoriaProducto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T20:09:11.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "VentaProductoService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\VentaProductoService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\VentaProductoService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\VentaProductoService.cs",
+              "RelativeToolTip": "SERVICIOS\\VentaProductoService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T04:01:13.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "VentaService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\VentaService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\VentaService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\VentaService.cs",
+              "RelativeToolTip": "SERVICIOS\\VentaService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T03:59:31.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "TransaccioPagoService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\TransaccioPagoService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\TransaccioPagoService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\TransaccioPagoService.cs",
+              "RelativeToolTip": "SERVICIOS\\TransaccioPagoService.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwCAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T03:58:18.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "TiendaService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\TiendaService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\TiendaService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\TiendaService.cs",
+              "RelativeToolTip": "SERVICIOS\\TiendaService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T03:57:09.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ProveedorService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\ProveedorService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\ProveedorService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\ProveedorService.cs",
+              "RelativeToolTip": "SERVICIOS\\ProveedorService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T03:55:57.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ProductoService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\ProductoService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\ProductoService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\ProductoService.cs",
+              "RelativeToolTip": "SERVICIOS\\ProductoService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T03:54:41.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "PaisService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\PaisService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\PaisService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\PaisService.cs",
+              "RelativeToolTip": "SERVICIOS\\PaisService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T03:52:44.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "OrdenCompraProductoService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\OrdenCompraProductoService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\OrdenCompraProductoService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\OrdenCompraProductoService.cs",
+              "RelativeToolTip": "SERVICIOS\\OrdenCompraProductoService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T03:49:22.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "EmpleadoService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\EmpleadoService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\EmpleadoService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\EmpleadoService.cs",
+              "RelativeToolTip": "SERVICIOS\\EmpleadoService.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAswAwAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:54:30.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "DevolucionProductoService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\DevolucionProductoService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\DevolucionProductoService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\DevolucionProductoService.cs",
+              "RelativeToolTip": "SERVICIOS\\DevolucionProductoService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAUwCEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:52:35.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "DevolucionService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\DevolucionService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\DevolucionService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\DevolucionService.cs",
+              "RelativeToolTip": "SERVICIOS\\DevolucionService.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAiwCEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:47:05.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "DetalleVentaService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\DetalleVentaService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\DetalleVentaService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\DetalleVentaService.cs",
+              "RelativeToolTip": "SERVICIOS\\DetalleVentaService.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAswCAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:41:57.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CiudadService.cs",
+              "DocumentMoniker": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\CiudadService.cs",
+              "RelativeDocumentMoniker": "SERVICIOS\\CiudadService.cs",
+              "ToolTip": "C:\\Users\\Aprendiz\\Music\\SionFashionShop\\SERVICIOS\\CiudadService.cs",
+              "RelativeToolTip": "SERVICIOS\\CiudadService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:20:37.839Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

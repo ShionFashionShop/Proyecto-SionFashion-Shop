@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BC623941-26F9-E528-BB4E-8ED3C696D537" containerWithKeyObject="F25F18B2-2E8A-7A6A-E061-C665D7E07380" localFKIndex="DBE1675B-0BA2-D030-52E0-371736DB93B7" name="Cajero_Empleado_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>36EB6ABE-D25F-0E2D-D6B3-4514C84BFCAB</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>E5E38CF8-7BE8-60BA-9FD9-4B9A7C307972</importedID>
+<referredTableLongName>Empleado</referredTableLongName>
+<arc>CCD1474D-4854-F289-4FBD-0E33B3396703</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5214465C-A642-F3CE-5E04-7466C4F49803</referredTableID>
+<keyObject>62482336-68D0-979E-408B-A6F68157EC5F</keyObject>
+<referredKeyID>62482336-68D0-979E-408B-A6F68157EC5F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>DNI_empleado</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

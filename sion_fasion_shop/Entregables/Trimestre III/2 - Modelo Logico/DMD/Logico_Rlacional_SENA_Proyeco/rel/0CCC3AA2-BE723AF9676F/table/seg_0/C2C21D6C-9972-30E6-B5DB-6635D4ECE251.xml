@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2C21D6C-9972-30E6-B5DB-6635D4ECE251" name="Factura">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>5D00AE5B-7B29-1064-9D18-34EF36A1D01C</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>33569705-9ACD-4A02-1E1F-B862ACE641D1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_factura" id="B8145A59-6C8E-9B1F-17B4-204C5D45FD5A">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>A4B10FCA-F8D2-A146-95C9-CC8D673394A5</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>A06E5EFE-E153-FD8D-8AED-3E3844C81486</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_emision_factura" id="04C7B588-5E1D-588C-D738-4C174D455205">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>9EBA6BFB-27E4-5F2D-8797-43195C62CC96</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>009A0694-37D4-9DB8-93FB-80572400ECE0</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Subtotal_factura" id="AA462EF2-B675-2AA7-1D55-C9ECAEF4A959">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>AA51EB4B-A9B8-B393-9E59-8DFC08E23E86</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>A7CB0996-FADE-CC1C-6900-E55BA0DAD9A6</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descuento_factura" id="F2E22077-B943-464D-B737-D6B391DB3DAC">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>E539F753-731E-B53C-7E60-8A1D2517B534</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>EDB2A4F5-2046-40FA-C72C-4A90176B6386</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Impuestos_factura" id="DD1BA655-63F8-8B59-B3CD-93B44E38646C">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>D8BD3FAF-F543-9536-57A6-92A4EBA1D45C</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>6FF31745-5374-8AAB-5BC3-5E96A2F96EC0</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Total_factura" id="6B306B67-5771-0386-16EF-2786AA70DC0E">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>17700E1D-91E6-4A82-1F94-1D675A852A0B</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>53AD8F07-F91F-1BAC-7C0B-446B35B2973B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Empleado_DNI_empleado" id="EC6EB868-4E7A-EF4E-8098-8080AC8DD34C">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>1BA492AD-1350-070A-9B71-050D471E5340</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>5E28B626-F17B-A01E-A892-400F02B8E9C5</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CAA09645-F003-EA56-753F-F6314F078EA9" referredColumn="A991843F-44E7-C105-40FA-9BF86576CED7"/>
+</associations>
+</Column>
+<Column name="Transaccion_de_pago_Codigo_transaccion_de_pago" id="C3F3C520-9C4D-AE46-C6D1-17BAA594425A">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>61C9C6C7-4A38-EDC3-1D82-7FEF35F35366</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>C87987D2-9858-4464-9DBD-33F7D5B8E149</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A559140F-ADCA-C501-1D2E-943EC5E6698C" referredColumn="4D205235-77B2-6BC7-9EE0-569893A60284"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="94AFEFF6-F776-8B54-E327-8A30635B22E3" name="Factura_PK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>F92B7CFB-6E12-83C5-5EFF-7910992DE94D</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>1B970F0F-0D53-006F-9811-F5A2498180C5</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B8145A59-6C8E-9B1F-17B4-204C5D45FD5A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C658A04-F9FF-7605-A182-44AE958AD81D" name="Factura_Empleado_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>47D985D1-7358-7FF2-0BAB-9F67EA0B9ED1</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC6EB868-4E7A-EF4E-8098-8080AC8DD34C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8C2A2FA5-A504-1950-6A85-7195FD9C33E8" name="Factura_Transaccion_de_pago_FK">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<generatorID>EBB67259-6595-6296-C36B-A671638BA02C</generatorID>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C3F3C520-9C4D-AE46-C6D1-17BAA594425A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Factura_Transaccion de pago" directorySegmentName="seg_0" id="EBB67259-6595-6296-C36B-A671638BA02C">
+<createdBy>santi</createdBy>
+<createdTime>2024-06-16 22:35:45 UTC</createdTime>
+<ownerDesignName>Logico_Rlacional_SENA_Proyeco</ownerDesignName>
+<importedID>88C8DE26-D0E0-3DC1-C805-4478DAFF7FC4</importedID>
+<engineerTo>
+<item key="F7C55B34-96D3-6518-B869-B9B5C302254D" value="true"/>
+<item key="F0FAA670-0FAC-3E30-5555-73B0C777AE21" value="true"/>
+<item key="0CCC3AA2-B753-B45D-4FB8-BE723AF9676F" value="true"/>
+</engineerTo>
+<sourcePk>39548865-D5DA-8B53-E709-DB61073DF192</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0368EE0B-82DC-F307-D594-7E7C95BCDC7B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5D00AE5B-7B29-1064-9D18-34EF36A1D01C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
