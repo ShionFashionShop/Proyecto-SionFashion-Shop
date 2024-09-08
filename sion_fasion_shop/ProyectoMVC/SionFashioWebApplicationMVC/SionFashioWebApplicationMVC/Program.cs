@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SionFashioWebApplicationMVC.Data;
+using SionFashioWebApplicationMVC.Datos;
 
 var builder = WebApplication.CreateBuilder(args);
 

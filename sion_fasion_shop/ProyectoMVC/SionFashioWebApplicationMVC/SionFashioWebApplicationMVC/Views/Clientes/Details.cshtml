@@ -1,0 +1,31 @@
+﻿@model SionFashioWebApplicationMVC.Models.cliente
+
+@{
+    ViewData["Title"] = "Detalles del Cliente";
+}
+
+<h1>Detalles del Cliente</h1>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.id_cliente</dd>
+
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.nombre_cliente</dd>
+
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.email_cliente</dd>
+
+        <dt class="col-sm-2">Teléfono</dt>
+        <dd class="col-sm-10">@Model.telefono_cliente</dd>
+
+        <dt class="col-sm-2">Dirección</dt>
+        <dd class="col-sm-10">@Model.direccion_cliente</dd>
+    </dl>
+
+    <a class="btn btn-secondary" asp-action="Index">Volver a la Lista</a>
+</div>

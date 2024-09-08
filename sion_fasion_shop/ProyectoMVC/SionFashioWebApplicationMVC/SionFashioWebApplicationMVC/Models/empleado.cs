@@ -27,9 +27,9 @@ public partial class empleado
     [StringLength(255)]
     public string? email_empleado { get; set; }
 
-    public int id_tienda { get; set; }
+    public int? id_tienda { get; set; }
 
-    public int id_ciudad { get; set; }
+    public int? id_ciudad { get; set; }
 
     [ForeignKey("id_ciudad")]
     [InverseProperty("empleados")]

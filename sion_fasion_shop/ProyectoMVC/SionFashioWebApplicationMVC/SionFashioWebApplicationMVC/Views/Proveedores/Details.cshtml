@@ -1,0 +1,46 @@
+﻿@model SionFashioWebApplicationMVC.Models.proveedore
+
+@{
+    ViewData["Title"] = "Detalles del Proveedor";
+}
+
+<h1>Detalles del Proveedor</h1>
+
+<div>
+    <h4>Proveedor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nombre_proveedor)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nombre_proveedor)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.contacto_proveedor)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.contacto_proveedor)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.email_proveedor)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.email_proveedor)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.id_ciudad)
+        </dt>
+        <dd class="col-sm-9">
+            @Model.id_ciudadNavigation?.nombre_ciudad
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id_proveedor" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

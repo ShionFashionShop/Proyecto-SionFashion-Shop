@@ -1,0 +1,70 @@
+﻿@model SionFashioWebApplicationMVC.Models.cliente
+
+@{
+    ViewData["Title"] = "Eliminar Cliente";
+}
+
+<h1>Eliminar Cliente</h1>
+
+<h4>Cliente</h4>
+<hr />
+
+<p>¿Estás seguro de que deseas eliminar este cliente?</p>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.id_cliente</dd>
+
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.nombre_cliente</dd>
+
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.email_cliente</dd>
+
+        <dt class="col-sm-2">Teléfono</dt>
+        <dd class="col-sm-10">@Model.telefono_cliente</dd>
+
+        <dt class="col-sm-2">Dirección</dt>
+        <dd class="col-sm-10">@Model.direccion_cliente</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="id_cliente" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteButton = document.querySelector('form button[type="submit"]');
+
+            deleteButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                var form = this.closest('form');
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "Esta acción no se puede deshacer",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
+}

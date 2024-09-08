@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SionFashioWebApplicationMVC.Models.proveedore>
+
+@{
+    ViewData["Title"] = "Proveedores";
+}
+
+<h1>Proveedores</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo Proveedor</a>
+</p>
+
+<table id="proveedoresTable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Contacto</th>
+            <th>Email</th>
+            <th>Ciudad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var proveedor in Model)
+        {
+            <tr>
+                <td>@proveedor.id_proveedor</td>
+                <td>@proveedor.nombre_proveedor</td>
+                <td>@proveedor.contacto_proveedor</td>
+                <td>@proveedor.email_proveedor</td>
+                <td>@proveedor.id_ciudadNavigation?.nombre_ciudad</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@proveedor.id_proveedor">Detalles</a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@proveedor.id_proveedor">Editar</a>
+                    <a class="btn btn-danger btn-delete" asp-action="Delete" asp-route-id="@proveedor.id_proveedor">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#proveedoresTable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json'
+                }
+            });
+        });
+    </script>
+}
+
