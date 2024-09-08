@@ -1,0 +1,34 @@
+﻿@model SionFashioWebApplicationMVC.Models.paise
+
+@{
+    ViewData["Title"] = "Editar País";
+}
+
+<h1>Editar País</h1>
+
+<h4>Modificar detalles del país</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="nombre_pais" class="control-label"></label>
+                <input asp-for="nombre_pais" class="form-control" />
+                <span asp-validation-for="nombre_pais" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="id_pais" />
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

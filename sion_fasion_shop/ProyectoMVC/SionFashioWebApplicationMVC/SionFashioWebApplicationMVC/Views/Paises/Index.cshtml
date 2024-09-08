@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SionFashioWebApplicationMVC.Models.paise>
+
+@{
+    ViewData["Title"] = "Paises";
+}
+
+<h1>Paises</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo País</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre del País</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id_pais</td>
+                <td>@item.nombre_pais</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.id_pais">Detalles</a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id_pais">Editar</a>
+                    <a class="btn btn-danger btn-delete" asp-action="Delete" asp-route-id="@item.id_pais">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteButtons = document.querySelectorAll('.btn-delete');
+
+            deleteButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var form = this.closest('form');
+
+                    Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "Esta acción no se puede deshacer",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, eliminar',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = this.href;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}
