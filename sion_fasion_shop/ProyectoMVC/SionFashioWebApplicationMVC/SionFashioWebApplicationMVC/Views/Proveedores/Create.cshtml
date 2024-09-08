@@ -1,0 +1,45 @@
+﻿@model SionFashioWebApplicationMVC.Models.proveedore
+
+@{
+    ViewData["Title"] = "Crear Proveedor";
+}
+
+<h1>Crear Proveedor</h1>
+
+<h4>Proveedor</h4>
+<hr />
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="nombre_proveedor" class="control-label"></label>
+        <input asp-for="nombre_proveedor" class="form-control" />
+        <span asp-validation-for="nombre_proveedor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="contacto_proveedor" class="control-label"></label>
+        <input asp-for="contacto_proveedor" class="form-control" />
+        <span asp-validation-for="contacto_proveedor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="email_proveedor" class="control-label"></label>
+        <input asp-for="email_proveedor" class="form-control" />
+        <span asp-validation-for="email_proveedor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="id_ciudad" class="control-label"></label>
+        <select asp-for="id_ciudad" class="form-control" asp-items="ViewBag.id_ciudad">
+            <option value="">Selecciona una ciudad</option>
+        </select>
+        <span asp-validation-for="id_ciudad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
