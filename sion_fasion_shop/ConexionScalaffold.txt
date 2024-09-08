@@ -1,0 +1,21 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=DESKTOP-DADP12Q;Database=SIONFASHIONSHOP;Trusted_Connection=True;TrustServerCertificate=True;"
+
+
+
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+
+
+
+-------------------------------------------------------------------------
+
+Scaffold-DbContext 'Server=DESKTOP-DADP12Q;Database=SIONFASHIONSHOP;Trusted_Connection=True;TrustServerCertificate=True;' Microsoft.EntityFrameworkCore.SqlServer -UseDatabaseNames -DataAnnotations -Context ApplicationDbContext -ContextDir Datos -OutputDir Models
