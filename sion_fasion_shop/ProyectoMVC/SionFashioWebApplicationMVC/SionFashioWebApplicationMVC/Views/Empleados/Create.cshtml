@@ -1,0 +1,55 @@
+﻿@model SionFashioWebApplicationMVC.Models.empleado
+
+@{
+    ViewData["Title"] = "Crear Empleado";
+}
+
+<h1>Crear Empleado</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="dni_empleado" class="control-label"></label>
+        <input asp-for="dni_empleado" class="form-control" />
+        <span asp-validation-for="dni_empleado" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="nombres_empleado" class="control-label"></label>
+        <input asp-for="nombres_empleado" class="form-control" />
+        <span asp-validation-for="nombres_empleado" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="apellidos_empleado" class="control-label"></label>
+        <input asp-for="apellidos_empleado" class="form-control" />
+        <span asp-validation-for="apellidos_empleado" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="telefono_empleado" class="control-label"></label>
+        <input asp-for="telefono_empleado" class="form-control" />
+        <span asp-validation-for="telefono_empleado" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="email_empleado" class="control-label"></label>
+        <input asp-for="email_empleado" class="form-control" />
+        <span asp-validation-for="email_empleado" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="id_ciudad" class="control-label"></label>
+        <select asp-for="id_ciudad" class="form-control" asp-items="ViewBag.Ciudades"></select>
+        <span asp-validation-for="id_ciudad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="id_tienda" class="control-label"></label>
+        <select asp-for="id_tienda" class="form-control" asp-items="ViewBag.Tiendas"></select>
+        <span asp-validation-for="id_tienda" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SionFashioWebApplicationMVC.Models.empleado>
+
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+<h1>Empleados</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo Empleado</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Ciudad</th>
+            <th>Tienda</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empleado in Model)
+        {
+            <tr>
+                <td>@empleado.id_empleado</td>
+                <td>@empleado.dni_empleado</td>
+                <td>@empleado.nombres_empleado</td>
+                <td>@empleado.apellidos_empleado</td>
+                <td>@empleado.telefono_empleado</td>
+                <td>@empleado.email_empleado</td>
+                <td>@empleado.id_ciudadNavigation.nombre_ciudad</td>
+                <td>@empleado.id_tiendaNavigation.nombre_tienda</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@empleado.id_empleado">Detalles</a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@empleado.id_empleado">Editar</a>
+                    <a class="btn btn-danger btn-delete" href="#" data-id="@empleado.id_empleado">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteButtons = document.querySelectorAll('.btn-delete');
+
+            deleteButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var id = this.getAttribute('data-id');
+
+                    Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "Esta acción no se puede deshacer",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, eliminar',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '/Empleados/Delete/' + id;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}
