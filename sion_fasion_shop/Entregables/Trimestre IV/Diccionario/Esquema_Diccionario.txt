@@ -1,0 +1,220 @@
+
+Enum "metodos_de_pago_metodo_pago_enum" {
+  "EFECTIVO"
+  "TARJETA"
+  "NEQUI"
+  "DAVIPLATA"
+}
+
+Enum "historial_inventario_tipo_cambio_enum" {
+  "INGRESO"
+  "EGRESO"
+}
+
+Table "categorias" {
+  "id_categoria" INT [pk, increment, note: 'Identificador unico y llave primaria']
+  "nombre_categoria" VARCHAR(255) [not null, note: 'Nombre de la categoria']
+}
+
+Table "sub_categorias" {
+  "id_sub_categoria" INT [pk, increment, note: 'Identificador unico y llave primaria']
+  "nombre_sub_categoria" VARCHAR(255) [not null, note: 'Nombre de la subcategoría']
+  "id_categoria" INT [not null, note: 'LLave foranea de la tabla categoria']
+}
+
+Table "productos" {
+  "id_producto" INT [pk, increment, note: 'Identificador unico y llave primaria']
+  "nombre_producto" VARCHAR(255) [not null, note: 'Nombre del producto']
+  "descripcion_producto" VARCHAR(255) [note: 'Descripción del producto']
+  "precio_producto" DECIMAL(10,2) [not null, note: 'Precio del producto']
+  "unidad_medida" VARCHAR(4) [note: 'Unidad de medida para el producto']
+  "peso_del_producto" VARCHAR(255) [note: 'Peso del producto']
+  "ubicacion_producto" VARCHAR(255) [note: 'Ubicación del producto']
+  "id_sub_categoria" INT [not null, note: 'Llave foránea de la tabla subcategoría']
+  "id_proveedor" INT [not null, note: 'Llave foránea de la tabla proveedor']
+  "id_tienda" INT [not null, note: 'Llave foránea de la tabla tienda']
+  "id_factura" INT [note: 'Llave foránea de la tabla factura']
+}
+
+Table "metodos_de_pago" {
+  "id_metodo_pago" INT [pk, increment, note: 'Llave primaria de la tabla método de pago']
+  "metodo_pago" metodos_de_pago_metodo_pago_enum [not null, note: 'Método de pago']
+  "id_factura" INT [note: 'Llave foránea de la tabla factura']
+}
+
+Table "proveedores" {
+  "id_proveedor" INT [pk, increment, note: 'Llave primaria de la tabla proveedor']
+  "nombre_proveedor" VARCHAR(255) [not null, note: 'Nombre del proveedor']
+  "contacto_proveedor" VARCHAR(255) [note: 'Contacto del proveedor']
+  "email_proveedor" VARCHAR(255) [note: 'Email del proveedor']
+  "id_ciudad" INT [note: 'Llave foránea de la tabla ciudades']
+}
+
+Table "paises" {
+  "id_pais" INT [pk, increment, note: 'Código del país']
+  "nombre_pais" VARCHAR(255) [not null, note: 'Nombre del país']
+}
+
+Table "departamentos" {
+  "id_departamento" INT [pk, increment, note: 'Llave primaria de la tabla departamento']
+  "nombre_departamento" VARCHAR(255) [not null, note: 'Nombre del departamento']
+  "id_pais" INT [not null, note: 'Llave foránea de la tabla países']
+}
+
+Table "ciudades" {
+  "id_ciudad" INT [pk, increment, note: 'Llave primaria que hace referencia a cada municipio']
+  "nombre_ciudad" VARCHAR(255) [not null, note: 'Nombre de la ciudad']
+  "id_departamento" INT [not null, note: 'Llave foránea de la tabla departamento']
+}
+
+Table "tiendas" {
+  "id_tienda" INT [pk, increment, note: 'Llave primaria de la tabla tienda']
+  "nombre_tienda" VARCHAR(255) [not null, note: 'Nombre de la tienda']
+  "telefono_tienda" VARCHAR(255) [note: 'Teléfono de la tienda']
+  "ubicacion_tienda" VARCHAR(255) [note: 'Ubicación de la tienda']
+  "id_ciudad" INT [not null, note: 'Llave foránea de la tabla ciudad']
+  "id_empresa" INT [not null, note: 'Llave foránea de la tabla empresa']
+}
+
+Table "empresas" {
+  "id_empresa" INT [pk, increment, note: 'Llave primaria de la tabla empresa']
+  "nombre_empresa" VARCHAR(255) [not null, note: 'Nombre de la empresa']
+  "direccion_empresa" VARCHAR(255) [note: 'Dirección de la empresa']
+  "telefono_empresa" VARCHAR(255) [note: 'Teléfono de la empresa']
+  "email_empresa" VARCHAR(255) [note: 'Email de la empresa']
+}
+
+Table "empleados" {
+  "id_empleado" INT [pk, increment, note: 'Llave primaria de la tabla empleado']
+  "dni_empleado" VARCHAR(255) [unique, not null, note: 'Documento del empleado']
+  "nombres_empleado" VARCHAR(255) [not null, note: 'Nombres del empleado']
+  "apellidos_empleado" VARCHAR(255) [not null, note: 'Apellidos del empleado']
+  "telefono_empleado" VARCHAR(255) [note: 'Teléfono del empleado']
+  "email_empleado" VARCHAR(255) [note: 'Email del empleado']
+  "id_tienda" INT [not null, note: 'Llave foránea de la tabla tienda']
+  "id_ciudad" INT [not null, note: 'Llave foránea de la tabla ciudad']
+}
+
+Table "facturas" {
+  "id_factura" INT [pk, increment, note: 'Llave primaria de la tabla factura']
+  "fecha_emision_factura" DATETIME [not null, note: 'Fecha de emisión de la factura']
+  "sub_total_factura" DECIMAL(10,2) [not null, note: 'Sub-total de la factura']
+  "impuesto_factura" DECIMAL(10,2) [not null, note: 'Impuesto aplicado a la factura']
+  "total_factura" DECIMAL(10,2) [not null, note: 'Total a pagar de la factura']
+  "id_cliente" INT [not null, note: 'Llave foránea de la tabla clientes']
+}
+
+Table "clientes" {
+  "id_cliente" INT [pk, increment, note: 'Llave primaria del cliente']
+  "nombre_cliente" VARCHAR(255) [note: 'Nombre del cliente']
+  "email_cliente" VARCHAR(255) [note: 'Email del cliente']
+  "telefono_cliente" VARCHAR(255) [note: 'Teléfono del cliente']
+  "direccion_cliente" VARCHAR(255) [note: 'Dirección del cliente']
+}
+
+Table "ordenes_de_compra" {
+  "id_orden_compra" INT [pk, increment, note: 'Llave primaria de la tabla órdenes de compra']
+  "id_cliente" INT [not null, note: 'Llave foránea de la tabla clientes']
+  "id_factura" INT [note: 'Llave foránea de la tabla factura']
+  "id_empleado" INT [note: 'Llave foránea de la tabla empleados']
+}
+
+Table "ordenes_productos" {
+  "id_orden_compra" INT [not null, note: 'Llave foránea de la tabla órdenes de compra']
+  "id_producto" INT [not null, note: 'Llave foránea de la tabla productos']
+  "cantidad" INT [not null, note: 'Cantidad de los productos']
+
+  Indexes {
+    (id_orden_compra, id_producto) [pk]
+  }
+}
+
+Table "inventario" {
+  "id_producto" INT [pk, not null, note: 'Identificador del producto']
+  "stock_inicial" INT [not null, note: 'Cantidad de ingreso']
+  "stock_actual" INT [not null, note: 'Cantidad actual almacenada']
+  "saldo" INT [not null, note: 'Diferencia entre la cantidad actual y la cantidad inicial']
+}
+
+Table "historial_inventario" {
+  "id_historial_inventario" INT [pk, increment, note: 'Llave primaria de la tabla historial de inventario']
+  "id_producto" INT [not null, note: 'Llave foránea de la tabla productos']
+  "cantidad" INT [not null, note: 'Cantidad de cambio en inventario']
+  "tipo_cambio" historial_inventario_tipo_cambio_enum [not null, note: 'Tipo de cambio de inventario']
+  "fecha_cambio" DATETIME [not null, note: 'Fecha y hora del cambio']
+}
+
+Table "alertas_stock" {
+  "id_alerta" INT [pk, increment, note: 'Llave primaria de la tabla alertas de stock']
+  "id_producto" INT [not null, note: 'Llave foránea de la tabla productos']
+  "nivel_minimo" INT [not null, note: 'Nivel mínimo de stock para generar alerta']
+  "fecha_alerta" DATETIME [not null, note: 'Fecha y hora de la alerta']
+}
+
+Table "roles" {
+  "id_rol" INT [pk, increment, note: 'Llave primaria de la tabla roles']
+  "nombre_rol" VARCHAR(255) [not null, note: 'Nombre del rol']
+  "descripcion_rol" TEXT [note: 'Descripción del rol']
+}
+
+Table "usuarios" {
+  "id_usuario" INT [pk, increment, note: 'Llave primaria de la tabla usuarios']
+  "nombre_usuario" VARCHAR(255) [not null, note: 'Nombre de usuario']
+  "clave_usuario" VARCHAR(255) [not null, note: 'Clave de usuario']
+  "id_rol" INT [not null, note: 'Llave foránea de la tabla roles']
+}
+
+Table "registros_actividades" {
+  "id_registro" INT [pk, increment, note: 'Llave primaria de la tabla registros de actividades']
+  "id_usuario" INT [not null, note: 'Llave foránea de la tabla usuarios']
+  "actividad" TEXT [not null, note: 'Descripción de la actividad']
+  "fecha_actividad" DATETIME [not null, note: 'Fecha y hora de la actividad']
+}
+
+Ref:"categorias"."id_categoria" < "sub_categorias"."id_categoria"
+
+Ref:"sub_categorias"."id_sub_categoria" < "productos"."id_sub_categoria"
+
+Ref:"proveedores"."id_proveedor" < "productos"."id_proveedor"
+
+Ref:"tiendas"."id_tienda" < "productos"."id_tienda"
+
+Ref:"facturas"."id_factura" < "productos"."id_factura"
+
+Ref:"facturas"."id_factura" < "metodos_de_pago"."id_factura"
+
+Ref:"ciudades"."id_ciudad" < "proveedores"."id_ciudad"
+
+Ref:"paises"."id_pais" < "departamentos"."id_pais"
+
+Ref:"departamentos"."id_departamento" < "ciudades"."id_departamento"
+
+Ref:"ciudades"."id_ciudad" < "tiendas"."id_ciudad"
+
+Ref:"empresas"."id_empresa" < "tiendas"."id_empresa"
+
+Ref:"tiendas"."id_tienda" < "empleados"."id_tienda"
+
+Ref:"ciudades"."id_ciudad" < "empleados"."id_ciudad"
+
+Ref:"clientes"."id_cliente" < "facturas"."id_cliente"
+
+Ref:"clientes"."id_cliente" < "ordenes_de_compra"."id_cliente"
+
+Ref:"facturas"."id_factura" < "ordenes_de_compra"."id_factura"
+
+Ref:"empleados"."id_empleado" < "ordenes_de_compra"."id_empleado"
+
+Ref:"ordenes_de_compra"."id_orden_compra" < "ordenes_productos"."id_orden_compra"
+
+Ref:"productos"."id_producto" < "ordenes_productos"."id_producto"
+
+Ref:"productos"."id_producto" < "inventario"."id_producto"
+
+Ref:"productos"."id_producto" < "historial_inventario"."id_producto"
+
+Ref:"productos"."id_producto" < "alertas_stock"."id_producto"
+
+Ref:"roles"."id_rol" < "usuarios"."id_rol"
+
+Ref:"usuarios"."id_usuario" < "registros_actividades"."id_usuario"
