@@ -1,0 +1,74 @@
+﻿@model SionFashioWebApplicationMVC.Models.producto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>producto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nombre_producto" class="control-label"></label>
+                <input asp-for="nombre_producto" class="form-control" />
+                <span asp-validation-for="nombre_producto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion_producto" class="control-label"></label>
+                <input asp-for="descripcion_producto" class="form-control" />
+                <span asp-validation-for="descripcion_producto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precio_producto" class="control-label"></label>
+                <input asp-for="precio_producto" class="form-control" />
+                <span asp-validation-for="precio_producto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="unidad_medida" class="control-label"></label>
+                <input asp-for="unidad_medida" class="form-control" />
+                <span asp-validation-for="unidad_medida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="peso_del_producto" class="control-label"></label>
+                <input asp-for="peso_del_producto" class="form-control" />
+                <span asp-validation-for="peso_del_producto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ubicacion_producto" class="control-label"></label>
+                <input asp-for="ubicacion_producto" class="form-control" />
+                <span asp-validation-for="ubicacion_producto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_sub_categoria" class="control-label"></label>
+                <select asp-for="id_sub_categoria" class ="form-control" asp-items="ViewBag.id_sub_categoria"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_proveedor" class="control-label"></label>
+                <select asp-for="id_proveedor" class ="form-control" asp-items="ViewBag.id_proveedor"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_tienda" class="control-label"></label>
+                <select asp-for="id_tienda" class ="form-control" asp-items="ViewBag.id_tienda"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_factura" class="control-label"></label>
+                <select asp-for="id_factura" class ="form-control" asp-items="ViewBag.id_factura"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

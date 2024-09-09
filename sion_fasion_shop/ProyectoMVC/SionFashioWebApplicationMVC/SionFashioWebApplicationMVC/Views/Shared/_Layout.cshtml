@@ -28,14 +28,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Empleados" asp-action="Index">Empleados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Index">Proveedores</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gestión
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Empleados" asp-action="Index">Empleados</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Paises" asp-action="Index">Paises</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Tiendas" asp-action="Index">Tiendas</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="alertas_stock" asp-action="Index">Alertas_Stock</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="categorias" asp-action="Index">Categorias</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Ciudades" asp-action="Index">Ciudades</a></li>
+
+                            </ul>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
