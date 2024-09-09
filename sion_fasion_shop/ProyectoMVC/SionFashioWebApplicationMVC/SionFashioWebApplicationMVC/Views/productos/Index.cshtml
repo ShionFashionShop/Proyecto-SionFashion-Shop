@@ -1,0 +1,121 @@
+﻿@model IEnumerable<SionFashioWebApplicationMVC.Models.producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Producto</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.unidad_medida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.peso_del_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ubicacion_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_facturaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_proveedorNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_sub_categoriaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_tiendaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unidad_medida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.peso_del_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ubicacion_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_facturaNavigation.id_factura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_proveedorNavigation.id_proveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_sub_categoriaNavigation.id_sub_categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_tiendaNavigation.id_tienda)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_producto">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_producto">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_producto">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteButtons = document.querySelectorAll('.btn-delete');
+
+            deleteButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var form = this.closest('form');
+
+                    Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "Esta acción no se puede deshacer",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, eliminar',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = this.href;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    }
+
