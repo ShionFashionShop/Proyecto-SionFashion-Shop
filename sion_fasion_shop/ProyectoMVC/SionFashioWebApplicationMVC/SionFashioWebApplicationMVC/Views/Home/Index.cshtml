@@ -2,7 +2,79 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5 text-center">
+    <h1 class="display-4 text-primary">Welcome to Your Inventory System</h1>
+    <p class="lead">Manage and track your inventory effectively with our intuitive system.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
 </div>
+
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none">
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-boxes fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Products</h5>
+                        <p class="card-text">Manage and update product details.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none">
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-truck fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Suppliers</h5>
+                        <p class="card-text">Keep track of your suppliers and contacts.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none">
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Reports</h5>
+                        <p class="card-text">Generate detailed inventory reports.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row text-center mt-5">
+        <div class="col-md-3">
+            <div class="p-4 bg-light rounded shadow-sm">
+                <h5>Total Products</h5>
+                <h2 class="display-5">150</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 bg-light rounded shadow-sm">
+                <h5>Low Stock</h5>
+                <h2 class="display-5">12</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 bg-light rounded shadow-sm">
+                <h5>Total Suppliers</h5>
+                <h2 class="display-5">25</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 bg-light rounded shadow-sm">
+                <h5>Pending Orders</h5>
+                <h2 class="display-5">7</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center mt-5">
+    <p class="text-muted">© 2024 Inventory Management System</p>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

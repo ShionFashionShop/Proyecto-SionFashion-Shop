@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SionFashioWebApplicationMVC.Models.usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre_usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clave_usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_rolNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clave_usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_rolNavigation.id_rol)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_usuario">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_usuario">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_usuario">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
