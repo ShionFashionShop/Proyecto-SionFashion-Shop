@@ -2,6 +2,13 @@
 
 @{
     ViewData["Title"] = "Index";
+    
+    // Definir funciones auxiliares para usar nombres cortos
+    Func<tienda, string> nombre = t => t.nombre_tienda;
+    Func<tienda, string> telefono = t => t.telefono_tienda;
+    Func<tienda, string> ubicacion = t => t.ubicacion_tienda;
+    Func<tienda, int> idCiudad = t => t.id_ciudadNavigation.id_ciudad;
+    Func<tienda, int> idEmpresa = t => t.id_empresaNavigation.id_empresa;
 }
 
 <h1>Tiendas</h1>
@@ -9,52 +16,34 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre_tienda)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.telefono_tienda)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ubicacion_tienda)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_ciudadNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_empresaNavigation)
-            </th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Ubicación</th>
+            <th>Ciudad</th>
+            <th>Empresa</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var t in Model)
+    {
         <tr>
+            <td>@nombre(t)</td>
+            <td>@telefono(t)</td>
+            <td>@ubicacion(t)</td>
+            <td>@idCiudad(t)</td>
+            <td>@idEmpresa(t)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre_tienda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.telefono_tienda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ubicacion_tienda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_ciudadNavigation.id_ciudad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_empresaNavigation.id_empresa)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_tienda">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_tienda">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_tienda">Delete</a>
+                <a asp-action="Edit" asp-route-id="@t.id_tienda">Edit</a> |
+                <a asp-action="Details" asp-route-id="@t.id_tienda">Details</a> |
+                <a asp-action="Delete" asp-route-id="@t.id_tienda">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
 
@@ -64,7 +53,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#clientesTable').DataTable({
+            $('table').DataTable({
                 // Puedes personalizar la configuración aquí
                 language: {
                     url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es.json' // Configuración en español

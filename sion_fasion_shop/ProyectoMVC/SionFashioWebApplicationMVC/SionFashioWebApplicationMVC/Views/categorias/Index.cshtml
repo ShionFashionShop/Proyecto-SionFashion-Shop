@@ -2,34 +2,35 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    // Definir funciones auxiliares para usar nombres cortos
+    Func<categoria, string> nombreCategoria = c => c.nombre_categoria;
 }
 
-<h1>Categorias</h1>
+<h1>Categorías</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre_categoria)
-            </th>
+            <th>Nombre</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre_categoria)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_categoria">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_categoria">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_categoria">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@nombreCategoria(c)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.id_categoria">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@c.id_categoria">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@c.id_categoria">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

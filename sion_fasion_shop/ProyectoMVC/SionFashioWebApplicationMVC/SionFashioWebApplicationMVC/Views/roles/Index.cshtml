@@ -2,40 +2,38 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    // Definir funciones auxiliares para usar nombres cortos
+    Func<role, string> nombreRol = r => r.nombre_rol;
+    Func<role, string> descripcionRol = r => r.descripcion_rol;
 }
 
-<h1>Index</h1>
+<h1>Roles</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre_rol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descripcion_rol)
-            </th>
+            <th>Nombre</th>
+            <th>Descripción</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre_rol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion_rol)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_rol">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_rol">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_rol">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@nombreRol(r)</td>
+                <td>@descripcionRol(r)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@r.id_rol">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@r.id_rol">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@r.id_rol">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

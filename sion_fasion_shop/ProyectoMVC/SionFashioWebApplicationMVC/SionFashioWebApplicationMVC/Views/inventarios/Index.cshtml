@@ -2,6 +2,12 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    // Definir funciones auxiliares para usar nombres cortos
+    Func<inventario, int> stockInicial = i => i.stock_inicial;
+    Func<inventario, int> stockActual = i => i.stock_actual;
+    Func<inventario, int> saldo = i => i.saldo;
+    Func<inventario, int> idProducto = i => i.id_productoNavigation.id_producto;
 }
 
 <h1>Inventario</h1>
@@ -9,45 +15,31 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.stock_inicial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.stock_actual)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.saldo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_productoNavigation)
-            </th>
+            <th>Stock Inicial</th>
+            <th>Stock Actual</th>
+            <th>Saldo</th>
+            <th>Producto</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.stock_inicial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.stock_actual)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.saldo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_productoNavigation.id_producto)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_producto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_producto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_producto">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@stockInicial(i)</td>
+                <td>@stockActual(i)</td>
+                <td>@saldo(i)</td>
+                <td>@idProducto(i)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@i.id_producto">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@i.id_producto">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@i.id_producto">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

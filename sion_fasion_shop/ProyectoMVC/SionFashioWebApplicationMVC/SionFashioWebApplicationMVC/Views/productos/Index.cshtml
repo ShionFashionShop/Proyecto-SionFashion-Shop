@@ -2,6 +2,16 @@
 
 @{
     ViewData["Title"] = "Index";
+    Func<producto, string> nombre = p => p.nombre_producto;
+    Func<producto, string> descripcion = p => p.descripcion_producto;
+    Func<producto, decimal> precio = p => p.precio_producto;
+    Func<producto, string> unidad = p => p.unidad_medida;
+    Func<producto, string> peso = p => p.peso_del_producto;
+    Func<producto, string> ubicacion = p => p.ubicacion_producto;
+    Func<producto, int> idFactura = p => p.id_facturaNavigation.id_factura;
+    Func<producto, int> idProveedor = p => p.id_proveedorNavigation.id_proveedor;
+    Func<producto, int> idSubCategoria = p => p.id_sub_categoriaNavigation.id_sub_categoria;
+    Func<producto, int> idTienda = p => p.id_tiendaNavigation.id_tienda;
 }
 
 <h1>Producto</h1>
@@ -9,82 +19,44 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre_producto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descripcion_producto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.precio_producto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.unidad_medida)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.peso_del_producto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ubicacion_producto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_facturaNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_proveedorNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_sub_categoriaNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_tiendaNavigation)
-            </th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Unidad</th>
+            <th>Peso</th>
+            <th>Ubicación</th>
+            <th>Factura</th>
+            <th>Proveedor</th>
+            <th>Sub Categoría</th>
+            <th>Tienda</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre_producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion_producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precio_producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.unidad_medida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.peso_del_producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ubicacion_producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_facturaNavigation.id_factura)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_proveedorNavigation.id_proveedor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_sub_categoriaNavigation.id_sub_categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_tiendaNavigation.id_tienda)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_producto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_producto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_producto">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@nombre(p)</td>
+                <td>@descripcion(p)</td>
+                <td>@precio(p)</td>
+                <td>@unidad(p)</td>
+                <td>@peso(p)</td>
+                <td>@ubicacion(p)</td>
+                <td>@idFactura(p)</td>
+                <td>@idProveedor(p)</td>
+                <td>@idSubCategoria(p)</td>
+                <td>@idTienda(p)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@p.id_producto">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@p.id_producto">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@p.id_producto">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
@@ -117,5 +89,5 @@
             });
         });
     </script>
-    }
+}
 

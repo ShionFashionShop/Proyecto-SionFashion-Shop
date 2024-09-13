@@ -2,46 +2,41 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    // Definir funciones auxiliares para usar nombres cortos
+    Func<usuario, string> nombreUsuario = u => u.nombre_usuario;
+    Func<usuario, string> claveUsuario = u => u.clave_usuario;
+    Func<usuario, int> idRol = u => u.id_rolNavigation.id_rol;
 }
 
-<h1>Index</h1>
+<h1>Usuarios</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre_usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.clave_usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_rolNavigation)
-            </th>
+            <th>Nombre</th>
+            <th>Clave</th>
+            <th>Rol</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre_usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.clave_usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_rolNavigation.id_rol)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_usuario">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_usuario">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_usuario">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@nombreUsuario(u)</td>
+                <td>@claveUsuario(u)</td>
+                <td>@idRol(u)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@u.id_usuario">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@u.id_usuario">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@u.id_usuario">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    // Definir funciones auxiliares para usar nombres cortos
+    Func<ciudade, string> nombreCiudad = c => c.nombre_ciudad;
+    Func<ciudade, int> idDepartamento = c => c.id_departamentoNavigation.id_departamento;
 }
 
 <h1>Ciudades</h1>
@@ -9,33 +13,27 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre_ciudad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_departamentoNavigation)
-            </th>
+            <th>Nombre</th>
+            <th>Departamento</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre_ciudad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_departamentoNavigation.id_departamento)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_ciudad">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_ciudad">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_ciudad">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@nombreCiudad(c)</td>
+                <td>@idDepartamento(c)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.id_ciudad">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@c.id_ciudad">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@c.id_ciudad">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

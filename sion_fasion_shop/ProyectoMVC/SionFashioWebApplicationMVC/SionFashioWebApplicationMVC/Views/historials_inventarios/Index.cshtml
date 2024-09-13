@@ -2,6 +2,12 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    // Definir funciones auxiliares para usar nombres cortos
+    Func<historial_inventario, int> cantidad = h => h.cantidad;
+    Func<historial_inventario, string> tipoCambio = h => h.tipo_cambio;
+    Func<historial_inventario, DateTime> fechaCambio = h => h.fecha_cambio;
+    Func<historial_inventario, int> idProducto = h => h.id_productoNavigation.id_producto;
 }
 
 <h1>Historial de Inventario</h1>
@@ -9,45 +15,31 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tipo_cambio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.fecha_cambio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_productoNavigation)
-            </th>
+            <th>Cantidad</th>
+            <th>Tipo de Cambio</th>
+            <th>Fecha de Cambio</th>
+            <th>Producto</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.cantidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tipo_cambio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fecha_cambio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_productoNavigation.id_producto)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_historial_inventario">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_historial_inventario">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_historial_inventario">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var h in Model)
+        {
+            <tr>
+                <td>@cantidad(h)</td>
+                <td>@tipoCambio(h)</td>
+                <td>@fechaCambio(h).ToString("yyyy-MM-dd")</td> <!-- Formateo de fecha -->
+                <td>@idProducto(h)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@h.id_historial_inventario">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@h.id_historial_inventario">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@h.id_historial_inventario">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
