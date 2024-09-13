@@ -1,0 +1,42 @@
+﻿@model SionFashioWebApplicationMVC.Models.inventario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>inventario</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.stock_inicial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.stock_inicial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.stock_actual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.stock_actual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.saldo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.saldo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_productoNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_productoNavigation.id_producto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id_producto">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
