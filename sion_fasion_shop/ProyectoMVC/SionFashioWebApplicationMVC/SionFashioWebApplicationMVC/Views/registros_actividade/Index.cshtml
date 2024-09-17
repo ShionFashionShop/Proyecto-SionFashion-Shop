@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SionFashioWebApplicationMVC.Models.registros_actividade>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.actividad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_actividad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_usuarioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.actividad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_actividad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_usuarioNavigation.id_usuario)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_registro">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_registro">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_registro">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

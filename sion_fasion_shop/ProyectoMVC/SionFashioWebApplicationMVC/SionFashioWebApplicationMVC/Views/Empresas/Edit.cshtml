@@ -1,0 +1,49 @@
+﻿@model SionFashioWebApplicationMVC.Models.empresa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>empresa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_empresa" />
+            <div class="form-group">
+                <label asp-for="nombre_empresa" class="control-label"></label>
+                <input asp-for="nombre_empresa" class="form-control" />
+                <span asp-validation-for="nombre_empresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="direccion_empresa" class="control-label"></label>
+                <input asp-for="direccion_empresa" class="form-control" />
+                <span asp-validation-for="direccion_empresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telefono_empresa" class="control-label"></label>
+                <input asp-for="telefono_empresa" class="form-control" />
+                <span asp-validation-for="telefono_empresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email_empresa" class="control-label"></label>
+                <input asp-for="email_empresa" class="form-control" />
+                <span asp-validation-for="email_empresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

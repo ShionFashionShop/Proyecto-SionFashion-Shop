@@ -1,0 +1,54 @@
+﻿@model SionFashioWebApplicationMVC.Models.factura
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>factura</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_factura" />
+            <div class="form-group">
+                <label asp-for="fecha_emision_factura" class="control-label"></label>
+                <input asp-for="fecha_emision_factura" class="form-control" />
+                <span asp-validation-for="fecha_emision_factura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sub_total_factura" class="control-label"></label>
+                <input asp-for="sub_total_factura" class="form-control" />
+                <span asp-validation-for="sub_total_factura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="impuesto_factura" class="control-label"></label>
+                <input asp-for="impuesto_factura" class="form-control" />
+                <span asp-validation-for="impuesto_factura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="total_factura" class="control-label"></label>
+                <input asp-for="total_factura" class="form-control" />
+                <span asp-validation-for="total_factura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_cliente" class="control-label"></label>
+                <select asp-for="id_cliente" class="form-control" asp-items="ViewBag.id_cliente"></select>
+                <span asp-validation-for="id_cliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
