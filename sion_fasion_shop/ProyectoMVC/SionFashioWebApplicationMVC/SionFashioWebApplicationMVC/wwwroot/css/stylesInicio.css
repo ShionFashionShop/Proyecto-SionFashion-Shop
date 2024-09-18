@@ -1,0 +1,96 @@
+/*Esto es usado por todas las paginas como base para la navbar y el sidebar,
+ lo demas solo contiene estilos que se aplican a los items dentro del content, es decir 
+ los demas estilos no tocan ni el content */
+
+body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    width: 100%;
+    background-color: #e98bd4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.navbar-section {
+    display: flex;
+    align-items: center;
+}
+.logo-section {
+    justify-content: flex-start;
+}
+.title-section {
+    flex-grow: 1;
+    justify-content: center;
+}
+.salir-section {
+    justify-content: flex-end;
+}
+.logo {
+    width: 100px;
+    border-radius: 60%;
+    margin-left: 35px;
+}
+.Titulohead {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+}
+.Titulohead a {
+    text-decoration: none;
+    color: white;
+}
+.Salirhead {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 80px;
+}
+.sidebar {
+    height: 100vh;
+    width: 200px;
+    background-color: #e98bd4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px; /* Ajuste para la barra de navegación fija */
+    position: fixed;
+    top: 80px;
+    left: 0;
+}
+.sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    width: 90%;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+.sidebar a:hover {
+    background-color: #575757;
+}
+.sidebar a.active {
+    background-color: #444;
+}
+.content {
+    margin-left: 220px;
+    margin-top:160px; /* Ajuste para la barra de navegación fija */
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+

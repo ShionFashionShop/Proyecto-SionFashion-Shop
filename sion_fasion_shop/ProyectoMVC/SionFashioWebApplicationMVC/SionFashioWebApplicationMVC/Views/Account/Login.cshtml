@@ -1,0 +1,52 @@
+﻿@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="~/css/stylessesion.css">
+
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-icon">
+            <img src="~/img/Logo.jpeg" alt="Login Icon">
+        </div>
+        <hr>
+        <h2>Iniciar Sesión</h2>
+
+        <!-- Comienza el formulario que se vincula al controlador de login en ASP.NET Core -->
+        <form asp-action="Login" method="post" id="loginForm" class="login-form">
+
+            <div class="input-group">
+                <label asp-for="Email">Usuario:</label>
+                <input asp-for="Email" id="Email" class="form-control" required autocomplete="username">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <label asp-for="Password">Contraseña:</label>
+                <input asp-for="Password" id="Password" class="form-control" type="password" required minlength="6" autocomplete="current-password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <input asp-for="RememberMe" />
+                <label asp-for="RememberMe">Recordar sesión</label>
+            </div>
+
+            <div class="input-group">
+                <button type="submit">Ingresar</button>
+            </div>
+        </form>
+
+
+        <div id="error-message"></div>
+    </div>
+</body>
+</html>
