@@ -14,7 +14,8 @@
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.nombre_ciudad)</th>
-            <th>@Html.DisplayNameFor(model => model.id_departamentoNavigation)</th>
+            <th>@Html.DisplayNameFor(model => model.id_departamentoNavigation.nombre_departamento)</th>
+
             <th>Acciones</th>
         </tr>
     </thead>
@@ -23,7 +24,7 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.nombre_ciudad)</td>
-                <td>@Html.DisplayFor(modelItem => item.id_departamentoNavigation.id_departamento)</td>
+                <td>@Html.DisplayFor(modelItem => item.id_departamentoNavigation.nombre_departamento)</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_ciudad">Detalles</a>
                     <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_ciudad">Editar</a>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,8 +20,10 @@ namespace SionFashioWebApplicationMVC.Controllers
         // GET: Ciudades
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.ciudades.Include(c => c.id_departamentoNavigation);
-            return View(await applicationDbContext.ToListAsync());
+            var ciudades = await _context.ciudades
+                .Include(c => c.id_departamentoNavigation) // Include related department data
+                .ToListAsync();
+            return View(ciudades);
         }
 
         // GET: Ciudades/Details/5
@@ -34,39 +34,38 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            var ciudade = await _context.ciudades
-                .Include(c => c.id_departamentoNavigation)
+            var ciudad = await _context.ciudades
+                .Include(c => c.id_departamentoNavigation) // Include related department data
                 .FirstOrDefaultAsync(m => m.id_ciudad == id);
-            if (ciudade == null)
+
+            if (ciudad == null)
             {
                 return NotFound();
             }
 
-            return View(ciudade);
+            return View(ciudad);
         }
 
         // GET: Ciudades/Create
         public IActionResult Create()
         {
-            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "id_departamento");
+            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "nombre_departamento");
             return View();
         }
 
         // POST: Ciudades/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_ciudad,nombre_ciudad,id_departamento")] ciudade ciudade)
+        public async Task<IActionResult> Create([Bind("id_ciudad,nombre_ciudad,id_departamento")] ciudade ciudad)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
-                _context.Add(ciudade);
+                _context.Add(ciudad);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "id_departamento", ciudade.id_departamento);
-            return View(ciudade);
+            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "nombre_departamento", ciudad.id_departamento);
+            return View(ciudad);
         }
 
         // GET: Ciudades/Edit/5
@@ -77,37 +76,36 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            var ciudade = await _context.ciudades.FindAsync(id);
-            if (ciudade == null)
+            var ciudad = await _context.ciudades.FindAsync(id);
+            if (ciudad == null)
             {
                 return NotFound();
             }
-            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "id_departamento", ciudade.id_departamento);
-            return View(ciudade);
+
+            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "nombre_departamento", ciudad.id_departamento);
+            return View(ciudad);
         }
 
         // POST: Ciudades/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_ciudad,nombre_ciudad,id_departamento")] ciudade ciudade)
+        public async Task<IActionResult> Edit(int id, [Bind("id_ciudad,nombre_ciudad,id_departamento")] ciudade ciudad)
         {
-            if (id != ciudade.id_ciudad)
+            if (id != ciudad.id_ciudad)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(ciudade);
+                    _context.Update(ciudad);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ciudadeExists(ciudade.id_ciudad))
+                    if (!ciudadExists(ciudad.id_ciudad))
                     {
                         return NotFound();
                     }
@@ -118,8 +116,9 @@ namespace SionFashioWebApplicationMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "id_departamento", ciudade.id_departamento);
-            return View(ciudade);
+
+            ViewData["id_departamento"] = new SelectList(_context.departamentos, "id_departamento", "nombre_departamento", ciudad.id_departamento);
+            return View(ciudad);
         }
 
         // GET: Ciudades/Delete/5
@@ -130,15 +129,16 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            var ciudade = await _context.ciudades
-                .Include(c => c.id_departamentoNavigation)
+            var ciudad = await _context.ciudades
+                .Include(c => c.id_departamentoNavigation) // Include related department data
                 .FirstOrDefaultAsync(m => m.id_ciudad == id);
-            if (ciudade == null)
+
+            if (ciudad == null)
             {
                 return NotFound();
             }
 
-            return View(ciudade);
+            return View(ciudad);
         }
 
         // POST: Ciudades/Delete/5
@@ -146,17 +146,18 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var ciudade = await _context.ciudades.FindAsync(id);
-            if (ciudade != null)
+            var ciudad = await _context.ciudades.FindAsync(id);
+
+            if (ciudad != null)
             {
-                _context.ciudades.Remove(ciudade);
+                _context.ciudades.Remove(ciudad);
+                await _context.SaveChangesAsync();
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ciudadeExists(int id)
+        private bool ciudadExists(int id)
         {
             return _context.ciudades.Any(e => e.id_ciudad == id);
         }
