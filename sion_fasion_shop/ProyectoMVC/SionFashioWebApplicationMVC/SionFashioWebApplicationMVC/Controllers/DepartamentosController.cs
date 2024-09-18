@@ -59,6 +59,14 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_departamento,nombre_departamento,id_pais")] departamento departamento)
         {
+        
+                _context.Add(departamento);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            
+            ViewData["id_pais"] = new SelectList(_context.paises, "id_pais", "id_pais", departamento.id_pais);
+            return View(departamento);
+
             
                 _context.Add(departamento);
                 await _context.SaveChangesAsync();

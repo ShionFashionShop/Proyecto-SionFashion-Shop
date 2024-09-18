@@ -1,0 +1,84 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../Img/backRopa.jpg);
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo */
+}
+
+.login-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-icon img {
+    width: 35%;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative; /* Asegura que los elementos hijos se posicionen dentro del grupo */
+}
+
+    .input-group label {
+        display: block; /* El label ahora estará en una línea separada */
+        margin-bottom: 5px; /* Espacio entre el label y el input */
+        color: #333;
+    }
+
+    .input-group input {
+        width: 100%; /* Forzamos el mismo tamaño para ambos inputs */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+        .input-group input:focus {
+            border-color: #6c5ce7;
+        }
+
+/* Ajuste para asegurar que los inputs no se superpongan */
+.username-input,
+.password-input {
+    margin-top: 8px; /* Espacio entre el label y el input */
+    margin-bottom: 16px; /* Separar inputs entre ellos */
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+    .login-form button:hover {
+        background-color: #5a4bcf;
+    }
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+}
