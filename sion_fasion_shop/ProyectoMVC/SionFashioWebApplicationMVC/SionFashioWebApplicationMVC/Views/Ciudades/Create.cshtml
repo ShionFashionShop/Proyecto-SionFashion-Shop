@@ -1,15 +1,13 @@
 ﻿@model SionFashioWebApplicationMVC.Models.ciudade
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create City";
 }
 
-<h1>Create</h1>
+<h1>Create City</h1>
 
-<h4>ciudade</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -19,19 +17,24 @@
             </div>
             <div class="form-group">
                 <label asp-for="id_departamento" class="control-label"></label>
-                <select asp-for="id_departamento" class ="form-control" asp-items="ViewBag.id_departamento"></select>
+                <select asp-for="id_departamento" class="form-control" asp-items="ViewBag.id_departamento">
+                    <option value="">Seleccione un departamento</option> <!-- Optional placeholder -->
+                </select>
+                <span asp-validation-for="id_departamento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary mt-4" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-outline-secondary mt-3" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
