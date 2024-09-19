@@ -28,8 +28,8 @@
                 <td>@item.nombre_tienda</td>
                 <td>@item.telefono_tienda</td>
                 <td>@item.ubicacion_tienda</td>
-                <td>@item.id_ciudadNavigation.id_ciudad</td>
-                <td>@item.id_empresaNavigation.id_empresa</td>
+                <td>@item.id_ciudadNavigation.nombre_ciudad</td>
+                <td>@item.id_empresaNavigation.nombre_empresa</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_tienda">Detalles</a>
                     <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_tienda">Editar</a>

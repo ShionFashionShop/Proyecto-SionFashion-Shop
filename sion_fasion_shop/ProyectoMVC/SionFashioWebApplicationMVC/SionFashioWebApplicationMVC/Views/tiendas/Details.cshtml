@@ -10,39 +10,39 @@
     <h4>tienda</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.nombre_tienda)
+        <dt class="col-sm-2">
+            Nombre tienda
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.nombre_tienda)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.telefono_tienda)
+        <dt class="col-sm-2">
+            Telefono tienda
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.telefono_tienda)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ubicacion_tienda)
+        <dt class="col-sm-2">
+            Ubicacion tienda
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ubicacion_tienda)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.id_ciudadNavigation)
+        <dt class="col-sm-2">
+            Ciudad
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_ciudadNavigation.id_ciudad)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.id_ciudadNavigation.nombre_ciudad)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.id_empresaNavigation)
+        <dt class="col-sm-2">
+            Empresa
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_empresaNavigation.id_empresa)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.id_empresaNavigation.nombre_empresa)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_tienda">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@Model?.id_tienda">Edit</a> |
+    <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
 </div>

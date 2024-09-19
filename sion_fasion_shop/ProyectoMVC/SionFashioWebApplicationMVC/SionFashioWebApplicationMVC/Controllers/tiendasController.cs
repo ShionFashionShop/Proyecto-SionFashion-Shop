@@ -49,8 +49,8 @@ namespace SionFashioWebApplicationMVC.Controllers
         // GET: tiendas/Create
         public IActionResult Create()
         {
-            ViewData["id_ciudad"] = new SelectList(_context.ciudades, "id_ciudad", "id_ciudad");
-            ViewData["id_empresa"] = new SelectList(_context.empresas, "id_empresa", "id_empresa");
+            ViewData["id_ciudad"] = new SelectList(_context.ciudades, "id_ciudad", "nombre_ciudad");
+            ViewData["id_empresa"] = new SelectList(_context.empresas, "id_empresa", "nombre_empresa");
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_tienda,nombre_tienda,telefono_tienda,ubicacion_tienda,id_ciudad,id_empresa")] tienda tienda)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(tienda);
                 await _context.SaveChangesAsync();
@@ -85,8 +85,8 @@ namespace SionFashioWebApplicationMVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["id_ciudad"] = new SelectList(_context.ciudades, "id_ciudad", "id_ciudad", tienda.id_ciudad);
-            ViewData["id_empresa"] = new SelectList(_context.empresas, "id_empresa", "id_empresa", tienda.id_empresa);
+            ViewData["id_ciudad"] = new SelectList(_context.ciudades, "id_ciudad", "nombre_ciudad", tienda.id_ciudad);
+            ViewData["id_empresa"] = new SelectList(_context.empresas, "id_empresa", "nombre_empresa", tienda.id_empresa);
             return View(tienda);
         }
 
@@ -102,7 +102,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {
