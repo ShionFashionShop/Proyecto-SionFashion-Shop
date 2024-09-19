@@ -1,0 +1,42 @@
+﻿@model SionFashioWebApplicationMVC.Models.departamento
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>departamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nombre_departamento" class="control-label"></label>
+                <input asp-for="nombre_departamento" class="form-control" />
+                <span asp-validation-for="nombre_departamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_pais" class="control-label"></label> <!-- Change label to id_pais -->
+                <select asp-for="id_pais" class="form-control" asp-items="ViewBag.id_pais">
+                    <option value="">Seleccione un país</option> <!-- Optional placeholder -->
+                </select>
+                <span asp-validation-for="id_pais" class="text-danger"></span> <!-- Change validation span -->
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary mt-4" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-secondary mt-3" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
