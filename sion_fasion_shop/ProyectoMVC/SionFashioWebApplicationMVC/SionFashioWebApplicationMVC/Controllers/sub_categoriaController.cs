@@ -48,7 +48,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         // GET: sub_categoria/Create
         public IActionResult Create()
         {
-            ViewData["id_categoria"] = new SelectList(_context.categorias, "id_categoria", "id_categoria");
+            ViewData["id_categoria"] = new SelectList(_context.categorias, "id_categoria", "nombre_categoria");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_sub_categoria,nombre_sub_categoria,id_categoria")] sub_categoria sub_categoria)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(sub_categoria);
                 await _context.SaveChangesAsync();
@@ -82,7 +82,7 @@ namespace SionFashioWebApplicationMVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["id_categoria"] = new SelectList(_context.categorias, "id_categoria", "id_categoria", sub_categoria.id_categoria);
+            ViewData["id_categoria"] = new SelectList(_context.categorias, "id_categoria", "nombre_categoria", sub_categoria.id_categoria);
             return View(sub_categoria);
         }
 
@@ -98,7 +98,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {

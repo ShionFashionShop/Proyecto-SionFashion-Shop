@@ -13,8 +13,8 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.nombre_sub_categoria)</th>
-            <th>@Html.DisplayNameFor(model => model.id_categoriaNavigation)</th>
+            <th>Sub - Categoria</th>
+            <th>Categoria Principal</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -23,10 +23,10 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.nombre_sub_categoria)</td>
-                <td>@Html.DisplayFor(modelItem => item.id_categoriaNavigation.id_categoria)</td>
+                <td>@Html.DisplayFor(modelItem => item.id_categoriaNavigation.nombre_categoria)</td>
                 <td>
-                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_sub_categoria">Detalles</a>
-                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_sub_categoria">Editar</a>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_sub_categoria">Detalles</a> 
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_sub_categoria">Editar</a> 
                     <a class="btn btn-danger btn-sm btn-delete" href="@Url.Action("Delete", new { id = item.id_sub_categoria })">Eliminar</a>
                 </td>
             </tr>
