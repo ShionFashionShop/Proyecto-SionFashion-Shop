@@ -14,22 +14,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <h6>Nombre empresa</h6>
-                <input asp-for="nombre_empresa" class="form-control" />
+                <input asp-for="nombre_empresa" class="form-control" placeholder="Nombre de la empresa"/>
                 <span asp-validation-for="nombre_empresa" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <h6>Direccion empresa</h6>
-                <input asp-for="direccion_empresa" class="form-control" />
+                <input asp-for="direccion_empresa" class="form-control" placeholder="Direccion de la empresa" />
                 <span asp-validation-for="direccion_empresa" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <h6>Telefono empresa</h6>
-                <input asp-for="telefono_empresa" class="form-control" />
+                <input asp-for="telefono_empresa" class="form-control" placeholder="Ingrese el telefono de la empresa" />
                 <span asp-validation-for="telefono_empresa" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <h6>E-mail empresa</h6>
-                <input asp-for="email_empresa" class="form-control" />
+                <input asp-for="email_empresa" class="form-control" placeholder="Email de la empresa" />
                 <span asp-validation-for="email_empresa" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,9 +40,10 @@
 </div>
 
 <div>
-    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary mt-2" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
