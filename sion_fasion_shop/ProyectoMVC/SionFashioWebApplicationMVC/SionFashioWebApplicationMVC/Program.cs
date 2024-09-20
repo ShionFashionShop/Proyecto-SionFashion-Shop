@@ -4,27 +4,31 @@ using SionFashioWebApplicationMVC.Datos;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+// Obtén la cadena de conexión
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+// Configura el contexto de la base de datos
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+// Configura los servicios de identidad
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true; // Puedes ajustar esto según tus necesidades
+})
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
+// Agrega servicios para los controladores y vistas
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages(); // Asegúrate de agregar Razor Pages
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseMigrationsEndPoint();
-}
-else
+// Configura el pipeline de la aplicación
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -33,11 +37,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Asegúrate de incluir autenticación
 app.UseAuthorization();
 
+// Configuración de las rutas y endpoints
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+
+app.MapRazorPages(); // Para permitir Razor Pages en tu aplicación
 
 app.Run();
