@@ -5,39 +5,19 @@
 }
 
 <h1>Details</h1>
-<hr></hr>
+<div class="card">
+    <div class="card-header">
+        Detalles de la empresa
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Nombre de la empresa</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre_empresa)</dd>
 
-<div>
-    <h4>Detalles de la empresa</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Nombre empresa
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.nombre_empresa)
-        </dd>
-        <dt class = "col-sm-2">
-            Direccion empresa
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.direccion_empresa)
-        </dd>
-        <dt class = "col-sm-2">
-            Telefono empresa
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.telefono_empresa)
-        </dd>
-        <dt class = "col-sm-2">
-           E-mail empresa
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.email_empresa)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@Model?.id_empresa">Edit</a> |
-    <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Edit" asp-route-id="@Model.id_empresa" class="btn btn-warning">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
 </div>
