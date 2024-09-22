@@ -14,24 +14,24 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id_rol" />
             <div class="form-group">
-                <label asp-for="nombre_rol" class="control-label"></label>
+                <h6>Rol</h6>
                 <input asp-for="nombre_rol" class="form-control" />
                 <span asp-validation-for="nombre_rol" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="descripcion_rol" class="control-label"></label>
+                <h6>Descripcion del rol</h6>
                 <input asp-for="descripcion_rol" class="form-control" />
                 <span asp-validation-for="descripcion_rol" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary mt-4" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
