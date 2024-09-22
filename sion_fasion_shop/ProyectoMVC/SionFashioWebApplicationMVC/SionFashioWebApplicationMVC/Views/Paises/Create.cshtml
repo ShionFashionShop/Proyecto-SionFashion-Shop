@@ -13,13 +13,13 @@
     <div class="col-md-6">
         <form asp-action="Create">
             <div class="form-group">
-                <label asp-for="nombre_pais" class="control-label"></label>
-                <input asp-for="nombre_pais" class="form-control" />
+                <h6>Nombre del país</h6>
+                <input asp-for="nombre_pais" class="form-control" placeholder="Ingrese el nombre del pais"/>
                 <span asp-validation-for="nombre_pais" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                <input type="submit" value="Crear" class="btn btn-primary mt-4" />
+                <a asp-action="Index" class="btn btn-secondary mt-4">Regresar</a>
             </div>
         </form>
     </div>

@@ -21,11 +21,11 @@
 
 <div>
     <a asp-action="Edit" asp-route-id="@Model.id_pais" class="btn btn-primary">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Regresar al listado</a>
+    <a asp-action="Index" class="btn btn-secondary ">Regresar al listado</a>
 </div>
 
 <form asp-action="Delete" asp-route-id="@Model.id_pais" method="post" style="display:inline;">
-    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <button type="submit" class="btn btn-danger mt-2">Eliminar</button>
 </form>
 
 @section Scripts {

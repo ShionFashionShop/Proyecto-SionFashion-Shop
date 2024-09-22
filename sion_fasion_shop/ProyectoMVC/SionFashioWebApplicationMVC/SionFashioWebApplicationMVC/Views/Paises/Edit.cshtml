@@ -13,15 +13,15 @@
     <div class="col-md-6">
         <form asp-action="Edit">
             <div class="form-group">
-                <label asp-for="nombre_pais" class="control-label"></label>
+                <h6>Nombre del país</h6>
                 <input asp-for="nombre_pais" class="form-control" />
                 <span asp-validation-for="nombre_pais" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="id_pais" />
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary mt-4">Guardar Cambios</button>
+                <a asp-action="Index" class="btn btn-secondary mt-4">Cancelar</a>
             </div>
         </form>
     </div>
