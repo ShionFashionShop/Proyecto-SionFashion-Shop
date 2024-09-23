@@ -12,8 +12,8 @@ using SionFashioWebApplicationMVC.Datos;
 namespace SionFashioWebApplicationMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240920204604_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240923173136_cosasds")]
+    partial class cosasds
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

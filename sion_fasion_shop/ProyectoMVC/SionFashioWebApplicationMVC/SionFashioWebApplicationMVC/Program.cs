@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SionFashioWebApplicationMVC.Datos;
+using SionFashioWebApplicationMVC.Models.Semilla;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,29 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages(); // Asegúrate de agregar Razor Pages
 
 var app = builder.Build();
+
+
+
+//---------------------------------------------------
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        await IdentityDataInitializer.SeedData(services);
+        var context = services.GetRequiredService<ApplicationDbContext>();
+
+        
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error ocurred seeding the DB.");
+    }
+}
+
+
+//-------------------------------------------------------------------------------------------------
 
 // Configura el pipeline de la aplicación
 if (!app.Environment.IsDevelopment())
