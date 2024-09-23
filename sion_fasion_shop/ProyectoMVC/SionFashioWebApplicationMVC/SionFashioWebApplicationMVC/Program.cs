@@ -13,12 +13,13 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// Configura los servicios de identidad
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+// Configura los servicios de identidad, incluyendo roles
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true; // Puedes ajustar esto según tus necesidades
 })
-.AddEntityFrameworkStores<ApplicationDbContext>();
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
 // Agrega servicios para los controladores y vistas
 builder.Services.AddControllersWithViews();
@@ -26,26 +27,22 @@ builder.Services.AddRazorPages(); // Asegúrate de agregar Razor Pages
 
 var app = builder.Build();
 
-
-
 //---------------------------------------------------
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try
     {
+        // Aquí puedes inicializar datos relacionados con roles y usuarios
         await IdentityDataInitializer.SeedData(services);
         var context = services.GetRequiredService<ApplicationDbContext>();
-
-        
     }
     catch (Exception ex)
     {
         var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error ocurred seeding the DB.");
+        logger.LogError(ex, "An error occurred seeding the DB.");
     }
 }
-
 
 //-------------------------------------------------------------------------------------------------
 

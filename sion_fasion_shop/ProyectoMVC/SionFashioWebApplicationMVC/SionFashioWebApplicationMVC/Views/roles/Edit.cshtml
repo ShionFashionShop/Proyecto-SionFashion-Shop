@@ -1,39 +1,72 @@
-﻿@model SionFashioWebApplicationMVC.Models.role
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
 
-@{
-    ViewData["Title"] = "Edit";
-}
+    <h2>Roles: </h2>
 
-<h1>Edit</h1>
+  
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Crear Rol</a>
+    
 
-<h4>role</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="id_rol" />
-            <div class="form-group">
-                <h6>Rol</h6>
-                <input asp-for="nombre_rol" class="form-control" />
-                <span asp-validation-for="nombre_rol" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <h6>Descripcion del rol</h6>
-                <input asp-for="descripcion_rol" class="form-control" />
-                <span asp-validation-for="descripcion_rol" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary mt-4" />
-            </div>
-        </form>
-    </div>
-</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
 
-<div>
-    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
-</div>
-
+        <tbody>
+            @foreach(var role in Model)
+            {
+                    <tr>
+                        <td>
+                            @role.Name
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@role.Id" class="btn btn-primary">
+                                <i class="bi bi-pencil-square"></i>Edit
+                            </a>
+                            <form asp-action="Delete" asp-route-id="@role.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger delete-button">
+                                    <i class="bi bi-trash-fill"></i>Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const form = this.closest('form');
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: '¡Sí, bórralo!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+        @if (Context.Request.Query.ContainsKey("deletionSuccess"))
+        {
+            <text>
+                Swal.fire({
+                    title: "¡Eliminado!",
+                    text: "El rol ha sido eliminado correctamente.",
+                    icon: "success"
+                });
+            </text>
+        }
+    </script>
 }

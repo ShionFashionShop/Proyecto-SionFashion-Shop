@@ -1,78 +1,72 @@
-﻿@model IEnumerable<SionFashioWebApplicationMVC.Models.role>
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
 
-@{
-    ViewData["Title"] = "Roles";
-}
+    <h2>Roles: </h2>
 
-<h1>@ViewData["Title"]</h1>
+  
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Crear Rol</a>
+    
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">Crear Nuevo</a>
-</p>
-
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Rol</th>
-            <th>Descripcion del rol</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.nombre_rol)</td>
-                <td>@Html.DisplayFor(modelItem => item.descripcion_rol)</td>
-                <td>
-                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_rol">Detalles</a>
-                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_rol">Editar</a>
-                    <a class="btn btn-danger btn-sm btn-delete" href="@Url.Action("Delete", new { id = item.id_rol })">Eliminar</a>
-                </td>
+                <th>Name</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
 
+        <tbody>
+            @foreach(var role in Model)
+            {
+                    <tr>
+                        <td>
+                            @role.Name
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@role.Id" class="btn btn-primary">
+                                <i class="bi bi-pencil-square"></i>Edit
+                            </a>
+                            <form asp-action="Delete" asp-route-id="@role.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger delete-button">
+                                    <i class="bi bi-trash-fill"></i>Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
 @section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-        $(document).ready(function () {
-            $('.table').DataTable({
-                // Puedes personalizar la configuración aquí
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es.json' // Configuración en español
-                }
-            });
-        });
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const form = this.closest('form');
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var deleteButtons = document.querySelectorAll('.btn-delete');
-
-            deleteButtons.forEach(function (button) {
-                button.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    var href = this.getAttribute('href');
-
-                    Swal.fire({
-                        title: '¿Estás seguro?',
-                        text: "Esta acción no se puede deshacer",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Sí, eliminar',
-                        cancelButtonText: 'Cancelar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = href;
-                        }
-                    });
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: '¡Sí, bórralo!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
                 });
             });
         });
+        @if (Context.Request.Query.ContainsKey("deletionSuccess"))
+        {
+            <text>
+                Swal.fire({
+                    title: "¡Eliminado!",
+                    text: "El rol ha sido eliminado correctamente.",
+                    icon: "success"
+                });
+            </text>
+        }
     </script>
 }

@@ -1,38 +1,22 @@
-﻿@model SionFashioWebApplicationMVC.Models.role
+﻿@model SionFashioWebApplicationMVC.Models.ViewModels.RolViewModel
 
-@{
-    ViewData["Title"] = "Create";
-}
-
-<h1>Create</h1>
-
-<h4>Roles</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <h6>Nombre rol</h6>
-                <input asp-for="nombre_rol" class="form-control" />
-                <span asp-validation-for="nombre_rol" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <h6>Descripcion del rol</h6>
-                <input asp-for="descripcion_rol" class="form-control" />
-                <span asp-validation-for="descripcion_rol" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary mt-4" />
-            </div>
-        </form>
+<h2>Crear Role</h2>
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Role Name</label>
+        <input asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-</div>
+    <button type="submit" class="btn btn-primary">
+        <i class="bi bi-check-circle"></i> Create
+    </button>
+    <a asp-action="Index" class="btn btn-secondary mt-2"> Volver a la Lista </a>
 
-<div>
-    <a class="btn btn-secondary mt-2" asp-action="Index">Back to List</a>
-</div>
+</form>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
