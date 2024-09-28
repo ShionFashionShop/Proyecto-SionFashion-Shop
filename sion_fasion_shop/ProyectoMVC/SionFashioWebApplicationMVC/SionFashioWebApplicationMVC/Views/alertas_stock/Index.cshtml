@@ -25,7 +25,7 @@
             <tr>
                 <td>@item.nivel_minimo</td>
                 <td>@item.fecha_alerta.ToShortDateString()</td>
-                <td>@item.id_productoNavigation.id_producto</td>
+                <td>@item.id_productoNavigation.nombre_producto</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_alerta">Detalles</a>
                     <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_alerta">Editar</a>

@@ -14,13 +14,13 @@
             @Html.DisplayNameFor(model => model.id_clienteNavigation)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_clienteNavigation.id_cliente)
+            @Html.DisplayFor(model => model.id_clienteNavigation.nombre_cliente)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.id_empleadoNavigation)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_empleadoNavigation.id_empleado)
+            @Html.DisplayFor(model => model.id_empleadoNavigation.nombres_empleado)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.id_facturaNavigation)
@@ -31,6 +31,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_orden_compra">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" class="btn btn-primary"      asp-route-id="@Model?.id_orden_compra">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>

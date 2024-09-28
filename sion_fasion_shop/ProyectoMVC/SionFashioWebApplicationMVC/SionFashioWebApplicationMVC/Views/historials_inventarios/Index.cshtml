@@ -11,15 +11,16 @@
 </p>
 
 <table class="table table-striped table-bordered">
-    <thead>
+    <thead class="thead-dark">
         <tr>
-            <th>@Html.DisplayNameFor(model => model.cantidad)</th>
-            <th>@Html.DisplayNameFor(model => model.tipo_cambio)</th>
-            <th>@Html.DisplayNameFor(model => model.fecha_cambio)</th>
-            <th>@Html.DisplayNameFor(model => model.id_productoNavigation)</th>
+            <th>Cantidad</th>
+            <th>Tipo de Cambio</th>
+            <th>Fecha de Cambio</th>
+            <th>Producto Asociado</th>
             <th>Acciones</th>
         </tr>
     </thead>
+
     <tbody>
         @foreach (var item in Model)
         {

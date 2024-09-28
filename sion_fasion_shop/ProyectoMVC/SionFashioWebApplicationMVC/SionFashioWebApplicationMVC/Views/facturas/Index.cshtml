@@ -11,13 +11,13 @@
 </p>
 
 <table class="table table-striped table-bordered">
-    <thead>
+    <thead class="thead-dark">
         <tr>
-            <th>@Html.DisplayNameFor(model => model.fecha_emision_factura)</th>
-            <th>@Html.DisplayNameFor(model => model.sub_total_factura)</th>
-            <th>@Html.DisplayNameFor(model => model.impuesto_factura)</th>
-            <th>@Html.DisplayNameFor(model => model.total_factura)</th>
-            <th>@Html.DisplayNameFor(model => model.id_clienteNavigation)</th>
+            <th>Fecha de Emisión</th>
+            <th>Subtotal</th>
+            <th>Impuesto</th>
+            <th>Total</th>
+            <th>Cliente Asociado</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -29,7 +29,7 @@
                 <td>@Html.DisplayFor(modelItem => item.sub_total_factura)</td>
                 <td>@Html.DisplayFor(modelItem => item.impuesto_factura)</td>
                 <td>@Html.DisplayFor(modelItem => item.total_factura)</td>
-                <td>@Html.DisplayFor(modelItem => item.id_clienteNavigation.id_cliente)</td>
+                <td>@Html.DisplayFor(modelItem => item.id_clienteNavigation.nombre_cliente)</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_factura">Detalles</a>
                     <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_factura">Editar</a>

@@ -3,76 +3,98 @@
 }
 
 <div class="container mt-5 text-center">
-    <h1 class="display-4 text-primary">Welcome to Your Inventory System</h1>
-    <p class="lead">Manage and track your inventory effectively with our intuitive system.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
+    <h1 class="display-3 text-dark">Bienvenido a su sistema de inventario</h1>
+    <p class="lead text-muted">Gestione y realice un seguimiento eficaz de su inventario con nuestras herramientas.</p>
+    <a class="btn btn-lg btn-outline-primary shadow-sm" href="https://localhost:7180/Identity/Account/Login" role="button">Get Started</a>
 </div>
 
-<div class="container mt-5">
-    <div class="row text-center">
-        <div class="col-md-4">
-            <a href="#" class="text-decoration-none">
-                <div class="card shadow-lg mb-4">
-                    <div class="card-body">
-                        <i class="fas fa-boxes fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Products</h5>
-                        <p class="card-text">Manage and update product details.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4">
-            <a href="#" class="text-decoration-none">
-                <div class="card shadow-lg mb-4">
-                    <div class="card-body">
-                        <i class="fas fa-truck fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Suppliers</h5>
-                        <p class="card-text">Keep track of your suppliers and contacts.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4">
-            <a href="#" class="text-decoration-none">
-                <div class="card shadow-lg mb-4">
-                    <div class="card-body">
-                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Reports</h5>
-                        <p class="card-text">Generate detailed inventory reports.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+<!-- Carrusel de imágenes moderno -->
+<div id="inventoryCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#inventoryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#inventoryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#inventoryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-
-    <div class="row text-center mt-5">
-        <div class="col-md-3">
-            <div class="p-4 bg-light rounded shadow-sm">
-                <h5>Total Products</h5>
-                <h2 class="display-5">150</h2>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://media.gettyimages.com/id/1367106352/es/foto/un-trabajador-del-almac%C3%A9n-hace-un-inventario-en-la-sala-de-almacenamiento.jpg?s=612x612&w=0&k=20&c=LOmYZm_Dd-gYngcrTxM4Z9kbtnGKMXcAuVKQk6OCHC8=" class="d-block w-100" alt="Inventory System Slide 1">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Gestión eficaz del inventario</h5>
+                <p>Realice un seguimiento de productos y proveedores con facilidad.</p>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="p-4 bg-light rounded shadow-sm">
-                <h5>Low Stock</h5>
-                <h2 class="display-5">12</h2>
+        <div class="carousel-item">
+            <img src="https://media.istockphoto.com/id/1434437996/es/foto/mujer-escribiendo-a-mano-en-el-portapapeles-con-un-bol%C3%ADgrafo.webp?a=1&b=1&s=612x612&w=0&k=20&c=dJY6wQAHYsiWJR2w2e_mNx1HJwgmKtTH4TlJ0oca4J4=" class="d-block w-100" alt="Inventory System Slide 2">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Análisis en tiempo real</h5>
+                <p>Genere informes detallados y controle sus existencias en tiempo real.</p>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="p-4 bg-light rounded shadow-sm">
-                <h5>Total Suppliers</h5>
-                <h2 class="display-5">25</h2>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="p-4 bg-light rounded shadow-sm">
-                <h5>Pending Orders</h5>
-                <h2 class="display-5">7</h2>
+        <div class="carousel-item">
+            <img src="https://media.istockphoto.com/id/2149061307/es/foto/distribuci%C3%B3n-inventario-y-mujer-con-tablet-stock-e-industria-con-almacenaje-y-negocio-env%C3%ADos.webp?a=1&b=1&s=612x612&w=0&k=20&c=-o_VN_YqbIP2N79rtX4juAtBCuo3I0eRUxmuzns4VRA=" class="d-block w-100" alt="Inventory System Slide 3">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Optimizado para la productividad</h5>
+                <p>Mejore sus flujos de trabajo con nuestro sistema intuitivo.</p>
             </div>
         </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#inventoryCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#inventoryCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
+<!-- Custom Styles -->
+<style>
+    .hover-card:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+    }
 
+    .stat-card {
+        transition: all 0.3s ease;
+    }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+        .stat-card:hover {
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+    .btn-outline-primary {
+        border: 2px solid #007bff;
+        color: #007bff;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+    /* Estilos del carrusel */
+    .carousel-caption h5 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+
+    .carousel-inner img {
+        object-fit: cover;
+        height: 500px;
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
