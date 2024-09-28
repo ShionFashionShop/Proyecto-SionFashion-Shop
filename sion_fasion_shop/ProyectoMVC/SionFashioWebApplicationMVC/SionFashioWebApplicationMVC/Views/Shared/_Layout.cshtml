@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,6 +13,52 @@
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa; /* Fondo claro */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #343a40; /* Color de encabezados */
+        }
+
+        /* Estilos de la barra de navegación */
+        .navbar {
+            background-color: #d63384 !important; /* Fondo rosado */
+            color: #007bff; /* Color de enlace al pasar el mouse */
+        }
+
+        .navbar-nav .nav-link {
+            color: #495057; /* Color de enlaces de navegación */
+        }
+
+        /* Estilos de tablas */
+        table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #d63384; /* Fondo rosado oscuro */
+            color: #000000; /* Color de letra negro para todo el pie de página */
+            text-align: center; /* Centrar el texto */
+        }
+
+            footer a {
+                color: #000000; /* Color de enlaces en el pie de página */
+            }
+
+                footer a:hover {
+                    color: #ff99cc; /* Color de enlace al pasar el mouse */
+                }
+    </style>
+
+
 </head>
 <body>
     <header>
@@ -28,56 +77,76 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Gestión
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Empleados" asp-action="Index">Empleados</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Paises" asp-action="Index">Paises</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="tiendas" asp-action="Index">Tiendas</a></li>
-                              
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var user = await UserManager.GetUserAsync(User);
+                            if (user != null && (await UserManager.IsInRoleAsync(user, "Root")))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Gestion
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Empleados" asp-action="Index">Empleados</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Paises" asp-action="Index">Paises</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="tiendas" asp-action="Index">Tiendas</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="registros_actividade" asp-action="Index">Registros de Actividades</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="alertas_stock" asp-action="Index">Alertas_Stock</a></li>
+                                    </ul>
+                                </li>
+                            }
+                        }
 
-                            </ul>
-                            
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Más
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="alertas_stock" asp-action="Index">Alertas_Stock</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="categorias" asp-action="Index">Categorias</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Ciudades" asp-action="Index">Ciudades</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="inventarios" asp-action="Index">Inventarios</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="historials_inventarios" asp-action="Index">Historial de el Inventario</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="roles" asp-action="Index">Roles</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Empresas" asp-action="Index">Empresas</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="facturas" asp-action="Index">Factura</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="metodos_de_pagos" asp-action="Index">Metodos de Pagos</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="ordenes_de_compra" asp-action="Index">Ordenes de Compra</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="ordenes_producto" asp-action="Index">Ordenes de Producto</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="registros_actividade" asp-action="Index">Registros de Actividades</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="sub_categoria" asp-action="Index">Sub Categoria</a></li>
-                            </ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var user = await UserManager.GetUserAsync(User);
+                            if (user != null && (await UserManager.IsInRoleAsync(user, "Root")))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Mas
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="categorias" asp-action="Index">Categorias</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Ciudades" asp-action="Index">Ciudades</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="inventarios" asp-action="Index">Inventarios</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="historials_inventarios" asp-action="Index">Historial de el Inventario</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Empresas" asp-action="Index">Empresas</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="facturas" asp-action="Index">Factura</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="metodos_de_pagos" asp-action="Index">Metodos de Pagos</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="ordenes_de_compra" asp-action="Index">Ordenes de Compra</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="ordenes_producto" asp-action="Index">Ordenes de Producto</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="sub_categoria" asp-action="Index">Sub Categoria</a></li>
+                                    </ul>
+                                </li>
+                            }
+                        }
 
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Root
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Roles" asp-action="Index">Roles </a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="UserRoles" asp-action="Index">Usuarios-Roles
-                                    </a></li>
-                            </ul>
-
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var user = await UserManager.GetUserAsync(User);
+                            if (user != null && (await UserManager.IsInRoleAsync(user, "Root")))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Root
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="roles" asp-action="Index">Roles </a></li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="" asp-controller="UserRoles" asp-action="Index">
+                                                Usuarios-Roles
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                        }             
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -90,7 +159,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer">
         <div class="container">
             &copy; 2024 - SionFashioWebApplicationMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

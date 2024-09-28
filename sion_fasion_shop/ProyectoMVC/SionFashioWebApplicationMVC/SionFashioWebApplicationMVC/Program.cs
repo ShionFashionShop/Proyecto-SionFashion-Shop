@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using SionFashioWebApplicationMVC.Datos;
 using SionFashioWebApplicationMVC.Models.Semilla;
+using SionFashioWebApplicationMVC.Servicess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Configura el contexto de la base de datos
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+// Registra la implementación de IEmailSender
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration.GetSection("AuthMessageSenderOptions"));
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 // Configura los servicios de identidad, incluyendo roles
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>

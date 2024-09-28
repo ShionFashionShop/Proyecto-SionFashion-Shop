@@ -48,7 +48,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_proveedor,nombre_proveedor,contacto_proveedor,email_proveedor,id_ciudad")] proveedore proveedor)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(proveedor);
                 await _context.SaveChangesAsync();
@@ -80,7 +80,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {

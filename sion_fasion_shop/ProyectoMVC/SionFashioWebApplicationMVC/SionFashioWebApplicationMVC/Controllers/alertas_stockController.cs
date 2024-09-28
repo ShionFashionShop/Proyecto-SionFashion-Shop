@@ -59,7 +59,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_alerta,id_producto,nivel_minimo,fecha_alerta")] alertas_stock alertas_stock)
         {
-            if (ModelState.IsValid)
+            // if (ModelState.IsValid)
             {
                 _context.Add(alertas_stock);
                 await _context.SaveChangesAsync();
@@ -98,7 +98,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {
