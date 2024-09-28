@@ -1,16 +1,16 @@
 ﻿@model SionFashioWebApplicationMVC.Models.ciudade
 
 @{
-    ViewData["Title"] = "City Details";
+    ViewData["Title"] = " Details";
 }
 
 <h1>City Details</h1>
 
-<div class="card">
-    <div class="card-header">
-        Detalles de la ciuadad
+<div >
+    <div >
+        Detalles de la ciudad
     </div>
-    <div class="card-body">
+    <div >
         <dl class="row">
             <dt class="col-sm-3">Nombre de la Ciudad</dt>
             <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre_ciudad)</dd>
@@ -19,8 +19,8 @@
             <dd class="col-sm-9">@Html.DisplayFor(model => model.id_departamentoNavigation.nombre_departamento)</dd>
         </dl>
     </div>
-    <div class="card-footer">
-        <a asp-action="Edit" asp-route-id="@Model.id_ciudad" class="btn btn-warning">Edit</a>
+    <div >
+        <a asp-action="Edit" asp-route-id="@Model.id_ciudad" class="btn btn-primary">Edit</a>
         <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </div>
 </div>

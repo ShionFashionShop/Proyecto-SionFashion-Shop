@@ -11,11 +11,11 @@
 </p>
 
 <table class="table table-striped table-bordered">
-    <thead>
+    <thead class="thead-dark">
         <tr>
-            <th>@Html.DisplayNameFor(model => model.actividad)</th>
-            <th>@Html.DisplayNameFor(model => model.fecha_actividad)</th>
-            <th>@Html.DisplayNameFor(model => model.id_usuarioNavigation)</th>
+            <th>Actividad</th>
+            <th>Fecha de Actividad</th>
+            <th>Usuario</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -25,7 +25,7 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.actividad)</td>
                 <td>@Html.DisplayFor(modelItem => item.fecha_actividad)</td>
-                <td>@Html.DisplayFor(modelItem => item.id_usuarioNavigation.id_usuario)</td>
+                <td>@Html.DisplayFor(modelItem => item.id_usuarioNavigation.nombre_usuario)</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_registro">Detalles</a>
                     <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_registro">Editar</a>
@@ -77,4 +77,3 @@
         });
     </script>
 }
-    

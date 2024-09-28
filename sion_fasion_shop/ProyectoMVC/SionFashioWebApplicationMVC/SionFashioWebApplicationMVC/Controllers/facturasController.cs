@@ -59,7 +59,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_factura,fecha_emision_factura,sub_total_factura,impuesto_factura,total_factura,id_cliente")] factura factura)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(factura);
                 await _context.SaveChangesAsync();
@@ -98,7 +98,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {

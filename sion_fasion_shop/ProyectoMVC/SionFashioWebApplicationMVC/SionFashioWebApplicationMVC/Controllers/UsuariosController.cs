@@ -59,7 +59,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_usuario,nombre_usuario,clave_usuario,id_rol")] usuario usuario)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
@@ -98,7 +98,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {

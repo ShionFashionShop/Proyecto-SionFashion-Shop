@@ -46,8 +46,8 @@ namespace SionFashioWebApplicationMVC.Controllers
         // GET: Empleados/Create
         public IActionResult Create()
         {
-            ViewData["id_ciudad"] = new SelectList(_context.ciudades, "id_ciudad", "nombre_ciudad");
-            ViewData["id_tienda"] = new SelectList(_context.tiendas, "id_tienda", "nombre_tienda");
+            ViewBag.Ciudades = new SelectList(_context.ciudades, "id_ciudad", "nombre_ciudad");
+            ViewBag.Tiendas = new SelectList(_context.tiendas, "id_tienda", "nombre_tienda");
             return View();
         }
 
@@ -56,7 +56,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_empleado,dni_empleado,nombres_empleado,apellidos_empleado,telefono_empleado,email_empleado,id_tienda,id_ciudad")] empleado empleado)
         {
-            if (ModelState.IsValid)
+           // if (ModelState.IsValid) // Asegúrate de descomentar esto
             {
                 _context.Add(empleado);
                 await _context.SaveChangesAsync();
@@ -67,6 +67,7 @@ namespace SionFashioWebApplicationMVC.Controllers
             return View(empleado);
         }
 
+
         // GET: Empleados/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
@@ -75,8 +76,8 @@ namespace SionFashioWebApplicationMVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["id_ciudad"] = new SelectList(_context.ciudades, "id_ciudad", "nombre_ciudad", empleado.id_ciudad);
-            ViewData["id_tienda"] = new SelectList(_context.tiendas, "id_tienda", "nombre_tienda", empleado.id_tienda);
+            ViewBag.Ciudades = new SelectList(_context.ciudades, "id_ciudad", "nombre_ciudad", empleado.id_ciudad);
+            ViewBag.Tiendas = new SelectList(_context.tiendas, "id_tienda", "nombre_tienda", empleado.id_tienda);
             return View(empleado);
         }
 
@@ -90,7 +91,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {

@@ -13,9 +13,9 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.id_clienteNavigation)</th>
-            <th>@Html.DisplayNameFor(model => model.id_empleadoNavigation)</th>
-            <th>@Html.DisplayNameFor(model => model.id_facturaNavigation)</th>
+            <th>Cliente Asociado</th>
+            <th>Empleado Responsable</th>
+            <th>Factura Asociada</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -23,8 +23,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.id_clienteNavigation.id_cliente)</td>
-                <td>@Html.DisplayFor(modelItem => item.id_empleadoNavigation.id_empleado)</td>
+                <td>@Html.DisplayFor(modelItem => item.id_clienteNavigation.nombre_cliente)</td> <!-- Cambia `Nombre` por el nombre real de la propiedad -->
+                <td>@Html.DisplayFor(modelItem => item.id_empleadoNavigation.nombres_empleado)</td> <!-- Cambia `Nombre` por el nombre real de la propiedad -->
                 <td>@Html.DisplayFor(modelItem => item.id_facturaNavigation.id_factura)</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_orden_compra">Detalles</a>

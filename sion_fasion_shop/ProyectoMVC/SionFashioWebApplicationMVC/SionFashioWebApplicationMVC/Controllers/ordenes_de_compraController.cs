@@ -63,7 +63,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_orden_compra,id_cliente,id_factura,id_empleado")] ordenes_de_compra ordenes_de_compra)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(ordenes_de_compra);
                 await _context.SaveChangesAsync();
@@ -106,7 +106,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {

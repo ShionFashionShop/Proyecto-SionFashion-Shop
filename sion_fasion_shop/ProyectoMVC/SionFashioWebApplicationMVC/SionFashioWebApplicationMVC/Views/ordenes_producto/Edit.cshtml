@@ -12,13 +12,28 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- Campos ocultos para los IDs de la clave compuesta -->
             <input type="hidden" asp-for="id_orden_compra" />
             <input type="hidden" asp-for="id_producto" />
+
             <div class="form-group">
                 <label asp-for="cantidad" class="control-label"></label>
                 <input asp-for="cantidad" class="form-control" />
                 <span asp-validation-for="cantidad" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label>Orden de Compra Asociada</label>
+                <select asp-for="id_orden_compra" class="form-control" asp-items="ViewBag.id_orden_compra"></select>
+                <span asp-validation-for="id_orden_compra" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Producto Asociado</label>
+                <select asp-for="id_producto" class="form-control" asp-items="ViewBag.id_producto"></select>
+                <span asp-validation-for="id_producto" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -27,9 +42,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

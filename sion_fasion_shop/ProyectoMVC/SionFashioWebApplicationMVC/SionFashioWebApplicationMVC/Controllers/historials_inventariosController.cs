@@ -59,7 +59,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_historial_inventario,id_producto,cantidad,tipo_cambio,fecha_cambio")] historial_inventario historial_inventario)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(historial_inventario);
                 await _context.SaveChangesAsync();
@@ -98,7 +98,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {

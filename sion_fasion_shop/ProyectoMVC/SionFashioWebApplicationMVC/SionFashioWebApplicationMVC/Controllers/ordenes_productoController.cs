@@ -61,7 +61,7 @@ namespace SionFashioWebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_orden_compra,id_producto,cantidad")] ordenes_producto ordenes_producto)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 _context.Add(ordenes_producto);
                 await _context.SaveChangesAsync();
@@ -72,37 +72,38 @@ namespace SionFashioWebApplicationMVC.Controllers
             return View(ordenes_producto);
         }
 
-        // GET: ordenes_producto/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: ordenes_producto/Edit/id_orden_compra/id_producto
+        public async Task<IActionResult> Edit(int? id_orden_compra, int? id_producto)
         {
-            if (id == null)
+            if (id_orden_compra == null || id_producto == null)
             {
                 return NotFound();
             }
 
-            var ordenes_producto = await _context.ordenes_productos.FindAsync(id);
+            var ordenes_producto = await _context.ordenes_productos
+                .FindAsync(id_orden_compra, id_producto); // Busca usando ambos IDs
             if (ordenes_producto == null)
             {
                 return NotFound();
             }
+
             ViewData["id_orden_compra"] = new SelectList(_context.ordenes_de_compras, "id_orden_compra", "id_orden_compra", ordenes_producto.id_orden_compra);
             ViewData["id_producto"] = new SelectList(_context.productos, "id_producto", "id_producto", ordenes_producto.id_producto);
             return View(ordenes_producto);
         }
 
-        // POST: ordenes_producto/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: ordenes_producto/Edit/id_orden_compra/id_producto
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_orden_compra,id_producto,cantidad")] ordenes_producto ordenes_producto)
+        public async Task<IActionResult> Edit(int id_orden_compra, int id_producto, [Bind("id_orden_compra,id_producto,cantidad")] ordenes_producto ordenes_producto)
         {
-            if (id != ordenes_producto.id_orden_compra)
+            // Verifica que los IDs coincidan
+            if (id_orden_compra != ordenes_producto.id_orden_compra || id_producto != ordenes_producto.id_producto)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 try
                 {
@@ -111,7 +112,7 @@ namespace SionFashioWebApplicationMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ordenes_productoExists(ordenes_producto.id_orden_compra))
+                    if (!ordenes_productoExists(ordenes_producto.id_orden_compra, ordenes_producto.id_producto)) // Modifica este método para comprobar ambos IDs
                     {
                         return NotFound();
                     }
@@ -122,10 +123,12 @@ namespace SionFashioWebApplicationMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["id_orden_compra"] = new SelectList(_context.ordenes_de_compras, "id_orden_compra", "id_orden_compra", ordenes_producto.id_orden_compra);
             ViewData["id_producto"] = new SelectList(_context.productos, "id_producto", "id_producto", ordenes_producto.id_producto);
             return View(ordenes_producto);
         }
+
 
         // GET: ordenes_producto/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -162,9 +165,10 @@ namespace SionFashioWebApplicationMVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ordenes_productoExists(int id)
+        private bool ordenes_productoExists(int id_orden_compra, int id_producto)
         {
-            return _context.ordenes_productos.Any(e => e.id_orden_compra == id);
+            return _context.ordenes_productos.Any(e => e.id_orden_compra == id_orden_compra && e.id_producto == id_producto);
         }
+
     }
 }

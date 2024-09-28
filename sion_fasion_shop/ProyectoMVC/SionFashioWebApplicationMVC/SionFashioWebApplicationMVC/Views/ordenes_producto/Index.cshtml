@@ -13,27 +13,29 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.cantidad)</th>
-            <th>@Html.DisplayNameFor(model => model.id_orden_compraNavigation)</th>
-            <th>@Html.DisplayNameFor(model => model.id_productoNavigation)</th>
+            <th>Cantidad</th> <!-- Cambia el nombre de la propiedad a uno más descriptivo -->
+            <th>Orden de Compra Asociada</th> <!-- Cambia el nombre de la propiedad a uno más descriptivo -->
+            <th>Producto Asociado</th> <!-- Cambia el nombre de la propiedad a uno más descriptivo -->
             <th>Acciones</th>
         </tr>
     </thead>
+
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.cantidad)</td>
                 <td>@Html.DisplayFor(modelItem => item.id_orden_compraNavigation.id_orden_compra)</td>
-                <td>@Html.DisplayFor(modelItem => item.id_productoNavigation.id_producto)</td>
+                <td>@Html.DisplayFor(modelItem => item.id_productoNavigation.nombre_producto)</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_orden_compra">Detalles</a>
-                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_orden_compra">Editar</a>
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id_orden_compra="@item.id_orden_compra" asp-route-id_producto="@item.id_producto">Editar</a>
                     <a class="btn btn-danger btn-sm btn-delete" href="@Url.Action("Delete", new { id = item.id_orden_compra })">Eliminar</a>
                 </td>
             </tr>
         }
     </tbody>
+
 </table>
 
 @section Scripts {
