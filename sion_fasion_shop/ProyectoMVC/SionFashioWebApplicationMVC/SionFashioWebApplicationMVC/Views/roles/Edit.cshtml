@@ -1,72 +1,42 @@
-﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+﻿@model SionFashioWebApplicationMVC.Models.ViewModels.RolViewModel
 
-    <h2>Roles: </h2>
+@{
+    ViewData["Title"] = "Editar Rol";
+}
 
-  
-    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Crear Rol</a>
-    
+<h2>Editar Rol</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <tbody>
-            @foreach(var role in Model)
-            {
-                    <tr>
-                        <td>
-                            @role.Name
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@role.Id" class="btn btn-primary">
-                                <i class="bi bi-pencil-square"></i>Edit
-                            </a>
-                            <form asp-action="Delete" asp-route-id="@role.Id" method="post" class="d-inline">
-                                <button type="submit" class="btn btn-danger delete-button">
-                                    <i class="bi bi-trash-fill"></i>Delete
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-            }
-        </tbody>
-    </table>
+            <!-- Hidden field to store the role ID -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Input for Role Name -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Save button -->
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Back to Index link -->
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>
+
 @section Scripts {
-    <script>
-        document.querySelectorAll('.delete-button').forEach(button => {
-            button.addEventListener('click', function (e) {
-                e.preventDefault();
-                const form = this.closest('form');
-
-                Swal.fire({
-                    title: '¿Estás seguro?',
-                    text: "¡No podrás revertir esto!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: '¡Sí, bórralo!',
-                    cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
-                    }
-                });
-            });
-        });
-        @if (Context.Request.Query.ContainsKey("deletionSuccess"))
-        {
-            <text>
-                Swal.fire({
-                    title: "¡Eliminado!",
-                    text: "El rol ha sido eliminado correctamente.",
-                    icon: "success"
-                });
-            </text>
-        }
-    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

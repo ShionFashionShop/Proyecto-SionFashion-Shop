@@ -10,7 +10,7 @@
     <a class="btn btn-primary" asp-action="Create">Crear Nuevo País</a>
 </p>
 
-<table class="table table-striped">
+<table id="paisesTable" class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>ID</th>
@@ -36,8 +36,19 @@
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        $(document).ready(function () {
+            // Inicializar DataTables en la tabla de países
+            $('#paisesTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+                }
+            });
+
+            // Funcionalidad de confirmación de eliminación con SweetAlert2
             var deleteButtons = document.querySelectorAll('.btn-delete');
 
             deleteButtons.forEach(function (button) {
