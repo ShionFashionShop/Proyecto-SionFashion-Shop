@@ -11,9 +11,11 @@ public partial class departamento
     [Key]
     public int id_departamento { get; set; }
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El nombre del departamento es obligatorio.")]
+    [StringLength(255, ErrorMessage = "El nombre del departamento no puede exceder los 255 caracteres.")]
     public string nombre_departamento { get; set; } = null!;
 
+    [Required(ErrorMessage = "El país es obligatorio.")]
     public int id_pais { get; set; }
 
     [InverseProperty("id_departamentoNavigation")]

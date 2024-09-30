@@ -12,7 +12,8 @@ public partial class metodos_de_pago
     [Key]
     public int id_metodo_pago { get; set; }
 
-    [StringLength(50)]
+    [Required(ErrorMessage = "El método de pago es obligatorio.")]
+    [StringLength(50, ErrorMessage = "El método de pago no puede exceder los 50 caracteres.")]
     public string metodo_pago { get; set; } = null!;
 
     public int? id_factura { get; set; }

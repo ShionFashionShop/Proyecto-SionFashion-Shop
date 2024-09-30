@@ -13,9 +13,12 @@ public partial class registros_actividade
 
     public int id_usuario { get; set; }
 
+    [Required(ErrorMessage = "La actividad es obligatoria.")]
+    [StringLength(500, ErrorMessage = "La actividad no puede exceder los 500 caracteres.")]
     public string actividad { get; set; } = null!;
 
     [Column(TypeName = "datetime")]
+    [DataType(DataType.DateTime, ErrorMessage = "Formato de fecha inválido.")]
     public DateTime fecha_actividad { get; set; }
 
     [ForeignKey("id_usuario")]

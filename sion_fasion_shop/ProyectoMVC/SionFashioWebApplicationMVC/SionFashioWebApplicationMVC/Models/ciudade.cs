@@ -11,7 +11,8 @@ public partial class ciudade
     [Key]
     public int id_ciudad { get; set; }
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El nombre de la ciudad es obligatorio.")]
+    [StringLength(100, ErrorMessage = "El nombre de la ciudad no puede exceder los 100 caracteres.")]
     public string nombre_ciudad { get; set; } = null!;
 
     public int id_departamento { get; set; }

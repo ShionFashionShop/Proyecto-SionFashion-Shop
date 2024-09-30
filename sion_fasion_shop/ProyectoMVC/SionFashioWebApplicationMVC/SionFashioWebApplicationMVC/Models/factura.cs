@@ -11,18 +11,26 @@ public partial class factura
     [Key]
     public int id_factura { get; set; }
 
+    [Required(ErrorMessage = "La fecha de emisión es obligatoria.")]
     [Column(TypeName = "datetime")]
     public DateTime fecha_emision_factura { get; set; }
 
+    [Required(ErrorMessage = "El subtotal es obligatorio.")]
+    [Range(0, 9999999999.99, ErrorMessage = "El subtotal debe estar entre 0 y 9999999999.99.")]
     [Column(TypeName = "decimal(10, 2)")]
     public decimal sub_total_factura { get; set; }
 
+    [Required(ErrorMessage = "El impuesto es obligatorio.")]
+    [Range(0, 9999999999.99, ErrorMessage = "El impuesto debe estar entre 0 y 9999999999.99.")]
     [Column(TypeName = "decimal(10, 2)")]
     public decimal impuesto_factura { get; set; }
 
+    [Required(ErrorMessage = "El total es obligatorio.")]
+    [Range(0, 9999999999.99, ErrorMessage = "El total debe estar entre 0 y 9999999999.99.")]
     [Column(TypeName = "decimal(10, 2)")]
     public decimal total_factura { get; set; }
 
+    [Required(ErrorMessage = "El cliente es obligatorio.")]
     public int id_cliente { get; set; }
 
     [ForeignKey("id_cliente")]
