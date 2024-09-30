@@ -53,39 +53,63 @@ namespace SionFashioWebApplicationMVC.Controllers
             return View(model);
         }
 
+        // GET: Roles/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
             var role = await _roleManager.FindByIdAsync(id);
             if (role == null)
             {
                 return NotFound();
             }
-            RolViewModel model = new RolViewModel { Id = role.Id, Name = role.Name };
+
+            // Mapeo del IdentityRole al RolViewModel
+            RolViewModel model = new RolViewModel
+            {
+                Id = role.Id,
+                Name = role.Name
+            };
+
             return View(model);
         }
 
+        // POST: Roles/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(RolViewModel model)
         {
             if (ModelState.IsValid)
             {
+                // Busca el rol por su ID
                 var role = await _roleManager.FindByIdAsync(model.Id);
                 if (role == null)
                 {
                     return NotFound();
                 }
+
+                // Actualiza el nombre del rol
                 role.Name = model.Name;
+
+                // Intenta actualizar el rol en la base de datos
                 var result = await _roleManager.UpdateAsync(role);
                 if (result.Succeeded)
                 {
+                    TempData["SuccessMessage"] = "El rol se ha actualizado correctamente.";
                     return RedirectToAction("Index");
                 }
+
+                // Si hay errores, los agregamos al ModelState
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(" ", error.Description);
+                    ModelState.AddModelError(string.Empty, error.Description);  // Corregido el parámetro vacío
                 }
             }
+
+            // Si llegamos aquí, algo falló, regresamos el modelo con los errores
             return View(model);
         }
 

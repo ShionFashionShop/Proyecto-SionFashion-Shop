@@ -28,7 +28,7 @@
                 <td>@Html.DisplayFor(modelItem => item.cantidad)</td>
                 <td>@Html.DisplayFor(modelItem => item.tipo_cambio)</td>
                 <td>@Html.DisplayFor(modelItem => item.fecha_cambio)</td>
-                <td>@Html.DisplayFor(modelItem => item.id_productoNavigation.id_producto)</td>
+                <td>@Html.DisplayFor(modelItem => item.id_productoNavigation.nombre_producto)</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_historial_inventario">Detalles</a>
                     <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_historial_inventario">Editar</a>

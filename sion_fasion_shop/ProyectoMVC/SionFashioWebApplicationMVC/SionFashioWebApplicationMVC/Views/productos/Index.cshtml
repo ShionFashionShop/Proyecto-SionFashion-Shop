@@ -37,9 +37,9 @@
                 <td>@item.peso_del_producto</td>
                 <td>@item.ubicacion_producto</td>
                 <td>@(item.id_facturaNavigation != null ? item.id_facturaNavigation.id_factura.ToString() : "Sin factura")</td>
-                <td>@(item.id_proveedorNavigation != null ? item.id_proveedorNavigation.id_proveedor.ToString() : "Sin proveedor")</td>
-                <td>@(item.id_sub_categoriaNavigation != null ? item.id_sub_categoriaNavigation.id_sub_categoria.ToString() : "Sin subcategoría")</td>
-                <td>@(item.id_tiendaNavigation != null ? item.id_tiendaNavigation.id_tienda.ToString() : "Sin tienda")</td>
+                <td>@(item.id_proveedorNavigation != null ? item.id_proveedorNavigation.nombre_proveedor.ToString() : "Sin proveedor")</td>
+                <td>@(item.id_sub_categoriaNavigation != null ? item.id_sub_categoriaNavigation.nombre_sub_categoria.ToString() : "Sin subcategoría")</td>
+                <td>@(item.id_tiendaNavigation != null ? item.id_tiendaNavigation.nombre_tienda.ToString() : "Sin tienda")</td>
                 <td>
                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id_producto">Detalles</a>
                     <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id_producto">Editar</a>
