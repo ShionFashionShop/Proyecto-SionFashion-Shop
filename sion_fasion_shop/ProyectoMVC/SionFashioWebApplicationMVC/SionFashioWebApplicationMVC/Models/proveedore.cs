@@ -11,13 +11,15 @@ public partial class proveedore
     [Key]
     public int id_proveedor { get; set; }
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El nombre del proveedor es obligatorio.")]
+    [StringLength(255, ErrorMessage = "El nombre del proveedor no puede exceder los 255 caracteres.")]
     public string nombre_proveedor { get; set; } = null!;
 
-    [StringLength(255)]
+    [StringLength(255, ErrorMessage = "El contacto del proveedor no puede exceder los 255 caracteres.")]
     public string? contacto_proveedor { get; set; }
 
-    [StringLength(255)]
+    [StringLength(255, ErrorMessage = "El email del proveedor no puede exceder los 255 caracteres.")]
+    [EmailAddress(ErrorMessage = "El formato del email no es válido.")]
     public string? email_proveedor { get; set; }
 
     public int? id_ciudad { get; set; }

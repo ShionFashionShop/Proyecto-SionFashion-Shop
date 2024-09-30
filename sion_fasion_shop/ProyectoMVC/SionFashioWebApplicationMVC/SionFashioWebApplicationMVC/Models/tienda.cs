@@ -11,18 +11,23 @@ public partial class tienda
     [Key]
     public int id_tienda { get; set; }
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El nombre de la tienda es obligatorio.")]
+    [StringLength(255, ErrorMessage = "El nombre de la tienda no puede exceder los 255 caracteres.")]
     public string nombre_tienda { get; set; } = null!;
 
-    [StringLength(255)]
+    [StringLength(255, ErrorMessage = "El teléfono de la tienda no puede exceder los 255 caracteres.")]
+    [RegularExpression(@"^\+?\d+$", ErrorMessage = "El teléfono de la tienda solo puede contener números positivos y el símbolo '+'.")]
     public string? telefono_tienda { get; set; }
 
-    [StringLength(255)]
+    [StringLength(255, ErrorMessage = "La ubicación de la tienda no puede exceder los 255 caracteres.")]
     public string? ubicacion_tienda { get; set; }
 
+    [Required(ErrorMessage = "El ID de la ciudad es obligatorio.")]
     public int id_ciudad { get; set; }
 
+    [Required(ErrorMessage = "El ID de la empresa es obligatorio.")]
     public int id_empresa { get; set; }
+
 
     [InverseProperty("id_tiendaNavigation")]
     public virtual ICollection<empleado> empleados { get; set; } = new List<empleado>();

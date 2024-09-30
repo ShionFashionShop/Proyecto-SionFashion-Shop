@@ -11,9 +11,11 @@ public partial class sub_categoria
     [Key]
     public int id_sub_categoria { get; set; }
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El nombre de la subcategoría es obligatorio.")]
+    [StringLength(255, ErrorMessage = "El nombre de la subcategoría no puede exceder los 255 caracteres.")]
     public string nombre_sub_categoria { get; set; } = null!;
 
+    [Required(ErrorMessage = "El ID de la categoría es obligatorio.")]
     public int id_categoria { get; set; }
 
     [ForeignKey("id_categoria")]

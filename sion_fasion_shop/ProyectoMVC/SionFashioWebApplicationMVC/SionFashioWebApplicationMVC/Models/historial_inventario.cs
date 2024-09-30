@@ -12,13 +12,18 @@ public partial class historial_inventario
     [Key]
     public int id_historial_inventario { get; set; }
 
+    [Required(ErrorMessage = "El ID del producto es obligatorio.")]
     public int id_producto { get; set; }
 
+    [Required(ErrorMessage = "La cantidad es obligatoria.")]
+    [Range(0, int.MaxValue, ErrorMessage = "La cantidad debe ser un número positivo.")]
     public int cantidad { get; set; }
 
-    [StringLength(10)]
+    [Required(ErrorMessage = "El tipo de cambio es obligatorio.")]
+    [StringLength(10, ErrorMessage = "El tipo de cambio no puede exceder los 10 caracteres.")]
     public string tipo_cambio { get; set; } = null!;
 
+    [Required(ErrorMessage = "La fecha de cambio es obligatoria.")]
     [Column(TypeName = "datetime")]
     public DateTime fecha_cambio { get; set; }
 

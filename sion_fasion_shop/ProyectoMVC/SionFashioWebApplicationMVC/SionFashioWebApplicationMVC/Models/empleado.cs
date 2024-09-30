@@ -12,19 +12,24 @@ public partial class empleado
     [Key]
     public int id_empleado { get; set; }
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El DNI del empleado es obligatorio.")]
+    [StringLength(255, ErrorMessage = "El DNI no puede exceder los 255 caracteres.")]
     public string dni_empleado { get; set; } = null!;
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El nombre del empleado es obligatorio.")]
+    [StringLength(255, ErrorMessage = "El nombre no puede exceder los 255 caracteres.")]
     public string nombres_empleado { get; set; } = null!;
 
-    [StringLength(255)]
+    [Required(ErrorMessage = "El apellido del empleado es obligatorio.")]
+    [StringLength(255, ErrorMessage = "El apellido no puede exceder los 255 caracteres.")]
     public string apellidos_empleado { get; set; } = null!;
 
-    [StringLength(255)]
+    [StringLength(255, ErrorMessage = "El teléfono no puede exceder los 255 caracteres.")]
+    [Phone(ErrorMessage = "El número de teléfono no tiene un formato válido.")]
     public string? telefono_empleado { get; set; }
 
-    [StringLength(255)]
+    [StringLength(255, ErrorMessage = "El correo electrónico no puede exceder los 255 caracteres.")]
+    [EmailAddress(ErrorMessage = "El correo electrónico no tiene un formato válido.")]
     public string? email_empleado { get; set; }
 
     public int? id_tienda { get; set; }

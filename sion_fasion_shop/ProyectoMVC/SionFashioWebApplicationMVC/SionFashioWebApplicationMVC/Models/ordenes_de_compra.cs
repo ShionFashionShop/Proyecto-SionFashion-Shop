@@ -12,6 +12,7 @@ public partial class ordenes_de_compra
     [Key]
     public int id_orden_compra { get; set; }
 
+    [Required(ErrorMessage = "El ID del cliente es obligatorio.")]
     public int id_cliente { get; set; }
 
     public int? id_factura { get; set; }
