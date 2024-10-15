@@ -1,16 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const Producto = require('../models/producto');  // Asegúrate de ajustar la ruta según tu estructura
+
 
 const alertasStockSchema = new Schema({
-    id_alerta: {
-        type: Number,
-        required: true,
-        unique: true
-    },
-    id_producto: {
-        type: Number,
-        required: [true, 'El id del producto es obligatorio.']
-    },
     nivel_minimo: {
         type: Number,
         required: [true, 'El nivel mínimo es obligatorio.'],
@@ -26,7 +19,7 @@ const alertasStockSchema = new Schema({
     },
     id_productoNavigation: {
         type: Schema.Types.ObjectId,
-        ref: 'producto' // Asegúrate de que este sea el nombre correcto del modelo producto
+        ref: 'Producto' // Asegúrate de que este sea el nombre correcto del modelo producto
     }
 });
 

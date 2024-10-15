@@ -1,43 +1,39 @@
-import express from 'express'; // Cambiar require por import
-import path from 'path';
-import mongoose from 'mongoose';
-import { fileURLToPath } from 'url';
+const express = require('express');
+const mongoose = require('mongoose');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./Swagger/swagger'); // Asegúrate de que esta ruta coincida
+const categoriasRoutes = require('./Routes/categoriaRoutes'); // Ruta a tus rutas de categorías
 
-// Inicialización de la aplicación Express
+// Importar rutas
+const alertasStockRoutes = require('./Routes/alertasStockRoutes');
+
 const app = express();
-const port = 3000;
-
-// Obtener el nombre del archivo y directorio actual
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// URL de conexión a MongoDB (reemplaza con tu propia URL de MongoDB)
-const mongoURI = 'mongodb+srv://santiagoprietoa:tWWXE4zvrZh5f6uA@proyectosenalaboratoiom.gl0wv.mongodb.net/?retryWrites=true&w=majority&appName=ProyectoSENALaboratoioMongo';
-
-// Conectar a MongoDB
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('Conectado a MongoDB correctamente'))
-.catch((err) => {
-    console.error('Error al conectar a MongoDB:', err);
-    process.exit(1); // Cerrar el servidor si no se puede conectar a MongoDB
-});
 
 // Middleware para parsear el cuerpo de las solicitudes
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Configurar el motor de plantillas EJS
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views')); // Usar __dirname correctamente
-
-// Servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public'))); // Usar __dirname correctamente
+// Rutas de la aplicación
+app.use('/api/alertasStock', require('./Routes/alertasStockRoutes'));
+app.use('/api', categoriasRoutes);
 
 
-// Iniciar el servidor
-app.listen(port, () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
-});
+// Configuración de Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
+// Conexión a la base de datos MongoDB
+mongoose.connect('mongodb+srv://santiagoprietoa:tWWXE4zvrZh5f6uA@proyectosenalaboratoiom.gl0wv.mongodb.net/?retryWrites=true&w=majority&appName=ProyectoSENALaboratoioMongo')
+    .then(() => {
+        console.log('Conectado a MongoDB');
+
+        // Iniciar el servidor
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => {
+            console.log(`API Rest OK y ejecutándose en http://localhost:${PORT}`);
+            console.log(`Documentación Swagger disponible en http://localhost:${PORT}/api-docs`);
+        });
+    })
+    .catch(err => {
+        console.log('No se pudo conectar con MongoDB..', err);
+    });

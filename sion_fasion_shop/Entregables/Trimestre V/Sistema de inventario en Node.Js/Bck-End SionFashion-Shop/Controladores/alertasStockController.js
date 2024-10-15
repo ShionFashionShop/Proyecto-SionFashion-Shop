@@ -1,4 +1,6 @@
 const AlertasStock = require('../models/alertasStock'); // Asegúrate de que la ruta al modelo sea correcta
+const Producto = require('../models/producto');  // Asegúrate de ajustar la ruta según tu estructura
+
 
 // Crear una nueva alerta de stock
 const crearAlertaStock = async (req, res) => {

@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const categoriaSchema = new Schema({
-    id_categoria: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+    
     nombre_categoria: {
         type: String,
         required: [true, 'El nombre de la categoría es obligatorio.'],
@@ -14,7 +10,7 @@ const categoriaSchema = new Schema({
     },
     sub_categoria: [{
         type: Schema.Types.ObjectId,
-        ref: 'sub_categoria' // Asegúrate de que este sea el nombre correcto del modelo sub_categoria
+        ref: 'SubCategoria' // Asegúrate de que este sea el nombre correcto del modelo sub_categoria
     }]
 });
 
