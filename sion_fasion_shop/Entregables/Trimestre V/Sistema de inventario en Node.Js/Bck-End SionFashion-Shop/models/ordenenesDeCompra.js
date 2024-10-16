@@ -6,19 +6,19 @@ const ordenesDeCompraSchema = new Schema({
     id_cliente: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'cliente' // Asegúrate de tener el modelo "Cliente" definido
+        ref: 'Cliente' // Asegúrate de tener el modelo "Cliente" definido
     },
     id_factura: {
         type: Schema.Types.ObjectId,
-        ref: 'factura' // Asegúrate de tener el modelo "Factura" definido
+        ref: 'Factura' // Asegúrate de tener el modelo "Factura" definido
     },
     id_empleado: {
         type: Schema.Types.ObjectId,
-        ref: 'empleado' // Asegúrate de tener el modelo "Empleado" definido
+        ref: 'Empleado' // Asegúrate de tener el modelo "Empleado" definido
     },
     ordenes_productos: [{
         type: Schema.Types.ObjectId,
-        ref: 'ordenesProducto' // Asegúrate de tener el modelo "OrdenesProducto" definido
+        ref: 'OrdenesProducto' // Asegúrate de tener el modelo "OrdenesProducto" definido
     }]
 });
 

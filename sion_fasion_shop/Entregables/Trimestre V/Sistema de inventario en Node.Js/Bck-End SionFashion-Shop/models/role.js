@@ -14,7 +14,7 @@ const roleSchema = new Schema({
     },
     usuarios: [{
         type: Schema.Types.ObjectId,
-        ref: 'usuario' // Asegúrate de tener el modelo "Usuario" definido
+        ref: 'Usuario' // Asegúrate de tener el modelo "Usuario" definido
     }]
 });
 

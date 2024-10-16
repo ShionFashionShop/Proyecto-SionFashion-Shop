@@ -3,13 +3,10 @@ const { Schema } = mongoose;
 
 // Esquema del modelo HistorialInventario
 const historialInventarioSchema = new Schema({
-    id_historial_inventario: {
-        type: Schema.Types.ObjectId,
-        auto: true // Se generará automáticamente
-    },
+
     id_producto: {
         type: Schema.Types.ObjectId,
-        ref: 'producto', // Asegúrate de tener el modelo "Producto" definido
+        ref: 'Producto', // Asegúrate de tener el modelo "Producto" definido
         required: true
     },
     cantidad: {

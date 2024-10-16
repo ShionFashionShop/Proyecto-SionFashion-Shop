@@ -6,12 +6,12 @@ const ordenesProductoSchema = new Schema({
     id_orden_compra: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'ordenesDeCompra' // Asegúrate de tener el modelo "OrdenesDeCompra" definido
+        ref: 'OrdenesDeCompra' // Asegúrate de tener el modelo "OrdenesDeCompra" definido
     },
     id_producto: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'producto' // Asegúrate de tener el modelo "Producto" definido
+        ref: 'Producto' // Asegúrate de tener el modelo "Producto" definido
     },
     cantidad: {
         type: Number,

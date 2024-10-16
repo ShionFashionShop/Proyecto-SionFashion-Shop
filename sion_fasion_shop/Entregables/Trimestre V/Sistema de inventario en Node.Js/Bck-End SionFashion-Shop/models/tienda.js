@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 // Esquema del modelo Tienda
 const tiendaSchema = new Schema({
+
     nombre_tienda: {
         type: String,
         required: [true, 'El nombre de la tienda es obligatorio.'],
@@ -20,20 +21,20 @@ const tiendaSchema = new Schema({
     id_ciudad: {
         type: Schema.Types.ObjectId,
         required: [true, 'El ID de la ciudad es obligatorio.'],
-        ref: 'ciudade' // Asegúrate de tener el modelo "Ciudad" definido
+        ref: 'Ciudade' // Asegúrate de tener el modelo "Ciudad" definido
     },
     id_empresa: {
         type: Schema.Types.ObjectId,
         required: [true, 'El ID de la empresa es obligatorio.'],
-        ref: 'empresa' // Asegúrate de tener el modelo "Empresa" definido
+        ref: 'Empresa' // Asegúrate de tener el modelo "Empresa" definido
     },
     empleados: [{
         type: Schema.Types.ObjectId,
-        ref: 'empleado' // Asegúrate de tener el modelo "Empleado" definido
+        ref: 'Empleado' // Asegúrate de tener el modelo "Empleado" definido
     }],
     productos: [{
         type: Schema.Types.ObjectId,
-        ref: 'producto' // Asegúrate de tener el modelo "Producto" definido
+        ref: 'Producto' // Asegúrate de tener el modelo "Producto" definido
     }]
 });
 

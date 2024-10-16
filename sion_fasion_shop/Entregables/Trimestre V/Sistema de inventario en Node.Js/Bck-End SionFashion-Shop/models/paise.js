@@ -10,7 +10,7 @@ const paiseSchema = new Schema({
     },
     departamentos: [{
         type: Schema.Types.ObjectId,
-        ref: 'departamento' // Asegúrate de tener el modelo "Departamento" definido
+        ref: 'Departamento' // Asegúrate de tener el modelo "Departamento" definido
     }]
 });
 

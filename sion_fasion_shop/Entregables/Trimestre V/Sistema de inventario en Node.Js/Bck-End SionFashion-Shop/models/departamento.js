@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const departamentoSchema = new Schema({
-    id_departamento: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+    
     nombre_departamento: {
         type: String,
         required: [true, 'El nombre del departamento es obligatorio.'],
@@ -14,12 +10,12 @@ const departamentoSchema = new Schema({
     },
     id_pais: {
         type: Schema.Types.ObjectId,
-        ref: 'paise', // Asegúrate de que este sea el nombre correcto del modelo pais
+        ref: 'Paise', // Asegúrate de que este sea el nombre correcto del modelo pais
         required: [true, 'El país es obligatorio.']
     },
     ciudades: [{
         type: Schema.Types.ObjectId,
-        ref: 'ciudade' // Asegúrate de que este sea el nombre correcto del modelo ciudad
+        ref: 'Ciudade' // Asegúrate de que este sea el nombre correcto del modelo ciudad
     }]
 });
 
