@@ -11,11 +11,11 @@ const subCategoriaSchema = new Schema({
     id_categoria: {
         type: Schema.Types.ObjectId,
         required: [true, 'El ID de la categoría es obligatorio.'],
-        ref: 'categoria' // Asegúrate de tener el modelo "Categoria" definido
+        ref: 'Categoria' // Asegúrate de tener el modelo "Categoria" definido
     },
     productos: [{
         type: Schema.Types.ObjectId,
-        ref: 'producto' // Asegúrate de tener el modelo "Producto" definido
+        ref: 'Producto' // Asegúrate de tener el modelo "Producto" definido
     }]
 });
 

@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const empleadoSchema = new Schema({
-    id_empleado: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+    
     dni_empleado: {
         type: String,
         required: [true, 'El DNI del empleado es obligatorio.'],
@@ -47,17 +43,17 @@ const empleadoSchema = new Schema({
     },
     id_tienda: {
         type: Schema.Types.ObjectId,
-        ref: 'tienda', // Asegúrate de que este sea el nombre correcto del modelo tienda
+        ref: 'Tienda', // Asegúrate de que este sea el nombre correcto del modelo tienda
         default: null
     },
     id_ciudad: {
         type: Schema.Types.ObjectId,
-        ref: 'ciudade', // Asegúrate de que este sea el nombre correcto del modelo ciudad
+        ref: 'Ciudade', // Asegúrate de que este sea el nombre correcto del modelo ciudad
         default: null
     },
     ordenes_de_compras: [{
         type: Schema.Types.ObjectId,
-        ref: 'ordenesDeCompra' // Asegúrate de que este sea el nombre correcto del modelo ordenes_de_compra
+        ref: 'OrdenesDeCompra' // Asegúrate de que este sea el nombre correcto del modelo ordenes_de_compra
     }]
 });
 

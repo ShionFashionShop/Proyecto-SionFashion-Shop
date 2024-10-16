@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./Swagger/swagger'); // Asegúrate de que esta ruta coincida
-const categoriasRoutes = require('./Routes/categoriaRoutes'); // Ruta a tus rutas de categorías
+const swaggerSpec = require('./Swagger/Swagger'); // Asegúrate de que esta ruta coincida
 
 // Importar rutas
 const alertasStockRoutes = require('./Routes/alertasStockRoutes');
+const categoriasRoutes = require('./Routes/categoriaRoutes'); // Ruta a tus rutas de categorías
 
 const app = express();
 

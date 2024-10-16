@@ -31,22 +31,22 @@ const productoSchema = new Schema({
     },
     id_sub_categoria: {
         type: Schema.Types.ObjectId,
-        ref: 'sub_categoria', // Asegúrate de tener el modelo "SubCategoria" definido
+        ref: 'SubCategoria', // Asegúrate de tener el modelo "SubCategoria" definido
         required: [true, 'La subcategoría es obligatoria.']
     },
     id_proveedor: {
         type: Schema.Types.ObjectId,
-        ref: 'proveedor', // Asegúrate de tener el modelo "Proveedor" definido
+        ref: 'Proveedor', // Asegúrate de tener el modelo "Proveedor" definido
         required: [true, 'El proveedor es obligatorio.']
     },
     id_tienda: {
         type: Schema.Types.ObjectId,
-        ref: 'tienda', // Asegúrate de tener el modelo "Tienda" definido
+        ref: 'Tienda', // Asegúrate de tener el modelo "Tienda" definido
         required: [true, 'La tienda es obligatoria.']
     },
     id_factura: {
         type: Schema.Types.ObjectId,
-        ref: 'factura' // Asegúrate de tener el modelo "Factura" definido
+        ref: 'Factura' // Asegúrate de tener el modelo "Factura" definido
     }
 });
 

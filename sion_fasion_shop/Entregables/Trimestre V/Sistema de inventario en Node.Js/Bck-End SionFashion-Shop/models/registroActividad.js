@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const registroActividadSchema = new Schema({
     id_usuario: {
         type: Schema.Types.ObjectId,
-        ref: 'usuario', // Asegúrate de tener el modelo "Usuario" definido
+        ref: 'Usuario', // Asegúrate de tener el modelo "Usuario" definido
         required: true
     },
     actividad: {

@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const empresaSchema = new Schema({
-    id_empresa: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+
     nombre_empresa: {
         type: String,
         required: [true, 'El nombre de la empresa es obligatorio.'],
@@ -41,7 +37,7 @@ const empresaSchema = new Schema({
     },
     tienda: [{
         type: Schema.Types.ObjectId,
-        ref: 'tienda' // Asegúrate de que este sea el nombre correcto del modelo tienda
+        ref: 'Tienda' // Asegúrate de que este sea el nombre correcto del modelo tienda
     }]
 });
 

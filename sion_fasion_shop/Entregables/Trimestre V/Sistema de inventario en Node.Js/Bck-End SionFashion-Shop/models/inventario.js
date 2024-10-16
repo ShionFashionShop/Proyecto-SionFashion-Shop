@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const inventarioSchema = new Schema({
     id_producto: {
         type: Schema.Types.ObjectId,
-        ref: 'producto', // Asegúrate de tener el modelo "Producto" definido
+        ref: 'Producto', // Asegúrate de tener el modelo "Producto" definido
         required: true
     },
     stock_inicial: {

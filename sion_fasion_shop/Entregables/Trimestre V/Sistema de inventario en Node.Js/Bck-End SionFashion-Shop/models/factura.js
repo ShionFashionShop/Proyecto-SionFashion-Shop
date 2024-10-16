@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const facturaSchema = new Schema({
-    id_factura: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+
     fecha_emision_factura: {
         type: Date,
         required: [true, 'La fecha de emisión es obligatoria.']
@@ -29,25 +25,22 @@ const facturaSchema = new Schema({
         min: [0, 'El total debe estar entre 0 y 9999999999.99.'],
         max: [9999999999.99, 'El total debe estar entre 0 y 9999999999.99.']
     },
-    id_cliente: {
-        type: Number,
-        required: [true, 'El cliente es obligatorio.']
-    },
+
     id_clienteNavigation: {
         type: Schema.Types.ObjectId,
-        ref: 'cliente' // Asegúrate de que este sea el nombre correcto del modelo cliente
+        ref: 'Cliente' // Asegúrate de que este sea el nombre correcto del modelo cliente
     },
     metodos_de_pagos: [{
         type: Schema.Types.ObjectId,
-        ref: 'metodosDePago' // Asegúrate de que este sea el nombre correcto del modelo métodos de pago
+        ref: 'MetodosDePago' // Asegúrate de que este sea el nombre correcto del modelo métodos de pago
     }],
     ordenes_de_compras: [{
         type: Schema.Types.ObjectId,
-        ref: 'ordenesDeCompra' // Asegúrate de que este sea el nombre correcto del modelo órdenes de compra
+        ref: 'OrdenesDeCompra' // Asegúrate de que este sea el nombre correcto del modelo órdenes de compra
     }],
     productos: [{
         type: Schema.Types.ObjectId,
-        ref: 'producto' // Asegúrate de que este sea el nombre correcto del modelo producto
+        ref: 'Producto' // Asegúrate de que este sea el nombre correcto del modelo producto
     }]
 });
 

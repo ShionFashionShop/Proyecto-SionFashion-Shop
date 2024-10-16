@@ -16,12 +16,12 @@ const usuarioSchema = new Schema({
     },
     roles: [{
         type: Schema.Types.ObjectId,
-        ref: 'role', // Asegúrate de tener el modelo "Rol" definido
+        ref: 'Role', // Asegúrate de tener el modelo "Rol" definido
         required: [true, 'El ID de rol es obligatorio.']
     }],
     registros_actividades: [{
         type: Schema.Types.ObjectId,
-        ref: 'registroActividad' // Asegúrate de tener el modelo "RegistrosActividad" definido
+        ref: 'RegistroActividad' // Asegúrate de tener el modelo "RegistrosActividad" definido
     }]
 });
 

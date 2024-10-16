@@ -3,11 +3,7 @@ const { Schema } = mongoose;
 
 // Esquema del modelo Proveedor
 const proveedorSchema = new Schema({
-    id_proveedor: {
-        type: Number,
-        required: [true, 'El ID del proveedor es obligatorio.'],
-        unique: true, // Asegura que cada proveedor tenga un ID único
-    },
+
     nombre_proveedor: {
         type: String,
         required: [true, 'El nombre del proveedor es obligatorio.'],
@@ -29,12 +25,12 @@ const proveedorSchema = new Schema({
     },
     id_ciudad: {
         type: Schema.Types.ObjectId,
-        ref: 'ciudade', // Asegúrate de que el modelo "ciudade" esté definido
+        ref: 'Ciudade', // Asegúrate de que el modelo "ciudade" esté definido
         default: null // Permite que sea nulo si no hay una ciudad asociada
     },
     productos: [{
         type: Schema.Types.ObjectId,
-        ref: 'producto' // Asegúrate de que el modelo "producto" esté definido
+        ref: 'Producto' // Asegúrate de que el modelo "producto" esté definido
     }]
 });
 
