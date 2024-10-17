@@ -7,7 +7,7 @@ exports.crearOrdenDeProducto = async (req, res) => {
         await nuevaOrdenDeProducto.save();
         res.status(201).json(nuevaOrdenDeProducto);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: 'Error al crear la orden de producto', error: error.message });
     }
 };
 
@@ -19,7 +19,7 @@ exports.obtenerOrdenesProducto = async (req, res) => {
             .populate('id_producto'); // Poblamos la referencia a Producto
         res.status(200).json(ordenesProducto);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al obtener las órdenes de producto', error: error.message });
     }
 };
 
@@ -34,7 +34,7 @@ exports.obtenerOrdenDeProductoPorId = async (req, res) => {
         }
         res.status(200).json(ordenDeProducto);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al obtener la orden de producto', error: error.message });
     }
 };
 
@@ -47,7 +47,7 @@ exports.actualizarOrdenDeProducto = async (req, res) => {
         }
         res.status(200).json(ordenDeProductoActualizada);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: 'Error al actualizar la orden de producto', error: error.message });
     }
 };
 
@@ -60,6 +60,6 @@ exports.eliminarOrdenDeProducto = async (req, res) => {
         }
         res.status(200).json({ message: 'Orden de producto eliminada correctamente' });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al eliminar la orden de producto', error: error.message });
     }
 };

@@ -1,4 +1,4 @@
-const SubCategoria = require('../models/subCategoria'); // Asegúrate de que la ruta sea correcta
+const SubCategoria = require('../models/sub_categoria'); // Asegúrate de que la ruta sea correcta
 
 // Crear una nueva subcategoría
 exports.crearSubCategoria = async (req, res) => {

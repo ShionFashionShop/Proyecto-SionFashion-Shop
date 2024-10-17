@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const metodoDePagoSchema = new Schema({
+const metodosDePagoSchema = new Schema({
     // Este campo se genera automáticamente
     // El id_metodo_pago no necesita ser declarado explícitamente en el esquema
     metodo_pago: {
