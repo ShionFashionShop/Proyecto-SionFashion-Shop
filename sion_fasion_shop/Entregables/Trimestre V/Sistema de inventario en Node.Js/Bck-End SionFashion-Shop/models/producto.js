@@ -19,7 +19,7 @@ const productoSchema = new Schema({
     },
     unidad_medida: {
         type: String,
-        maxlength: [4, 'La unidad de medida no puede exceder los 4 caracteres.']
+        maxlength: [10, 'La unidad de medida no puede exceder los 4 caracteres.']
     },
     peso_del_producto: {
         type: String,

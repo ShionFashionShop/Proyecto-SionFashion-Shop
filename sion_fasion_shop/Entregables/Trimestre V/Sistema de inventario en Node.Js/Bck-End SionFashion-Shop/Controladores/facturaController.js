@@ -1,62 +1,68 @@
-const Empresa = require('../models/empresa');
+const Factura = require('../models/factura');
 
-// Crear una nueva empresa
-exports.crearEmpresa = async (req, res) => {
+// Crear una nueva factura
+exports.crearFactura = async (req, res) => {
     try {
-        const nuevaEmpresa = new Empresa(req.body);
-        await nuevaEmpresa.save();
-        res.status(201).json(nuevaEmpresa);
+        const nuevaFactura = new Factura(req.body);
+        await nuevaFactura.save();
+        res.status(201).json(nuevaFactura);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
 };
 
-// Obtener todas las empresas
-exports.obtenerEmpresas = async (req, res) => {
+// Obtener todas las facturas
+exports.obtenerFacturas = async (req, res) => {
     try {
-        const empresas = await Empresa.find()
-            .populate('tienda'); // Popula las tiendas asociadas
-        res.status(200).json(empresas);
+        const facturas = await Factura.find()
+            .populate('id_clienteNavigation')
+            .populate('metodos_de_pagos')
+            .populate('ordenes_de_compras')
+            .populate('productos');
+        res.status(200).json(facturas);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-// Obtener una empresa por ID
-exports.obtenerEmpresaPorId = async (req, res) => {
+// Obtener una factura por ID
+exports.obtenerFacturaPorId = async (req, res) => {
     try {
-        const empresa = await Empresa.findById(req.params.id)
-            .populate('tienda');
-        if (!empresa) {
-            return res.status(404).json({ message: 'Empresa no encontrada' });
+        const factura = await Factura.findById(req.params.id)
+            .populate('id_clienteNavigation')
+            .populate('metodos_de_pagos')
+            .populate('ordenes_de_compras')
+            .populate('productos');
+        if (!factura) {
+            return res.status(404).json({ message: 'Factura no encontrada' });
         }
-        res.status(200).json(empresa);
+        res.status(200).json(factura);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-// Actualizar una empresa por ID
-exports.actualizarEmpresa = async (req, res) => {
+// Actualizar una factura por ID
+exports.actualizarFactura = async (req, res) => {
     try {
-        const empresaActualizada = await Empresa.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-        if (!empresaActualizada) {
-            return res.status(404).json({ message: 'Empresa no encontrada' });
+        const facturaActualizada = await Factura.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        if (!facturaActualizada) {
+            return res.status(404).json({ message: 'Factura no encontrada' });
         }
-        res.status(200).json(empresaActualizada);
+        res.status(200).json(facturaActualizada);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
 };
 
-// Eliminar una empresa por ID
-exports.eliminarEmpresa = async (req, res) => {
+// Eliminar una factura por ID
+exports.eliminarFactura = async (req, res) => {
     try {
-        const empresaEliminada = await Empresa.findByIdAndDelete(req.params.id);
-        if (!empresaEliminada) {
-            return res.status(404).json({ message: 'Empresa no encontrada' });
+        const facturaEliminada = await Factura.findByIdAndDelete(req.params.id);
+        if (!facturaEliminada) {
+            return res.status(404).json({ message: 'Factura no encontrada' });
         }
-        res.status(200).json({ message: 'Empresa eliminada correctamente' });
+        res.status(200).json({ message: 'Factura eliminada correctamente' });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
