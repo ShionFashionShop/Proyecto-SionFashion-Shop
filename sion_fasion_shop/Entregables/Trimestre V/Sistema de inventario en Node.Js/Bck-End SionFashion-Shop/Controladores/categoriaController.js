@@ -2,13 +2,12 @@
 const Categoria = require('../models/categoria'); // Asegúrate de que la ruta sea correcta
 const Producto = require('../models/producto');  // Asegúrate de ajustar la ruta según tu estructura
 const SubCategoria = require ('../models/sub_categoria');
-
+const categoriaLogic = require('../logic/categoriaLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear una nueva categoría
 exports.crearCategoria = async (req, res) => {
     try {
-        const nuevaCategoria = new Categoria(req.body);
-        await nuevaCategoria.save();
+        const nuevaCategoria = await categoriaLogic.crearCategoria(req.body);
         res.status(201).json(nuevaCategoria);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -18,7 +17,7 @@ exports.crearCategoria = async (req, res) => {
 // Obtener todas las categorías
 exports.obtenerCategorias = async (req, res) => {
     try {
-        const categorias = await Categoria.find().populate('sub_categoria'); // Si deseas obtener subcategorías también
+        const categorias = await categoriaLogic.obtenerCategorias();
         res.status(200).json(categorias);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -28,7 +27,7 @@ exports.obtenerCategorias = async (req, res) => {
 // Obtener una categoría por su ID
 exports.obtenerCategoriaPorId = async (req, res) => {
     try {
-        const categoria = await Categoria.findById(req.params.id).populate('sub_categoria');
+        const categoria = await categoriaLogic.obtenerCategoriaPorId(req.params.id);
         if (!categoria) {
             return res.status(404).json({ message: 'Categoría no encontrada' });
         }
@@ -41,7 +40,7 @@ exports.obtenerCategoriaPorId = async (req, res) => {
 // Actualizar una categoría por su ID
 exports.actualizarCategoria = async (req, res) => {
     try {
-        const categoria = await Categoria.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const categoria = await categoriaLogic.actualizarCategoria(req.params.id, req.body);
         if (!categoria) {
             return res.status(404).json({ message: 'Categoría no encontrada' });
         }
@@ -54,7 +53,7 @@ exports.actualizarCategoria = async (req, res) => {
 // Eliminar una categoría por su ID
 exports.eliminarCategoria = async (req, res) => {
     try {
-        const categoria = await Categoria.findByIdAndDelete(req.params.id);
+        const categoria = await categoriaLogic.eliminarCategoria(req.params.id);
         if (!categoria) {
             return res.status(404).json({ message: 'Categoría no encontrada' });
         }
@@ -63,5 +62,3 @@ exports.eliminarCategoria = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
-

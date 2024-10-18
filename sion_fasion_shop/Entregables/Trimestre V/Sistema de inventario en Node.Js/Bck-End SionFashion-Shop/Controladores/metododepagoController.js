@@ -1,10 +1,10 @@
 const MetodosDePago = require('../models/metodosDePago'); // Asegúrate de que la ruta sea correcta
+const metodosDePagoLogic = require('../logic/metodosDePagoLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear un nuevo método de pago
 exports.crearMetodoDePago = async (req, res) => {
     try {
-        const nuevoMetodoDePago = new MetodosDePago(req.body);
-        await nuevoMetodoDePago.save();
+        const nuevoMetodoDePago = await metodosDePagoLogic.crearMetodoDePago(req.body);
         res.status(201).json(nuevoMetodoDePago);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -14,8 +14,7 @@ exports.crearMetodoDePago = async (req, res) => {
 // Obtener todos los métodos de pago
 exports.obtenerMetodosDePago = async (req, res) => {
     try {
-        const metodosDePago = await MetodosDePago.find()
-            .populate('id_factura'); // Popula la factura asociada
+        const metodosDePago = await metodosDePagoLogic.obtenerMetodosDePago();
         res.status(200).json(metodosDePago);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -25,8 +24,7 @@ exports.obtenerMetodosDePago = async (req, res) => {
 // Obtener un método de pago por ID
 exports.obtenerMetodoDePagoPorId = async (req, res) => {
     try {
-        const metodoDePago = await MetodosDePago.findById(req.params.id)
-            .populate('id_factura');
+        const metodoDePago = await metodosDePagoLogic.obtenerMetodoDePagoPorId(req.params.id);
         if (!metodoDePago) {
             return res.status(404).json({ message: 'Método de pago no encontrado' });
         }
@@ -39,7 +37,7 @@ exports.obtenerMetodoDePagoPorId = async (req, res) => {
 // Actualizar un método de pago por ID
 exports.actualizarMetodoDePago = async (req, res) => {
     try {
-        const metodoDePagoActualizado = await MetodosDePago.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const metodoDePagoActualizado = await metodosDePagoLogic.actualizarMetodoDePago(req.params.id, req.body);
         if (!metodoDePagoActualizado) {
             return res.status(404).json({ message: 'Método de pago no encontrado' });
         }
@@ -52,7 +50,7 @@ exports.actualizarMetodoDePago = async (req, res) => {
 // Eliminar un método de pago por ID
 exports.eliminarMetodoDePago = async (req, res) => {
     try {
-        const metodoDePagoEliminado = await MetodosDePago.findByIdAndDelete(req.params.id);
+        const metodoDePagoEliminado = await metodosDePagoLogic.eliminarMetodoDePago(req.params.id);
         if (!metodoDePagoEliminado) {
             return res.status(404).json({ message: 'Método de pago no encontrado' });
         }

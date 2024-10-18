@@ -1,10 +1,10 @@
 const Cliente = require('../models/cliente');
+const clienteLogic = require('../logic/clienteLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear un nuevo cliente
 exports.crearCliente = async (req, res) => {
     try {
-        const nuevoCliente = new Cliente(req.body);
-        await nuevoCliente.save();
+        const nuevoCliente = await clienteLogic.crearCliente(req.body);
         res.status(201).json(nuevoCliente);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -14,9 +14,7 @@ exports.crearCliente = async (req, res) => {
 // Obtener todos los clientes
 exports.obtenerClientes = async (req, res) => {
     try {
-        const clientes = await Cliente.find()
-            .populate('facturas') // Poblamos las facturas asociadas
-            .populate('ordenes_de_compras'); // Poblamos las órdenes de compra asociadas
+        const clientes = await clienteLogic.obtenerClientes();
         res.status(200).json(clientes);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -26,9 +24,7 @@ exports.obtenerClientes = async (req, res) => {
 // Obtener un cliente por ID
 exports.obtenerClientePorId = async (req, res) => {
     try {
-        const cliente = await Cliente.findById(req.params.id)
-            .populate('facturas')
-            .populate('ordenes_de_compras');
+        const cliente = await clienteLogic.obtenerClientePorId(req.params.id);
         if (!cliente) {
             return res.status(404).json({ message: 'Cliente no encontrado' });
         }
@@ -41,7 +37,7 @@ exports.obtenerClientePorId = async (req, res) => {
 // Actualizar un cliente por ID
 exports.actualizarCliente = async (req, res) => {
     try {
-        const clienteActualizado = await Cliente.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const clienteActualizado = await clienteLogic.actualizarCliente(req.params.id, req.body);
         if (!clienteActualizado) {
             return res.status(404).json({ message: 'Cliente no encontrado' });
         }
@@ -54,7 +50,7 @@ exports.actualizarCliente = async (req, res) => {
 // Eliminar un cliente por ID
 exports.eliminarCliente = async (req, res) => {
     try {
-        const clienteEliminado = await Cliente.findByIdAndDelete(req.params.id);
+        const clienteEliminado = await clienteLogic.eliminarCliente(req.params.id);
         if (!clienteEliminado) {
             return res.status(404).json({ message: 'Cliente no encontrado' });
         }

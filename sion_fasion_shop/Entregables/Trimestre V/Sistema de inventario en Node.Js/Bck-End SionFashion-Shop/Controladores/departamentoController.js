@@ -1,10 +1,10 @@
 const Departamento = require('../models/departamento');
+const departamentoLogic = require('../logic/departamentoLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear un nuevo departamento
 exports.crearDepartamento = async (req, res) => {
     try {
-        const nuevoDepartamento = new Departamento(req.body);
-        await nuevoDepartamento.save();
+        const nuevoDepartamento = await departamentoLogic.crearDepartamento(req.body);
         res.status(201).json(nuevoDepartamento);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -14,9 +14,7 @@ exports.crearDepartamento = async (req, res) => {
 // Obtener todos los departamentos
 exports.obtenerDepartamentos = async (req, res) => {
     try {
-        const departamentos = await Departamento.find()
-            .populate('id_pais') // Poblamos la referencia al país
-            .populate('ciudades'); // Poblamos las ciudades asociadas
+        const departamentos = await departamentoLogic.obtenerDepartamentos();
         res.status(200).json(departamentos);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -26,9 +24,7 @@ exports.obtenerDepartamentos = async (req, res) => {
 // Obtener un departamento por ID
 exports.obtenerDepartamentoPorId = async (req, res) => {
     try {
-        const departamento = await Departamento.findById(req.params.id)
-            .populate('id_pais')
-            .populate('ciudades');
+        const departamento = await departamentoLogic.obtenerDepartamentoPorId(req.params.id);
         if (!departamento) {
             return res.status(404).json({ message: 'Departamento no encontrado' });
         }
@@ -41,7 +37,7 @@ exports.obtenerDepartamentoPorId = async (req, res) => {
 // Actualizar un departamento por ID
 exports.actualizarDepartamento = async (req, res) => {
     try {
-        const departamentoActualizado = await Departamento.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const departamentoActualizado = await departamentoLogic.actualizarDepartamento(req.params.id, req.body);
         if (!departamentoActualizado) {
             return res.status(404).json({ message: 'Departamento no encontrado' });
         }
@@ -54,7 +50,7 @@ exports.actualizarDepartamento = async (req, res) => {
 // Eliminar un departamento por ID
 exports.eliminarDepartamento = async (req, res) => {
     try {
-        const departamentoEliminado = await Departamento.findByIdAndDelete(req.params.id);
+        const departamentoEliminado = await departamentoLogic.eliminarDepartamento(req.params.id);
         if (!departamentoEliminado) {
             return res.status(404).json({ message: 'Departamento no encontrado' });
         }

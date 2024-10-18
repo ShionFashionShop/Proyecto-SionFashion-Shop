@@ -1,10 +1,10 @@
 const OrdenesDeCompra = require('../models/ordenesDeCompra'); // Asegúrate de que la ruta sea correcta
+const ordenesDeCompraLogic = require('../logic/ordenesDeCompraLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear una nueva orden de compra
 exports.crearOrdenDeCompra = async (req, res) => {
     try {
-        const nuevaOrdenDeCompra = new OrdenesDeCompra(req.body);
-        await nuevaOrdenDeCompra.save();
+        const nuevaOrdenDeCompra = await ordenesDeCompraLogic.crearOrdenDeCompra(req.body);
         res.status(201).json(nuevaOrdenDeCompra);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -14,11 +14,7 @@ exports.crearOrdenDeCompra = async (req, res) => {
 // Obtener todas las órdenes de compra
 exports.obtenerOrdenesDeCompra = async (req, res) => {
     try {
-        const ordenesDeCompra = await OrdenesDeCompra.find()
-            .populate('id_cliente')
-            .populate('id_factura')
-            .populate('id_empleado')
-            .populate('ordenes_productos'); // Popula los productos de la orden
+        const ordenesDeCompra = await ordenesDeCompraLogic.obtenerOrdenesDeCompra();
         res.status(200).json(ordenesDeCompra);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -28,11 +24,7 @@ exports.obtenerOrdenesDeCompra = async (req, res) => {
 // Obtener una orden de compra por ID
 exports.obtenerOrdenDeCompraPorId = async (req, res) => {
     try {
-        const ordenDeCompra = await OrdenesDeCompra.findById(req.params.id)
-            .populate('id_cliente')
-            .populate('id_factura')
-            .populate('id_empleado')
-            .populate('ordenes_productos');
+        const ordenDeCompra = await ordenesDeCompraLogic.obtenerOrdenDeCompraPorId(req.params.id);
         if (!ordenDeCompra) {
             return res.status(404).json({ message: 'Orden de compra no encontrada' });
         }
@@ -45,7 +37,7 @@ exports.obtenerOrdenDeCompraPorId = async (req, res) => {
 // Actualizar una orden de compra por ID
 exports.actualizarOrdenDeCompra = async (req, res) => {
     try {
-        const ordenDeCompraActualizada = await OrdenesDeCompra.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const ordenDeCompraActualizada = await ordenesDeCompraLogic.actualizarOrdenDeCompra(req.params.id, req.body);
         if (!ordenDeCompraActualizada) {
             return res.status(404).json({ message: 'Orden de compra no encontrada' });
         }
@@ -58,7 +50,7 @@ exports.actualizarOrdenDeCompra = async (req, res) => {
 // Eliminar una orden de compra por ID
 exports.eliminarOrdenDeCompra = async (req, res) => {
     try {
-        const ordenDeCompraEliminada = await OrdenesDeCompra.findByIdAndDelete(req.params.id);
+        const ordenDeCompraEliminada = await ordenesDeCompraLogic.eliminarOrdenDeCompra(req.params.id);
         if (!ordenDeCompraEliminada) {
             return res.status(404).json({ message: 'Orden de compra no encontrada' });
         }

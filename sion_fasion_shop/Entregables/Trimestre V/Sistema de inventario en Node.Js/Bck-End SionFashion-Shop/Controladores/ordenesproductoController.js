@@ -1,10 +1,10 @@
 const OrdenesProducto = require('../models/ordenesProducto'); // Asegúrate de que la ruta sea correcta
+const ordenesProductoLogic = require('../logic/ordenesProductoLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear una nueva orden de producto
 exports.crearOrdenDeProducto = async (req, res) => {
     try {
-        const nuevaOrdenDeProducto = new OrdenesProducto(req.body);
-        await nuevaOrdenDeProducto.save();
+        const nuevaOrdenDeProducto = await ordenesProductoLogic.crearOrdenDeProducto(req.body);
         res.status(201).json(nuevaOrdenDeProducto);
     } catch (error) {
         res.status(400).json({ message: 'Error al crear la orden de producto', error: error.message });
@@ -14,9 +14,7 @@ exports.crearOrdenDeProducto = async (req, res) => {
 // Obtener todas las órdenes de producto
 exports.obtenerOrdenesProducto = async (req, res) => {
     try {
-        const ordenesProducto = await OrdenesProducto.find()
-            .populate('id_orden_compra') // Poblamos la referencia a OrdenesDeCompra
-            .populate('id_producto'); // Poblamos la referencia a Producto
+        const ordenesProducto = await ordenesProductoLogic.obtenerOrdenesProducto();
         res.status(200).json(ordenesProducto);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener las órdenes de producto', error: error.message });
@@ -26,9 +24,7 @@ exports.obtenerOrdenesProducto = async (req, res) => {
 // Obtener una orden de producto por ID
 exports.obtenerOrdenDeProductoPorId = async (req, res) => {
     try {
-        const ordenDeProducto = await OrdenesProducto.findById(req.params.id)
-            .populate('id_orden_compra')
-            .populate('id_producto');
+        const ordenDeProducto = await ordenesProductoLogic.obtenerOrdenDeProductoPorId(req.params.id);
         if (!ordenDeProducto) {
             return res.status(404).json({ message: 'Orden de producto no encontrada' });
         }
@@ -41,7 +37,7 @@ exports.obtenerOrdenDeProductoPorId = async (req, res) => {
 // Actualizar una orden de producto por ID
 exports.actualizarOrdenDeProducto = async (req, res) => {
     try {
-        const ordenDeProductoActualizada = await OrdenesProducto.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const ordenDeProductoActualizada = await ordenesProductoLogic.actualizarOrdenDeProducto(req.params.id, req.body);
         if (!ordenDeProductoActualizada) {
             return res.status(404).json({ message: 'Orden de producto no encontrada' });
         }
@@ -54,7 +50,7 @@ exports.actualizarOrdenDeProducto = async (req, res) => {
 // Eliminar una orden de producto por ID
 exports.eliminarOrdenDeProducto = async (req, res) => {
     try {
-        const ordenDeProductoEliminada = await OrdenesProducto.findByIdAndDelete(req.params.id);
+        const ordenDeProductoEliminada = await ordenesProductoLogic.eliminarOrdenDeProducto(req.params.id);
         if (!ordenDeProductoEliminada) {
             return res.status(404).json({ message: 'Orden de producto no encontrada' });
         }
@@ -63,3 +59,4 @@ exports.eliminarOrdenDeProducto = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la orden de producto', error: error.message });
     }
 };
+
