@@ -1,4 +1,4 @@
-// swagger.js
+
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -12,7 +12,7 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:3000', // Cambia según tu entorno
+                url: 'https://localhost:3000', // Cambia según tu entorno
             },
         ],
     },
