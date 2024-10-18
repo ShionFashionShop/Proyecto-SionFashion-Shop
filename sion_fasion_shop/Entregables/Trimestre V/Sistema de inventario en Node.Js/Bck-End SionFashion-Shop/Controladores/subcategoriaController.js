@@ -1,61 +1,62 @@
 const SubCategoria = require('../models/sub_categoria'); // Asegúrate de que la ruta sea correcta
+const subCategoriasLogic = require('../logic/subCategoriasLogic'); // Ajusta la ruta según tu estructura
 
 // Crear una nueva subcategoría
 exports.crearSubCategoria = async (req, res) => {
     try {
-        const nuevaSubCategoria = new SubCategoria(req.body);
-        await nuevaSubCategoria.save();
+        const nuevaSubCategoria = await subCategoriasLogic.crearSubCategoria(req.body);
         res.status(201).json(nuevaSubCategoria);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: 'Error al crear la subcategoría', error: error.message });
     }
 };
 
 // Obtener todas las subcategorías
 exports.obtenerSubCategorias = async (req, res) => {
     try {
-        const subCategorias = await SubCategoria.find().populate('id_categoria productos'); // Poblamos las referencias
+        const subCategorias = await subCategoriasLogic.obtenerSubCategorias();
         res.status(200).json(subCategorias);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al obtener las subcategorías', error: error.message });
     }
 };
 
 // Obtener una subcategoría por ID
 exports.obtenerSubCategoriaPorId = async (req, res) => {
     try {
-        const subCategoria = await SubCategoria.findById(req.params.id).populate('id_categoria productos');
+        const subCategoria = await subCategoriasLogic.obtenerSubCategoriaPorId(req.params.id);
         if (!subCategoria) {
             return res.status(404).json({ message: 'Subcategoría no encontrada' });
         }
         res.status(200).json(subCategoria);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al obtener la subcategoría', error: error.message });
     }
 };
 
 // Actualizar una subcategoría por ID
 exports.actualizarSubCategoria = async (req, res) => {
     try {
-        const subCategoriaActualizada = await SubCategoria.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const subCategoriaActualizada = await subCategoriasLogic.actualizarSubCategoria(req.params.id, req.body);
         if (!subCategoriaActualizada) {
             return res.status(404).json({ message: 'Subcategoría no encontrada' });
         }
         res.status(200).json(subCategoriaActualizada);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: 'Error al actualizar la subcategoría', error: error.message });
     }
 };
 
 // Eliminar una subcategoría por ID
 exports.eliminarSubCategoria = async (req, res) => {
     try {
-        const subCategoriaEliminada = await SubCategoria.findByIdAndDelete(req.params.id);
+        const subCategoriaEliminada = await subCategoriasLogic.eliminarSubCategoria(req.params.id);
         if (!subCategoriaEliminada) {
             return res.status(404).json({ message: 'Subcategoría no encontrada' });
         }
         res.status(200).json({ message: 'Subcategoría eliminada correctamente' });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al eliminar la subcategoría', error: error.message });
     }
 };
+

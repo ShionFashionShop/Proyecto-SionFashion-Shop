@@ -1,10 +1,10 @@
 const Empresa = require('../models/empresa');
+const empresaLogic = require('../logic/empresaLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear una nueva empresa
 exports.crearEmpresa = async (req, res) => {
     try {
-        const nuevaEmpresa = new Empresa(req.body);
-        await nuevaEmpresa.save();
+        const nuevaEmpresa = await empresaLogic.crearEmpresa(req.body);
         res.status(201).json(nuevaEmpresa);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -14,8 +14,7 @@ exports.crearEmpresa = async (req, res) => {
 // Obtener todas las empresas
 exports.obtenerEmpresas = async (req, res) => {
     try {
-        const empresas = await Empresa.find()
-            .populate('tienda'); // Popula las tiendas asociadas
+        const empresas = await empresaLogic.obtenerEmpresas();
         res.status(200).json(empresas);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -25,8 +24,7 @@ exports.obtenerEmpresas = async (req, res) => {
 // Obtener una empresa por ID
 exports.obtenerEmpresaPorId = async (req, res) => {
     try {
-        const empresa = await Empresa.findById(req.params.id)
-            .populate('tienda');
+        const empresa = await empresaLogic.obtenerEmpresaPorId(req.params.id);
         if (!empresa) {
             return res.status(404).json({ message: 'Empresa no encontrada' });
         }
@@ -39,7 +37,7 @@ exports.obtenerEmpresaPorId = async (req, res) => {
 // Actualizar una empresa por ID
 exports.actualizarEmpresa = async (req, res) => {
     try {
-        const empresaActualizada = await Empresa.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const empresaActualizada = await empresaLogic.actualizarEmpresa(req.params.id, req.body);
         if (!empresaActualizada) {
             return res.status(404).json({ message: 'Empresa no encontrada' });
         }
@@ -52,7 +50,7 @@ exports.actualizarEmpresa = async (req, res) => {
 // Eliminar una empresa por ID
 exports.eliminarEmpresa = async (req, res) => {
     try {
-        const empresaEliminada = await Empresa.findByIdAndDelete(req.params.id);
+        const empresaEliminada = await empresaLogic.eliminarEmpresa(req.params.id);
         if (!empresaEliminada) {
             return res.status(404).json({ message: 'Empresa no encontrada' });
         }

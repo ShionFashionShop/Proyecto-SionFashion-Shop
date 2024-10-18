@@ -1,10 +1,10 @@
 const Empleado = require('../models/empleado');
+const empleadoLogic = require('../logic/empleadoLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear un nuevo empleado
 exports.crearEmpleado = async (req, res) => {
     try {
-        const nuevoEmpleado = new Empleado(req.body);
-        await nuevoEmpleado.save();
+        const nuevoEmpleado = await empleadoLogic.crearEmpleado(req.body);
         res.status(201).json(nuevoEmpleado);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -14,10 +14,7 @@ exports.crearEmpleado = async (req, res) => {
 // Obtener todos los empleados
 exports.obtenerEmpleados = async (req, res) => {
     try {
-        const empleados = await Empleado.find()
-            .populate('id_tienda') // Popula la tienda asociada
-            .populate('id_ciudad') // Popula la ciudad asociada
-            .populate('ordenes_de_compras'); // Popula las órdenes de compra asociadas
+        const empleados = await empleadoLogic.obtenerEmpleados();
         res.status(200).json(empleados);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -27,10 +24,7 @@ exports.obtenerEmpleados = async (req, res) => {
 // Obtener un empleado por ID
 exports.obtenerEmpleadoPorId = async (req, res) => {
     try {
-        const empleado = await Empleado.findById(req.params.id)
-            .populate('id_tienda')
-            .populate('id_ciudad')
-            .populate('ordenes_de_compras');
+        const empleado = await empleadoLogic.obtenerEmpleadoPorId(req.params.id);
         if (!empleado) {
             return res.status(404).json({ message: 'Empleado no encontrado' });
         }
@@ -43,7 +37,7 @@ exports.obtenerEmpleadoPorId = async (req, res) => {
 // Actualizar un empleado por ID
 exports.actualizarEmpleado = async (req, res) => {
     try {
-        const empleadoActualizado = await Empleado.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const empleadoActualizado = await empleadoLogic.actualizarEmpleado(req.params.id, req.body);
         if (!empleadoActualizado) {
             return res.status(404).json({ message: 'Empleado no encontrado' });
         }
@@ -56,7 +50,7 @@ exports.actualizarEmpleado = async (req, res) => {
 // Eliminar un empleado por ID
 exports.eliminarEmpleado = async (req, res) => {
     try {
-        const empleadoEliminado = await Empleado.findByIdAndDelete(req.params.id);
+        const empleadoEliminado = await empleadoLogic.eliminarEmpleado(req.params.id);
         if (!empleadoEliminado) {
             return res.status(404).json({ message: 'Empleado no encontrado' });
         }

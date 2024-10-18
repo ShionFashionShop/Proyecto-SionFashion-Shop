@@ -1,10 +1,10 @@
 const HistorialInventario = require('../models/historialInventario');
+const historialInventarioLogic = require('../logic/historialInventarioLogic'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Crear un nuevo historial de inventario
 exports.crearHistorialInventario = async (req, res) => {
     try {
-        const nuevoHistorial = new HistorialInventario(req.body);
-        await nuevoHistorial.save();
+        const nuevoHistorial = await historialInventarioLogic.crearHistorialInventario(req.body);
         res.status(201).json(nuevoHistorial);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -14,8 +14,7 @@ exports.crearHistorialInventario = async (req, res) => {
 // Obtener todos los registros de historial de inventario
 exports.obtenerHistorialInventario = async (req, res) => {
     try {
-        const historiales = await HistorialInventario.find()
-            .populate('id_producto'); // Popula el producto asociado
+        const historiales = await historialInventarioLogic.obtenerHistorialInventario();
         res.status(200).json(historiales);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -25,8 +24,7 @@ exports.obtenerHistorialInventario = async (req, res) => {
 // Obtener un historial de inventario por ID
 exports.obtenerHistorialInventarioPorId = async (req, res) => {
     try {
-        const historial = await HistorialInventario.findById(req.params.id)
-            .populate('id_producto');
+        const historial = await historialInventarioLogic.obtenerHistorialInventarioPorId(req.params.id);
         if (!historial) {
             return res.status(404).json({ message: 'Historial de inventario no encontrado' });
         }
@@ -39,7 +37,7 @@ exports.obtenerHistorialInventarioPorId = async (req, res) => {
 // Actualizar un historial de inventario por ID
 exports.actualizarHistorialInventario = async (req, res) => {
     try {
-        const historialActualizado = await HistorialInventario.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const historialActualizado = await historialInventarioLogic.actualizarHistorialInventario(req.params.id, req.body);
         if (!historialActualizado) {
             return res.status(404).json({ message: 'Historial de inventario no encontrado' });
         }
@@ -52,7 +50,7 @@ exports.actualizarHistorialInventario = async (req, res) => {
 // Eliminar un historial de inventario por ID
 exports.eliminarHistorialInventario = async (req, res) => {
     try {
-        const historialEliminado = await HistorialInventario.findByIdAndDelete(req.params.id);
+        const historialEliminado = await historialInventarioLogic.eliminarHistorialInventario(req.params.id);
         if (!historialEliminado) {
             return res.status(404).json({ message: 'Historial de inventario no encontrado' });
         }
