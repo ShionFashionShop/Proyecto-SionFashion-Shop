@@ -1,13 +1,21 @@
 const Departamento = require('../models/departamento');
-const departamentoLogic = require('../logic/departamentoLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const departamentoLogic = require('../logic/departamentoLogic');
+const departamentoValidation = require('../validaciones/departamentoValidacion'); // Importa las validaciones con Joi
 
 // Crear un nuevo departamento
 exports.crearDepartamento = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = departamentoValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const nuevoDepartamento = await departamentoLogic.crearDepartamento(req.body);
         res.status(201).json(nuevoDepartamento);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 
@@ -36,6 +44,13 @@ exports.obtenerDepartamentoPorId = async (req, res) => {
 
 // Actualizar un departamento por ID
 exports.actualizarDepartamento = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = departamentoValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const departamentoActualizado = await departamentoLogic.actualizarDepartamento(req.params.id, req.body);
         if (!departamentoActualizado) {
@@ -43,7 +58,7 @@ exports.actualizarDepartamento = async (req, res) => {
         }
         res.status(200).json(departamentoActualizado);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 

@@ -1,9 +1,16 @@
 const HistorialInventario = require('../models/historialInventario');
 const historialInventarioLogic = require('../logic/historialInventarioLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const historialInventarioSchema = require('../validaciones/historialInventarioValidacion'); // Ajusta la ruta según tu estructura
 
 // Crear un nuevo historial de inventario
 exports.crearHistorialInventario = async (req, res) => {
     try {
+        // Validar el cuerpo de la solicitud
+        const { error } = historialInventarioSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const nuevoHistorial = await historialInventarioLogic.crearHistorialInventario(req.body);
         res.status(201).json(nuevoHistorial);
     } catch (error) {
@@ -37,6 +44,12 @@ exports.obtenerHistorialInventarioPorId = async (req, res) => {
 // Actualizar un historial de inventario por ID
 exports.actualizarHistorialInventario = async (req, res) => {
     try {
+        // Validar el cuerpo de la solicitud
+        const { error } = historialInventarioSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const historialActualizado = await historialInventarioLogic.actualizarHistorialInventario(req.params.id, req.body);
         if (!historialActualizado) {
             return res.status(404).json({ message: 'Historial de inventario no encontrado' });
