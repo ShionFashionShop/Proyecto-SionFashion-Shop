@@ -1,8 +1,14 @@
 const OrdenesProducto = require('../models/ordenesProducto'); // Asegúrate de que la ruta sea correcta
 const ordenesProductoLogic = require('../logic/ordenesProductoLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const { ordenesProductoSchema } = require('../validaciones/ordenesProductoValidacion'); // Ajusta la ruta
 
 // Crear una nueva orden de producto
 exports.crearOrdenDeProducto = async (req, res) => {
+    const { error } = ordenesProductoSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ message: 'Error en la validación', error: error.details[0].message });
+    }
+    
     try {
         const nuevaOrdenDeProducto = await ordenesProductoLogic.crearOrdenDeProducto(req.body);
         res.status(201).json(nuevaOrdenDeProducto);
@@ -36,6 +42,11 @@ exports.obtenerOrdenDeProductoPorId = async (req, res) => {
 
 // Actualizar una orden de producto por ID
 exports.actualizarOrdenDeProducto = async (req, res) => {
+    const { error } = ordenesProductoSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ message: 'Error en la validación', error: error.details[0].message });
+    }
+
     try {
         const ordenDeProductoActualizada = await ordenesProductoLogic.actualizarOrdenDeProducto(req.params.id, req.body);
         if (!ordenDeProductoActualizada) {
@@ -59,4 +70,3 @@ exports.eliminarOrdenDeProducto = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la orden de producto', error: error.message });
     }
 };
-

@@ -1,9 +1,12 @@
 const Proveedor = require('../models/proveedor'); // Asegúrate de que la ruta sea correcta
 const proveedoresLogic = require('../logic/proveedoresLogic'); // Ajusta la ruta según tu estructura
+const { proveedorValidationSchema } = require('../validaciones/proveedorValidacion'); // Asegúrate de que la ruta sea correcta
 
 // Crear un nuevo proveedor
 exports.crearProveedor = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await proveedorValidationSchema.validateAsync(req.body);
         const nuevoProveedor = await proveedoresLogic.crearProveedor(req.body);
         res.status(201).json(nuevoProveedor);
     } catch (error) {
@@ -37,6 +40,8 @@ exports.obtenerProveedorPorId = async (req, res) => {
 // Actualizar un proveedor por ID
 exports.actualizarProveedor = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await proveedorValidationSchema.validateAsync(req.body);
         const proveedorActualizado = await proveedoresLogic.actualizarProveedor(req.params.id, req.body);
         if (!proveedorActualizado) {
             return res.status(404).json({ message: 'Proveedor no encontrado' });

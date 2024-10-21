@@ -1,8 +1,14 @@
 const Paise = require('../models/paise'); // Asegúrate de que la ruta sea correcta
 const paisesLogic = require('../logic/paiseLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const { paiseSchema } = require('../validaciones/paiseValidacion'); // Ajusta la ruta según tu estructura
 
 // Crear un nuevo país
 exports.crearPaise = async (req, res) => {
+    const { error } = paiseSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ message: 'Error en la validación', error: error.details[0].message });
+    }
+
     try {
         const nuevoPaise = await paisesLogic.crearPaise(req.body);
         res.status(201).json(nuevoPaise);
@@ -36,6 +42,11 @@ exports.obtenerPaisePorId = async (req, res) => {
 
 // Actualizar un país por ID
 exports.actualizarPaise = async (req, res) => {
+    const { error } = paiseSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ message: 'Error en la validación', error: error.details[0].message });
+    }
+
     try {
         const paiseActualizado = await paisesLogic.actualizarPaise(req.params.id, req.body);
         if (!paiseActualizado) {
