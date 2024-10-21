@@ -1,13 +1,21 @@
 const Cliente = require('../models/cliente');
-const clienteLogic = require('../logic/clienteLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const clienteLogic = require('../logic/clienteLogic'); 
+const clienteValidation = require('../validaciones/clienteValidacion'); // Importa las validaciones con Joi
 
 // Crear un nuevo cliente
 exports.crearCliente = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = clienteValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const nuevoCliente = await clienteLogic.crearCliente(req.body);
         res.status(201).json(nuevoCliente);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 
@@ -36,6 +44,13 @@ exports.obtenerClientePorId = async (req, res) => {
 
 // Actualizar un cliente por ID
 exports.actualizarCliente = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = clienteValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const clienteActualizado = await clienteLogic.actualizarCliente(req.params.id, req.body);
         if (!clienteActualizado) {
@@ -43,7 +58,7 @@ exports.actualizarCliente = async (req, res) => {
         }
         res.status(200).json(clienteActualizado);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 
