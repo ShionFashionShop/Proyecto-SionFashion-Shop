@@ -31,6 +31,30 @@ const sub_categoriaRoutes = require('./Routes/sub_categoriaRoutes');
 const tiendaRoutes = require('./Routes/tiendaRoutes');
 const usuarioRoutes = require('./Routes/usuarioRoutes');
 
+//importacion de las direccione de las semillas
+const seedAlertasStock = require ('./seed/seedAlertaStock.js');
+const seedCategorias = require ('./seed/seedCategoria.js');
+const seedCiudades = require ('./seed/seedCiudade.js');
+const seedClientes = require ('./seed/seedCliente.js');
+const seedDepartamentos = require ('./seed/seedDepartamento.js');
+const seedEmpleados = require ('./seed/seedEmpleado.js');
+const seedEmpresas = require ('./seed/seedEmpresa.js');
+const seedFacturas = require ('./seed/seedFactura.js');
+const seedHistorialInventario = require ('./seed/seedHistorialinventario.js');
+const seedInventario = require ('./seed/seedInventario.js');
+const seedMetodosDePago = require ('./seed/seedMetododePago.js');
+const seedOrdenesDeCompra = require ('./seed/seedOrdenesdeCompra.js');
+const seedOrdenesProducto = require ('./seed/seedOrdenesproducto.js');
+const seedPaises = require ('./seed//seedPaise.js');
+const seedProductos = require ('./seed/seedProducto.js');
+const seedProveedores = require ('./seed/seedProveedor.js');
+const seedRegistrosActividad = require ('./seed/seedRegistroActividad.js');
+const seedRoles = require ('./seed/seedRole.js');
+const seedSubCategorias = require ('./seed/seedSub_categoria.js');
+const seedTiendas = require ('./seed/seedTienda.js');
+const seedUsuarios = require ('./seed/seedUsuario.js');
+
+
 const app = express();
 
 // Configuración de CORS
@@ -91,8 +115,33 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Conexión a la base de datos MongoDB
 mongoose.connect('mongodb+srv://santiagoprietoa:tWWXE4zvrZh5f6uA@proyectosenalaboratoiom.gl0wv.mongodb.net/?retryWrites=true&w=majority&appName=ProyectoSENALaboratoioMongo')
-    .then(() => {
+    .then(async() => {
         console.log('Conectado a MongoDB');
+
+        // Llamadas a las funciones de siembra
+        await seedAlertasStock();
+        await seedCategorias();
+        await seedCiudades();
+        await seedClientes();
+        await seedDepartamentos();
+        await seedEmpleados();
+        await seedEmpresas();
+        await seedFacturas();
+        await seedHistorialInventario();
+        await seedInventario();
+        await seedMetodosDePago();
+        await seedOrdenesDeCompra();
+        await seedOrdenesProducto();
+        await seedPaises();
+        await seedProductos();
+        await seedProveedores();
+        await seedRegistrosActividad();
+        await seedRoles();
+        await seedSubCategorias();
+        await seedTiendas();
+        await seedUsuarios();
+
+        console.log('Proceso de siembra completado.'); // Mensaje opcional
 
         // Manejo de errores
         app.use((err, req, res, next) => {

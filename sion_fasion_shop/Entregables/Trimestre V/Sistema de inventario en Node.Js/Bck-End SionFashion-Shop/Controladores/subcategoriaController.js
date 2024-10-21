@@ -1,9 +1,12 @@
 const SubCategoria = require('../models/sub_categoria'); // Asegúrate de que la ruta sea correcta
 const subCategoriasLogic = require('../logic/subCategoriasLogic'); // Ajusta la ruta según tu estructura
+const { subCategoriaValidationSchema } = require('../validaciones/subCategoriaValidacion'); // Asegúrate de que la ruta sea correcta
 
 // Crear una nueva subcategoría
 exports.crearSubCategoria = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await subCategoriaValidationSchema.validateAsync(req.body);
         const nuevaSubCategoria = await subCategoriasLogic.crearSubCategoria(req.body);
         res.status(201).json(nuevaSubCategoria);
     } catch (error) {
@@ -37,6 +40,8 @@ exports.obtenerSubCategoriaPorId = async (req, res) => {
 // Actualizar una subcategoría por ID
 exports.actualizarSubCategoria = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await subCategoriaValidationSchema.validateAsync(req.body);
         const subCategoriaActualizada = await subCategoriasLogic.actualizarSubCategoria(req.params.id, req.body);
         if (!subCategoriaActualizada) {
             return res.status(404).json({ message: 'Subcategoría no encontrada' });
@@ -59,4 +64,3 @@ exports.eliminarSubCategoria = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la subcategoría', error: error.message });
     }
 };
-

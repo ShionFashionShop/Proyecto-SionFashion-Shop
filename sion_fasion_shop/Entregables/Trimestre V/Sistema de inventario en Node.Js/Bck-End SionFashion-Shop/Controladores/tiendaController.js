@@ -1,9 +1,12 @@
 const Tienda = require('../models/tienda'); // Asegúrate de que la ruta sea correcta
 const tiendasLogic = require('../logic/tiendasLogic'); // Ajusta la ruta según tu estructura
+const { tiendaValidationSchema } = require('../validaciones/tiendaValidacion'); // Asegúrate de que la ruta sea correcta
 
 // Crear una nueva tienda
 exports.crearTienda = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await tiendaValidationSchema.validateAsync(req.body);
         const nuevaTienda = await tiendasLogic.crearTienda(req.body);
         res.status(201).json(nuevaTienda);
     } catch (error) {
@@ -37,6 +40,8 @@ exports.obtenerTiendaPorId = async (req, res) => {
 // Actualizar una tienda por ID
 exports.actualizarTienda = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await tiendaValidationSchema.validateAsync(req.body);
         const tiendaActualizada = await tiendasLogic.actualizarTienda(req.params.id, req.body);
         if (!tiendaActualizada) {
             return res.status(404).json({ message: 'Tienda no encontrada' });

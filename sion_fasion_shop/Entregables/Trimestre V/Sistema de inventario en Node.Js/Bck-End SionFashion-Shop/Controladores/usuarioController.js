@@ -1,9 +1,12 @@
 const Usuario = require('../models/usuario'); // Asegúrate de que la ruta sea correcta
 const usuariosLogic = require('../logic/usuariosLogic'); // Ajusta la ruta según tu estructura
+const { usuarioValidationSchema } = require('../validaciones/usuarioValidacion'); // Asegúrate de que la ruta sea correcta
 
 // Crear un nuevo usuario
 exports.crearUsuario = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await usuarioValidationSchema.validateAsync(req.body);
         const nuevoUsuario = await usuariosLogic.crearUsuario(req.body);
         res.status(201).json(nuevoUsuario);
     } catch (error) {
@@ -37,6 +40,8 @@ exports.obtenerUsuarioPorId = async (req, res) => {
 // Actualizar un usuario por ID
 exports.actualizarUsuario = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await usuarioValidationSchema.validateAsync(req.body);
         const usuarioActualizado = await usuariosLogic.actualizarUsuario(req.params.id, req.body);
         if (!usuarioActualizado) {
             return res.status(404).json({ message: 'Usuario no encontrado' });

@@ -1,9 +1,12 @@
 const Role = require('../models/role'); // Asegúrate de que la ruta sea correcta
 const rolesLogic = require('../logic/rolesLogic'); // Ajusta la ruta según tu estructura
+const { roleValidationSchema } = require('../validaciones/roleValidacion'); // Asegúrate de que la ruta sea correcta
 
 // Crear un nuevo rol
 exports.crearRole = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await roleValidationSchema.validateAsync(req.body);
         const nuevoRole = await rolesLogic.crearRole(req.body);
         res.status(201).json(nuevoRole);
     } catch (error) {
@@ -37,6 +40,8 @@ exports.obtenerRolePorId = async (req, res) => {
 // Actualizar un rol por ID
 exports.actualizarRole = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await roleValidationSchema.validateAsync(req.body);
         const roleActualizado = await rolesLogic.actualizarRole(req.params.id, req.body);
         if (!roleActualizado) {
             return res.status(404).json({ message: 'Rol no encontrado' });
