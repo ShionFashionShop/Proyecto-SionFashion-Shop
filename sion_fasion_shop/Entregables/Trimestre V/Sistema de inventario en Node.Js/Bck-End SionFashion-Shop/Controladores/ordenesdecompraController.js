@@ -1,9 +1,16 @@
 const OrdenesDeCompra = require('../models/ordenesDeCompra'); // Asegúrate de que la ruta sea correcta
 const ordenesDeCompraLogic = require('../logic/ordenesDeCompraLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const ordenesDeCompraSchema = require('../validaciones/ordenesDeCompraValidacion'); // Ajusta la ruta según tu estructura
 
 // Crear una nueva orden de compra
 exports.crearOrdenDeCompra = async (req, res) => {
     try {
+        // Validar el cuerpo de la solicitud
+        const { error } = ordenesDeCompraSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const nuevaOrdenDeCompra = await ordenesDeCompraLogic.crearOrdenDeCompra(req.body);
         res.status(201).json(nuevaOrdenDeCompra);
     } catch (error) {
@@ -37,6 +44,12 @@ exports.obtenerOrdenDeCompraPorId = async (req, res) => {
 // Actualizar una orden de compra por ID
 exports.actualizarOrdenDeCompra = async (req, res) => {
     try {
+        // Validar el cuerpo de la solicitud
+        const { error } = ordenesDeCompraSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const ordenDeCompraActualizada = await ordenesDeCompraLogic.actualizarOrdenDeCompra(req.params.id, req.body);
         if (!ordenDeCompraActualizada) {
             return res.status(404).json({ message: 'Orden de compra no encontrada' });

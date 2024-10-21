@@ -1,9 +1,12 @@
 const RegistroActividad = require('../models/registroActividad'); // Asegúrate de que la ruta sea correcta
 const registrosActividadLogic = require('../logic/registrosActividadLogic'); // Ajusta la ruta según tu estructura
+const { registroActividadValidationSchema } = require('../validaciones/registroActividadValidacion'); // Asegúrate de que la ruta sea correcta
 
 // Crear un nuevo registro de actividad
 exports.crearRegistroActividad = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await registroActividadValidationSchema.validateAsync(req.body);
         const nuevoRegistro = await registrosActividadLogic.crearRegistroActividad(req.body);
         res.status(201).json(nuevoRegistro);
     } catch (error) {
@@ -37,6 +40,8 @@ exports.obtenerRegistroActividadPorId = async (req, res) => {
 // Actualizar un registro de actividad por ID
 exports.actualizarRegistroActividad = async (req, res) => {
     try {
+        // Validar los datos de entrada
+        await registroActividadValidationSchema.validateAsync(req.body);
         const registroActualizado = await registrosActividadLogic.actualizarRegistroActividad(req.params.id, req.body);
         if (!registroActualizado) {
             return res.status(404).json({ message: 'Registro de actividad no encontrado' });

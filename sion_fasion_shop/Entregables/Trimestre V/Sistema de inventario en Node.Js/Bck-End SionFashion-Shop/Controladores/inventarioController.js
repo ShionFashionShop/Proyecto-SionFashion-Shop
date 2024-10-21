@@ -1,9 +1,16 @@
 const Inventario = require('../models/inventario');
 const inventarioLogic = require('../logic/inventarioLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const inventarioSchema = require('../validaciones/inventarioValidacion'); // Ajusta la ruta según tu estructura
 
 // Crear un nuevo registro de inventario
 exports.crearInventario = async (req, res) => {
     try {
+        // Validar el cuerpo de la solicitud
+        const { error } = inventarioSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const nuevoInventario = await inventarioLogic.crearInventario(req.body);
         res.status(201).json(nuevoInventario);
     } catch (error) {
@@ -37,6 +44,12 @@ exports.obtenerInventarioPorId = async (req, res) => {
 // Actualizar un registro de inventario por ID
 exports.actualizarInventario = async (req, res) => {
     try {
+        // Validar el cuerpo de la solicitud
+        const { error } = inventarioSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const inventarioActualizado = await inventarioLogic.actualizarInventario(req.params.id, req.body);
         if (!inventarioActualizado) {
             return res.status(404).json({ message: 'Inventario no encontrado' });

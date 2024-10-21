@@ -3,9 +3,17 @@ const Categoria = require('../models/categoria'); // Asegúrate de que la ruta s
 const Producto = require('../models/producto');  // Asegúrate de ajustar la ruta según tu estructura
 const SubCategoria = require ('../models/sub_categoria');
 const categoriaLogic = require('../logic/categoriaLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const categoriaValidation = require('../validaciones/categoriaValidacion'); // Importa las validaciones con Joi
 
 // Crear una nueva categoría
 exports.crearCategoria = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = categoriaValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const nuevaCategoria = await categoriaLogic.crearCategoria(req.body);
         res.status(201).json(nuevaCategoria);
@@ -39,6 +47,13 @@ exports.obtenerCategoriaPorId = async (req, res) => {
 
 // Actualizar una categoría por su ID
 exports.actualizarCategoria = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = categoriaValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const categoria = await categoriaLogic.actualizarCategoria(req.params.id, req.body);
         if (!categoria) {

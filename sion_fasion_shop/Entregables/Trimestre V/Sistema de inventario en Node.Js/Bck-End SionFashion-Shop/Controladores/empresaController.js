@@ -1,9 +1,16 @@
 const Empresa = require('../models/empresa');
-const empresaLogic = require('../logic/empresaLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const empresaLogic = require('../logic/empresaLogic');
+const empresaSchemaJoi = require('../validaciones/empresaValidacion'); // Ruta de las validaciones Joi
 
 // Crear una nueva empresa
 exports.crearEmpresa = async (req, res) => {
     try {
+        // Validar los datos con Joi
+        const { error } = empresaSchemaJoi.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const nuevaEmpresa = await empresaLogic.crearEmpresa(req.body);
         res.status(201).json(nuevaEmpresa);
     } catch (error) {
@@ -37,6 +44,12 @@ exports.obtenerEmpresaPorId = async (req, res) => {
 // Actualizar una empresa por ID
 exports.actualizarEmpresa = async (req, res) => {
     try {
+        // Validar los datos con Joi
+        const { error } = empresaSchemaJoi.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const empresaActualizada = await empresaLogic.actualizarEmpresa(req.params.id, req.body);
         if (!empresaActualizada) {
             return res.status(404).json({ message: 'Empresa no encontrada' });

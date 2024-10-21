@@ -1,8 +1,15 @@
 const Producto = require('../models/producto'); // Asegúrate de que la ruta sea correcta
 const productosLogic = require('../logic/productosLogic'); // Ajusta la ruta según tu estructura
+const { productoSchema } = require('../validaciones/productoValidacion'); // Ajusta la ruta según tu estructura
 
 // Crear un nuevo producto
 exports.crearProducto = async (req, res) => {
+    // Validar los datos de entrada
+    const { error } = productoSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ message: 'Error de validación', error: error.details[0].message });
+    }
+
     try {
         const nuevoProducto = await productosLogic.crearProducto(req.body);
         res.status(201).json(nuevoProducto);
@@ -36,6 +43,12 @@ exports.obtenerProductoPorId = async (req, res) => {
 
 // Actualizar un producto por ID
 exports.actualizarProducto = async (req, res) => {
+    // Validar los datos de entrada
+    const { error } = productoSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ message: 'Error de validación', error: error.details[0].message });
+    }
+
     try {
         const productoActualizado = await productosLogic.actualizarProducto(req.params.id, req.body);
         if (!productoActualizado) {
@@ -59,4 +72,3 @@ exports.eliminarProducto = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
     }
 };
-

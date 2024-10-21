@@ -1,9 +1,17 @@
 const alertasStock = require('../models/alertasStock'); // Asegúrate de que la ruta al modelo sea correcta
 const Producto = require('../models/producto');  // Asegúrate de ajustar la ruta según tu estructura
 const alertasStockLogic = require('../logic/alertasStockLogic');
+const alertasStockValidation = require('../validaciones/alertasStockValidacion'); // Importa las validaciones con Joi
 
 // Crear una nueva alerta de stock
 const crearAlertaStock = async (req, res) => {
+    // Validar el cuerpo de la solicitud usando Joi
+    const { error } = alertasStockValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const nuevaAlerta = await alertasStockLogic.crearAlertaStock(req.body);
         res.status(201).json(nuevaAlerta);
@@ -37,6 +45,13 @@ const obtenerAlertaStockPorId = async (req, res) => {
 
 // Actualizar una alerta de stock
 const actualizarAlertaStock = async (req, res) => {
+    // Validar el cuerpo de la solicitud usando Joi
+    const { error } = alertasStockValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const alertaActualizada = await alertasStockLogic.actualizarAlertaStock(req.params.id, req.body);
         if (!alertaActualizada) {

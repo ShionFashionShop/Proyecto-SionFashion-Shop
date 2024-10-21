@@ -1,9 +1,16 @@
 const Factura = require('../models/factura');
-const facturaLogic = require('../logic/facturaLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const facturaLogic = require('../logic/facturaLogic'); 
+const facturaSchemaJoi = require('../validaciones/facturaValidacion'); // Importar el esquema Joi
 
-// Crear una nueva factura
+// Crear una nueva factura con validación Joi
 exports.crearFactura = async (req, res) => {
     try {
+        // Validar la solicitud con Joi
+        const { error } = facturaSchemaJoi.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const nuevaFactura = await facturaLogic.crearFactura(req.body);
         res.status(201).json(nuevaFactura);
     } catch (error) {
@@ -34,9 +41,15 @@ exports.obtenerFacturaPorId = async (req, res) => {
     }
 };
 
-// Actualizar una factura por ID
+// Actualizar una factura por ID con validación Joi
 exports.actualizarFactura = async (req, res) => {
     try {
+        // Validar la solicitud con Joi
+        const { error } = facturaSchemaJoi.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
         const facturaActualizada = await facturaLogic.actualizarFactura(req.params.id, req.body);
         if (!facturaActualizada) {
             return res.status(404).json({ message: 'Factura no encontrada' });

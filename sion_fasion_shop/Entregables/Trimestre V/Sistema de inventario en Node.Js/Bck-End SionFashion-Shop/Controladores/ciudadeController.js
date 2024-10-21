@@ -1,13 +1,21 @@
 const Ciudade = require('../models/ciudade');
-const ciudadLogic = require('../logic/ciudadeLogic'); // Asegúrate de ajustar la ruta según tu estructura
+const ciudadLogic = require('../logic/ciudadeLogic'); 
+const ciudadeValidation = require('../validaciones/ciudadValidacion'); // Importa las validaciones con Joi
 
 // Crear una nueva ciudad
 exports.crearCiudad = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = ciudadeValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const nuevaCiudad = await ciudadLogic.crearCiudad(req.body);
         res.status(201).json(nuevaCiudad);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 
@@ -36,6 +44,13 @@ exports.obtenerCiudadPorId = async (req, res) => {
 
 // Actualizar una ciudad
 exports.actualizarCiudad = async (req, res) => {
+    // Validar los datos de la solicitud
+    const { error } = ciudadeValidation.validate(req.body);
+
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     try {
         const ciudadActualizada = await ciudadLogic.actualizarCiudad(req.params.id, req.body);
         if (!ciudadActualizada) {
@@ -43,7 +58,7 @@ exports.actualizarCiudad = async (req, res) => {
         }
         res.status(200).json(ciudadActualizada);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 
