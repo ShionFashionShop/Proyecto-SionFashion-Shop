@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
 const RegistroActividad = require('../models/registroActividad'); // Ajusta la ruta según tu estructura
 const Usuario = require('../models/usuario'); // Modelo de usuarios
+const { ObjectId } = mongoose.Types; // Para manejar ObjectId
 
 // Semilla de Registros de Actividad
 const registrosActividadData = [
     {
-        id_usuario: "Usuario_ID_1", // Cambiar por el ID correcto del usuario
+        id_usuario: new ObjectId(), // ID temporal si no hay un usuario asociado
         actividad: "Inicio de sesión en la aplicación",
         fecha_actividad: new Date('2024-10-01T08:30:00Z')
     },
     {
-        id_usuario: "Usuario_ID_2", // Cambiar por el ID correcto del usuario
+        id_usuario: new ObjectId(), // ID temporal si no hay un usuario asociado
         actividad: "Creación de un nuevo producto",
         fecha_actividad: new Date('2024-10-02T09:45:00Z')
     },
     {
-        id_usuario: "Usuario_ID_1", // Cambiar por el ID correcto del usuario
+        id_usuario: new ObjectId(), // ID temporal si no hay un usuario asociado
         actividad: "Actualización de perfil",
         fecha_actividad: new Date('2024-10-03T10:15:00Z')
     }
@@ -29,8 +30,7 @@ async function seedRegistrosActividad() {
             const usuario = await Usuario.findById(registro.id_usuario);
 
             if (!usuario) {
-                console.log(`El usuario referenciado no fue encontrado para la actividad: ${registro.actividad}. Se omitirá este registro.`);
-                continue; // Salta al siguiente registro si la referencia no se encuentra
+                console.log(`El usuario referenciado no fue encontrado para la actividad: ${registro.actividad}, se usará el ObjectId temporal.`);
             }
 
             // Crear el nuevo registro de actividad

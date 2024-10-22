@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const Paise = require('../models/paise'); // Ajusta la ruta según tu estructura
 const Departamento = require('../models/departamento'); // Modelo de departamentos
 
-// Semilla de Países
+// Semilla de Países con ObjectId temporales
 const paisesData = [
     {
         nombre_pais: "Colombia",
-        departamentos: ["Departamento_ID_1", "Departamento_ID_2"] // Cambiar por los IDs correctos de los departamentos
+        departamentos: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de departamentos
     },
     {
         nombre_pais: "Argentina",
-        departamentos: ["Departamento_ID_3", "Departamento_ID_4"] // Cambiar por los IDs correctos de los departamentos
+        departamentos: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de departamentos
     }
 ];
 

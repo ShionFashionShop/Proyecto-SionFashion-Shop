@@ -5,19 +5,19 @@ const Factura = require('../models/factura'); // Modelo de factura
 const Empleado = require('../models/empleado'); // Modelo de empleado
 const OrdenesProducto = require('../models/ordenesProducto'); // Modelo de órdenes de producto
 
-// Semilla de Órdenes de Compra
+// Semilla de Órdenes de Compra con ObjectId temporales
 const ordenesDeCompraData = [
     {
-        id_cliente: "Cliente_ID_1", // Cambiar por el ID correcto del cliente
-        id_factura: "Factura_ID_1", // Cambiar por el ID correcto de la factura
-        id_empleado: "Empleado_ID_1", // Cambiar por el ID correcto del empleado
-        ordenes_productos: ["Producto_ID_1", "Producto_ID_2"] // Cambiar por IDs correctos de productos
+        id_cliente: new mongoose.Types.ObjectId(), // ID temporal de cliente
+        id_factura: new mongoose.Types.ObjectId(), // ID temporal de factura
+        id_empleado: new mongoose.Types.ObjectId(), // ID temporal de empleado
+        ordenes_productos: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de productos
     },
     {
-        id_cliente: "Cliente_ID_2", // Cambiar por el ID correcto del cliente
+        id_cliente: new mongoose.Types.ObjectId(), // ID temporal de cliente
         id_factura: null, // Sin factura asociada
-        id_empleado: "Empleado_ID_2", // Cambiar por el ID correcto del empleado
-        ordenes_productos: ["Producto_ID_3"] // Cambiar por IDs correctos de productos
+        id_empleado: new mongoose.Types.ObjectId(), // ID temporal de empleado
+        ordenes_productos: [new mongoose.Types.ObjectId()] // ID temporal de producto
     }
 ];
 
@@ -32,7 +32,7 @@ async function seedOrdenesDeCompra() {
                 continue; // Salta al siguiente orden si el cliente no se encuentra
             }
 
-            // Verificar si la factura existe, solo si se proporciona un ID
+            // Verificar si la factura existe, solo si se proporciona un ID de factura
             if (orden.id_factura) {
                 const factura = await Factura.findById(orden.id_factura);
                 if (!factura) {
@@ -49,7 +49,7 @@ async function seedOrdenesDeCompra() {
             }
 
             // Verificar si los productos existen
-            const productosExistentes = await OrdenesProducto.find({_id: { $in: orden.ordenes_productos }});
+            const productosExistentes = await OrdenesProducto.find({ _id: { $in: orden.ordenes_productos } });
             if (productosExistentes.length !== orden.ordenes_productos.length) {
                 console.log(`Algunos productos no fueron encontrados para la orden de compra. Se omitirá esta orden.`);
                 continue; // Salta al siguiente orden si hay productos no encontrados

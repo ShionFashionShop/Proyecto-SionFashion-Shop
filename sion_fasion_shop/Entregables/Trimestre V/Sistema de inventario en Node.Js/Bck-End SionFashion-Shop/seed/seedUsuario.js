@@ -8,13 +8,13 @@ const usuariosData = [
     {
         nombre_usuario: "adminUser",
         clave_usuario: "adminPassword123", // Asegúrate de manejar la clave con seguridad en un entorno real
-        roles: ["Role_ID_1"], // Cambiar por los IDs correctos de los roles
+        roles: [new mongoose.Types.ObjectId()], // ID temporal del rol
         registros_actividades: [] // Puede ser vacío si no hay registros asociados inicialmente
     },
     {
         nombre_usuario: "regularUser",
         clave_usuario: "userPassword456", // Asegúrate de manejar la clave con seguridad en un entorno real
-        roles: ["Role_ID_2"], // Cambiar por los IDs correctos de los roles
+        roles: [new mongoose.Types.ObjectId()], // ID temporal del rol
         registros_actividades: [] // Puede ser vacío si no hay registros asociados inicialmente
     },
     {

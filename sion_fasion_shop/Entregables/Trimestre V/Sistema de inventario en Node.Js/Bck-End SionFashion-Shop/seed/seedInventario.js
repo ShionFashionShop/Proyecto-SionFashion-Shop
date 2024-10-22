@@ -2,22 +2,22 @@ const mongoose = require('mongoose');
 const Inventario = require('../models/inventario'); // Ajusta la ruta según tu estructura
 const Producto = require('../models/producto'); // Modelo de producto
 
-// Semilla de Inventario
+// Semilla de Inventario con ObjectId temporal
 const inventarioData = [
     {
-        id_producto: "Producto_ID_1", // Cambiar por el ID correcto del producto
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal
         stock_inicial: 100,
         stock_actual: 80,
         saldo: 80
     },
     {
-        id_producto: "Producto_ID_2", // Cambiar por el ID correcto del producto
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal
         stock_inicial: 200,
         stock_actual: 150,
         saldo: 150
     },
     {
-        id_producto: "Producto_ID_3", // Cambiar por el ID correcto del producto
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal
         stock_inicial: 300,
         stock_actual: 250,
         saldo: 250

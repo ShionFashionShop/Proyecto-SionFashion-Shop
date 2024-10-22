@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const MetodosDePago = require('../models/metodosDePago'); // Ajusta la ruta según tu estructura
 const Factura = require('../models/factura'); // Modelo de factura
 
-// Semilla de Métodos de Pago
+// Semilla de Métodos de Pago con ObjectId temporal
 const metodosDePagoData = [
     {
         metodo_pago: "Tarjeta de Crédito",
-        id_factura: "Factura_ID_1" // Cambiar por el ID correcto de la factura
+        id_factura: new mongoose.Types.ObjectId() // ID temporal
     },
     {
         metodo_pago: "Efectivo",
-        id_factura: "Factura_ID_2" // Cambiar por el ID correcto de la factura
+        id_factura: new mongoose.Types.ObjectId() // ID temporal
     },
     {
         metodo_pago: "Transferencia Bancaria",
@@ -22,7 +22,7 @@ async function seedMetodosDePago() {
     console.log('Iniciando la siembra de métodos de pago...');
     try {
         for (const metodo of metodosDePagoData) {
-            // Verificar si la factura existe, solo si se proporciona un ID
+            // Verificar si la factura existe, solo si se proporciona un ID de factura
             if (metodo.id_factura) {
                 const factura = await Factura.findById(metodo.id_factura);
                 if (!factura) {

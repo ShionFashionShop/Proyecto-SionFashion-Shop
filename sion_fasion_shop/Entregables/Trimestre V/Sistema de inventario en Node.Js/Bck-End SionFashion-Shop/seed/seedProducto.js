@@ -3,6 +3,7 @@ const Producto = require('../models/producto'); // Ajusta la ruta según tu estr
 const SubCategoria = require('../models/sub_categoria'); // Modelo de subcategorías
 const Proveedor = require('../models/proveedor'); // Modelo de proveedores
 const Tienda = require('../models/tienda'); // Modelo de tiendas
+const { ObjectId } = mongoose.Types; // Para manejar ObjectId
 
 // Semilla de Productos
 const productosData = [
@@ -13,9 +14,9 @@ const productosData = [
         unidad_medida: "unidad",
         peso_del_producto: "2.5 kg",
         ubicacion_producto: "Estante A1",
-        id_sub_categoria: "SubCategoria_ID_1", // Cambiar por el ID correcto de la subcategoría
-        id_proveedor: "Proveedor_ID_1", // Cambiar por el ID correcto del proveedor
-        id_tienda: "Tienda_ID_1", // Cambiar por el ID correcto de la tienda
+        id_sub_categoria: new ObjectId(), // ID temporal si no hay una subcategoría asociada
+        id_proveedor: new ObjectId(), // ID temporal si no hay un proveedor asociado
+        id_tienda: new ObjectId(), // ID temporal si no hay una tienda asociada
         id_factura: null // Puede ser null si no hay una factura asociada
     },
     {
@@ -25,9 +26,9 @@ const productosData = [
         unidad_medida: "unidad",
         peso_del_producto: "0.15 kg",
         ubicacion_producto: "Estante A2",
-        id_sub_categoria: "SubCategoria_ID_2", // Cambiar por el ID correcto de la subcategoría
-        id_proveedor: "Proveedor_ID_2", // Cambiar por el ID correcto del proveedor
-        id_tienda: "Tienda_ID_2", // Cambiar por el ID correcto de la tienda
+        id_sub_categoria: new ObjectId(), // ID temporal si no hay una subcategoría asociada
+        id_proveedor: new ObjectId(), // ID temporal si no hay un proveedor asociado
+        id_tienda: new ObjectId(), // ID temporal si no hay una tienda asociada
         id_factura: null // Puede ser null si no hay una factura asociada
     }
 ];
@@ -36,14 +37,19 @@ async function seedProductos() {
     console.log('Iniciando la siembra de productos...');
     try {
         for (const producto of productosData) {
-            // Verificar si las referencias existen
+            // Verificar si las referencias existen, si no, se deja el ObjectId temporal
             const subCategoria = await SubCategoria.findById(producto.id_sub_categoria);
             const proveedor = await Proveedor.findById(producto.id_proveedor);
             const tienda = await Tienda.findById(producto.id_tienda);
 
-            if (!subCategoria || !proveedor || !tienda) {
-                console.log(`Algunos datos de referencia no fueron encontrados para el producto ${producto.nombre_producto}. Se omitirá este producto.`);
-                continue; // Salta al siguiente producto si alguna referencia no se encuentra
+            if (!subCategoria) {
+                console.log(`Subcategoría no encontrada para el producto ${producto.nombre_producto}, se usará el ObjectId temporal.`);
+            }
+            if (!proveedor) {
+                console.log(`Proveedor no encontrado para el producto ${producto.nombre_producto}, se usará el ObjectId temporal.`);
+            }
+            if (!tienda) {
+                console.log(`Tienda no encontrada para el producto ${producto.nombre_producto}, se usará el ObjectId temporal.`);
             }
 
             // Crear el nuevo registro de producto
