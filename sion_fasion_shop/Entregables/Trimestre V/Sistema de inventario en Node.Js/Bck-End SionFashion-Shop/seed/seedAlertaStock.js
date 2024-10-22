@@ -16,7 +16,7 @@ const alertasStockData = [
     },
     {
         nivel_minimo: 15,
-        fecha_alerta: new Date(),
+        fecha_alerta: new Date(2024-12-20),
         nombreProducto: "Audífonos Sony WH-1000XM4"
     }
 ];

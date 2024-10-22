@@ -9,15 +9,16 @@ const empresasData = [
         direccion_empresa: "Calle 123, Ciudad A",
         telefono_empresa: "3001234567",
         email_empresa: "contacto@empresaA.com",
-        tiendas: ["Tienda A", "Tienda B"] // Nombres de las tiendas a asociar
+        tiendas: [] // Nombres de las tiendas a asociar
     },
     {
         nombre_empresa: "Empresa B",
         direccion_empresa: "Calle 456, Ciudad B",
         telefono_empresa: "3101234567",
         email_empresa: "contacto@empresaB.com",
-        tiendas: ["Tienda C"]
-    }
+        tiendas: [] // Esta empresa no tiene tiendas asociadas todavía
+    },
+    
 ];
 
 async function seedEmpresas() {
@@ -29,30 +30,32 @@ async function seedEmpresas() {
             console.log(`Buscando empresa: ${empresaData.nombre_empresa}`);
             
             if (!empresaExistente) {
-                // Crear un arreglo para almacenar las referencias de las tiendas
+                // Crear un arreglo para almacenar las referencias de las tiendas (si existen)
                 const tiendaIds = [];
 
-                for (const tiendaNombre of empresaData.tiendas) {
-                    // Buscar la tienda por su nombre
-                    const tienda = await Tienda.findOne({ nombre_tienda: tiendaNombre });
-                    if (!tienda) {
-                        console.log(`Tienda "${tiendaNombre}" no encontrada. Creando nueva...`);
-                        const nuevaTienda = await Tienda.create({ nombre_tienda: tiendaNombre });
-                        tiendaIds.push(nuevaTienda._id);
-                        console.log(`Tienda "${tiendaNombre}" creada.`);
-                    } else {
-                        tiendaIds.push(tienda._id);
-                        console.log(`Tienda "${tiendaNombre}" ya existe.`);
+                if (empresaData.tiendas && empresaData.tiendas.length > 0) {
+                    for (const tiendaNombre of empresaData.tiendas) {
+                        // Buscar la tienda por su nombre
+                        const tienda = await Tienda.findOne({ nombre_tienda: tiendaNombre });
+                        if (!tienda) {
+                            console.log(`Tienda "${tiendaNombre}" no encontrada. Creando nueva...`);
+                            const nuevaTienda = await Tienda.create({ nombre_tienda: tiendaNombre });
+                            tiendaIds.push(nuevaTienda._id);
+                            console.log(`Tienda "${tiendaNombre}" creada.`);
+                        } else {
+                            tiendaIds.push(tienda._id);
+                            console.log(`Tienda "${tiendaNombre}" ya existe.`);
+                        }
                     }
                 }
 
-                // Crear la nueva empresa con las referencias de tienda
+                // Crear la nueva empresa con las referencias de tienda (si existen)
                 await Empresa.create({
                     nombre_empresa: empresaData.nombre_empresa,
                     direccion_empresa: empresaData.direccion_empresa,
                     telefono_empresa: empresaData.telefono_empresa,
                     email_empresa: empresaData.email_empresa,
-                    tienda: tiendaIds
+                    tienda: tiendaIds.length > 0 ? tiendaIds : null // Permitir null si no hay tiendas
                 });
                 console.log(`Empresa "${empresaData.nombre_empresa}" creada.`);
             } else {
