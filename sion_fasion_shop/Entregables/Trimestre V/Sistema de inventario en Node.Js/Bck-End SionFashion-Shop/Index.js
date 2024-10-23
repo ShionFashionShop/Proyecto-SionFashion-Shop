@@ -6,6 +6,11 @@ const fs = require('fs');
 const https = require('https');
 const cors = require('cors'); // Requiere cors
 const path = require('path');
+const router = express.Router();
+require('dotenv').config();
+
+
+//const { iniciarSesion } = require('./Controladores/usuarioController');
 
 
 // Importar rutas
@@ -30,6 +35,8 @@ const roleRoutes = require('./Routes/roleRoutes');
 const sub_categoriaRoutes = require('./Routes/sub_categoriaRoutes');
 const tiendaRoutes = require('./Routes/tiendaRoutes');
 const usuarioRoutes = require('./Routes/usuarioRoutes');
+//const authRoutes = require('./Routes/authRoutes'); // Ajusta la ruta a tu archivo auth.js
+
 
 //importacion de las direccione de las semillas
 const seedAlertasStock = require ('./seed/seedAlertaStock.js');
@@ -77,15 +84,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-/* Redirigir HTTP a HTTPS (opcional, si deseas forzar HTTPS)
-app.use((req, res, next) => {
-    if (req.protocol === 'http') {
-        return res.redirect(301, `https://${req.headers.host}${req.url}`);
-    }
-    next();
-});
-*/
-
 
 // Rutas de la aplicación
 app.use('/api/alertasStock', alertasStockRoutes);
@@ -109,6 +107,9 @@ app.use('/api', roleRoutes);
 app.use('/api', sub_categoriaRoutes);
 app.use('/api', tiendaRoutes);
 app.use('/api', usuarioRoutes);
+// app.use('/api', authRoutes);
+// router.post('/iniciar-sesion', iniciarSesion);
+
 
 // Configuración de Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -158,3 +159,4 @@ mongoose.connect('mongodb+srv://santiagoprietoa:tWWXE4zvrZh5f6uA@proyectosenalab
         });
     })
     .catch(err => console.log('No se pudo conectar con MongoDB..', err));
+

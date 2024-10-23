@@ -5,12 +5,12 @@ const Usuario = require('../models/usuario'); // Modelo de usuarios
 // Semilla de Roles
 const rolesData = [
     {
-        nombre_rol: "Administrador",
+        nombre_rol: "admin",
         descripcion_rol: "Usuario con acceso completo a todas las funciones.",
         usuarios: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de usuarios
     },
     {
-        nombre_rol: "Vendedor",
+        nombre_rol: "user",
         descripcion_rol: "Usuario responsable de gestionar las ventas.",
         usuarios: [new mongoose.Types.ObjectId()] // ID temporal de un usuario
     },

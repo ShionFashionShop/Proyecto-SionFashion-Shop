@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const usuarioController = require('../Controladores/usuarioController');
+const Usuario = require ('../models/usuario.js');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken'); // Asegúrate de tener esto instalado
+
 
 /**
  * @swagger
@@ -176,5 +180,102 @@ router.put('/usuarios/:id', usuarioController.actualizarUsuario);
  *         description: Error al eliminar el usuario
  */
 router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
+
+/**
+ * @swagger
+ * /api/login:
+ *   post:
+ *     summary: Iniciar sesión de usuario
+ *     tags: [Usuarios]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - clave_usuario
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: El email del usuario
+ *                 example: ejemplo@dominio.com
+ *               clave_usuario:
+ *                 type: string
+ *                 description: La contraseña del usuario
+ *                 example: ContraseñaSegura123
+ *     responses:
+ *       200:
+ *         description: Inicio de sesión exitoso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 token:
+ *                   type: string
+ *                   description: El token JWT que se envía al cliente
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *       401:
+ *         description: Credenciales inválidas
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Credenciales inválidas
+ *       500:
+ *         description: Error interno del servidor
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Error interno del servidor
+ */
+
+router.post('/login', async (req, res) => {
+    const { email, clave_usuario } = req.body;
+
+    try {
+        // Buscar el usuario por email
+        const user = await Usuario.findOne({ email });
+        if (!user) {
+            return res.status(401).json({ success: false, message: 'Credenciales inválidas' });
+        }
+
+        // Verificar la contraseña sin encriptación
+        if (clave_usuario !== user.clave_usuario) {
+            return res.status(401).json({ success: false, message: 'Credenciales inválidas' });
+        }
+
+        // Crear un token JWT
+        const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, {
+            expiresIn: '1h', // Expira en 1 hora
+        });
+
+        // Enviar el token al cliente
+        res.json({ success: true, token });
+    } catch (err) {
+        console.error('Error durante el inicio de sesión:', err);
+        res.status(500).json({ success: false, message: 'Error interno del servidor' });
+    }
+});
+
+
 
 module.exports = router;

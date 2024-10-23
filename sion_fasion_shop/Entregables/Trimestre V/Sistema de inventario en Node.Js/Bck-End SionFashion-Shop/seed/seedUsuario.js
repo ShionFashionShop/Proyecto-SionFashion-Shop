@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs'); // Encriptación de contraseñas
 const Usuario = require('../models/usuario'); // Ajusta la ruta según tu estructura
 const Role = require('../models/role'); // Modelo de roles
 const RegistroActividad = require('../models/registroActividad'); // Ajusta la ruta según tu estructura
@@ -7,21 +8,24 @@ const RegistroActividad = require('../models/registroActividad'); // Ajusta la r
 const usuariosData = [
     {
         nombre_usuario: "adminUser",
-        clave_usuario: "adminPassword123", // Asegúrate de manejar la clave con seguridad en un entorno real
-        roles: [new mongoose.Types.ObjectId()], // ID temporal del rol
-        registros_actividades: [] // Puede ser vacío si no hay registros asociados inicialmente
+        clave_usuario: "adminPassword123", // Contraseña a encriptar
+        email: "admin.example@gmail.com", // El email es obligatorio
+        roles: ["admin"], // Nombre del rol, lo buscaremos en la BD
+        registros_actividades: [] // Puede ser vacío inicialmente
     },
     {
         nombre_usuario: "regularUser",
-        clave_usuario: "userPassword456", // Asegúrate de manejar la clave con seguridad en un entorno real
-        roles: [new mongoose.Types.ObjectId()], // ID temporal del rol
-        registros_actividades: [] // Puede ser vacío si no hay registros asociados inicialmente
+        clave_usuario: "userPassword456", // Contraseña a encriptar
+        email: "regular.example@gmail.com", // El email es obligatorio
+        roles: ["user"], // Nombre del rol, lo buscaremos en la BD
+        registros_actividades: [] // Puede ser vacío inicialmente
     },
     {
         nombre_usuario: "guestUser",
-        clave_usuario: "guestPassword789", // Asegúrate de manejar la clave con seguridad en un entorno real
-        roles: [], // Puede ser vacío si el usuario no tiene roles asociados
-        registros_actividades: [] // Puede ser vacío si no hay registros asociados inicialmente
+        clave_usuario: "guestPassword789", // Contraseña a encriptar
+        email: "guestUser.example@gmail.com", // El email es obligatorio
+        roles: ["user"], // Usuario sin roles
+        registros_actividades: [] // Puede ser vacío inicialmente
     }
 ];
 
@@ -29,20 +33,25 @@ async function seedUsuarios() {
     console.log('Iniciando la siembra de usuarios...');
     try {
         for (const usuario of usuariosData) {
-            // Verificar si los roles referenciados existen
-            const rolesExistentes = await Role.find({ '_id': { $in: usuario.roles } });
+            // Verificar y asignar roles existentes por nombre
+            const rolesExistentes = await Role.find({ nombre: { $in: usuario.roles } });
 
-            // Si alguno de los roles no existe, informar y omitir
+            // Si no se encuentran roles, loguear y omitir
             if (rolesExistentes.length !== usuario.roles.length) {
                 console.log(`Algunos roles no fueron encontrados para el usuario: ${usuario.nombre_usuario}. Se omitirá este usuario.`);
                 continue;
             }
 
+            // Encriptar la contraseña antes de almacenar el usuario
+            const salt = await bcrypt.genSalt(10);
+            const claveEncriptada = await bcrypt.hash(usuario.clave_usuario, salt);
+
             // Crear el nuevo usuario
             const nuevoUsuario = await Usuario.create({
                 nombre_usuario: usuario.nombre_usuario,
-                clave_usuario: usuario.clave_usuario, // Asegúrate de encriptar la clave antes de almacenarla
-                roles: usuario.roles,
+                email: usuario.email, // Asegúrate de incluir el email
+                clave_usuario: claveEncriptada, // Almacenar la contraseña encriptada
+                roles: rolesExistentes.map(role => role._id), // Asociar los IDs de los roles
                 registros_actividades: usuario.registros_actividades
             });
 
