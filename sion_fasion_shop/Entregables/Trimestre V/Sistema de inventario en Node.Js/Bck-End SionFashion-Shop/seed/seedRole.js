@@ -5,14 +5,14 @@ const Usuario = require('../models/usuario'); // Modelo de usuarios
 // Semilla de Roles
 const rolesData = [
     {
-        nombre_rol: "Administrador",
+        nombre_rol: "admin",
         descripcion_rol: "Usuario con acceso completo a todas las funciones.",
-        usuarios: ["Usuario_ID_1", "Usuario_ID_2"] // Cambiar por los IDs correctos de los usuarios
+        usuarios: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de usuarios
     },
     {
-        nombre_rol: "Vendedor",
+        nombre_rol: "user",
         descripcion_rol: "Usuario responsable de gestionar las ventas.",
-        usuarios: ["Usuario_ID_3"] // Cambiar por el ID correcto del usuario
+        usuarios: [new mongoose.Types.ObjectId()] // ID temporal de un usuario
     },
     {
         nombre_rol: "Cliente",
@@ -25,8 +25,10 @@ async function seedRoles() {
     console.log('Iniciando la siembra de roles...');
     try {
         for (const role of rolesData) {
-            // Verificar si los usuarios referenciados existen
-            const usuariosExistentes = await Usuario.find({ _id: { $in: role.usuarios } });
+            // Verificar si los usuarios referenciados existen, omitiendo el chequeo si el array está vacío
+            const usuariosExistentes = role.usuarios.length > 0 
+                ? await Usuario.find({ _id: { $in: role.usuarios } }) 
+                : [];
 
             // Si hay usuarios que no existen, informar y omitir
             if (usuariosExistentes.length < role.usuarios.length) {
@@ -38,7 +40,7 @@ async function seedRoles() {
             const nuevoRol = await Role.create({
                 nombre_rol: role.nombre_rol,
                 descripcion_rol: role.descripcion_rol,
-                usuarios: role.usuarios
+                usuarios: role.usuarios.length > 0 ? role.usuarios : null // Asignar null si no hay usuarios
             });
 
             console.log(`Rol creado con éxito: ${nuevoRol.nombre_rol}.`);

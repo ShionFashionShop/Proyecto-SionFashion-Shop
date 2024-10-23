@@ -6,18 +6,18 @@ const Categoria = require('../models/categoria'); // Modelo de categorías
 const subCategoriasData = [
     {
         nombre_sub_categoria: "Electrónica",
-        id_categoria: "Categoria_ID_1", // Cambia por el ID correcto de la categoría
-        productos: ["Producto_ID_1", "Producto_ID_2"] // Cambiar por los IDs correctos de los productos
+        id_categoria: new mongoose.Types.ObjectId(), // ID temporal de la categoría
+        productos: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de los productos
     },
     {
         nombre_sub_categoria: "Ropa",
-        id_categoria: "Categoria_ID_2", // Cambia por el ID correcto de la categoría
+        id_categoria: new mongoose.Types.ObjectId(), // ID temporal de la categoría
         productos: [] // Puede ser vacío si no hay productos asociados inicialmente
     },
     {
         nombre_sub_categoria: "Alimentos",
-        id_categoria: "Categoria_ID_3", // Cambia por el ID correcto de la categoría
-        productos: ["Producto_ID_3"] // Cambiar por el ID correcto de un producto
+        id_categoria: new mongoose.Types.ObjectId(), // ID temporal de la categoría
+        productos: [new mongoose.Types.ObjectId()] // ID temporal de un producto
     }
 ];
 
@@ -31,14 +31,14 @@ async function seedSubCategorias() {
             // Si la categoría no existe, informar y omitir
             if (!categoriaExistente) {
                 console.log(`La categoría referenciada no fue encontrada para la subcategoría: ${subCategoria.nombre_sub_categoria}. Se omitirá esta subcategoría.`);
-                continue; // Salta al siguiente subcategoría si no se encuentra la categoría
+                continue; // Salta a la siguiente subcategoría si no se encuentra la categoría
             }
 
             // Crear la nueva subcategoría
             const nuevaSubCategoria = await SubCategoria.create({
                 nombre_sub_categoria: subCategoria.nombre_sub_categoria,
                 id_categoria: subCategoria.id_categoria,
-                productos: subCategoria.productos
+                productos: subCategoria.productos // Puede ser un array vacío si no hay productos
             });
 
             console.log(`Subcategoría creada con éxito: ${nuevaSubCategoria.nombre_sub_categoria}.`);

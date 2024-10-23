@@ -10,6 +10,14 @@ const usuarioValidationSchema = Joi.object({
             'string.empty': 'El nombre de usuario es obligatorio.',
             'string.max': 'El nombre de usuario no puede exceder los 255 caracteres.'
         }),
+    email: Joi.string()
+        .email()
+        .required()
+        .messages({
+            'string.base': 'El email debe ser un texto.',
+            'string.empty': 'El email es obligatorio.',
+            'string.email': 'Por favor ingrese un email válido.'
+        }),
     clave_usuario: Joi.string()
         .min(8)
         .max(255)

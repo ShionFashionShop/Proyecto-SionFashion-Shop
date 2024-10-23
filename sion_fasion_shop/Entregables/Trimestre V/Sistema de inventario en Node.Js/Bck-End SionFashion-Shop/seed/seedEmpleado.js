@@ -34,30 +34,33 @@ async function seedEmpleados() {
             console.log(`Buscando empleado con DNI: ${empleadoData.dni_empleado}`);
             
             if (!empleadoExistente) {
-                // Buscar la tienda por su nombre
-                const tienda = await Tienda.findOne({ nombre_tienda: empleadoData.tienda });
-                if (!tienda) {
-                    console.log(`Tienda "${empleadoData.tienda}" no encontrada.`);
-                    continue;
-                }
-
-                // Buscar la ciudad por su nombre
-                const ciudad = await Ciudade.findOne({ nombre_ciudad: empleadoData.ciudad });
-                if (!ciudad) {
-                    console.log(`Ciudad "${empleadoData.ciudad}" no encontrada.`);
-                    continue;
-                }
-
-                // Crear el nuevo empleado con las referencias de tienda y ciudad
-                await Empleado.create({
+                // Inicializar el objeto de datos del empleado
+                const nuevoEmpleadoData = {
                     dni_empleado: empleadoData.dni_empleado,
                     nombres_empleado: empleadoData.nombres_empleado,
                     apellidos_empleado: empleadoData.apellidos_empleado,
                     telefono_empleado: empleadoData.telefono_empleado,
                     email_empleado: empleadoData.email_empleado,
-                    id_tienda: tienda._id,
-                    id_ciudad: ciudad._id
-                });
+                };
+
+                // Buscar la tienda por su nombre
+                const tienda = await Tienda.findOne({ nombre_tienda: empleadoData.tienda });
+                if (tienda) {
+                    nuevoEmpleadoData.id_tienda = tienda._id; // Asignar id_tienda si existe
+                } else {
+                    console.log(`Tienda "${empleadoData.tienda}" no encontrada. No se asignará referencia de tienda.`);
+                }
+
+                // Buscar la ciudad por su nombre
+                const ciudad = await Ciudade.findOne({ nombre_ciudad: empleadoData.ciudad });
+                if (ciudad) {
+                    nuevoEmpleadoData.id_ciudad = ciudad._id; // Asignar id_ciudad si existe
+                } else {
+                    console.log(`Ciudad "${empleadoData.ciudad}" no encontrada. No se asignará referencia de ciudad.`);
+                }
+
+                // Crear el nuevo empleado
+                await Empleado.create(nuevoEmpleadoData);
                 console.log(`Empleado "${empleadoData.nombres_empleado} ${empleadoData.apellidos_empleado}" creado.`);
             } else {
                 console.log(`Empleado con DNI "${empleadoData.dni_empleado}" ya existe.`);

@@ -9,17 +9,17 @@ const tiendasData = [
         nombre_tienda: "Tienda Electrónica",
         telefono_tienda: "+123456789",
         ubicacion_tienda: "Calle Electrónica 123",
-        id_ciudad: "Ciudad_ID_1", // Cambia por el ID correcto de la ciudad
-        id_empresa: "Empresa_ID_1", // Cambia por el ID correcto de la empresa
-        empleados: ["Empleado_ID_1", "Empleado_ID_2"], // Cambiar por los IDs correctos de los empleados
-        productos: ["Producto_ID_1", "Producto_ID_2"] // Cambiar por los IDs correctos de los productos
+        id_ciudad: new mongoose.Types.ObjectId(), // ID temporal de la ciudad
+        id_empresa: new mongoose.Types.ObjectId(), // ID temporal de la empresa
+        empleados: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()], // IDs temporales de los empleados
+        productos: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de los productos
     },
     {
         nombre_tienda: "Ropa y Moda",
         telefono_tienda: "+987654321",
         ubicacion_tienda: "Avenida Moda 456",
-        id_ciudad: "Ciudad_ID_2", // Cambia por el ID correcto de la ciudad
-        id_empresa: "Empresa_ID_2", // Cambia por el ID correcto de la empresa
+        id_ciudad: new mongoose.Types.ObjectId(), // ID temporal de la ciudad
+        id_empresa: new mongoose.Types.ObjectId(), // ID temporal de la empresa
         empleados: [], // Puede ser vacío si no hay empleados asociados inicialmente
         productos: [] // Puede ser vacío si no hay productos asociados inicialmente
     },
@@ -27,10 +27,10 @@ const tiendasData = [
         nombre_tienda: "Supermercado Central",
         telefono_tienda: "+456789123",
         ubicacion_tienda: "Calle Central 789",
-        id_ciudad: "Ciudad_ID_3", // Cambia por el ID correcto de la ciudad
-        id_empresa: "Empresa_ID_1", // Cambia por el ID correcto de la empresa
-        empleados: ["Empleado_ID_3"], // Cambiar por el ID correcto de un empleado
-        productos: ["Producto_ID_3", "Producto_ID_4"] // Cambiar por los IDs correctos de los productos
+        id_ciudad: new mongoose.Types.ObjectId(), // ID temporal de la ciudad
+        id_empresa: new mongoose.Types.ObjectId(), // ID temporal de la empresa
+        empleados: [new mongoose.Types.ObjectId()], // ID temporal de un empleado
+        productos: [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()] // IDs temporales de los productos
     }
 ];
 

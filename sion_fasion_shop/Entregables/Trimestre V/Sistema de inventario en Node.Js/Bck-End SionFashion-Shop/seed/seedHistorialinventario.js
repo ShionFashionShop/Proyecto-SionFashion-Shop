@@ -2,22 +2,22 @@ const mongoose = require('mongoose');
 const HistorialInventario = require('../models/historialInventario'); // Ajusta la ruta según tu estructura
 const Producto = require('../models/producto'); // Modelo de producto
 
-// Semilla de Historial de Inventario
+// Semilla de Historial de Inventario con ObjectId temporal
 const historialInventarioData = [
     {
-        id_producto: "Producto_ID_1", // Cambiar por el ID correcto del producto
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal
         cantidad: 50,
         tipo_cambio: "entrada",
         fecha_cambio: new Date('2024-01-01')
     },
     {
-        id_producto: "Producto_ID_2", // Cambiar por el ID correcto del producto
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal
         cantidad: 30,
         tipo_cambio: "salida",
         fecha_cambio: new Date('2024-01-10')
     },
     {
-        id_producto: "Producto_ID_3", // Cambiar por el ID correcto del producto
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal
         cantidad: 20,
         tipo_cambio: "entrada",
         fecha_cambio: new Date('2024-01-15')

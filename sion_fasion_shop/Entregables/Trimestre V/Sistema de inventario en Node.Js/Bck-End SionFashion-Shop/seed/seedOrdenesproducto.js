@@ -3,17 +3,17 @@ const OrdenesProducto = require('../models/ordenesProducto'); // Ajusta la ruta 
 const OrdenesDeCompra = require('../models/ordenesDeCompra'); // Modelo de órdenes de compra
 const Producto = require('../models/producto'); // Modelo de productos
 
-// Semilla de Órdenes de Producto
+// Semilla de Órdenes de Producto con ObjectId temporales
 const ordenesProductoData = [
     {
-        id_orden_compra: "OrdenCompra_ID_1", // Cambiar por el ID correcto de la orden de compra
-        id_producto: "Producto_ID_1", // Cambiar por el ID correcto del producto
-        cantidad: 5 // Cambiar por la cantidad deseada
+        id_orden_compra: new mongoose.Types.ObjectId(), // ID temporal de orden de compra
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal de producto
+        cantidad: 5 // Cantidad deseada
     },
     {
-        id_orden_compra: "OrdenCompra_ID_2", // Cambiar por el ID correcto de la orden de compra
-        id_producto: "Producto_ID_2", // Cambiar por el ID correcto del producto
-        cantidad: 10 // Cambiar por la cantidad deseada
+        id_orden_compra: new mongoose.Types.ObjectId(), // ID temporal de orden de compra
+        id_producto: new mongoose.Types.ObjectId(), // ID temporal de producto
+        cantidad: 10 // Cantidad deseada
     }
 ];
 

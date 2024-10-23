@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Proveedor = require('../models/proveedor'); // Ajusta la ruta según tu estructura
 const Ciudade = require('../models/ciudade'); // Modelo de ciudades
+const { ObjectId } = mongoose.Types; // Para manejar ObjectId
 
 // Semilla de Proveedores
 const proveedoresData = [
@@ -8,14 +9,14 @@ const proveedoresData = [
         nombre_proveedor: "Proveedor A",
         contacto_proveedor: "Juan Pérez",
         email_proveedor: "juan.perez@proveedora.com",
-        id_ciudad: "Ciudad_ID_1", // Cambiar por el ID correcto de la ciudad
+        id_ciudad: new ObjectId(), // ID temporal si no hay una ciudad asociada
         productos: [] // Puedes agregar los IDs de los productos relacionados aquí
     },
     {
         nombre_proveedor: "Proveedor B",
         contacto_proveedor: "María López",
         email_proveedor: "maria.lopez@proveedorb.com",
-        id_ciudad: "Ciudad_ID_2", // Cambiar por el ID correcto de la ciudad
+        id_ciudad: new ObjectId(), // ID temporal si no hay una ciudad asociada
         productos: [] // Puedes agregar los IDs de los productos relacionados aquí
     }
 ];
@@ -28,8 +29,7 @@ async function seedProveedores() {
             const ciudad = await Ciudade.findById(proveedor.id_ciudad);
 
             if (!ciudad) {
-                console.log(`La ciudad referenciada no fue encontrada para el proveedor ${proveedor.nombre_proveedor}. Se omitirá este proveedor.`);
-                continue; // Salta al siguiente proveedor si la referencia no se encuentra
+                console.log(`La ciudad referenciada no fue encontrada para el proveedor ${proveedor.nombre_proveedor}, se usará el ObjectId temporal.`);
             }
 
             // Crear el nuevo registro de proveedor
