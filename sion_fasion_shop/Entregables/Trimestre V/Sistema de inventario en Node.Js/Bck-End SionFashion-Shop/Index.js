@@ -86,7 +86,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Rutas de la aplicación
-app.use('/api/alertasStock', alertasStockRoutes);
+app.use('/api', alertasStockRoutes);
 app.use('/api', categoriasRoutes);
 app.use('/api', ciudadesRoutes);
 app.use('/api/clientes', clienteRoutes);
