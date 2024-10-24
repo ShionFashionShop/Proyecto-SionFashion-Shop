@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Login from './pages/Login/LoginPage';
 import Navbar from './components/navbar/Navbar'; // Asegúrate de tener un Navbar si es necesario
+import AlertasStockPage from './pages/alertasStock/alertasstockPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/alertasstock" element={<AlertasStockPage />} />
         </Routes>
       </div>
     </Router>
