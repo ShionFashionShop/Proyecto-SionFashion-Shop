@@ -1,38 +1,76 @@
 .login-page {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
+    max-width: 400px; /* Aumentar el ancho para pantallas más grandes */
+    margin: 80px auto; /* Ajuste del margen superior */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Agrega un efecto de sombra */
+    transition: all 0.3s ease;
+}
+
+.login-page:hover {
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2); /* Sombra más fuerte en hover */
 }
 
 .login-page h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #333; /* Color de encabezado más oscuro */
+    font-family: 'Roboto', sans-serif; /* Fuente moderna */
+    text-transform: uppercase; /* Hace el texto en mayúsculas */
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .form-control {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
     box-sizing: border-box;
+    font-size: 16px; /* Aumentar tamaño de texto */
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #FF69B4; /* Color de borde rosado al enfocar */
+    box-shadow: 0px 0px 8px rgba(255, 105, 180, 0.3);
+    background-color: #fff; /* Fondo blanco al enfocar */
 }
 
 .btn-primary {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 12px;
+    background-color: #FF69B4; /* Color rosado */
     border: none;
     color: white;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e75480; /* Color rosado más oscuro al pasar el mouse */
 }
 
 .error-text {
     color: red;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .login-page {
+        width: 90%;
+    }
 }
