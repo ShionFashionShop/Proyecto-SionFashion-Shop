@@ -14,7 +14,7 @@ const metodosDePagoData = [
     },
     {
         metodo_pago: "Transferencia Bancaria",
-        id_factura: null // Sin factura asociada
+        id_factura: new mongoose.Types.ObjectId() // Sin factura asociada
     }
 ];
 
