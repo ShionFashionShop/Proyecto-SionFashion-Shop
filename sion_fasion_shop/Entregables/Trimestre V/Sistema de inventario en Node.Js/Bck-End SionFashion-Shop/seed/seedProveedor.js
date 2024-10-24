@@ -25,23 +25,33 @@ async function seedProveedores() {
     console.log('Iniciando la siembra de proveedores...');
     try {
         for (const proveedor of proveedoresData) {
-            // Verificar si la referencia de ciudad existe
-            const ciudad = await Ciudade.findById(proveedor.id_ciudad);
-
-            if (!ciudad) {
-                console.log(`La ciudad referenciada no fue encontrada para el proveedor ${proveedor.nombre_proveedor}, se usará el ObjectId temporal.`);
-            }
-
-            // Crear el nuevo registro de proveedor
-            await Proveedor.create({
+            // Buscar si el proveedor ya existe por su nombre y correo
+            const proveedorExistente = await Proveedor.findOne({
                 nombre_proveedor: proveedor.nombre_proveedor,
-                contacto_proveedor: proveedor.contacto_proveedor,
-                email_proveedor: proveedor.email_proveedor,
-                id_ciudad: proveedor.id_ciudad,
-                productos: proveedor.productos // Puede ser un array vacío si no hay productos
+                email_proveedor: proveedor.email_proveedor
             });
+            
+            if (!proveedorExistente) {
+                // Verificar si la referencia de ciudad existe
+                const ciudad = await Ciudade.findById(proveedor.id_ciudad);
 
-            console.log(`Proveedor ${proveedor.nombre_proveedor} creado con éxito.`);
+                if (!ciudad) {
+                    console.log(`La ciudad referenciada no fue encontrada para el proveedor ${proveedor.nombre_proveedor}, se usará el ObjectId temporal.`);
+                }
+
+                // Crear el nuevo registro de proveedor
+                await Proveedor.create({
+                    nombre_proveedor: proveedor.nombre_proveedor,
+                    contacto_proveedor: proveedor.contacto_proveedor,
+                    email_proveedor: proveedor.email_proveedor,
+                    id_ciudad: proveedor.id_ciudad,
+                    productos: proveedor.productos // Puede ser un array vacío si no hay productos
+                });
+
+                console.log(`Proveedor ${proveedor.nombre_proveedor} creado con éxito.`);
+            } else {
+                console.log(`El proveedor ${proveedor.nombre_proveedor} ya existe con el email ${proveedor.email_proveedor}.`);
+            }
         }
         console.log('Semillas de proveedores completadas.');
     } catch (err) {

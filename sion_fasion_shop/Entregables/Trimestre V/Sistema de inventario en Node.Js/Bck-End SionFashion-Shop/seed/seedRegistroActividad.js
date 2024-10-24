@@ -26,21 +26,30 @@ async function seedRegistrosActividad() {
     console.log('Iniciando la siembra de registros de actividad...');
     try {
         for (const registro of registrosActividadData) {
-            // Verificar si la referencia de usuario existe
-            const usuario = await Usuario.findById(registro.id_usuario);
-
-            if (!usuario) {
-                console.log(`El usuario referenciado no fue encontrado para la actividad: ${registro.actividad}, se usará el ObjectId temporal.`);
-            }
-
-            // Crear el nuevo registro de actividad
-            await RegistroActividad.create({
-                id_usuario: registro.id_usuario,
-                actividad: registro.actividad,
-                fecha_actividad: registro.fecha_actividad
+            // Buscar si ya existe un registro con la misma actividad (nombre)
+            const registroExistente = await RegistroActividad.findOne({
+                actividad: registro.actividad
             });
 
-            console.log(`Registro de actividad creado con éxito: ${registro.actividad}.`);
+            if (!registroExistente) {
+                // Verificar si la referencia de usuario existe
+                const usuario = await Usuario.findById(registro.id_usuario);
+
+                if (!usuario) {
+                    console.log(`El usuario referenciado no fue encontrado para la actividad: ${registro.actividad}, se usará el ObjectId temporal.`);
+                }
+
+                // Crear el nuevo registro de actividad
+                await RegistroActividad.create({
+                    id_usuario: registro.id_usuario,
+                    actividad: registro.actividad,
+                    fecha_actividad: registro.fecha_actividad
+                });
+
+                console.log(`Registro de actividad creado con éxito: ${registro.actividad}.`);
+            } else {
+                console.log(`El registro de actividad ya existe: ${registro.actividad}.`);
+            }
         }
         console.log('Semillas de registros de actividad completadas.');
     } catch (err) {
