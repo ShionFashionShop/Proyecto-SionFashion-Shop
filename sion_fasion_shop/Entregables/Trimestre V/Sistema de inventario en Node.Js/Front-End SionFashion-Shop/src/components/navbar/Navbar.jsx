@@ -22,7 +22,7 @@ export default function Navbar() {
     const drawer = (
         <div>
             <List>
-                {['Home', 'Login', 'AlertasStockPage','UsuariosPage','Inventario','ProductoPage'].map((text) => (
+                {['Home', 'Login', 'AlertasStockPage','UsuariosPage','Inventario','ProductoPage','EmpresasPage','FacturasPage','ClientesPage','EmpleadoPage','RolesPage','ProveedoresPage','CategoriasPage','Historial_inventarioPage','TiendaPage'].map((text) => (
                     <ListItem
                         button
                         component={RouterLink}
@@ -63,7 +63,7 @@ export default function Navbar() {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        {['Home', 'Login', 'AlertasStock', 'Usuarios','Inventario','Productos'].map((text) => (
+                        {['Home', 'Login', 'AlertasStock', 'Usuarios','Inventario','Productos','Empresas','Facturas','Clientes','Empleados','Users-Roles','Proveedores', 'Categorias','Historial Inventario','Tiendas'].map((text) => (
                             <Typography
                             key={text}
                             sx={{ margin: 1, color: '#ffffff', textDecoration: 'none' }} /* Este es un comentario válido */
