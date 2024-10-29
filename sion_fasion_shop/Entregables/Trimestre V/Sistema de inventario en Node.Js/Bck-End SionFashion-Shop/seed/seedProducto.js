@@ -37,6 +37,14 @@ async function seedProductos() {
     console.log('Iniciando la siembra de productos...');
     try {
         for (const producto of productosData) {
+            // Verificar si el producto ya existe por su nombre
+            const productoExistente = await Producto.findOne({ nombre_producto: producto.nombre_producto });
+
+            if (productoExistente) {
+                console.log(`El producto ${producto.nombre_producto} ya existe en la base de datos. Omitiendo...`);
+                continue; // Si ya existe, omitimos la creación
+            }
+
             // Verificar si las referencias existen, si no, se deja el ObjectId temporal
             const subCategoria = await SubCategoria.findById(producto.id_sub_categoria);
             const proveedor = await Proveedor.findById(producto.id_proveedor);

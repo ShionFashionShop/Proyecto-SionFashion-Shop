@@ -17,7 +17,7 @@ const rolesData = [
     {
         nombre_rol: "Cliente",
         descripcion_rol: "Usuario que puede realizar compras.",
-        usuarios: [] // Puede ser vacío si no hay usuarios asociados al rol inicialmente
+        usuarios: [new mongoose.Types.ObjectId()] // Puede ser vacío si no hay usuarios asociados al rol inicialmente
     }
 ];
 

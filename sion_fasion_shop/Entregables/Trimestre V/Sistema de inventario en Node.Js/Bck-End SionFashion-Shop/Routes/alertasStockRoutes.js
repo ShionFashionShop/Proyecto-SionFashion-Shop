@@ -43,7 +43,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/alertasStock/alertas:
+ * /api/alertas:
  *   post:
  *     summary: Crea una nueva alerta de stock
  *     tags: [Alertas de Stock]
@@ -63,7 +63,7 @@ router.post('/alertas', alertasStockController.crearAlertaStock);
 
 /**
  * @swagger
- * /api/alertasStock/alertas:
+ * /api/alertas:
  *   get:
  *     summary: Obtiene todas las alertas de stock
  *     tags: [Alertas de Stock]
@@ -81,7 +81,7 @@ router.get('/alertas', alertasStockController.obtenerAlertasStock);
 
 /**
  * @swagger
- * /api/alertasStock/alertas/{id}:
+ * /api/alertas/{id}:
  *   get:
  *     summary: Obtiene una alerta de stock por su ID
  *     tags: [Alertas de Stock]
@@ -106,7 +106,7 @@ router.get('/alertas/:id', alertasStockController.obtenerAlertaStockPorId);
 
 /**
  * @swagger
- * /api/alertasStock/alertas/{id}:
+ * /api/alertas/{id}:
  *   put:
  *     summary: Actualiza una alerta de stock por su ID
  *     tags: [Alertas de Stock]
@@ -135,7 +135,7 @@ router.put('/alertas/:id', alertasStockController.actualizarAlertaStock);
 
 /**
  * @swagger
- * /api/alertasStock/alertas/{id}:
+ * /api/alertas/{id}:
  *   delete:
  *     summary: Elimina una alerta de stock por su ID
  *     tags: [Alertas de Stock]

@@ -1,13 +1,6 @@
 const mongoose = require('mongoose');
 const Factura = require('../models/factura'); // Ajusta la ruta según tu estructura
 
-//const Cliente = require('../models/cliente'); // Modelo de cliente
-//const MetodoDePago = require('../models/metodosDePago'); // Modelo de métodos de pago
-//const OrdenDeCompra = require('../models/ordenesDeCompra'); // Modelo de órdenes de compra
-//const Producto = require('../models/producto'); // Modelo de productos
-
-
-
 // Semilla de Facturas (modificada sin referencias a otros modelos)
 const facturasData = [
     {
@@ -36,28 +29,20 @@ async function seedFacturas() {
     console.log('Iniciando la siembra de facturas...');
     try {
         for (const facturaData of facturasData) {
-            // Buscar si la factura ya existe por su fecha y cliente
+            // Buscar si la factura ya existe por los 4 criterios: fecha, subtotal, impuesto y total
             const facturaExistente = await Factura.findOne({ 
                 fecha_emision_factura: facturaData.fecha_emision_factura, 
-                id_clienteNavigation: facturaData.id_clienteNavigation 
+                sub_total_factura: facturaData.sub_total_factura,
+                impuesto_factura: facturaData.impuesto_factura,
+                total_factura: facturaData.total_factura
             });
-            console.log(`Buscando factura con fecha ${facturaData.fecha_emision_factura}...`);
-            
+
             if (!facturaExistente) {
-                // Crear la nueva factura sin relaciones
-                await Factura.create({
-                    fecha_emision_factura: facturaData.fecha_emision_factura,
-                    sub_total_factura: facturaData.sub_total_factura,
-                    impuesto_factura: facturaData.impuesto_factura,
-                    total_factura: facturaData.total_factura,
-                    id_clienteNavigation: facturaData.id_clienteNavigation, // Temporal
-                    metodos_de_pagos: facturaData.metodos_de_pagos,         // Temporal
-                    ordenes_de_compras: facturaData.ordenes_de_compras,     // Temporal
-                    productos: facturaData.productos                       // Temporal
-                });
-                console.log(`Factura creada con fecha ${facturaData.fecha_emision_factura}.`);
+                // Crear la nueva factura solo si no existe
+                await Factura.create(facturaData);
+                console.log(`Factura creada con fecha ${facturaData.fecha_emision_factura} y total ${facturaData.total_factura}.`);
             } else {
-                console.log(`Factura ya existe con fecha ${facturaData.fecha_emision_factura}.`);
+                console.log(`Factura ya existe con fecha ${facturaData.fecha_emision_factura}, subtotal ${facturaData.sub_total_factura}, impuesto ${facturaData.impuesto_factura}, y total ${facturaData.total_factura}.`);
             }
         }
         console.log('Semillas de facturas completadas.');

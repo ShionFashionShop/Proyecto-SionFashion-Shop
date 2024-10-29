@@ -12,10 +12,7 @@ const alertasStockSchema = new Schema({
     fecha_alerta: {
         type: Date,
         required: [true, 'La fecha de la alerta es obligatoria.'],
-        validate: {
-            validator: (v) => !isNaN(Date.parse(v)),
-            message: 'Formato de fecha inválido.'
-        }
+        
     },
     id_productoNavigation: {
         type: Schema.Types.ObjectId,

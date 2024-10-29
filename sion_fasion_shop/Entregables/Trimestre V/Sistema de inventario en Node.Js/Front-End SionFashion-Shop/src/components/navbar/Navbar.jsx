@@ -10,7 +10,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Box from '@mui/material/Box';
 import { Link as RouterLink } from 'react-router-dom';
-import logoSena from '../../assets/images/logoSena.png';
+import logoSena from '../../assets/images/image.png';
 
 export default function Navbar() {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -22,7 +22,7 @@ export default function Navbar() {
     const drawer = (
         <div>
             <List>
-                {['Home', 'Login'].map((text) => (
+                {['Home', 'Login', 'AlertasStockPage','UsuariosPage','Inventario','ProductoPage'].map((text) => (
                     <ListItem
                         button
                         component={RouterLink}
@@ -39,7 +39,7 @@ export default function Navbar() {
 
     return (
         <div>
-            <AppBar position="fixed" sx={{ backgroundColor: '#007832' }}>
+            <AppBar position="fixed" sx={{ backgroundColor: 'rgb(220, 50, 190)' }}> {/* Color rosado */}
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Box
                         component="img"
@@ -50,7 +50,7 @@ export default function Navbar() {
                         src={logoSena}
                         alt="SENA Logo"
                     />
-                    <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" sx={{ flexGrow: 1, color: '#ffffff' }}> {/* Color del texto blanco */}
                         SISTEMA DE GESTION DE INVENTARIO
                     </Typography>
                     <IconButton
@@ -63,15 +63,16 @@ export default function Navbar() {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        {['Home', 'Login'].map((text) => (
+                        {['Home', 'Login', 'AlertasStock', 'Usuarios','Inventario','Productos'].map((text) => (
                             <Typography
-                                key={text}
-                                sx={{ margin: 1, color: 'white', textDecoration: 'none' }}
-                                component={RouterLink}
-                                to={`/${text.toLowerCase()}`}
-                            >
-                                {text}
-                            </Typography>
+                            key={text}
+                            sx={{ margin: 1, color: '#ffffff', textDecoration: 'none' }} /* Este es un comentario válido */
+                            component={RouterLink}
+                            to={`/${text.toLowerCase()}`}
+                        >
+                            {text}
+                        </Typography>
+                        
                         ))}
                     </Box>
                 </Toolbar>
