@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './AlertasStockPage.css';
+
 
 const API_URL = 'https://localhost:3000/api/alertas';  // Asegúrate de que el backend esté corriendo aquí.
 const PRODUCTOS_API_URL = 'https://localhost:3000/api/productos'; // URL de la API para obtener productos.
@@ -166,7 +166,7 @@ const AlertasStockPage = () => {
                 <p>No hay alertas disponibles</p>
             )}
         </div>
-    );
+    );  
 };
 
 export default AlertasStockPage;
