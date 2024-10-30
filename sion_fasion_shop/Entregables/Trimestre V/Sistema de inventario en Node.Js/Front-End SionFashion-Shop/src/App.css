@@ -1,23 +1,19 @@
 /* Ajustes generales */
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    /* Fondo blanco */
-    color: #000000;
-    /* Texto en negro para contraste */
+    background-color: #f7e6f5; /* Fondo rosa claro */
+    color: #000000; /* Texto en negro para contraste */
 }
 
 #root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    /* Asegura que la raíz también sea blanca */
+    background-color: #f7e6f5; /* Asegura que la raíz también sea rosa claro */
 }
 
 /* Navbar */
@@ -27,25 +23,20 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: #f8f9fa;
-    /* Color claro para el navbar */
-    color: #000000;
-    /* Texto negro para el navbar */
+    background-color: #f8f9fa; /* Color claro para el navbar */
+    color: #000000; /* Texto negro para el navbar */
 }
 
 /* Estilo para el contenido */
 .content {
     flex: 1;
-    padding: 20px;
-    /* Ajuste el padding para el contenido */
-    margin-top: 64px;
-    /* Asegura que el contenido no quede oculto por el navbar */
+    padding: 20px; /* Ajuste el padding para el contenido */
+    margin-top: 64px; /* Asegura que el contenido no quede oculto por el navbar */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
-    /* Fondo blanco para el contenido */
+    background-color: #ffffff; /* Fondo blanco para el contenido */
 }
 
 /* Opcional: estilo para centrar el contenido */
@@ -54,8 +45,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 64px);
-    /* Altura total menos el tamaño del navbar */
+    height: calc(100vh - 64px); /* Altura total menos el tamaño del navbar */
     text-align: center;
 }
 
@@ -63,8 +53,7 @@ body {
 footer {
     margin-top: auto;
     padding: 20px;
-    background-color: #007832;
-    /* Color verde oscuro para el footer */
+    background-color: #007832; /* Color verde oscuro para el footer */
     color: white;
     text-align: center;
 }

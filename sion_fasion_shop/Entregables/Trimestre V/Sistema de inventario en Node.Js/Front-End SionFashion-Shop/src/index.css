@@ -2,12 +2,8 @@
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-
-    color: #213547;
-    /* Cambia el color de texto por uno más oscuro */
-    background-color: #ffffff;
-    /* Fondo blanco por defecto */
-
+    color: #213547; /* Cambia el color de texto por uno más oscuro */
+    background-color: #f7e6f5; /* Fondo rosa claro */
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -30,8 +26,7 @@ body {
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
-    background-color: #ffffff;
-    /* Fondo blanco para el body */
+    background-color: #f7e6f5; /* Fondo rosa claro para el body */
 }
 
 h1 {
@@ -46,8 +41,7 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #f9f9f9;
-    /* Botón claro por defecto */
+    background-color: #ffe0f0; /* Botón rosa claro por defecto */
     cursor: pointer;
     transition: border-color 0.25s;
 }
@@ -56,8 +50,7 @@ button:hover {
     border-color: #646cff;
 }
 
-button:focus,
-button:focus-visible {
+button:focus, button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -66,8 +59,7 @@ button:focus-visible {
     a:hover {
         color: #747bff;
     }
-
     button {
-        background-color: #f9f9f9;
+        background-color: #ffe0f0;
     }
 }
