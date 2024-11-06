@@ -10,11 +10,11 @@ const CategoriasPage = () => {
     const [modoEdicion, setModoEdicion] = useState(false);
     const [categoriaActual, setCategoriaActual] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] =  useState(null);
 
-    // Obtener todas las categorías al cargar el componente
+    // Obtener todas las categorías  al cargar el componente
     useEffect(() => {
-        const fetchCategorias = async () => {
+        const fetchCategorias =  async () => {
             try {
                 const response = await axios.get(API_URL);
                 setCategorias(response.data);
