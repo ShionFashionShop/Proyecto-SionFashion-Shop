@@ -10,7 +10,7 @@ const CategoriasPage = () => {
     const [modoEdicion, setModoEdicion] = useState(false);
     const [categoriaActual, setCategoriaActual] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] =  useState(null);
 
     // Obtener todas las categorías al cargar el componente
     useEffect(() => {
