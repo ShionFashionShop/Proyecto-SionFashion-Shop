@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MODELS
-build_property.ProjectDir = C:\SENAMAIN\sion_fasion_shop\Entregables\Trimestre III\Codigo con las Clases en C#\SionFashionShop\MODELS\
+build_property.ProjectDir = C:\SENAMAIN\Cod\sion_fasion_shop\Entregables\Trimestre III\Codigo con las Clases en C#\SionFashionShop\MODELS\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

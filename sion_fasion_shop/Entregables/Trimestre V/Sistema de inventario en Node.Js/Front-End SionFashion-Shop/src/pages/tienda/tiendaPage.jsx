@@ -81,66 +81,40 @@ const TiendaPage = () => {
     }, []);
 
     return (
-        <div>
-            <h2>{editingId ? 'Actualizar Tienda' : 'Crear Tienda'}</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="nombre_tienda"
-                    placeholder="Nombre de la tienda"
-                    value={formData.nombre_tienda}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="telefono_tienda"
-                    placeholder="Teléfono de la tienda"
-                    value={formData.telefono_tienda}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="ubicacion_tienda"
-                    placeholder="Ubicación de la tienda"
-                    value={formData.ubicacion_tienda}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="id_ciudad"
-                    placeholder="ID de la ciudad"
-                    value={formData.id_ciudad}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="id_empresa"
-                    placeholder="ID de la empresa"
-                    value={formData.id_empresa}
-                    onChange={handleChange}
-                    required
-                />
-                <button type="submit">{editingId ? 'Actualizar' : 'Crear'}</button>
-            </form>
-
-            <h2>Lista de Tiendas</h2>
-            <ul>
-                {tiendas.map((tienda) => (
-                    <li key={tienda._id}>
-                        <strong>{tienda.nombre_tienda}</strong>
-                        <p>Teléfono: {tienda.telefono_tienda}</p>
-                        <p>Ubicación: {tienda.ubicacion_tienda}</p>
-                        <p>ID Ciudad: {tienda.id_ciudad}</p>
-                        <p>ID Empresa: {tienda.id_empresa}</p>
-                        <button onClick={() => handleEdit(tienda)}>Editar</button>
-                        <button onClick={() => handleDelete(tienda._id)}>Eliminar</button>
-                    </li>
-                ))}
-            </ul>
+        <div className="formulario p-3">
+            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>{editingId ? 'Actualizar Tienda' : 'Crear Tienda'}</h2>
+            </div>
+            <div className="w-100 d-flex justify-content-star p-2">
+                <form onSubmit={handleSubmit} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
+                    <button className="btn btn-success" type="submit">{editingId ? 'Actualizar' : 'Crear'}</button>
+                    <input className="w-100" type="text" name="nombre_tienda" placeholder="Nombre de la tienda" value={formData.nombre_tienda} onChange={handleChange} required />
+                    <input className="w-100" type="text" name="telefono_tienda" placeholder="Teléfono de la tienda" value={formData.telefono_tienda} onChange={handleChange} />
+                    <input className="w-100" type="text" name="ubicacion_tienda" placeholder="Ubicación de la tienda" value={formData.ubicacion_tienda} onChange={handleChange} />
+                    <input className="w-100" type="text" name="id_ciudad" placeholder="ID de la ciudad" value={formData.id_ciudad} onChange={handleChange} required />
+                    <input className="w-100" type="text" name="id_empresa" placeholder="ID de la empresa" value={formData.id_empresa} onChange={handleChange} required />
+                </form>
+                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <h2>Lista de Alertas de Stock</h2>
+                    <h2>Lista de Tiendas</h2>
+                    <ul>
+                        {tiendas.map((tienda) => (
+                            <li key={tienda._id}>
+                                <strong>{tienda.nombre_tienda}</strong>
+                                <p>Teléfono: {tienda.telefono_tienda}</p>
+                                <p>Ubicación: {tienda.ubicacion_tienda}</p>
+                                <p>ID Ciudad: {tienda.id_ciudad}</p>
+                                <p>ID Empresa: {tienda.id_empresa}</p>
+                                <button onClick={() => handleEdit(tienda)}>Editar</button>
+                                <button onClick={() => handleDelete(tienda._id)}>Eliminar</button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         </div>
-    );
+            );
 };
 
-export default TiendaPage;
+            export default TiendaPage;
