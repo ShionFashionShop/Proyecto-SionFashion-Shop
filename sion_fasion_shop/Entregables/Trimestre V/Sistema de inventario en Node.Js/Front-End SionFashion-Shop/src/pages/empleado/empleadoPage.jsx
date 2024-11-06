@@ -97,74 +97,47 @@ const EmpleadoPage = () => {
     };
 
     return (
-        <div>
-            <h1>Gestión de Empleados</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="dni_empleado"
-                    placeholder="DNI"
-                    value={formData.dni_empleado}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="nombres_empleado"
-                    placeholder="Nombres"
-                    value={formData.nombres_empleado}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="apellidos_empleado"
-                    placeholder="Apellidos"
-                    value={formData.apellidos_empleado}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="telefono_empleado"
-                    placeholder="Teléfono"
-                    value={formData.telefono_empleado}
-                    onChange={handleChange}
-                />
-                <input
-                    type="email"
-                    name="email_empleado"
-                    placeholder="Email"
-                    value={formData.email_empleado}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="id_tienda"
-                    placeholder="ID Tienda"
-                    value={formData.id_tienda}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="id_ciudad"
-                    placeholder="ID Ciudad"
-                    value={formData.id_ciudad}
-                    onChange={handleChange}
-                />
-                <button type="submit">{editing ? 'Actualizar' : 'Crear'}</button>
-            </form>
-            <h2>Lista de Empleados</h2>
-            <ul>
-                {empleados.map((empleado) => (
-                    <li key={empleado._id}>
-                        {empleado.dni_empleado}{empleado.nombres_empleado}{empleado.apellidos_empleado}{empleado.telefono_empleado}{empleado.email_empleado}
-                        <button onClick={() => handleEdit(empleado)}>Editar</button>
-                        <button onClick={() => handleDelete(empleado._id)}>Eliminar</button>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <div className="formulario p-3">
+            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                <h1>Gestión de Empleados</h1>
+            </div>
+            <div className="w-100 d-flex justify-content-star p-2">
+                <form onSubmit={handleSubmit} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
+                    <button className="btn btn-success" type="submit">{editing ? 'Actualizar' : 'Crear'}</button>
+                    <label className="w-100">DNI</label>
+                    <input className="w-100" type="text" name="dni_empleado" placeholder="DNI" value={formData.dni_empleado} onChange={handleChange} required />
+                    <label className="w-100">Nombres</label>
+                    <input className="w-100" type="text" name="nombres_empleado" placeholder="Nombres" value={formData.nombres_empleado} onChange={handleChange} required />
+                    <label className="w-100">Apellidos</label>
+                    <input className="w-100" type="text" name="apellidos_empleado" placeholder="Apellidos" value={formData.apellidos_empleado} onChange={handleChange} required />
+                    <label className="w-100">Teléfono</label>
+                    <input className="w-100" type="text" name="telefono_empleado" placeholder="Teléfono" value={formData.telefono_empleado} onChange={handleChange} />
+                    <label className="w-100">Email</label>
+                    <input className="w-100" type="email" name="email_empleado" placeholder="Email" value={formData.email_empleado} onChange={handleChange} />
+                    <label className="w-100">Tienda</label>
+                    <input className="w-100" type="text" name="id_tienda" placeholder="ID Tienda" value={formData.id_tienda} onChange={handleChange} />
+                    <label className="w-100">Ciudad</label>
+                    <input className="w-100" type="text" name="id_ciudad" placeholder="ID Ciudad" value={formData.id_ciudad} onChange={handleChange} />
+                </form>
+                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <h2>Lista de Empleados</h2>
+                    {
+
+                        <ul>
+                            {empleados.map((empleado) => (
+                                <li key={empleado._id}>
+                                    {empleado.dni_empleado}{empleado.nombres_empleado}{empleado.apellidos_empleado}{empleado.telefono_empleado}{empleado.email_empleado}
+                                    <button onClick={() => handleEdit(empleado)}>Editar</button>
+                                    <button onClick={() => handleDelete(empleado._id)}>Eliminar</button>
+                                </li>
+                            ))}
+                        </ul>
+                    }
+                </div >
+            </div>
+
+        </div >
     );
 };
 

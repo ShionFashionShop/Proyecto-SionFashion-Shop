@@ -47,7 +47,7 @@ const EmpresasPage = () => {
         try {
             if (modoEdicion) {
                 await axios.put(`${API_URL}/${empresaActual._id}`, nuevaEmpresa);
-                setEmpresas(empresas.map(empresa => 
+                setEmpresas(empresas.map(empresa =>
                     empresa._id === empresaActual._id ? { ...empresaActual, ...nuevaEmpresa } : empresa
                 ));
                 setModoEdicion(false);
@@ -102,78 +102,78 @@ const EmpresasPage = () => {
     }
 
     return (
-        <div>
-            <h1>Gestión de Empresas</h1>
+        <div className="formulario p-3">
+            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                <h1 className="title">Gestión de Empresas</h1>
+            </div>
+            <div className=" w-100 d-flex justify-content-star p-2">
+                {/* Formulario para crear o editar empresa */}
+                <form onSubmit={handleCrearEmpresa} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
+                    <button className="btn btn-success" type="submit">{modoEdicion ? 'Actualizar Empresa' : 'Crear Empresa'}</button>
 
-            {/* Formulario para crear o editar empresa */}
-            <form onSubmit={handleCrearEmpresa}>
-                <div>
-                    <label>Nombre de la Empresa:</label>
-                    <input 
-                        type="text" 
-                        value={nombreEmpresa} 
-                        onChange={(e) => setNombreEmpresa(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Dirección de la Empresa:</label>
-                    <input 
-                        type="text" 
-                        value={direccionEmpresa} 
-                        onChange={(e) => setDireccionEmpresa(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Teléfono de la Empresa:</label>
-                    <input 
-                        type="text" 
-                        value={telefonoEmpresa} 
-                        onChange={(e) => setTelefonoEmpresa(e.target.value)} 
-                    />
-                </div>
-                <div>
-                    <label>Email de la Empresa:</label>
-                    <input 
-                        type="email" 
-                        value={emailEmpresa} 
-                        onChange={(e) => setEmailEmpresa(e.target.value)} 
+
+                    <label className="w-100">Nombre de la Empresa:</label>
+                    <input className="w-100"
+                        type="text"
+                        value={nombreEmpresa}
+                        onChange={(e) => setNombreEmpresa(e.target.value)}
                         required
                     />
-                </div>
-                <div>
-                    <label>Tienda (IDs separados por coma):</label>
-                    <input 
-                        type="text" 
-                        value={tienda.join(',')} 
+                    <label className="w-100">Dirección de la Empresa:</label>
+                    <input className="w-100"
+                        type="text"
+                        value={direccionEmpresa}
+                        onChange={(e) => setDireccionEmpresa(e.target.value)}
+                        required
+                    />
+                    <label className="w-100">Teléfono de la Empresa:</label>
+                    <input className="w-100"
+                        type="text"
+                        value={telefonoEmpresa}
+                        onChange={(e) => setTelefonoEmpresa(e.target.value)}
+                    />
+                    <label className="w-100">Email de la Empresa:</label>
+                    <input className="w-100"
+                        type="email"
+                        value={emailEmpresa}
+                        onChange={(e) => setEmailEmpresa(e.target.value)}
+                        required
+                    />
+                    <label className="w-100">Tienda (IDs separados por coma):</label>
+                    <input className="w-100"
+                        type="text"
+                        value={tienda.join(',')}
                         onChange={(e) => setTienda(e.target.value.split(','))}
                     />
+                </form>
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Inventarios</h1>
+                    </div>
+                    {/* Lista de empresas */}
+                    <h2>Lista de Empresas</h2>
+                    {empresas.length > 0 ? (
+                        <ul>
+                            {empresas.map(empresa => (
+                                <li key={empresa._id}>
+                                    <strong>Nombre:</strong> {empresa.nombre_empresa} |
+                                    <strong> Dirección:</strong> {empresa.direccion_empresa} |
+                                    <strong> Teléfono:</strong> {empresa.telefono_empresa || 'N/A'} |
+                                    <strong> Email:</strong> {empresa.email_empresa || 'N/A'} |
+                                    <strong> Tienda:</strong> {empresa.tienda?.join(', ') || 'Sin tiendas'}
+                                    <button onClick={() => handleEditarEmpresa(empresa)}>Editar</button>
+                                    <button onClick={() => handleEliminarEmpresa(empresa._id)}>Eliminar</button>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No hay empresas disponibles</p>
+                    )}
                 </div>
-                <button type="submit">{modoEdicion ? 'Actualizar Empresa' : 'Crear Empresa'}</button>
-            </form>
-
-            {/* Lista de empresas */}
-            <h2>Lista de Empresas</h2>
-            {empresas.length > 0 ? (
-                <ul>
-                    {empresas.map(empresa => (
-                        <li key={empresa._id}>
-                            <strong>Nombre:</strong> {empresa.nombre_empresa} | 
-                            <strong> Dirección:</strong> {empresa.direccion_empresa} | 
-                            <strong> Teléfono:</strong> {empresa.telefono_empresa || 'N/A'} |
-                            <strong> Email:</strong> {empresa.email_empresa || 'N/A'} |
-                            <strong> Tienda:</strong> {empresa.tienda?.join(', ') || 'Sin tiendas'}
-                            <button onClick={() => handleEditarEmpresa(empresa)}>Editar</button>
-                            <button onClick={() => handleEliminarEmpresa(empresa._id)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No hay empresas disponibles</p>
-            )}
+            </div>
         </div>
-    );  
+    );
 };
 
 export default EmpresasPage;
