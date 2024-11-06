@@ -16,15 +16,12 @@ import ProveedoresPage from './pages/proveedor/proveedorPage.jsx';
 import CategoriasPage from './pages/categoria/categoriaPage.jsx';
 import Historial_inventarioPage from './pages/historial_inventario/historial_inventarioPage.jsx';
 import TiendaPage from './pages/tienda/tiendaPage.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-
 
 function App() {
   return (
     <Router>
-          <Navbar /> {/* Si tienes un componente de navegación */}
-          <div>
+      <Navbar /> {/* Si tienes un componente de navegación */}
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -41,7 +38,8 @@ function App() {
           <Route path="/proveedores" element={<ProveedoresPage />} />
           <Route path="/categorias" element={<CategoriasPage />} />
           <Route path="/historial-inventario" element={<Historial_inventarioPage />} />   
-          <Route path="/tiendas" element={<TiendaPage />} />
+          <Route path="/tiendas" element={<TiendaPage />} />   
+
         </Routes>
       </div>
     </Router>

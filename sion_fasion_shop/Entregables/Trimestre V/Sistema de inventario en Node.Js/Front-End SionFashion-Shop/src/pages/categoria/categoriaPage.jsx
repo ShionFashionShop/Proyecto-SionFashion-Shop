@@ -41,7 +41,7 @@ const CategoriasPage = () => {
         try {
             if (modoEdicion) {
                 await axios.put(`${API_URL}/${categoriaActual._id}`, nuevaCategoria);
-                setCategorias(categorias.map(categoria =>
+                setCategorias(categorias.map(categoria => 
                     categoria._id === categoriaActual._id ? { ...categoriaActual, ...nuevaCategoria } : categoria
                 ));
                 setModoEdicion(false);
@@ -90,37 +90,47 @@ const CategoriasPage = () => {
     }
 
     return (
-        <div className="formulario p-3">
-            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Gestión de Categorías</h1>
-            </div>
-            <div className="w-100 d-flex justify-content-star p-2">
-                <form onSubmit={handleCrearCategoria} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
-                    <button className="btn btn-success" type="submit">{modoEdicion ? 'Actualizar Categoría' : 'Crear Categoría'}</button>
-                    <label className="w-100">Nombre de la Categoría:</label>
-                    <input className="w-100" type="text" value={nombreCategoria} onChange={(e) => setNombreCategoria(e.target.value)} required/>
-                    <label className="w-100">Subcategorías (IDs separados por coma):</label>
-                    <input className="w-100" type="text" value={subCategoria.join(',')} onChange={(e) => setSubCategoria(e.target.value.split(',').map(id => id.trim()))}/>
-                </form>
-                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
-                <h2>Lista de Categorías</h2>
-                {categorias.length > 0 ? (
-                    <ul>
-                        {categorias.map(categoria => (
-                            <li key={categoria._id}>
-                                <strong>Nombre:</strong> {categoria.nombre_categoria} |
-                                <strong> Subcategorías:</strong> {categoria.sub_categoria.join(', ') || 'Sin subcategorías'}
-                                <button onClick={() => handleEditarCategoria(categoria)}>Editar</button>
-                                <button onClick={() => handleEliminarCategoria(categoria._id)}>Eliminar</button>
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p>No hay categorías disponibles</p>
-                )}
-                </div>
-            </div>
+        <div>
+            <h1>Gestión de Categorías</h1>
 
+            {/* Formulario para crear o editar categoría */}
+            <form onSubmit={handleCrearCategoria}>
+                <div>
+                    <label>Nombre de la Categoría:</label>
+                    <input 
+                        type="text" 
+                        value={nombreCategoria} 
+                        onChange={(e) => setNombreCategoria(e.target.value)} 
+                        required 
+                    />
+                </div>
+                <div>
+                    <label>Subcategorías (IDs separados por coma):</label>
+                    <input 
+                        type="text" 
+                        value={subCategoria.join(',')} 
+                        onChange={(e) => setSubCategoria(e.target.value.split(',').map(id => id.trim()))}
+                    />
+                </div>
+                <button type="submit">{modoEdicion ? 'Actualizar Categoría' : 'Crear Categoría'}</button>
+            </form>
+
+            {/* Lista de categorías */}
+            <h2>Lista de Categorías</h2>
+            {categorias.length > 0 ? (
+                <ul>
+                    {categorias.map(categoria => (
+                        <li key={categoria._id}>
+                            <strong>Nombre:</strong> {categoria.nombre_categoria} |
+                            <strong> Subcategorías:</strong> {categoria.sub_categoria.join(', ') || 'Sin subcategorías'}
+                            <button onClick={() => handleEditarCategoria(categoria)}>Editar</button>
+                            <button onClick={() => handleEliminarCategoria(categoria._id)}>Eliminar</button>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No hay categorías disponibles</p>
+            )}
         </div>
     );
 };

@@ -44,7 +44,7 @@ const Inventario = () => {
         try {
             if (editando) {
                 await axios.put(`${API_URL}/${inventarioEditado._id}`, nuevoInventario);
-                setInventarios(inventarios.map(inventario =>
+                setInventarios(inventarios.map(inventario => 
                     inventario._id === inventarioEditado._id ? { ...inventarioEditado, ...nuevoInventario } : inventario
                 ));
                 setEditando(false);
@@ -101,82 +101,68 @@ const Inventario = () => {
     }
 
     return (
-        <div className="formulario p-3">
-            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                <h1 className="title">Gestión de Inventario</h1>
-            </div>
-            <div className=" w-100 d-flex justify-content-star p-2">
-                <form onSubmit={handleSubmit} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
-                    <button className="btn btn-success" type="submit">{editando ? 'Actualizar' : 'Crear Inventario'}</button>
-
-                    <label className="w-100"> Seleccione un producto: </label>
-                        <select className="w-100"
-                            value={nuevoInventario.id_producto}
-                            onChange={(e) => setNuevoInventario({ ...nuevoInventario, id_producto: e.target.value })}
-                            required>
-                            <option value="">Seleccione un producto</option>
-                            {productos.map((producto) => (
-                                <option key={producto._id} value={producto._id}>
-                                    {producto.nombre_producto}
-                                </option>
-                            ))}
-                        </select>
-                    
-                    <label> Stock Inicial:  </label>
-                    <input className="w-100"
+        <div>
+            <h1>Gestión de Inventario</h1>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Seleccione un producto:
+                    <select
+                        value={nuevoInventario.id_producto}
+                        onChange={(e) => setNuevoInventario({ ...nuevoInventario, id_producto: e.target.value })}
+                        required
+                    >
+                        <option value="">Seleccione un producto</option>
+                        {productos.map((producto) => (
+                            <option key={producto._id} value={producto._id}>
+                                {producto.nombre_producto}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+                <label>
+                    Stock Inicial:
+                    <input
                         type="number"
                         placeholder="Stock Inicial"
                         value={nuevoInventario.stock_inicial}
                         onChange={(e) => setNuevoInventario({ ...nuevoInventario, stock_inicial: Number(e.target.value) })}
                         required
                     />
-                    <label className="w-100"> Stock Actual: </label>
-                    <input className="w-100"
-                            type="number"
-                            placeholder="Stock Actual"
-                            value={nuevoInventario.stock_actual}
-                            onChange={(e) => setNuevoInventario({ ...nuevoInventario, stock_actual: Number(e.target.value) })}
-                            required
-                        />
-                    <label className="w-100">  Saldo:  </label>
-                    <input className="w-100"
-                            type="number"
-                            placeholder="Saldo"
-                            value={nuevoInventario.saldo}
-                            onChange={(e) => setNuevoInventario({ ...nuevoInventario, saldo: Number(e.target.value) })}
-                            required
-                        />
-                   
-                </form>
-                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
-                    {/* Lista de alertas */}
-                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                        <h1 className="title">Lista de Inventarios</h1>
-                    </div>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {inventarios.map((inventario) => (
-                                <tr key={inventario._id}>
-                                    <td> {`Producto: ${getProductNameById(inventario.id_producto)}, Stock Inicial: ${inventario.stock_inicial}, Stock Actual: ${inventario.stock_actual}, Saldo: ${inventario.saldo}`}
-                                    </td>
-                                    <td>
-                                        <button className="btn btn-outline-info m-1" onClick={() => handleEdit(inventario)}>Editar</button>
-                                        <button className="btn btn-outline-info m-1" onClick={() => handleDelete(inventario._id)}>Eliminar</button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                </label>
+                <label>
+                    Stock Actual:
+                    <input
+                        type="number"
+                        placeholder="Stock Actual"
+                        value={nuevoInventario.stock_actual}
+                        onChange={(e) => setNuevoInventario({ ...nuevoInventario, stock_actual: Number(e.target.value) })}
+                        required
+                    />
+                </label>
+                <label>
+                    Saldo:
+                    <input
+                        type="number"
+                        placeholder="Saldo"
+                        value={nuevoInventario.saldo}
+                        onChange={(e) => setNuevoInventario({ ...nuevoInventario, saldo: Number(e.target.value) })}
+                        required
+                    />
+                </label>
+                <button type="submit">{editando ? 'Actualizar' : 'Crear Inventario'}</button>
+            </form>
 
+            <h2>Lista de Inventarios</h2>
+            <ul>
+                {inventarios.map((inventario) => (
+                    <li key={inventario._id}>
+                        {`Producto: ${getProductNameById(inventario.id_producto)}, Stock Inicial: ${inventario.stock_inicial}, Stock Actual: ${inventario.stock_actual}, Saldo: ${inventario.saldo}`}
+                        <button onClick={() => handleEdit(inventario)}>Editar</button>
+                        <button onClick={() => handleDelete(inventario._id)}>Eliminar</button>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
 

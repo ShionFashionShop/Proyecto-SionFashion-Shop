@@ -10,89 +10,146 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Box from '@mui/material/Box';
 import { Link as RouterLink } from 'react-router-dom';
-import logoSena from '../../assets/images/image2.png';
-import '../../theme/AppGeneral.css'
-
+import logoSena from '../../assets/images/image.png';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 
 export default function Navbar() {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [selectedGroup, setSelectedGroup] = useState(0);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [openGroup, setOpenGroup] = useState(null);
 
     const handleDrawerToggle = () => {
         setDrawerOpen((prevState) => !prevState);
     };
 
+    const pageGroups = [
+        { title: 'Gestión Stock', pages: ['alertasstock', 'usuarios'] },
+        { title: 'Inventario', pages: ['inventario', 'productos', 'empresas', 'facturas'] },
+        { title: 'Gestión Trabajo', pages: ['clientes', 'empleados', 'roles', 'proveedores'] },
+        { title: 'Categorías e Historial', pages: ['categorias', 'historial-inventario', 'tiendas'] }
+    ];
+
+    const handleChangeGroup = (event) => {
+        setSelectedGroup(event.target.value);
+    };
+
+    const handleMenuOpen = (event, groupIndex) => {
+        setAnchorEl(event.currentTarget);
+        setOpenGroup(groupIndex);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+        setOpenGroup(null);
+    };
+
     const drawer = (
-        <div className="">
+        <Box sx={{ padding: 2 }}>
+            <Typography variant="h6" sx={{ marginBottom: 2 }}>Selecciona un grupo de páginas</Typography>
+            <Select
+                value={selectedGroup}
+                onChange={handleChangeGroup}
+                fullWidth
+                displayEmpty
+                sx={{ marginBottom: 2 }}
+            >
+                {pageGroups.map((group, index) => (
+                    <MenuItem key={index} value={index}>
+                        {group.title}
+                    </MenuItem>
+                ))}
+            </Select>
             <List>
-                {['Home', 'Login', 'AlertasStockPage', 'UsuariosPage', 'Inventario', 'ProductoPage', 'EmpresasPage', 'FacturasPage', 'ClientesPage', 'EmpleadoPage', 'RolesPage', 'ProveedoresPage', 'CategoriasPage', 'Historial_inventarioPage', 'TiendaPage'].map((text) => (
+                {pageGroups[selectedGroup].pages.map((text) => (
                     <ListItem
                         button
                         component={RouterLink}
                         to={`/${text.toLowerCase()}`}
                         key={text}
-                        onClick={handleDrawerToggle} // Cerrar el drawer al seleccionar un item
+                        onClick={handleDrawerToggle}
                     >
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>
-        </div>
+        </Box>
     );
 
     return (
-        <div className="encabezado">
-            <AppBar>
-                <Toolbar className="d-flex flex-column">
-                    <div className="principal d-flex justify-content-between w-100 p-2 ">
-                        <div className=" d-flex justify-content-start col-sm-3 col-sm-3 col-md-3 col-lg-3">
-                            <Box className="logo" component="img" src={logoSena} alt="Sion Fashion Shop" />
-                            <Typography className="nombreApp d-flex align-items-center"> {/* Color del texto blanco */}
-                                Sion Fashion Shop
-                            </Typography>
-                            <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle} sx={{ display: { xs: 'block', md: 'none' } }} ><MenuIcon /></IconButton>
-                        </div>
-
-                        <div className="d-flex justify-content-end col-sm-5 col-sm-5 col-md-5 col-lg-5">
-                            <Box className="d-flex align-items-center" >
-                                {['Home', 'Login'].map((text) => (
-                                    <Typography
-                                        key={text}
-                                        sx={{ margin: 1, color: '#ffffff', textDecoration: 'none' }} /* Este es un comentario válido */
-                                        component={RouterLink}
-                                        to={`/${text.toLowerCase()}`}
-                                    >
-                                        {text}
-                                    </Typography>
-                                ))}
-                            </Box>
-                        </div>
-
-                    </div>
-                    <div className="menu d-flex justify-content-between w-100">
-                        <Box className="d-flex align-items-center" >
-                            {['AlertasStock', 'Usuarios',
-                                'Inventario', 'Productos', 'Empresas',
-                                'Facturas', 'Clientes', 'Empleados', 'Users-Roles',
-                                'Proveedores', 'Categorias', 'Historial Inventario', 'Tiendas'].map((text) => (
-                                    <Typography
-                                        key={text}
-                                        sx={{ margin: 1, color: '#ffffff', textDecoration: 'none' }} /* Este es un comentario válido */
-                                        component={RouterLink}
-                                        to={`/${text.toLowerCase()}`}
-                                    >
-                                        {text}
-                                    </Typography>
-                                ))}
-                        </Box>
-                    </div>
+        <div>
+            <AppBar position="fixed" sx={{ backgroundColor: 'rgb(220, 50, 190)' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Box
+                        component="img"
+                        sx={{
+                            height: 40,
+                            marginRight: 2,
+                        }}
+                        src={logoSena}
+                        alt="SENA Logo"
+                    />
+                    <Typography variant="h6" sx={{ flexGrow: 1, color: '#ffffff' }}>
+                        SISTEMA DE GESTION DE INVENTARIO
+                    </Typography>
+                    <IconButton
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                        onClick={handleDrawerToggle}
+                        sx={{ display: { xs: 'block', md: 'none' } }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <Typography
+                            sx={{ margin: 1, color: '#ffffff', textDecoration: 'none' }}
+                            component={RouterLink}
+                            to="/home"
+                        >
+                            Home
+                        </Typography>
+                        <Typography
+                            sx={{ margin: 1, color: '#ffffff', textDecoration: 'none' }}
+                            component={RouterLink}
+                            to="/login"
+                        >
+                            Login
+                        </Typography>
+                        {pageGroups.map((group, index) => (
+                            <div key={index}>
+                                <Typography
+                                    sx={{ margin: 1, color: '#ffffff', cursor: 'pointer' }}
+                                    onClick={(event) => handleMenuOpen(event, index)}
+                                >
+                                    {group.title}
+                                </Typography>
+                                <Menu
+                                    anchorEl={anchorEl}
+                                    open={Boolean(anchorEl) && openGroup === index}
+                                    onClose={handleMenuClose}
+                                >
+                                    {group.pages.map((page) => (
+                                        <MenuItem
+                                            key={page}
+                                            component={RouterLink}
+                                            to={`/${page.toLowerCase()}`}
+                                            onClick={handleMenuClose}
+                                        >
+                                            {page}
+                                        </MenuItem>
+                                    ))}
+                                </Menu>
+                            </div>
+                        ))}
+                    </Box>
                 </Toolbar>
             </AppBar>
-
-            {/* Margen superior para evitar que el contenido quede tapado */}
             <Box sx={{ marginTop: '64px' }}>
                 {/* Aquí iría el contenido de tu página */}
             </Box>
-
             <Drawer
                 anchor="left"
                 open={drawerOpen}
@@ -100,6 +157,6 @@ export default function Navbar() {
             >
                 {drawer}
             </Drawer>
-        </div >
+        </div>
     );
 }

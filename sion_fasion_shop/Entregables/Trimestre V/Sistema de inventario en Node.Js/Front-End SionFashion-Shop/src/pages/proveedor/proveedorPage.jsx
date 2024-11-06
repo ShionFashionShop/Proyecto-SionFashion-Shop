@@ -47,7 +47,7 @@ const ProveedoresPage = () => {
         try {
             if (modoEdicion) {
                 await axios.put(`${API_URL}/${proveedorActual._id}`, nuevoProveedor);
-                setProveedores(proveedores.map(proveedor =>
+                setProveedores(proveedores.map(proveedor => 
                     proveedor._id === proveedorActual._id ? { ...proveedorActual, ...nuevoProveedor } : proveedor
                 ));
                 setModoEdicion(false);
@@ -102,34 +102,66 @@ const ProveedoresPage = () => {
     }
 
     return (
-        <div className="formulario p-3">
-            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Gestión de Proveedores</h1>
-            </div>
-            <div className="w-100 d-flex justify-content-star p-2">
-                <form onSubmit={handleCrearProveedor} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
-                    <button className="btn btn-success" type="submit">{modoEdicion ? 'Actualizar Proveedor' : 'Crear Proveedor'}</button>
-                    <label className="w-100">Nombre del Proveedor:</label>
-                    <input className="w-100" type="text" value={nombreProveedor} onChange={(e) => setNombreProveedor(e.target.value)} required />
-                    <label className="w-100">Contacto del Proveedor:</label>
-                    <input className="w-100" type="text" value={contactoProveedor} onChange={(e) => setContactoProveedor(e.target.value)} />
-                    <label className="w-100">Email del Proveedor:</label>
-                    <input className="w-100" type="email" value={emailProveedor} onChange={(e) => setEmailProveedor(e.target.value)} required />
-                    <label className="w-100">ID Ciudad:</label>
-                    <input className="w-100" type="text" value={idCiudad} onChange={(e) => setIdCiudad(e.target.value)} />
-                    <label className="w-100">Productos (IDs separados por coma):</label>
-                    <input className="w-100" type="text" value={productos.join(',')} onChange={(e) => setProductos(e.target.value.split(',').map(prod => prod.trim()))} />
-                </form>
-                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+        <div>
+            <h1>Gestión de Proveedores</h1>
+
+            {/* Formulario para crear o editar proveedor */}
+            <form onSubmit={handleCrearProveedor}>
+                <div>
+                    <label>Nombre del Proveedor:</label>
+                    <input 
+                        type="text" 
+                        value={nombreProveedor} 
+                        onChange={(e) => setNombreProveedor(e.target.value)} 
+                        required 
+                    />
+                </div>
+                <div>
+                    <label>Contacto del Proveedor:</label>
+                    <input 
+                        type="text" 
+                        value={contactoProveedor} 
+                        onChange={(e) => setContactoProveedor(e.target.value)} 
+                    />
+                </div>
+                <div>
+                    <label>Email del Proveedor:</label>
+                    <input 
+                        type="email" 
+                        value={emailProveedor} 
+                        onChange={(e) => setEmailProveedor(e.target.value)} 
+                        required
+                    />
+                </div>
+                <div>
+                    <label>ID Ciudad:</label>
+                    <input 
+                        type="text" 
+                        value={idCiudad} 
+                        onChange={(e) => setIdCiudad(e.target.value)} 
+                    />
+                </div>
+                <div>
+                    <label>Productos (IDs separados por coma):</label>
+                    <input 
+                        type="text" 
+                        value={productos.join(',')} 
+                        onChange={(e) => setProductos(e.target.value.split(',').map(prod => prod.trim()))} 
+                    />
+                </div>
+                <button type="submit">{modoEdicion ? 'Actualizar Proveedor' : 'Crear Proveedor'}</button>
+            </form>
+
+            {/* Lista de proveedores */}
             <h2>Lista de Proveedores</h2>
             {proveedores.length > 0 ? (
                 <ul>
                     {proveedores.map(proveedor => (
                         <li key={proveedor._id}>
-                            <strong>Nombre:</strong> {proveedor.nombre_proveedor} |
-                            <strong> Contacto:</strong> {proveedor.contacto_proveedor || 'N/A'} |
-                            <strong> Email:</strong> {proveedor.email_proveedor || 'N/A'} |
-                            <strong> ID Ciudad:</strong> {proveedor.id_ciudad || 'N/A'} |
+                            <strong>Nombre:</strong> {proveedor.nombre_proveedor} | 
+                            <strong> Contacto:</strong> {proveedor.contacto_proveedor || 'N/A'} | 
+                            <strong> Email:</strong> {proveedor.email_proveedor || 'N/A'} | 
+                            <strong> ID Ciudad:</strong> {proveedor.id_ciudad || 'N/A'} | 
                             <strong> Productos:</strong> {proveedor.productos?.join(', ') || 'Sin productos'}
                             <button onClick={() => handleEditarProveedor(proveedor)}>Editar</button>
                             <button onClick={() => handleEliminarProveedor(proveedor._id)}>Eliminar</button>
@@ -139,11 +171,8 @@ const ProveedoresPage = () => {
             ) : (
                 <p>No hay proveedores disponibles</p>
             )}
-                </div>
-            </div>
-
         </div>
-    );
+    );  
 };
 
 export default ProveedoresPage;

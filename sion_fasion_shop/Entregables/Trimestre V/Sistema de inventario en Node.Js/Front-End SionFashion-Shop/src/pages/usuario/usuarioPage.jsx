@@ -112,104 +112,101 @@ const UsuariosPage = () => {
     if (error) return <div>{error}</div>;
 
     return (
+        <div className="container">
+            <h1 className="title">Gestión de Usuarios</h1>
+            <form onSubmit={handleSubmit} className="form">
+                <input
+                    type="text"
+                    name="nombre_usuario"
+                    placeholder="Nombre de usuario"
+                    value={formData.nombre_usuario}
+                    onChange={handleInputChange}
+                    required
+                    className="input"
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="input"
+                />
+                <input
+                    type="password"
+                    name="clave_usuario"
+                    placeholder="Clave (oculta)"
+                    value={formData.clave_usuario}
+                    onChange={handleInputChange}
+                    required={!editingUserId} // Requiere clave solo si no es edición
+                    className="input"
+                />
+                <label>Rol</label>
+                <select
+                    name="roles"
+                    value={formData.roles}
+                    onChange={(e) => handleSelectChange(e, 'roles')}
+                    required
+                    className="select"
+                >
+                    <option value="">Seleccione un rol</option>
+                    {roles.map((role) => (
+                        <option key={role._id} value={role._id}>
+                            {role.nombre_rol}
+                        </option>
+                    ))}
+                </select>
 
-        <div className="formulario p-3">
-            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                <h1 className="title">Gestión de Usuarios</h1>
-            </div>
-            <div className=" w-100 d-flex justify-content-star p-2">
-                <form onSubmit={handleSubmit} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
-                    <button type="submit" className="btn btn-success">
-                        {editingUserId ? 'Actualizar Usuario' : 'Crear Usuario'}
-                    </button>
-                    {error && <div className="error-message">{error}</div>}
-                    <label className="w-100">Nombre</label>
-                    <input type="text" name="nombre_usuario" placeholder="Nombre de usuario" value={formData.nombre_usuario}
-                        onChange={handleInputChange}
-                        required
-                        className="w-100"
-                    />
-                    <label className="w-100">Correo electrónico</label>
-                    <input type="email" name="email" placeholder="Email" value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-100"
-                    />
-                    <label className="w-100">Contraseña</label>
-                    <input type="password" name="clave_usuario" placeholder="Clave (oculta)" value={formData.clave_usuario}
-                        onChange={handleInputChange}
-                        required={!editingUserId} // Requiere clave solo si no es edición
-                        className="w-100"
-                    />
-                    <label>Rol</label>
-                    <select
-                        name="roles"
-                        value={formData.roles}
-                        onChange={(e) => handleSelectChange(e, 'roles')}
-                        required
-                        className="w-100"
-                    >
-                        <option value="">Seleccione un rol</option>
-                        {roles.map((role) => (
-                            <option key={role._id} value={role._id}>
-                                {role.nombre_rol}
-                            </option>
-                        ))}
-                    </select>
-                    <label>Registro de Actividad</label>
-                    <select
-                        name="registros_actividades"
-                        value={formData.registros_actividades}
-                        onChange={(e) => handleSelectChange(e, 'registros_actividades')}
-                        className="w-100"
-                    >
-                        <option value="">Seleccione un registro</option>
-                        {registrosActividades.map((registro) => (
-                            <option key={registro._id} value={registro._id}>
-                                {registro.actividad}
-                            </option>
-                        ))}
-                    </select>
-                   
-                </form>
-                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
-                    {/* Lista de alertas */}
-                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                        <h1 className="title">Lista de Usuarios</h1>
-                    </div>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th >Nombre de Usuario</th>
-                                <th>Email</th>
-                                <th>Clave</th>
-                                <th>Rol</th>
-                                <th>Registro de Actividad</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {usuarios.map((usuario) => (
-                                <tr key={usuario._id}>
-                                    <td>{usuario.nombre_usuario}</td>
-                                    <td>{usuario.email}</td>
-                                    <td>**********</td> {/* Clave oculta por razones de seguridad */}
-                                    <td>{usuario.roles.map(role => role.nombre_rol).join(', ')}</td>
-                                    <td>{usuario.registros_actividades.map(reg => reg.actividad).join(', ')}</td>
-                                    <td>
-                                        <button className="btn btn-outline-info m-1" onClick={() => handleEdit(usuario)}>Editar</button>
-                                        <button className="btn btn-outline-info m-1" onClick={() => handleDelete(usuario._id)}>Eliminar</button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <label>Registro de Actividad</label>
+                <select
+                    name="registros_actividades"
+                    value={formData.registros_actividades}
+                    onChange={(e) => handleSelectChange(e, 'registros_actividades')}
+                    className="select"
+                >
+                    <option value="">Seleccione un registro</option>
+                    {registrosActividades.map((registro) => (
+                        <option key={registro._id} value={registro._id}>
+                            {registro.actividad}
+                        </option>
+                    ))}
+                </select>
+                <button type="submit" className="button">
+                    {editingUserId ? 'Actualizar Usuario' : 'Crear Usuario'}
+                </button>
+                {error && <div className="error-message">{error}</div>}
+            </form>
+            <h2>Lista de Usuarios</h2>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Nombre de Usuario</th>
+                        <th>Email</th>
+                        <th>Clave</th>
+                        <th>Rol</th>
+                        <th>Registro de Actividad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {usuarios.map((usuario) => (
+                        <tr key={usuario._id}>
+                            <td>{usuario.nombre_usuario}</td>
+                            <td>{usuario.email}</td>
+                            <td>**********</td> {/* Clave oculta por razones de seguridad */}
+                            <td>{usuario.roles.map(role => role.nombre_rol).join(', ')}</td>
+                            <td>{usuario.registros_actividades.map(reg => reg.actividad).join(', ')}</td>
+                            <td>
+                                <button onClick={() => handleEdit(usuario)}>Editar</button>
+                                <button onClick={() => handleDelete(usuario._id)}>Eliminar</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
-
-            );
-
+    );
 };
 
 export default UsuariosPage;
