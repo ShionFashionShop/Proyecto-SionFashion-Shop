@@ -128,21 +128,49 @@ const AlertasStockPage = () => {
                         ))}
                     </select>
                 </form>
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Usuarios</h1>
+                    </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Nivel Mínimo</th>
+                                <th>Fecha Alerta</th>
+                                <th>Producto</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {alertas.map(alerta => (
+                                <tr key={alerta._id}>
+                                    <td>{alerta.nivel_minimo}
+                                    </td>
+                                    <td>
+                                        {new Date(alerta.fecha_alerta).toLocaleDateString()}
+                                    </td>
+                                    <td>
+                                        {productos.find(producto => producto._id === alerta.id_productoNavigation)?.nombre_producto || 'Producto no encontrado'}
+                                    </td>
+                                     <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEditarAlerta(alerta)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEliminarAlerta(alerta._id)}>Eliminar</button>
+
+                                    </td>
+                                </tr>
+                            ))}
+                            
+                        </tbody>
+                    </table>
+                </div>
                 <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
                     {/* Lista de alertas */}
                     <h2>Lista de Alertas de Stock</h2>
                     {
                         alertas.length > 0 ? (
                             <ul>
-                                {alertas.map(alerta => (
-                                    <li key={alerta._id}>
-                                        <strong>Nivel Mínimo:</strong> {alerta.nivel_minimo} |
-                                        <strong> Fecha Alerta:</strong> {new Date(alerta.fecha_alerta).toLocaleDateString()} |
-                                        <strong> Producto:</strong> {productos.find(producto => producto._id === alerta.id_productoNavigation)?.nombre_producto || 'Producto no encontrado'}
-                                        <button className="btn btn-info m-2" onClick={() => handleEditarAlerta(alerta)}>Editar</button>
-                                        <button className="btn btn-info" onClick={() => handleEliminarAlerta(alerta._id)}>Eliminar</button>
-                                    </li>
-                                ))}
+                                
                             </ul>
                         ) : (
                             <p>No hay alertas disponibles</p>
