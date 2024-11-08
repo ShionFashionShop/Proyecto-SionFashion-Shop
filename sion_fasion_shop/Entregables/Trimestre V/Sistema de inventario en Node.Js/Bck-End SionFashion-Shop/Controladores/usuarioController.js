@@ -2,6 +2,45 @@ const Usuario = require('../models/usuario'); // Asegúrate de que la ruta sea c
 const usuariosLogic = require('../logic/usuariosLogic'); // Ajusta la ruta según tu estructura
 const { usuarioValidationSchema } = require('../validaciones/usuarioValidacion'); // Asegúrate de que la ruta sea correcta
 const jwt = require('jsonwebtoken'); // Asegúrate de tener esto instalado
+const { validationResult } = require('express-validator');
+
+// Función para registrar un nuevo usuario
+exports.registrarUsuario = async (req, res) => {
+    // Validar los errores provenientes de express-validator
+    const errores = validationResult(req);
+    if (!errores.isEmpty()) {
+        return res.status(400).json({ errores: errores.array() });
+    }
+
+    const { nombre_usuario, email, clave_usuario } = req.body;
+
+    try {
+        // Verificar si el usuario ya existe
+        let usuarioExistente = await Usuario.findOne({ email });
+        if (usuarioExistente) {
+            return res.status(400).json({ msg: 'El correo electrónico ya está en uso' });
+        }
+
+        // Crear un nuevo usuario sin roles y sin encriptar la contraseña
+        const nuevoUsuario = new Usuario({
+            nombre_usuario,
+            email,
+            clave_usuario,  // Se guarda tal cual como se recibe
+        });
+
+        // Guardar el usuario en la base de datos
+        await nuevoUsuario.save();
+
+        // Responder con un mensaje de éxito
+        res.status(201).json({ msg: 'Usuario registrado con éxito', usuario: nuevoUsuario });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: 'Error en el servidor', error: error.message });
+    }
+};
+
+
+
 
 // Iniciar sesión
 exports.iniciarSesion = async (req, res) => {

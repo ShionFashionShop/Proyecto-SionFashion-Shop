@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import DataTable from 'react-data-table-component';
 
 const API_URL = 'https://localhost:3000/api/facturas';
 
@@ -9,36 +10,44 @@ const FacturasPage = () => {
     const [subTotal, setSubTotal] = useState('');
     const [impuesto, setImpuesto] = useState('');
     const [total, setTotal] = useState('');
-    const [cliente, setCliente] = useState(''); // ID del cliente
-    const [metodosDePago, setMetodosDePago] = useState([]); // IDs de métodos de pago
-    const [ordenesDeCompra, setOrdenesDeCompra] = useState([]); // IDs de órdenes de compra
-    const [productos, setProductos] = useState([]); // IDs de productos
+    const [cliente, setCliente] = useState('');
+    const [metodosDePago, setMetodosDePago] = useState([]);
+    const [ordenesDeCompra, setOrdenesDeCompra] = useState([]);
+    const [productos, setProductos] = useState([]);
     const [modoEdicion, setModoEdicion] = useState(false);
     const [facturaActual, setFacturaActual] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Obtener todas las facturas al cargar el componente
+    const convertDecimal = (value) => {
+        return value && typeof value === 'object' && value.$numberDecimal
+            ? parseFloat(value.$numberDecimal)
+            : value;
+    };
+
     useEffect(() => {
         const fetchFacturas = async () => {
             try {
                 const response = await axios.get(API_URL);
-                setFacturas(response.data);
+                const data = response.data.map(factura => ({
+                    ...factura,
+                    sub_total_factura: convertDecimal(factura.sub_total_factura),
+                    impuesto_factura: convertDecimal(factura.impuesto_factura),
+                    total_factura: convertDecimal(factura.total_factura),
+                }));
+                setFacturas(data);
             } catch (err) {
-                console.error('Error al obtener las facturas', err);
+                console.error('Error al obtener las facturas:', err);
                 setError('Error al obtener las facturas. Verifica la API.');
             } finally {
                 setLoading(false);
             }
         };
-
         fetchFacturas();
     }, []);
 
-    // Manejar la creación o edición de una factura
     const handleCrearFactura = async (e) => {
         e.preventDefault();
-
         const nuevaFactura = {
             fecha_emision_factura: fechaEmision,
             sub_total_factura: subTotal,
@@ -53,7 +62,7 @@ const FacturasPage = () => {
         try {
             if (modoEdicion) {
                 await axios.put(`${API_URL}/${facturaActual._id}`, nuevaFactura);
-                setFacturas(facturas.map(factura => 
+                setFacturas(facturas.map(factura =>
                     factura._id === facturaActual._id ? { ...facturaActual, ...nuevaFactura } : factura
                 ));
                 setModoEdicion(false);
@@ -62,23 +71,24 @@ const FacturasPage = () => {
                 const response = await axios.post(API_URL, nuevaFactura);
                 setFacturas([...facturas, response.data]);
             }
-
-            // Limpiar formulario después de enviar
-            setFechaEmision('');
-            setSubTotal('');
-            setImpuesto('');
-            setTotal('');
-            setCliente('');
-            setMetodosDePago([]);
-            setOrdenesDeCompra([]);
-            setProductos([]);
+            resetForm();
         } catch (err) {
-            console.error('Error al guardar la factura', err);
+            console.error('Error al guardar la factura:', err);
             setError('Error al guardar la factura.');
         }
     };
 
-    // Manejar la edición de una factura
+    const resetForm = () => {
+        setFechaEmision('');
+        setSubTotal('');
+        setImpuesto('');
+        setTotal('');
+        setCliente('');
+        setMetodosDePago([]);
+        setOrdenesDeCompra([]);
+        setProductos([]);
+    };
+
     const handleEditarFactura = (factura) => {
         setModoEdicion(true);
         setFacturaActual(factura);
@@ -92,128 +102,72 @@ const FacturasPage = () => {
         setProductos(factura.productos || []);
     };
 
-    // Manejar la eliminación de una factura
     const handleEliminarFactura = async (id) => {
         try {
             await axios.delete(`${API_URL}/${id}`);
             setFacturas(facturas.filter(factura => factura._id !== id));
         } catch (err) {
-            console.error('Error al eliminar la factura', err);
+            console.error('Error al eliminar la factura:', err);
             setError('Error al eliminar la factura.');
         }
     };
 
-    // Mostrar cargando mientras se obtienen las facturas
-    if (loading) {
-        return <div>Cargando facturas...</div>;
-    }
+    if (loading) return <div>Cargando facturas...</div>;
+    if (error) return <div>{error}</div>;
 
-    // Mostrar mensaje de error si falla la carga
-    if (error) {
-        return <div>{error}</div>;
-    }
+    const columns = [
+        { name: 'Fecha de Emisión', selector: row => new Date(row.fecha_emision_factura).toLocaleDateString(), sortable: true },
+        { name: 'Subtotal', selector: row => row.sub_total_factura, sortable: true },
+        { name: 'Impuesto', selector: row => row.impuesto_factura, sortable: true },
+        { name: 'Total', selector: row => row.total_factura, sortable: true },
+        {
+            name: 'Acciones',
+            cell: row => (
+                <div className="action-buttons">
+                    <button className="edit-button" onClick={() => handleEditarFactura(row)}>Editar</button>
+                    <button className="delete-button" onClick={() => handleEliminarFactura(row._id)}>Eliminar</button>
+                </div>
+            ),
+        },
+    ];
 
     return (
-        <div>
+        <div className="facturas-page">
             <h1>Gestión de Facturas</h1>
-
-            {/* Formulario para crear o editar factura */}
-            <form onSubmit={handleCrearFactura}>
-                <div>
-                    <label>Fecha de Emisión:</label>
-                    <input 
-                        type="date" 
-                        value={fechaEmision} 
-                        onChange={(e) => setFechaEmision(e.target.value)} 
-                        required 
-                    />
+            <form onSubmit={handleCrearFactura} className="factura-form">
+                <div className="horizontal-form-group">
+                    <div className="form-group">
+                        <label>Fecha de Emisión:</label>
+                        <input type="date" value={fechaEmision} onChange={(e) => setFechaEmision(e.target.value)} required />
+                    </div>
+                    <div className="form-group">
+                        <label>Subtotal:</label>
+                        <input type="number" value={subTotal} onChange={(e) => setSubTotal(e.target.value)} required />
+                    </div>
+                    <div className="form-group">
+                        <label>Impuesto:</label>
+                        <input type="number" value={impuesto} onChange={(e) => setImpuesto(e.target.value)} required />
+                    </div>
+                    <div className="form-group">
+                        <label>Total:</label>
+                        <input type="number" value={total} onChange={(e) => setTotal(e.target.value)} required />
+                    </div>
                 </div>
-                <div>
-                    <label>Subtotal:</label>
-                    <input 
-                        type="number" 
-                        value={subTotal} 
-                        onChange={(e) => setSubTotal(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Impuesto:</label>
-                    <input 
-                        type="number" 
-                        value={impuesto} 
-                        onChange={(e) => setImpuesto(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Total:</label>
-                    <input 
-                        type="number" 
-                        value={total} 
-                        onChange={(e) => setTotal(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>ID del Cliente:</label>
-                    <input 
-                        type="text" 
-                        value={cliente} 
-                        onChange={(e) => setCliente(e.target.value)} 
-                    />
-                </div>
-                <div>
-                    <label>Métodos de Pago (IDs separados por coma):</label>
-                    <input 
-                        type="text" 
-                        value={metodosDePago.join(',')} 
-                        onChange={(e) => setMetodosDePago(e.target.value.split(','))}
-                    />
-                </div>
-                <div>
-                    <label>Órdenes de Compra (IDs separados por coma):</label>
-                    <input 
-                        type="text" 
-                        value={ordenesDeCompra.join(',')} 
-                        onChange={(e) => setOrdenesDeCompra(e.target.value.split(','))}
-                    />
-                </div>
-                <div>
-                    <label>Productos (IDs separados por coma):</label>
-                    <input 
-                        type="text" 
-                        value={productos.join(',')} 
-                        onChange={(e) => setProductos(e.target.value.split(','))}
-                    />
-                </div>
-                <button type="submit">{modoEdicion ? 'Actualizar Factura' : 'Crear Factura'}</button>
+                <button type="submit" className="submit-button">
+                    {modoEdicion ? 'Actualizar Factura' : 'Crear Factura'}
+                </button>
             </form>
-
-            {/* Lista de facturas */}
             <h2>Lista de Facturas</h2>
-            {facturas.length > 0 ? (
-                <ul>
-                    {facturas.map(factura => (
-                        <li key={factura._id}>
-                            <strong>Fecha de Emisión:</strong> {new Date(factura.fecha_emision_factura).toLocaleDateString()} | 
-                            <strong> Subtotal:</strong> {factura.sub_total_factura} | 
-                            <strong> Impuesto:</strong> {factura.impuesto_factura} |
-                            <strong> Total:</strong> {factura.total_factura} |
-                        {/* <strong> Cliente ID:</strong> {factura.id_clienteNavigation || 'N/A'} |
-                            <strong> Métodos de Pago:</strong> {(factura.metodos_de_pagos && Array.isArray(factura.metodos_de_pagos)) ? factura.metodos_de_pagos.join(', ') : 'Sin métodos de pago'} |
-                            <strong> Órdenes de Compra:</strong> {(factura.ordenes_de_compras && Array.isArray(factura.ordenes_de_compras)) ? factura.ordenes_de_compras.join(', ') : 'Sin órdenes de compra'} |
-                            <strong> Productos:</strong> {(factura.productos && Array.isArray(factura.productos)) ? factura.productos.join(', ') : 'Sin productos'}*/}
-                            <button onClick={() => handleEditarFactura(factura)}>Editar</button>
-                            <button onClick={() => handleEliminarFactura(factura._id)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No hay facturas disponibles</p>
-            )}
+            <DataTable
+                columns={columns}
+                data={facturas}
+                pagination
+                paginationPerPage={5}
+                highlightOnHover
+                pointerOnHover
+            />
         </div>
-    );  
+    );
 };
 
 export default FacturasPage;

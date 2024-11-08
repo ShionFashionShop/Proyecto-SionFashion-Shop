@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import DataTable from 'react-data-table-component';
 
 const API_URL = 'https://localhost:3000/api/roles';
 
@@ -13,7 +14,6 @@ const RolesPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Obtener todos los roles al cargar el componente
     useEffect(() => {
         const fetchRoles = async () => {
             try {
@@ -30,7 +30,6 @@ const RolesPage = () => {
         fetchRoles();
     }, []);
 
-    // Manejar la creación o edición de un rol
     const handleCrearRol = async (e) => {
         e.preventDefault();
 
@@ -43,7 +42,7 @@ const RolesPage = () => {
         try {
             if (modoEdicion) {
                 await axios.put(`${API_URL}/${rolActual._id}`, nuevoRol);
-                setRoles(roles.map(rol => 
+                setRoles(roles.map(rol =>
                     rol._id === rolActual._id ? { ...rolActual, ...nuevoRol } : rol
                 ));
                 setModoEdicion(false);
@@ -53,7 +52,6 @@ const RolesPage = () => {
                 setRoles([...roles, response.data]);
             }
 
-            // Limpiar formulario después de enviar
             setNombreRol('');
             setDescripcionRol('');
             setUsuarios([]);
@@ -63,16 +61,14 @@ const RolesPage = () => {
         }
     };
 
-    // Manejar la edición de un rol
     const handleEditarRol = (rol) => {
         setModoEdicion(true);
         setRolActual(rol);
         setNombreRol(rol.nombre_rol);
         setDescripcionRol(rol.descripcion_rol);
-        setUsuarios(rol.usuarios || []); // Cargar lista de usuarios
+        setUsuarios(rol.usuarios || []);
     };
 
-    // Manejar la eliminación de un rol
     const handleEliminarRol = async (id) => {
         try {
             await axios.delete(`${API_URL}/${id}`);
@@ -83,69 +79,100 @@ const RolesPage = () => {
         }
     };
 
-    // Mostrar cargando mientras se obtienen los roles
     if (loading) {
         return <div>Cargando roles...</div>;
     }
 
-    // Mostrar mensaje de error si falla la carga
     if (error) {
         return <div>{error}</div>;
     }
+
+    const columns = [
+        {
+            name: 'Nombre del Rol',
+            selector: row => row.nombre_rol,
+            sortable: true,
+            width: '20%',
+        },
+        {
+            name: 'Descripción',
+            selector: row => row.descripcion_rol || 'N/A',
+            sortable: true,
+            width: '40%',
+        },
+        {
+            name: 'Usuarios',
+            selector: row => row.usuarios?.join(', ') || 'Sin usuarios',
+            sortable: true,
+            width: '30%',
+        },
+        {
+            name: 'Acciones',
+            cell: row => (
+                <div style={{ display: 'inline-flex', gap: '10px', alignItems: 'center' }}>
+                    <button onClick={() => handleEditarRol(row)}>Editar</button>
+                    <button onClick={() => handleEliminarRol(row._id)}>Eliminar</button>
+                </div>
+            ),
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+            width: '10%',
+        },
+    ];
 
     return (
         <div>
             <h1>Gestión de Roles</h1>
 
-            {/* Formulario para crear o editar rol */}
-            <form onSubmit={handleCrearRol}>
+            <form onSubmit={handleCrearRol} style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
                 <div>
                     <label>Nombre del Rol:</label>
-                    <input 
-                        type="text" 
-                        value={nombreRol} 
-                        onChange={(e) => setNombreRol(e.target.value)} 
-                        required 
+                    <input
+                        type="text"
+                        value={nombreRol}
+                        onChange={(e) => setNombreRol(e.target.value)}
+                        required
                     />
                 </div>
                 <div>
                     <label>Descripción del Rol:</label>
-                    <input 
-                        type="text" 
-                        value={descripcionRol} 
-                        onChange={(e) => setDescripcionRol(e.target.value)} 
+                    <input
+                        type="text"
+                        value={descripcionRol}
+                        onChange={(e) => setDescripcionRol(e.target.value)}
                     />
                 </div>
                 <div>
                     <label>Usuarios (IDs separados por coma):</label>
-                    <input 
-                        type="text" 
-                        value={usuarios.join(',')} 
-                        onChange={(e) => setUsuarios(e.target.value.split(',').map(id => id.trim()))} // Limpia los espacios en blanco
+                    <input
+                        type="text"
+                        value={usuarios.join(',')}
+                        onChange={(e) => setUsuarios(e.target.value.split(',').map(id => id.trim()))}
                     />
                 </div>
                 <button type="submit">{modoEdicion ? 'Actualizar Rol' : 'Crear Rol'}</button>
             </form>
 
-            {/* Lista de roles */}
             <h2>Lista de Roles</h2>
-            {roles.length > 0 ? (
-                <ul>
-                    {roles.map(rol => (
-                        <li key={rol._id}>
-                            <strong>Nombre:</strong> {rol.nombre_rol} | 
-                            <strong> Descripción:</strong> {rol.descripcion_rol || 'N/A'} |
-                            <strong> Usuarios:</strong> {rol.usuarios?.join(', ') || 'Sin usuarios'}
-                            <button onClick={() => handleEditarRol(rol)}>Editar</button>
-                            <button onClick={() => handleEliminarRol(rol._id)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No hay roles disponibles</p>
-            )}
+            <DataTable
+                columns={columns}
+                data={roles}
+                pagination
+                highlightOnHover
+                paginationPerPage={3} // Muestra solo 3 registros por página de inicio
+                responsive
+                striped
+                customStyles={{
+                    table: {
+                        style: {
+                            width: '100%',
+                        },
+                    },
+                }}
+            />
         </div>
-    );  
+    );
 };
 
 export default RolesPage;

@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const usuarioController = require('../Controladores/usuarioController');
-const Usuario = require ('../models/usuario.js');
-const bcrypt = require('bcryptjs');
+const Usuario = require('../models/usuario.js');
 const jwt = require('jsonwebtoken'); // Asegúrate de tener esto instalado
+const { body } = require('express-validator');
+const { registrarUsuario } = require('../Controladores/usuarioController'); // Asegúrate de ajustar la ruta correctamente
 
 
 /**
@@ -276,6 +277,89 @@ router.post('/login', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /api/registro:
+ *   post:
+ *     summary: Registra un nuevo usuario
+ *     description: Esta ruta permite registrar un nuevo usuario proporcionando su nombre, correo y clave de usuario.
+ *     tags:
+ *       - Usuarios
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre_usuario:
+ *                 type: string
+ *                 description: Nombre del usuario
+ *                 example: Juan Perez
+ *               email:
+ *                 type: string
+ *                 description: Correo electrónico del usuario
+ *                 example: juan.perez@correo.com
+ *               clave_usuario:
+ *                 type: string
+ *                 description: Clave del usuario (mínimo 8 caracteres)
+ *                 example: clave1234
+ *     responses:
+ *       201:
+ *         description: Usuario registrado con éxito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   example: Usuario registrado con éxito
+ *                 usuario:
+ *                   type: object
+ *                   properties:
+ *                     nombre_usuario:
+ *                       type: string
+ *                       example: Juan Perez
+ *                     email:
+ *                       type: string
+ *                       example: juan.perez@correo.com
+ *                     clave_usuario:
+ *                       type: string
+ *                       example: clave1234
+ *       400:
+ *         description: El correo electrónico ya está en uso o hay algún error en la solicitud
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   example: El correo electrónico ya está en uso
+ *       500:
+ *         description: Error interno del servidor
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   example: Error en el servidor
+ */
+
+
+// Ruta para registrar un usuario
+router.post('/registro',
+    [
+        // Validaciones con express-validator
+        body('nombre_usuario', 'El nombre de usuario es obligatorio').not().isEmpty(),
+        body('email', 'Por favor ingrese un correo válido').isEmail(),
+        body('clave_usuario', 'La clave de usuario debe tener al menos 8 caracteres').isLength({ min: 8 }),
+    ],
+    registrarUsuario
+);
 
 
 module.exports = router;
