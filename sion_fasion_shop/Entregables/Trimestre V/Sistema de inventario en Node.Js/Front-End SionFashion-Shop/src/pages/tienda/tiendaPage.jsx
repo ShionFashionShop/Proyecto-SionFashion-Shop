@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const TiendaPage = () => {
     const [tiendas, setTiendas] = useState([]);
+    const [ciudades, setCiudades] = useState([]);
+    const [empresas, setEmpresas] = useState([]);
     const [formData, setFormData] = useState({
         nombre_tienda: '',
         telefono_tienda: '',
@@ -19,6 +21,25 @@ const TiendaPage = () => {
             setTiendas(response.data);
         } catch (error) {
             console.error('Error al obtener las tiendas:', error);
+        }
+    };
+
+    // Funciones para obtener ciudades y empresas
+    const obtenerCiudades = async () => {
+        try {
+            const response = await axios.get('https://localhost:3000/api/ciudades');
+            setCiudades(response.data);
+        } catch (error) {
+            console.error('Error al obtener las ciudades:', error);
+        }
+    };
+
+    const obtenerEmpresas = async () => {
+        try {
+            const response = await axios.get('https://localhost:3000/api/empresas');
+            setEmpresas(response.data);
+        } catch (error) {
+            console.error('Error al obtener las empresas:', error);
         }
     };
 
@@ -75,9 +96,11 @@ const TiendaPage = () => {
         }
     };
 
-    // Cargar las tiendas al montar el componente
+    // Cargar tiendas, ciudades y empresas al montar el componente
     useEffect(() => {
         obtenerTiendas();
+        obtenerCiudades();
+        obtenerEmpresas();
     }, []);
 
     return (
@@ -106,39 +129,63 @@ const TiendaPage = () => {
                     value={formData.ubicacion_tienda}
                     onChange={handleChange}
                 />
-                <input
-                    type="text"
+                <select
                     name="id_ciudad"
-                    placeholder="ID de la ciudad"
                     value={formData.id_ciudad}
                     onChange={handleChange}
                     required
-                />
-                <input
-                    type="text"
+                >
+                    <option value="">Selecciona una ciudad</option>
+                    {ciudades.map((ciudad) => (
+                        <option key={ciudad._id} value={ciudad._id}>
+                            {ciudad.nombre_ciudad}
+                        </option>
+                    ))}
+                </select>
+                <select
                     name="id_empresa"
-                    placeholder="ID de la empresa"
                     value={formData.id_empresa}
                     onChange={handleChange}
                     required
-                />
+                >
+                    <option value="">Selecciona una empresa</option>
+                    {empresas.map((empresa) => (
+                        <option key={empresa._id} value={empresa._id}>
+                            {empresa.nombre_empresa}
+                        </option>
+                    ))}
+                </select>
                 <button type="submit">{editingId ? 'Actualizar' : 'Crear'}</button>
             </form>
 
             <h2>Lista de Tiendas</h2>
-            <ul>
-                {tiendas.map((tienda) => (
-                    <li key={tienda._id}>
-                        <strong>{tienda.nombre_tienda}</strong>
-                        <p>Teléfono: {tienda.telefono_tienda}</p>
-                        <p>Ubicación: {tienda.ubicacion_tienda}</p>
-                        <p>ID Ciudad: {tienda.id_ciudad}</p>
-                        <p>ID Empresa: {tienda.id_empresa}</p>
-                        <button onClick={() => handleEdit(tienda)}>Editar</button>
-                        <button onClick={() => handleDelete(tienda._id)}>Eliminar</button>
-                    </li>
-                ))}
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Ubicación</th>
+                        <th>Ciudad</th>
+                        <th>Empresa</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tiendas.map((tienda) => (
+                        <tr key={tienda._id}>
+                            <td>{tienda.nombre_tienda}</td>
+                            <td>{tienda.telefono_tienda}</td>
+                            <td>{tienda.ubicacion_tienda}</td>
+                            <td>{ciudades.find((ciudad) => ciudad._id === tienda.id_ciudad)?.nombre_ciudad}</td>
+                            <td>{empresas.find((empresa) => empresa._id === tienda.id_empresa)?.nombre_empresa}</td>
+                            <td>
+                                <button onClick={() => handleEdit(tienda)}>Editar</button>
+                                <button onClick={() => handleDelete(tienda._id)}>Eliminar</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };

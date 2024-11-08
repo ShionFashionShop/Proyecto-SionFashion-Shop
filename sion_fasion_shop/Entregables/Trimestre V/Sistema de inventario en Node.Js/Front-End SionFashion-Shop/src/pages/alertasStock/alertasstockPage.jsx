@@ -13,8 +13,8 @@ const AlertasStockPage = () => {
     const [productoSeleccionado, setProductoSeleccionado] = useState(''); // Estado para producto seleccionado
     const [modoEdicion, setModoEdicion] = useState(false);
     const [alertaActual, setAlertaActual] = useState(null);
-    const [loading, setLoading] = useState(true);  
-    const [error, setError] = useState(null);  
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     // Obtener todas las alertas y productos al cargar el componente
     useEffect(() => {
@@ -40,7 +40,7 @@ const AlertasStockPage = () => {
 
         fetchAlertas();
         fetchProductos(); // Llama a la función para obtener productos
-        setLoading(false);  
+        setLoading(false);
     }, []);
 
     // Manejar la creación o edición de una alerta
@@ -56,7 +56,7 @@ const AlertasStockPage = () => {
         try {
             if (modoEdicion) {
                 await axios.put(`${API_URL}/${alertaActual._id}`, nuevaAlerta);
-                setAlertas(alertas.map(alerta => 
+                setAlertas(alertas.map(alerta =>
                     alerta._id === alertaActual._id ? { ...alertaActual, ...nuevaAlerta } : alerta
                 ));
                 setModoEdicion(false);
@@ -107,36 +107,19 @@ const AlertasStockPage = () => {
     }
 
     return (
-        <div>
-            <h1>Gestión de Alertas de Stock</h1>
-
-            {/* Formulario para crear o editar alerta */}
-            <form onSubmit={handleCrearAlerta}>
-                <div>
-                    <label>Nivel Mínimo:</label>
-                    <input 
-                        type="number" 
-                        value={nivelMinimo} 
-                        onChange={(e) => setNivelMinimo(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Fecha Alerta:</label>
-                    <input 
-                        type="date" 
-                        value={fechaAlerta} 
-                        onChange={(e) => setFechaAlerta(e.target.value)} 
-                        required 
-                    />
-                </div>
-                <div>
-                    <label>Producto:</label>
-                    <select 
-                        value={productoSeleccionado} 
-                        onChange={(e) => setProductoSeleccionado(e.target.value)} 
-                        required
-                    >
+        <div className="formulario p-3">
+            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                <h1>Gestión de Alertas de Stock</h1>
+            </div>
+            <div className="w-100 d-flex justify-content-star p-2">
+                <form onSubmit={handleCrearAlerta} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
+                    <button className="btn btn-success" type="submit">{modoEdicion ? 'Actualizar Alerta' : 'Crear Alerta'}</button>
+                    <label className="w-100">Nivel Mínimo:</label>
+                    <input className="w-100" type="number" value={nivelMinimo} onChange={(e) => setNivelMinimo(e.target.value)} required />
+                    <label className="w-100">Fecha Alerta:</label>
+                    <input className="w-100" type="date" value={fechaAlerta} onChange={(e) => setFechaAlerta(e.target.value)} required />
+                    <label className="w-100">Producto:</label>
+                    <select className="w-100" value={productoSeleccionado} onChange={(e) => setProductoSeleccionado(e.target.value)} required >
                         <option value="">Seleccione un producto</option>
                         {productos.map(producto => (
                             <option key={producto._id} value={producto._id}>
@@ -144,29 +127,32 @@ const AlertasStockPage = () => {
                             </option>
                         ))}
                     </select>
-                </div>
-                <button type="submit">{modoEdicion ? 'Actualizar Alerta' : 'Crear Alerta'}</button>
-            </form>
+                </form>
+                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <h2>Lista de Alertas de Stock</h2>
+                    {
+                        alertas.length > 0 ? (
+                            <ul>
+                                {alertas.map(alerta => (
+                                    <li key={alerta._id}>
+                                        <strong>Nivel Mínimo:</strong> {alerta.nivel_minimo} |
+                                        <strong> Fecha Alerta:</strong> {new Date(alerta.fecha_alerta).toLocaleDateString()} |
+                                        <strong> Producto:</strong> {productos.find(producto => producto._id === alerta.id_productoNavigation)?.nombre_producto || 'Producto no encontrado'}
+                                        <button className="btn btn-info m-2" onClick={() => handleEditarAlerta(alerta)}>Editar</button>
+                                        <button className="btn btn-info" onClick={() => handleEliminarAlerta(alerta._id)}>Eliminar</button>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>No hay alertas disponibles</p>
+                        )
+                    }
+                </div >
+            </div>
 
-            {/* Lista de alertas */}
-            <h2>Lista de Alertas de Stock</h2>
-            {alertas.length > 0 ? (
-                <ul>
-                    {alertas.map(alerta => (
-                        <li key={alerta._id}>
-                            <strong>Nivel Mínimo:</strong> {alerta.nivel_minimo} | 
-                            <strong> Fecha Alerta:</strong> {new Date(alerta.fecha_alerta).toLocaleDateString()} | 
-                            <strong> Producto:</strong> {productos.find(producto => producto._id === alerta.id_productoNavigation)?.nombre_producto || 'Producto no encontrado'}
-                            <button onClick={() => handleEditarAlerta(alerta)}>Editar</button>
-                            <button onClick={() => handleEliminarAlerta(alerta._id)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No hay alertas disponibles</p>
-            )}
-        </div>
-    );  
+        </div >
+    );
 };
 
 export default AlertasStockPage;
