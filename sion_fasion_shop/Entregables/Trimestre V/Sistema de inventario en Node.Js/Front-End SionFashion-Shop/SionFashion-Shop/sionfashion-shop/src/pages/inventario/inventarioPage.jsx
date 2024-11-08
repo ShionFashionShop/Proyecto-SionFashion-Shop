@@ -158,7 +158,7 @@ const Inventario = () => {
                             <tr>
                                 <th>Producto</th>
                                 <th>Stock Inicial</th>
-                                <th>Stock Actual: </th>
+                                <th>Stock Actual </th>
                                 <th>Saldo</th>
                                 <th>Acciones</th>
                             </tr>
@@ -166,7 +166,7 @@ const Inventario = () => {
                         <tbody>
                             {inventarios.map((inventario) => (
                                 <tr key={inventario._id}>
-                                    <td> {`${getProductNameById(inventario.id_producto)}`}
+                                    <td> {inventario.nombre_producto}
                                     </td>
                                     <td>
                                         {inventario.stock_inicial}
