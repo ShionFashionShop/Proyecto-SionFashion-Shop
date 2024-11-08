@@ -149,28 +149,37 @@ const EmpresasPage = () => {
                 <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
                     {/* Lista de alertas */}
                     <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                        <h1 className="title">Lista de Inventarios</h1>
+                        <h1 className="title">Lista de Usuarios</h1>
                     </div>
-                    {/* Lista de empresas */}
-                    <h2>Lista de Empresas</h2>
-                    {empresas.length > 0 ? (
-                        <ul>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th >Nombre</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Email</th>
+                                <th>Tienda</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             {empresas.map(empresa => (
-                                <li key={empresa._id}>
-                                    <strong>Nombre:</strong> {empresa.nombre_empresa} |
-                                    <strong> Dirección:</strong> {empresa.direccion_empresa} |
-                                    <strong> Teléfono:</strong> {empresa.telefono_empresa || 'N/A'} |
-                                    <strong> Email:</strong> {empresa.email_empresa || 'N/A'} |
-                                    <strong> Tienda:</strong> {empresa.tienda?.join(', ') || 'Sin tiendas'}
-                                    <button onClick={() => handleEditarEmpresa(empresa)}>Editar</button>
-                                    <button onClick={() => handleEliminarEmpresa(empresa._id)}>Eliminar</button>
-                                </li>
+                                <tr key={empresa._id}>
+                                    <td>{empresa.nombre_empresa}</td>
+                                    <td>{empresa.direccion_empresa} </td>
+                                    <td>{empresa.telefono_empresa || 'N/A'} </td>
+                                    <td>{empresa.email_empresa || 'N/A'} </td>
+                                    <td>{empresa.tienda?.join(', ') || 'Sin tiendas'}</td>
+                                    <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEditarEmpresa(empresa)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEliminarEmpresa(empresa._id)}>Eliminar</button>
+                                    </td>
+                                </tr>
                             ))}
-                        </ul>
-                    ) : (
-                        <p>No hay empresas disponibles</p>
-                    )}
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
     );
