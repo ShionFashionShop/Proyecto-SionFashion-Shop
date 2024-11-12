@@ -171,19 +171,41 @@ const ProductoPage = () => {
                 <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
                     {/* Lista de alertas */}
                     <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
-                        <h1 className="title">Lista de Usuarios</h1>
+                        <h1 className="title">Lista de </h1>
                     </div>
                     {/* Tabla de productos con paginación */}
-                    <DataTable
-                
-                        columns={columnas}
-                        data={productos}
-                        pagination
-                        paginationRowsPerPageOptions={[5, 10, 15]}
-                        paginationPerPage={5} 
-                        // Muestra 5 productos por página
-                    />
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th >Nombre</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Unidad Medida</th>
+                                <th>Peso</th>
+                                <th>Ubicación</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {productos.map((producto) => (
+                                <tr key={producto._id}>
+                                    <td>{producto.nombre_producto}</td>
+                                    <td>{producto.descripcion_producto}</td>
+                                    <td>{producto.precio_producto.$numberDecimal}</td>
+                                    <td>{producto.unidad_medida}</td>
+                                    <td>{producto.peso_del_producto}</td>
+                                    <td>{producto.ubicacion_producto}</td>
+                                    <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => editarProducto(producto)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => eliminarProducto(producto._id)}>Eliminar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => mostrarDetalleProducto(producto._id)}>Destalle</button>
 
+                                    </td>
+
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                     {/* Modal de detalles del producto */}
                     {productoDetalle && (
                         <div className="modal">

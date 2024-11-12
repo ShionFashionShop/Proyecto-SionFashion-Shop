@@ -156,14 +156,26 @@ const Inventario = () => {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>Producto</th>
+                                <th>Stock Inicial</th>
+                                <th>Stock Actual </th>
+                                <th>Saldo</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             {inventarios.map((inventario) => (
                                 <tr key={inventario._id}>
-                                    <td> {`Producto: ${getProductNameById(inventario.id_producto)}, Stock Inicial: ${inventario.stock_inicial}, Stock Actual: ${inventario.stock_actual}, Saldo: ${inventario.saldo}`}
+                                    <td> {inventario.nombre_producto}
+                                    </td>
+                                    <td>
+                                        {inventario.stock_inicial}
+                                    </td>
+                                    <td>
+                                        {inventario.stock_actual}
+                                    </td>
+                                    <td>
+                                     {inventario.saldo}
                                     </td>
                                     <td>
                                         <button className="btn btn-outline-info m-1" onClick={() => handleEdit(inventario)}>Editar</button>

@@ -127,24 +127,48 @@ const ClientesPage = () => {
                     <label className="w-100">Órdenes de Compra (IDs separados por coma):</label>
                     <input className="w-100" type="text" value={ordenesDeCompras.join(',')} onChange={(e) => setOrdenesDeCompras(e.target.value.split(',').map(orden => orden.trim()))} />
                 </form>
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Clientes</h1>
+                    </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th >Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Dirección</th>
+                                <th>Facturas</th>
+                                <th>Órdenes de compra</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {clientes.map(cliente => (
+                                <tr key={cliente._id}>
+                                    <td> {cliente.nombre_cliente}</td>
+                                    <td>{cliente.email_cliente || 'N/A'}</td>
+                                    <td>{cliente.telefono_cliente || 'N/A'}</td>
+                                    <td>{cliente.direccion_cliente}</td>
+                                    <td>{cliente.facturas?.join(', ') || 'Sin facturas'}</td>
+                                    <td>{cliente.ordenes_de_compras?.join(', ') || 'Sin órdenes'}</td>
+                                    <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEditarCliente(cliente)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEliminarCliente(cliente._id)}>Eliminar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
                 <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
                     {/* Lista de alertas */}
                     <h2>Lista de Clientes</h2>
                     {
                         clientes.length > 0 ? (
                             <ul>
-                                {clientes.map(cliente => (
-                                    <li key={cliente._id}>
-                                        <strong>Nombre:</strong> {cliente.nombre_cliente} |
-                                        <strong> Email:</strong> {cliente.email_cliente || 'N/A'} |
-                                        <strong> Teléfono:</strong> {cliente.telefono_cliente || 'N/A'} |
-                                        <strong> Dirección:</strong> {cliente.direccion_cliente || 'N/A'} |
-                                        <strong> Facturas:</strong> {cliente.facturas?.join(', ') || 'Sin facturas'} |
-                                        <strong> Órdenes de Compra:</strong> {cliente.ordenes_de_compras?.join(', ') || 'Sin órdenes'}
-                                        <button onClick={() => handleEditarCliente(cliente)}>Editar</button>
-                                        <button onClick={() => handleEliminarCliente(cliente._id)}>Eliminar</button>
-                                    </li>
-                                ))}
+                                
                             </ul>
                         ) : (
                             <p>No hay clientes disponibles</p>
