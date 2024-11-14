@@ -114,10 +114,12 @@ app.use('/api', usuarioRoutes);
 // Configuración de Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+// mongoose.connect('mongodb://localhost:27017/senaproyecto')
+
 // mongoose.connect('mongodb+srv://santiagoprietoa:tWWXE4zvrZh5f6uA@proyectosenalaboratoiom.gl0wv.mongodb.net/?retryWrites=true&w=majority&appName=ProyectoSENALaboratoioMongo')
 
 mongoose.connect('mongodb+srv://santiagoprietoa:tWWXE4zvrZh5f6uA@proyectosenalaboratoiom.gl0wv.mongodb.net/?retryWrites=true&w=majority&appName=ProyectoSENALaboratoioMongo')
-    .then(async() => {
+.then(async() => {
         console.log('Conectado a MongoDB');
 
         // Llamadas a las funciones de siembra

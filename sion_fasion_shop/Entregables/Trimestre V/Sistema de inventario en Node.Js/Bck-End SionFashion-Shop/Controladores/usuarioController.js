@@ -3,6 +3,7 @@ const usuariosLogic = require('../logic/usuariosLogic'); // Ajusta la ruta segú
 const { usuarioValidationSchema } = require('../validaciones/usuarioValidacion'); // Asegúrate de que la ruta sea correcta
 const jwt = require('jsonwebtoken'); // Asegúrate de tener esto instalado
 const { validationResult } = require('express-validator');
+const Role = require('../models/role'); // Asegúrate de importar el modelo Role
 
 // Función para registrar un nuevo usuario
 exports.registrarUsuario = async (req, res) => {
@@ -42,30 +43,41 @@ exports.registrarUsuario = async (req, res) => {
 
 
 
-// Iniciar sesión
+
 exports.iniciarSesion = async (req, res) => {
     const { email, clave_usuario } = req.body;
 
     try {
-        // Buscar al usuario por el email
-        const usuario = await Usuario.findOne({ email });
+        // Buscar al usuario por el email y hacer populate de los roles para obtener los nombres
+        const usuario = await Usuario.findOne({ email }).populate('roles');
+        
         if (!usuario) {
-            return res.status(404).json({ message: 'Usuario no encontrado' });
+            return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
         }
 
-        // Compara la contraseña directamente
+        // Compara la contraseña directamente sin encriptación
         if (usuario.clave_usuario !== clave_usuario) {
-            return res.status(400).json({ message: 'Contraseña incorrecta' });
+            return res.status(400).json({ success: false, message: 'Contraseña incorrecta' });
         }
 
-        // Generar un token JWT (asegúrate de configurar tu clave secreta en un archivo .env)
-        const token = jwt.sign({ id: usuario._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        // Extraer los nombres de los roles
+        const roles = usuario.roles.map(role => role.nombre_rol);
 
-        res.status(200).json({ token, usuario });
+        // Generar un token JWT que incluye el rol del usuario
+        const token = jwt.sign(
+            { id: usuario._id, email: usuario.email, roles }, // Incluye el nombre del rol
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+        );
+
+        // Envía el token y los nombres de los roles como parte de la respuesta
+        res.status(200).json({ success: true, token, roles });
     } catch (error) {
-        res.status(500).json({ message: 'Error al iniciar sesión', error: error.message });
+        console.error('Error durante el inicio de sesión:', error);
+        res.status(500).json({ success: false, message: 'Error al iniciar sesión', error: error.message });
     }
 };
+
 
 // Crear un nuevo usuario
 exports.crearUsuario = async (req, res) => {

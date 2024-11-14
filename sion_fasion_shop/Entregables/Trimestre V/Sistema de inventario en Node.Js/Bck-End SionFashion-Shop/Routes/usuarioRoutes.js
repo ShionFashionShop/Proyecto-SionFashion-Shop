@@ -5,6 +5,7 @@ const Usuario = require('../models/usuario.js');
 const jwt = require('jsonwebtoken'); // Asegúrate de tener esto instalado
 const { body } = require('express-validator');
 const { registrarUsuario } = require('../Controladores/usuarioController'); // Asegúrate de ajustar la ruta correctamente
+const { iniciarSesion } = require('../Controladores/usuarioController');
 
 
 /**
@@ -182,33 +183,32 @@ router.put('/usuarios/:id', usuarioController.actualizarUsuario);
  */
 router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
 
+
 /**
  * @swagger
  * /api/login:
  *   post:
- *     summary: Iniciar sesión de usuario
- *     tags: [Usuarios]
+ *     summary: Inicia sesión con email y contraseña.
+ *     tags: [Auth]
+ *     description: Permite a un usuario autenticarse utilizando su email y contraseña para recibir un token JWT y su rol.
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - email
- *               - clave_usuario
  *             properties:
  *               email:
  *                 type: string
- *                 description: El email del usuario
- *                 example: ejemplo@dominio.com
+ *                 description: El correo electrónico del usuario.
+ *                 example: "usuario@example.com"
  *               clave_usuario:
  *                 type: string
- *                 description: La contraseña del usuario
- *                 example: ContraseñaSegura123
+ *                 description: La contraseña del usuario.
+ *                 example: "password123"
  *     responses:
  *       200:
- *         description: Inicio de sesión exitoso
+ *         description: Autenticación exitosa, devuelve el token JWT y el rol del usuario.
  *         content:
  *           application/json:
  *             schema:
@@ -216,13 +216,18 @@ router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
  *               properties:
  *                 success:
  *                   type: boolean
+ *                   description: El estado de la autenticación.
  *                   example: true
  *                 token:
  *                   type: string
- *                   description: El token JWT que se envía al cliente
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
- *       401:
- *         description: Credenciales inválidas
+ *                   description: El token JWT del usuario autenticado.
+ *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MjNjOWViNWU2MGM0YjAzMzVlNGEyOSIsImVtYWlsIjoiamhvbmRhemFAZ21haWwuY29tIiwiaWF0IjoxNzMxNDQ2NDE1LCJleHAiOjE3MzE0NTAwMTV9.XlQZNkbNsL1xAlG5SRBL41mCbYQNn147eoxC0rHXEnU"
+ *                 role:
+ *                   type: string
+ *                   description: El rol del usuario (por ejemplo, 'admin', 'usuario').
+ *                   example: "admin"
+ *       400:
+ *         description: Credenciales inválidas (usuario no encontrado o contraseña incorrecta).
  *         content:
  *           application/json:
  *             schema:
@@ -230,12 +235,29 @@ router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
  *               properties:
  *                 success:
  *                   type: boolean
+ *                   description: El estado de la autenticación.
  *                   example: false
  *                 message:
  *                   type: string
- *                   example: Credenciales inválidas
+ *                   description: El mensaje de error.
+ *                   example: "Contraseña incorrecta"
+ *       404:
+ *         description: Usuario no encontrado con el email proporcionado.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: El estado de la autenticación.
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   description: El mensaje de error.
+ *                   example: "Usuario no encontrado"
  *       500:
- *         description: Error interno del servidor
+ *         description: Error interno del servidor.
  *         content:
  *           application/json:
  *             schema:
@@ -243,39 +265,17 @@ router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
  *               properties:
  *                 success:
  *                   type: boolean
+ *                   description: El estado de la autenticación.
  *                   example: false
  *                 message:
  *                   type: string
- *                   example: Error interno del servidor
+ *                   description: El mensaje de error.
+ *                   example: "Error al iniciar sesión"
  */
 
-router.post('/login', async (req, res) => {
-    const { email, clave_usuario } = req.body;
+// Ruta de inicio de sesión
+router.post('/login', iniciarSesion);
 
-    try {
-        // Buscar el usuario por email
-        const user = await Usuario.findOne({ email });
-        if (!user) {
-            return res.status(401).json({ success: false, message: 'Credenciales inválidas' });
-        }
-
-        // Verificar la contraseña sin encriptación
-        if (clave_usuario !== user.clave_usuario) {
-            return res.status(401).json({ success: false, message: 'Credenciales inválidas' });
-        }
-
-        // Crear un token JWT
-        const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, {
-            expiresIn: '1h', // Expira en 1 hora
-        });
-
-        // Enviar el token al cliente
-        res.json({ success: true, token });
-    } catch (err) {
-        console.error('Error durante el inicio de sesión:', err);
-        res.status(500).json({ success: false, message: 'Error interno del servidor' });
-    }
-});
 
 /**
  * @swagger

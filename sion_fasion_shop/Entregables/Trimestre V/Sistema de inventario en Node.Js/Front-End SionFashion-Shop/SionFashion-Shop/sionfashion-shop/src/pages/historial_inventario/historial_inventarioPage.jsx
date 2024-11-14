@@ -45,7 +45,7 @@ const Historial_inventarioPage = () => {
         try {
             if (modoEdicion) {
                 await axios.put(`${API_URL}/${historialActual._id}`, nuevoHistorial);
-                setHistorial(historial.map(item => 
+                setHistorial(historial.map(item =>
                     item._id === historialActual._id ? { ...historialActual, ...nuevoHistorial } : item
                 ));
                 setModoEdicion(false);
@@ -98,74 +98,71 @@ const Historial_inventarioPage = () => {
     }
 
     return (
-        <div>
-            <h1>Gestión del Historial de Inventario</h1>
+        <div className="formulario p-3">
+            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                <h1 className="title">Gestión del Historial de Inventario</h1>
+            </div>
+            <div className=" w-100 d-flex justify-content-star p-2">
+                <form onSubmit={handleGuardarHistorial} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
+                    <button className="btn btn-success" type="submit">{modoEdicion ? 'Actualizar Historial' : 'Crear Historial'}</button>
 
-            {/* Formulario para crear o editar historial de inventario */}
-            <form onSubmit={handleGuardarHistorial}>
-                <div>
-                    <label>ID del Producto:</label>
-                    <input 
-                        type="text" 
-                        value={idProducto} 
-                        onChange={(e) => setIdProducto(e.target.value)} 
-                        required 
+                    <label className="w-100">ID del Producto:</label>
+                    <input className="w-100" type="text" value={idProducto} onChange={(e) => setIdProducto(e.target.value)}
+                        required
                     />
-                </div>
-                <div>
-                    <label>Cantidad:</label>
-                    <input 
-                        type="number" 
-                        value={cantidad} 
-                        onChange={(e) => setCantidad(e.target.value)} 
-                        min="0" 
-                        required 
+                    <label className="w-100">Cantidad:</label>
+                    <input className="w-100" type="number" value={cantidad} onChange={(e) => setCantidad(e.target.value)}
+                        min="0"
+                        required
                     />
-                </div>
-                <div>
-                    <label>Tipo de Cambio:</label>
-                    <select 
-                        value={tipoCambio} 
-                        onChange={(e) => setTipoCambio(e.target.value)} 
+                    <label className="w-100">Tipo de Cambio:</label>
+                    <select className="w-100" value={tipoCambio} onChange={(e) => setTipoCambio(e.target.value)}
                         required
                     >
                         <option value="">Seleccione</option>
                         <option value="entrada">Entrada</option>
                         <option value="salida">Salida</option>
                     </select>
-                </div>
-                <div>
-                    <label>Fecha de Cambio:</label>
-                    <input 
-                        type="date" 
-                        value={fechaCambio} 
-                        onChange={(e) => setFechaCambio(e.target.value)} 
-                        required 
+                    <label className="w-100">Fecha de Cambio:</label>
+                    <input className="w-100" type="date" value={fechaCambio} onChange={(e) => setFechaCambio(e.target.value)}
+                        required
                     />
+                </form>
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Usuarios</h1>
+                    </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>ID Producto</th>
+                                <th>Cantidad</th>
+                                <th>Tipo de Cambio</th>
+                                <th>Fecha de Cambio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {historial.map((item) => (
+                                <tr key={item._id}>
+                                    <td>{item.id_producto}</td>
+                                    <td>{item.cantidad}</td>
+                                    <td>{item.tipo_cambio}</td> {/* Clave oculta por razones de seguridad */}
+                                    <td>{new Date(item.fecha_cambio).toLocaleDateString()}</td>
+                                    <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEditarHistorial(item)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEliminarHistorial(item._id)}>Eliminar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-                <button type="submit">{modoEdicion ? 'Actualizar Historial' : 'Crear Historial'}</button>
-            </form>
+            </div >
+        </div >
 
-            {/* Lista de historiales de inventario */}
-            <h2>Lista de Historiales de Inventario</h2>
-            {historial.length > 0 ? (
-                <ul>
-                    {historial.map(item => (
-                        <li key={item._id}>
-                            <strong>ID Producto:</strong> {item.id_producto} | 
-                            <strong> Cantidad:</strong> {item.cantidad} | 
-                            <strong> Tipo de Cambio:</strong> {item.tipo_cambio} | 
-                            <strong> Fecha de Cambio:</strong> {new Date(item.fecha_cambio).toLocaleDateString()} 
-                            <button onClick={() => handleEditarHistorial(item)}>Editar</button>
-                            <button onClick={() => handleEliminarHistorial(item._id)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No hay registros de historial de inventario disponibles</p>
-            )}
-        </div>
-    );  
+    );
+
 };
-
 export default Historial_inventarioPage;

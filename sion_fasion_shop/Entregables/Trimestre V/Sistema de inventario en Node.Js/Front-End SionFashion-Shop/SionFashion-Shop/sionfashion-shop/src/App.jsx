@@ -19,34 +19,38 @@ import Historial_inventarioPage from './pages/historial_inventario/historial_inv
 import TiendaPage from './pages/tienda/tiendaPage.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import { AuthProvider } from './context/AuthContext.jsx';
+
 
 
 function App() {
   return (
-    <Router>
-          <Navbar /> {/* Si tienes un componente de navegación */}
-          <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/alertasstock" element={<AlertasStockPage />} />
-          <Route path="/usuarios" element={<UsuariosPage />} />
-          <Route path="/inventario" element={<Inventario />} />
-          <Route path="/productos" element={<ProductoPage />} />
-          <Route path="/empresas" element={<EmpresasPage />} />
-          <Route path="/facturas" element={<FacturasPage />} />
-          <Route path="/clientes" element={<ClientesPage />} />
-          <Route path="/empleados" element={<EmpleadoPage />} />
-          <Route path="/roles" element={<RolesPage />} />
-          <Route path="/proveedores" element={<ProveedoresPage />} />
-          <Route path="/categorias" element={<CategoriasPage />} />
-          <Route path="/historial-inventario" element={<Historial_inventarioPage />} />   
-          <Route path="/tiendas" element={<TiendaPage />} />
-          <Route path="/registro" element={<RegistroPage />} />   
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar /> {/* Si tienes un componente de navegación */}
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/alertasstock" element={<AlertasStockPage />} />
+            <Route path="/usuarios" element={<UsuariosPage />} />
+            <Route path="/inventario" element={<Inventario />} />
+            <Route path="/productos" element={<ProductoPage />} />
+            <Route path="/empresas" element={<EmpresasPage />} />
+            <Route path="/facturas" element={<FacturasPage />} />
+            <Route path="/clientes" element={<ClientesPage />} />
+            <Route path="/empleados" element={<EmpleadoPage />} />
+            <Route path="/roles" element={<RolesPage />} />
+            <Route path="/proveedores" element={<ProveedoresPage />} />
+            <Route path="/categorias" element={<CategoriasPage />} />
+            <Route path="/historial-inventario" element={<Historial_inventarioPage />} />
+            <Route path="/tiendas" element={<TiendaPage />} />
+            <Route path="/registro" element={<RegistroPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

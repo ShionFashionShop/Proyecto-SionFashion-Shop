@@ -120,30 +120,43 @@ const ProveedoresPage = () => {
                     <label className="w-100">Productos (IDs separados por coma):</label>
                     <input className="w-100" type="text" value={productos.join(',')} onChange={(e) => setProductos(e.target.value.split(',').map(prod => prod.trim()))} />
                 </form>
-                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
-            <h2>Lista de Proveedores</h2>
-            {proveedores.length > 0 ? (
-                <ul>
-                    {proveedores.map(proveedor => (
-                        <li key={proveedor._id}>
-                            <strong>Nombre:</strong> {proveedor.nombre_proveedor} |
-                            <strong> Contacto:</strong> {proveedor.contacto_proveedor || 'N/A'} |
-                            <strong> Email:</strong> {proveedor.email_proveedor || 'N/A'} |
-                            <strong> ID Ciudad:</strong> {proveedor.id_ciudad || 'N/A'} |
-                            <strong> Productos:</strong> {proveedor.productos?.join(', ') || 'Sin productos'}
-                            <button onClick={() => handleEditarProveedor(proveedor)}>Editar</button>
-                            <button onClick={() => handleEliminarProveedor(proveedor._id)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No hay proveedores disponibles</p>
-            )}
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Proveedores</h1>
+                    </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th >Nombre</th>
+                                <th>Contacto</th>
+                                <th>ID Ciudad</th>
+                                <th>Productos</th>
+                                <th>Correo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {proveedores.map((proveedore) => (
+                                <tr key={proveedore._id}>
+                                    <td>{proveedore.nombre_proveedor}</td>
+                                    <td>{proveedore.contacto_proveedor}</td>
+                                    <td>{proveedore.id_ciudad}</td>
+                                    <td>{proveedore.productos}</td>
+                                    <td>{proveedore.email_proveedor}</td>
+
+                                    <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEditarProveedor(proveedor)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEliminarProveedor(proveedor._id)}>Eliminar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
         </div>
+
     );
 };
-
 export default ProveedoresPage;

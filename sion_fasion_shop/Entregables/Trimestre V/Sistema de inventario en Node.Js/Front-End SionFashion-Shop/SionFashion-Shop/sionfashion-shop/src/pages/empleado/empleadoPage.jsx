@@ -119,26 +119,42 @@ const EmpleadoPage = () => {
                     <label className="w-100">Ciudad</label>
                     <input className="w-100" type="text" name="id_ciudad" placeholder="ID Ciudad" value={formData.id_ciudad} onChange={handleChange} />
                 </form>
-                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
                     {/* Lista de alertas */}
-                    <h2>Lista de Empleados</h2>
-                    {
-
-                        <ul>
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Empleados</h1>
+                    </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th >Id Empleado</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             {empleados.map((empleado) => (
-                                <li key={empleado._id}>
-                                    {empleado.dni_empleado}{empleado.nombres_empleado}{empleado.apellidos_empleado}{empleado.telefono_empleado}{empleado.email_empleado}
-                                    <button onClick={() => handleEdit(empleado)}>Editar</button>
-                                    <button onClick={() => handleDelete(empleado._id)}>Eliminar</button>
-                                </li>
+                                <tr key={empleado._id}>
+                                    <td> {empleado.dni_empleado}  </td>
+                                    <td> {empleado.nombres_empleado}  </td>
+                                    <td> {empleado.apellidos_empleado}  </td>
+                                    <td> {empleado.telefono_empleado}  </td>
+                                    <td> {empleado.email_empleado}  </td>
+                                    <td> <button className="btn btn-outline-info m-1" onClick={() => handleEdit(empleado)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleDelete(empleado._id)}>Eliminar</button>
+                                    </td>
+                                </tr>
                             ))}
-                        </ul>
-                    }
-                </div >
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
 
-        </div >
     );
-};
 
+};
 export default EmpleadoPage;

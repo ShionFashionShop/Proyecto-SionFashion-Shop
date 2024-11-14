@@ -23,21 +23,21 @@ const RegistroPage = () => {
     };
 
     return (
-        <div className="registro-container">
-            <h2 className="titulo">Registro de Usuario</h2>
+        <div className="login-page">
+            <h2>Registro de Usuario</h2>
 
             {mensaje && (
-                <div className={`mensaje ${error ? 'error' : 'exito'}`}>
+                <p className={`mensaje ${error ? 'error-text' : 'exito-text'}`}>
                     {mensaje}
-                </div>
+                </p>
             )}
 
-            <form className="registro-form" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="formNombreUsuario">Nombre de Usuario</label>
+                    <label>Nombre de Usuario:</label>
                     <input
                         type="text"
-                        id="formNombreUsuario"
+                        className="form-control"
                         placeholder="Introduce tu nombre de usuario"
                         value={nombreUsuario}
                         onChange={(e) => setNombreUsuario(e.target.value)}
@@ -46,10 +46,10 @@ const RegistroPage = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="formEmail">Email</label>
+                    <label>Email:</label>
                     <input
                         type="email"
-                        id="formEmail"
+                        className="form-control"
                         placeholder="Introduce tu correo electrónico"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -58,10 +58,10 @@ const RegistroPage = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="formClaveUsuario">Contraseña</label>
+                    <label>Contraseña:</label>
                     <input
                         type="password"
-                        id="formClaveUsuario"
+                        className="form-control"
                         placeholder="Introduce tu contraseña"
                         value={claveUsuario}
                         onChange={(e) => setClaveUsuario(e.target.value)}
@@ -69,7 +69,7 @@ const RegistroPage = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn-registrar">
+                <button type="submit" className="btn btn-primary">
                     Registrar
                 </button>
             </form>

@@ -10,7 +10,7 @@ const usuariosData = [
         nombre_usuario: "adminUser",
         clave_usuario: "adminPassword123", // Contraseña a encriptar
         email: "admin.example@gmail.com", // El email es obligatorio
-        roles: ["admin"], // Nombre del rol, lo buscaremos en la BD
+        roles: ["Administrador"], // Nombre del rol, lo buscaremos en la BD
         registros_actividades: [] // Puede ser vacío inicialmente
     },
     {
