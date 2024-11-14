@@ -87,92 +87,88 @@ const RolesPage = () => {
         return <div>{error}</div>;
     }
 
-    const columns = [
-        {
-            name: 'Nombre del Rol',
-            selector: row => row.nombre_rol,
-            sortable: true,
-            width: '20%',
-        },
-        {
-            name: 'Descripción',
-            selector: row => row.descripcion_rol || 'N/A',
-            sortable: true,
-            width: '40%',
-        },
-        {
-            name: 'Usuarios',
-            selector: row => row.usuarios?.join(', ') || 'Sin usuarios',
-            sortable: true,
-            width: '30%',
-        },
-        {
-            name: 'Acciones',
-            cell: row => (
-                <div style={{ display: 'inline-flex', gap: '10px', alignItems: 'center' }}>
-                    <button onClick={() => handleEditarRol(row)}>Editar</button>
-                    <button onClick={() => handleEliminarRol(row._id)}>Eliminar</button>
-                </div>
-            ),
-            ignoreRowClick: true,
-            allowOverflow: true,
-            button: true,
-            width: '10%',
-        },
-    ];
+    //const columns = [
+    //    {
+    //        name: 'Nombre del Rol',
+    //        selector: row => row.nombre_rol,
+    //        sortable: true,
+    //        width: '20%',
+    //    },
+    //    {
+    //        name: 'Descripción',
+    //        selector: row => row.descripcion_rol || 'N/A',
+    //        sortable: true,
+    //        width: '40%',
+    //    },
+    //    {
+    //        name: 'Usuarios',
+    //        selector: row => row.usuarios?.join(', ') || 'Sin usuarios',
+    //        sortable: true,
+    //        width: '30%',
+    //    },
+    //    {
+    //        name: 'Acciones',
+    //        cell: row => (
+    //            <div style={{ display: 'inline-flex', gap: '10px', alignItems: 'center' }}>
+    //                <button onClick={() => handleEditarRol(row)}>Editar</button>
+    //                <button onClick={() => handleEliminarRol(row._id)}>Eliminar</button>
+    //            </div>
+    //        ),
+    //        ignoreRowClick: true,
+    //        allowOverflow: true,
+    //        button: true,
+    //        width: '10%',
+    //    },
+    //];
 
     return (
-        <div>
-            <h1>Gestión de Roles</h1>
-
-            <form onSubmit={handleCrearRol} style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
-                <div>
-                    <label>Nombre del Rol:</label>
-                    <input
-                        type="text"
-                        value={nombreRol}
-                        onChange={(e) => setNombreRol(e.target.value)}
-                        required
-                    />
+        <div className="formulario p-3">
+            <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                <h1 className="title">Gestión de Usuarios</h1>
+            </div>
+            <div className=" w-100 d-flex justify-content-star p-2">
+                <form onSubmit={handleCrearRol} className="col-sm-2 col-sm-2 col-md-2 col-lg-2 p-2">
+                    <button className="btn btn-success" type="submit">{modoEdicion ? 'Actualizar Rol' : 'Crear Rol'}</button>
+                    <label className="w-100">Nombre del Rol:</label>
+                    <input className="w-100" type="text" value={nombreRol} onChange={(e) => setNombreRol(e.target.value)} required />
+                    <label className="w-100">Descripción del Rol:</label>
+                    <input className="w-100" type="text" value={descripcionRol} onChange={(e) => setDescripcionRol(e.target.value)} />
+                    <label className="w-100">Usuarios (IDs separados por coma):</label>
+                    <input className="w-100" type="text" value={usuarios.join(',')} onChange={(e) => setUsuarios(e.target.value.split(',').map(id => id.trim()))} />
+                </form>
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Roles</h1>
+                    </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre de Rol</th>
+                                <th>Descripcion</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {roles.map((roles) => (
+                                <tr key={roles._id}>
+                                    <td>{roles.nombre_rol}</td>
+                                    <td>{roles.descripcion_rol}</td>
+                                 
+                                    <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEditarRol(roles)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEliminarRol(roles._id)}>Eliminar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-                <div>
-                    <label>Descripción del Rol:</label>
-                    <input
-                        type="text"
-                        value={descripcionRol}
-                        onChange={(e) => setDescripcionRol(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label>Usuarios (IDs separados por coma):</label>
-                    <input
-                        type="text"
-                        value={usuarios.join(',')}
-                        onChange={(e) => setUsuarios(e.target.value.split(',').map(id => id.trim()))}
-                    />
-                </div>
-                <button type="submit">{modoEdicion ? 'Actualizar Rol' : 'Crear Rol'}</button>
-            </form>
-
-            <h2>Lista de Roles</h2>
-            <DataTable
-                columns={columns}
-                data={roles}
-                pagination
-                highlightOnHover
-                paginationPerPage={3} // Muestra solo 3 registros por página de inicio
-                responsive
-                striped
-                customStyles={{
-                    table: {
-                        style: {
-                            width: '100%',
-                        },
-                    },
-                }}
-            />
+            </div>
         </div>
+
     );
+
 };
 
 export default RolesPage;

@@ -23,19 +23,15 @@ const RegistroPage = () => {
     };
 
     return (
-        <div className="registro-container">
-            <h2 className="titulo">Registro de Usuario</h2>
 
-            {mensaje && (
-                <div className={`mensaje ${error ? 'error' : 'exito'}`}>
-                    {mensaje}
-                </div>
-            )}
 
-            <form className="registro-form" onSubmit={handleSubmit}>
+         <div className="d-flex justify-content-center login2" >
+        <div className="login-page">
+            <h2>Registro de Usuario</h2> {/* Cambié el texto del encabezado */}
+            <form  onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="formNombreUsuario">Nombre de Usuario</label>
-                    <input
+                        <input className="form-control"
                         type="text"
                         id="formNombreUsuario"
                         placeholder="Introduce tu nombre de usuario"
@@ -44,10 +40,9 @@ const RegistroPage = () => {
                         required
                     />
                 </div>
-
                 <div className="form-group">
                     <label htmlFor="formEmail">Email</label>
-                    <input
+                        <input className="form-control"
                         type="email"
                         id="formEmail"
                         placeholder="Introduce tu correo electrónico"
@@ -56,10 +51,9 @@ const RegistroPage = () => {
                         required
                     />
                 </div>
-
-                <div className="form-group">
-                    <label htmlFor="formClaveUsuario">Contraseña</label>
-                    <input
+                 <div className="form-group">
+                   <label htmlFor="formClaveUsuario">Contraseña</label>
+                        <input className="form-control"
                         type="password"
                         id="formClaveUsuario"
                         placeholder="Introduce tu contraseña"
@@ -68,12 +62,20 @@ const RegistroPage = () => {
                         required
                     />
                 </div>
-
-                <button type="submit" className="btn-registrar">
+                {mensaje && (
+                <div className={`mensaje ${error ? 'error' : 'exito'}`}>
+                    {mensaje}
+                </div>
+            )}
+                    <button type="submit" className="btn btn-primary">
                     Registrar
                 </button>
             </form>
+            </div>
         </div>
+
+
+      
     );
 };
 

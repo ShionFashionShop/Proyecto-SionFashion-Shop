@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import  './LoginPage.css';
 
 
 const Login = () => {
@@ -33,9 +32,10 @@ const Login = () => {
     };
 
     return (
+        <div className="d-flex justify-content-center login2" >
         <div className="login-page">
             <h2>Iniciar Sesión</h2> {/* Cambié el texto del encabezado */}
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Email:</label>
                     <input
@@ -61,6 +61,7 @@ const Login = () => {
                     Iniciar Sesión {/* Cambié el texto del botón */}
                 </button>
             </form>
+            </div>
         </div>
     );
 };

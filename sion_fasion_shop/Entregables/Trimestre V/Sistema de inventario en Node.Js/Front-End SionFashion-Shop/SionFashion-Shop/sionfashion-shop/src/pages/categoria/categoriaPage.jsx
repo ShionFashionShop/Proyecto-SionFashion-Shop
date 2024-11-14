@@ -102,27 +102,40 @@ const CategoriasPage = () => {
                     <label className="w-100">Subcategorías (IDs separados por coma):</label>
                     <input className="w-100" type="text" value={subCategoria.join(',')} onChange={(e) => setSubCategoria(e.target.value.split(',').map(id => id.trim()))}/>
                 </form>
-                <div className="p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
-                <h2>Lista de Categorías</h2>
-                {categorias.length > 0 ? (
-                    <ul>
-                        {categorias.map(categoria => (
-                            <li key={categoria._id}>
-                                <strong>Nombre:</strong> {categoria.nombre_categoria} |
-                                <strong> Subcategorías:</strong> {categoria.sub_categoria.join(', ') || 'Sin subcategorías'}
-                                <button onClick={() => handleEditarCategoria(categoria)}>Editar</button>
-                                <button onClick={() => handleEliminarCategoria(categoria._id)}>Eliminar</button>
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p>No hay categorías disponibles</p>
-                )}
+                <div className="contenedores p-3 col-sm-10 col-sm-10 col-md-10 col-lg-10">
+                    {/* Lista de alertas */}
+                    <div className="tituloForm d-flex align-items-center col-sm-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1 className="title">Lista de Usuarios</h1>
+                    </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Subcategorías</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {categorias.map((categoria) => (
+                                <tr key={categoria._id}>
+                                    <td>{categoria.nombre_categoria}</td>
+                                    <td> {categoria.sub_categoria.join(', ') || 'Sin subcategorías'}</td>
+                                    <td>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEditarCategoria(categoria)}>Editar</button>
+                                        <button className="btn btn-outline-info m-1" onClick={() => handleEliminarCategoria(categoria._id)}>Eliminar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
         </div>
+
     );
+
 };
+
+               
 
 export default CategoriasPage;

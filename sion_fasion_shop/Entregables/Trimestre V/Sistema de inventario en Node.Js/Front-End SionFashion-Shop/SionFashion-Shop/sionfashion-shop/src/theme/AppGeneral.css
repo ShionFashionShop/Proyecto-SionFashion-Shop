@@ -30,9 +30,9 @@ button { padding: 15px 30px; font-size: 1.2rem; border-radius: 8px; transition: 
 .divider { width: 80%; margin: 40px 0; border-top: 2px solid #ccc; }
 
 .additional-info { font-size: 1rem; color: #777; margin-top: 20px; text-align: center; }
+.login2 { margin-top:250px !important;}
 
-
-.login-page { max-width: 400px; /* Aumentar el ancho para pantallas más grandes */ margin: 80px auto; /* Ajuste del margen superior */ padding: 30px; border: 1px solid #ddd; border-radius: 15px; background-color: #fff; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Agrega un efecto de sombra */ transition: all 0.3s ease; }
+.login-page { max-width: 500px; /* Aumentar el ancho para pantallas más grandes */ /* Ajuste del margen superior */ padding: 30px; border: 1px solid #ddd; border-radius: 15px; background-color: #fff; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Agrega un efecto de sombra */ transition: all 0.3s ease; }
 
     .login-page:hover { box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2); /* Sombra más fuerte en hover */ }
 
@@ -49,6 +49,7 @@ button { padding: 15px 30px; font-size: 1.2rem; border-radius: 8px; transition: 
     .btn-primary:hover { background-color: #e75480; /* Color rosado más oscuro al pasar el mouse */ }
 
 .error-text { color: red; text-align: center; margin-top: 15px; font-size: 14px; }
+
 
 @media (max-width: 768px) {
     .login-page { width: 90%; }
